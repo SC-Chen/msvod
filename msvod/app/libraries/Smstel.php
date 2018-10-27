@@ -109,7 +109,7 @@ $data = array
 'uid'=>$uid,					//数字用户名
 'pwd'=>strtolower(md5($pwd)),	//MD5位32密码
 'mobile'=>$mobile,				//号码
-'content'=>$content,			//内容 如果对方是utf-8编码，则需转码iconv('gbk','utf-8',$content); 如果是gbk则无需转码
+'content'=>$content,			//内容 
 'time'=>$time,		//定时发送
 'mid'=>$mid						//子扩展号
 );

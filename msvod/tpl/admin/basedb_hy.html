@@ -49,7 +49,7 @@ foreach ($map as $dir) {
         <td>'.formatsize(getdirsize('./attachment/backup/'.$dir)).'</td>
         <td>'.date('Y-m-d H:i:s',$fine['date']).'</td>
         <td>'.count($dirs).'</td>
-        <td><a href="'.site_url('admin/basedb/zip').'?dir='.$dir.'">'.L('tpl_31').'</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);" onclick="Popsbox(\''.L('tpl_24').'\',505,245,\''.L('tpl_25').'\',\''.site_url('admin/basedb/del').'?dir='.$dir.'\');">'.L('tpl_26').'</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);" onclick="Popsbox(\''.L('tpl_24').'\',505,245,\''.L('tpl_27').'\',\''.site_url('admin/basedb/restore_save').'?dir='.$dir.'\');">'.L('tpl_28').'</a></td>
+        <td><a href="'.site_url('admin/basedb/zip').'?dir='.$dir.'">'.L('tpl_31').'</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);" onclick="Popsbox(\''.L('tpl_24').'\',505,245,\''.L('tpl_25').'\',\''.site_url('admin/basedb/del').'?dir='.$dir);">'.L('tpl_26').'</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);" onclick="Popsbox(\''.L('tpl_24').'\',505,245,\''.L('tpl_27').'\',\''.site_url('admin/basedb/restore_save').'?dir='.$dir);">'.L('tpl_28').'</a></td>
         </tr> ';
 	}
 }
