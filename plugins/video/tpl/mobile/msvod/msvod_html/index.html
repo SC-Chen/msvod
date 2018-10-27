@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="gbk">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen"> 
+<title>{msvod:title}</title>
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<link rel="stylesheet" href="{msvod:indextempurl}css/swiper-3.3.1.min.css">
+<link rel="stylesheet" href="{msvod:indextempurl}css/style.css">
+<link rel="stylesheet" href="{msvod:indextempurl}css/grid.css">  
+<script src="{msvod:indextempurl}js/flexible_0.3.4.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="{msvod:indextempurl}css/daohang.css">
+</head>
+<body class="index play">
+{msvod:head}
+<section>
+</section> 
+<section class="picList clearfix" style="margin-top:8px;">
+<h3 style="color:#FF8484"><h2 class="leibie" style="color:#FF8484;font-size:0.5rem;">&nbsp;&nbsp;视频专区</h2></h3>
+<div style="border-bottom:1px solid #ccc;margin-top:8px;"></div>
+{msvod:class table="video_list" field="id,name,xid" sort="xid" fid="9" loop="50" order="asc"}
+<div style="width:100%;margin-top:8px;">
+<div style="float:left;margin-left:0.24rem;width:3rem;height:1rem;line-height:0.96rem;margin-bottom:0.5rem;border:1px solid #FFAAAA;text-align:center;background-color:#FFA6A6;">
+<a style="color:#fff;font-size:0.5rem;" target="_blank" href="[class:url zdy=video,id,lists,id]">[class:name]</a></div>  
+{/msvod:class}
+</div>
+</section>   
+
+<section class="picList clearfix" style="margin-top:8px;">
+<h3 style="color:#FF8484"><h2 class="leibie" style="color:#FF8484;font-size:0.5rem;">&nbsp;&nbsp;图片专区</h2></h3>
+<div style="border-bottom:1px solid #ccc;margin-top:8px;"></div>
+{msvod:class table="tu_list" field="id,name,xid" sort="xid" fid="1" loop="50" order="asc"}
+<div style="width:100%;margin-top:8px;">
+<div style="float:left;margin-left:0.24rem;width:3rem;height:1rem;line-height:0.96rem;margin-bottom:0.5rem;border:1px solid #FFAAAA;text-align:center;background-color:#FFA6A6;">
+<a style="color:#fff;font-size:0.5rem;" target="_blank" href="[class:url zdy=tu,id,lists,id]">[class:name]</a></div>  
+{/msvod:class}
+</div>
+</section>
+
+<section class="picList clearfix" style="margin-top:8px;">
+<h3 style="color:#FF8484"><h2 class="leibie" style="color:#FF8484;font-size:0.5rem;">&nbsp;&nbsp;小说专区</h2></h3>
+<div style="border-bottom:1px solid #ccc;margin-top:8px;"></div>
+{msvod:class table="news_list" field="id,name,xid" sort="xid" fid="12" loop="50" order="asc"}
+<div style="width:100%;margin-top:8px;">
+<div style="float:left;margin-left:0.24rem;width:3rem;height:1rem;line-height:0.96rem;margin-bottom:0.5rem;border:1px solid #FFAAAA;text-align:center;background-color:#FFA6A6;">
+<a style="color:#fff;font-size:0.5rem;" target="_blank" href="[class:url zdy=news,id,lists,id]">[class:name]</a></div>  
+{/msvod:class}
+</div>
+</section>
+{msvod:bottom}
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title><?=L('login_title')?></title>
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link type="text/css" rel="stylesheet" href="<?=Web_Path?>packs/admin/css/style.css" />
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/jquery-min.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/common.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/select-ui.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+$(".select1").uedSelect({
+width : 145			  
+});
+$("#usual1 ul").idTabs();
+});
+</script>
+</head>
+<body>
+<div class="place">
+<span><?=L('place')?></span>
+<ul class="placeul"><li><a href="<?=site_url('admin/opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('admin/playsz')?>">播放器设置</a></li></ul>
+</div>
+<div class="formbody">
+<div id="usual1" class="usual"> 
+<div class="itab">
+<ul> 
+<li><a href="#tab1" class="selected">播放器设置</a></li> 
+</ul>
+</div> 
+<form action="<?=site_url('admin/playsz/save')?>" method="post">
+<div id="tab1" class="tabson">
+<ul class="forminfo">
+<li><label>试看时间限制</label><input name="MS_Sk_Sj" type="text" class="dfinput" value="<?=MS_Sk_Sj?>" style="width:245px;"/><b>&nbsp;(秒单位)游客/普通会员观看限制时间</b></li>
+<!--<li><label>弹出提示时间</label><input name="MS_Sk_Ts" type="text" class="dfinput" value="<?=MS_Sk_Ts?>" style="width:245px;"/><b>&nbsp;(秒单位)提示时间与试看时间相差2秒+如5秒广告倒计时=7秒即为：27秒 </b></li>-->
+<li><label>弹出提示内容</label><input name="MS_Sk_Info" type="text" class="dfinput" value="<?=MS_Sk_Info?>" style="width:245px;"/><b>&nbsp;弹出提示内容</b></li>
+<!--<li><label>到时跳转链接</label><input name="MS_Ad_Tzurl" type="text" class="dfinput" value="<?=MS_Ad_Tzurl?>" style="width:245px;"/><b>&nbsp;超出播放时间跳转地址(手机板/APP专用设置)</b></li>-->
+<li><label>广告倒计时间</label><input name="MS_Ad_Time" type="text" class="dfinput" value="<?=MS_Ad_Time?>" style="width:245px;"/><b>&nbsp;设置播放前加载广告倒计时间</b></li>
+<li><label>前置广告设置</label><input name="MS_Ad_Qzad" id="MS_Ad_Qzad" type="text" class="dfinput" value="<?=MS_Ad_Qzad?>" style="width:245px;"/><b>&nbsp;<input onclick="Popsboxif('<?=L('tpl_97')?>',550,450,'<?=site_url('admin/upload/up')?>?fhid=MS_Ad_Qzad&dir=look&type=*.jpg;*.png;*.gif;*.swf');" class="button" type="button" name="button" value="图片上传">播放前加载展示广告(支持图片/Swf格式)</b></li>
+<li><label>暂停广告设置</label><input name="MS_Ad_Ztad" id="MS_Ad_Ztad" type="text" class="dfinput" value="<?=MS_Ad_Ztad?>" style="width:245px;"/><b>&nbsp;<input onclick="Popsboxif('<?=L('tpl_97')?>',550,450,'<?=site_url('admin/upload/up')?>?fhid=MS_Ad_Ztad&dir=look&type=*.jpg;*.png;*.gif;*.swf');" class="button" type="button" name="button" value="图片上传">暂停加载展示广告(支持图片/Swf格式)</b></li>
+<li><label>前置广告链接</label><input name="MS_Ad_Qzurl" type="text" class="dfinput" value="<?=MS_Ad_Qzurl?>" style="width:245px;"/><b>&nbsp;播放前广告链接设置</b></li>
+<li><label>暂停广告链接</label><input name="MS_Ad_Zturl" type="text" class="dfinput" value="<?=MS_Ad_Zturl?>" style="width:245px;"/><b>&nbsp;暂停广告链接设置</b></li>
+<li><label>云端转码接口</label><input name="MS_Yd_Zm" type="text" class="dfinput" value="<?=MS_Yd_Zm?>" style="width:245px;"/><b>&nbsp;设置云端与后台上传视频对接地址，没有授权云端的不用填</b></li>
+<li><label>是否跳过广告</label><input class="box" name="MS_Ad_Tg" type="radio" value="1"<?php if(MS_Ad_Tg==1) echo ' checked="checked"';?>>&nbsp;是&nbsp;&nbsp;&nbsp;&nbsp;<input class="box" name="MS_Ad_Tg" type="radio" value="2"<?php if(MS_Ad_Tg==2) echo ' checked="checked"';?>>&nbsp;否&nbsp;&nbsp;&nbsp;&nbsp;<b>游客/普通用户是否可跳过广告~！</b></li>
+<li><label>是否关闭广告</label><input class="box" name="MS_Ad_Gb" type="radio" value="1"<?php if(MS_Ad_Gb==1) echo ' checked="checked"';?>>&nbsp;是&nbsp;&nbsp;&nbsp;&nbsp;<input class="box" name="MS_Ad_Gb" type="radio" value="2"<?php if(MS_Ad_Gb==2) echo ' checked="checked"';?>>&nbsp;否&nbsp;&nbsp;&nbsp;&nbsp;<b>播放器不显示任何广告,系统默认收费用户自动过滤广告~！</b></li>
+</ul>
+</div> 
+<ul class="forminfo">
+<li><label>&nbsp;</label><input name="Submit" type="Submit" class="btn" value="<?=L('setting_57')?>"/></li>
+</ul>
+</form>
+</div> 
+<div class="footer"><?=vsprintf(L('bottom'),array('{elapsed_time}','{sql_queries}','{memory_usage}'))?></div>
+</div>
+</body>
+</html>

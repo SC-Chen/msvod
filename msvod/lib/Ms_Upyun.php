@@ -1,0 +1,4 @@
+<?php
+define('MS_Upy_Name',''); //ÓÖÅÄÔÆÊÚÈ¨ÕËºÅ  
+define('MS_Upy_Pwd',''); //ÓÖÅÄÔÆÊÚÈ¨ÃÜÂë   
+define('MS_Upy_Bucket',''); //ÓÖÅÄÔÆ¿Õ¼äÃû 

@@ -1,0 +1,20 @@
+a{ text-decoration: none; color: #666;}
+body{background: #fff;font-size: 14px;}
+.flexbox{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-moz-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center; width:100%;}/**flex 布局**/
+.flexmiddle{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;width:100%; display:block; position:relative;}/**flex 布局 弹性宽度**/
+a,b,body,button,dd,div,dl,em,footer,form,i,input,label,li,nav,option,p,section,select,span,td,textarea,u,ul{box-sizing:border-box;word-wrap:break-word;word-break:break-all;margin:0;padding:0;-webkit-tap-highlight-color:transparent;list-style:none;outline:0}
+/*************登录*************/
+.wrap {margin: 0 5px;color: #999;text-align: center;}
+.wrap .loginform button{background: #f86363;color: #fff;font-size: 16px;border-radius:10px;}
+.wrap .loginform a{color: #f86363;}
+.wrap .loginform .list label{background:#fafafa;}
+.wrap .link_reg a{display: inline-block;width: 50%;}
+.wrap .link_reg a:last-child{border-left: 1px solid #e6e6e6;}
+.sanfang{text-align: center;}
+.sanfang p{color: #b2b2b2;margin:44px auto 20px;}
+.loginstyles a{display: inline-block;margin: 0 10px;}
+.loginstyles i.icons{display:block;width: 60px;height: 60px;background: url("../imgs/ui_ico.png") center no-repeat;background-size:360px;vertical-align: top;color: #999;margin: 0 auto;}
+.loginstyles i.icons.icons-weibo{background-position: 0 0; }
+.loginstyles i.icons.icons-qzone{background-position: 0px -240px; }
+.loginstyles i.icons.icons-weixin{background-position: 0px -60px; }
+.loginstyles i.icons.icons-qq{background-position:0px -180px; }

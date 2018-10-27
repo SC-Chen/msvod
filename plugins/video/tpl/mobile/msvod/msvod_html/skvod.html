@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="gbk">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title>{msvod:title}</title>
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<link href="{msvod:indextempurl}imgs/style.css" rel="stylesheet">
+<link href="{msvod:indextempurl}lib/css/ionic.min.css" rel="stylesheet">
+<script src="{msvod:indextempurl}lib/js/ionic.bundle.min.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}imgs/index.js"></script>
+<script type="text/javascript" src="/plugins/video/tpl/skins/msvod/js/common.js"></script>
+<script type='text/javascript' src='{msvod:indextempurl}imgs/jquery.min.js'></script>
+</head>
+<body ng-app="ionicApp" animation="slide-left-right-ios7" ng-controller="SlideController">
+{msvod:head}
+<ion-content id="contents" overflow-scroll="true"  style="overflow:scroll;">
+<div class="video-area" id="ms_player">
+<video src="[video:hurl]" controls="controls" autoplay="autoplay" poster="[video:pic dir=video]" clas="ms_player" id="msplayer" width="100%" height="180" style="background-color:#000;">
+</video>
+</div>
+<div class="playtop"  >
+<h2 class="txt">[video:name len=25]</h2>
+<div class="flexbox">
+<div class="titledes flexmiddle" style="font-size:12px;"><p>[video:addtime style=Y-m-d]</p><p><font color="red">[video:hits]</font> 次播放</p></div>
+<div class="flexbox icons_plsyrt">
+<a class="tab-item" href="javascript:;" onClick="video_ding([video:id]);">
+<i class="icon ion-thumbsup"></i>
+(<span class="mflikes-[video:id]-number" id="dhits"> [video:dhits] </span>)
+</a>
+<a class="tab-item"href="javascript:;" onClick="video_fav([video:id]);">
+<i class="icon ion-ios-star-outline"></i>收藏
+</a>
+<a class="tab-item" ng-click="toggle()">
+<i class="icon ion-ios-redo-outline"></i>分享
+</a>
+<a class="tab-item" href="/index.php/video/down/id/[video:id]">
+<i class="icon ion-ios-download-outline"></i>下载
+</a>
+</div>
+</div>
+</div>
+<section class="g-con mgt-10">
+<h2 class="m-h2-tit"><a href="#"> <span class="tit" style="color:#e75242;">猜你喜欢的</span> </a></h2>
+<ul class="mgt-10">
+{msvod:video table="video" loop="6" field="id,name,addtime,pic,hits,shits,dhits,cion,sc,vip,color" sort="rand"}
+<li class="m-cd-i-wrap">
+<a class="m-cd-i" href="[video:url zdy=video,id,play,id]">
+<div class="pic">
+<img src="[video:pic dir=video]"><span class="r-sd">[video:addtime style=Y-m-d]</span>
+{if:[video:vip]>1}<i class="vipico"></i>{end if}</div>
+<div class="info flexbox">
+<h3 class="txt flexmiddle"><font color="[video:color]">[video:name len=11]</font></h3>
+<span>[video:cion]金币</span>
+</div>
+</a>
+</li>
+{/msvod:video}
+</ul>
+</section>
+</ion-content>
+<div class="share_bg" ng-hide="shareVAR" >
+<div class="share-box" >
+<p>分享至</p>
+<div class="bdsharebuttonbox flexbox" >
+<div target="_blank" href="javascript:void(0);" class="flexmiddle">
+<a href="#" class="icons icons-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+<a href="#" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+</div>
+<div target="_blank" href="javascript:void(0);" class="flexmiddle">
+<a href="#" class="icons icons-qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+<a href="#" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+</div>
+<div target="_blank" href="javascript:void(0);" class="flexmiddle">
+<a href="#" class="icons icons-qq" data-cmd="sqq" title="分享到QQ好友"></a>
+<a href="#" data-cmd="sqq" title="分享到QQ好友">QQ好友</a>
+</div>
+<div target="_blank" href="javascript:void(0);" class="flexmiddle">
+<a href="#" class="icons icons-weixin" data-cmd="weixin" title="分享到微信"></a>
+<a href="#" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+</div>
+<p><a ng-click="toggle()" class="share-box-cancel clearfix">取消</a></p></div>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"60"},"share":{},"image":{"viewList":["qzone","tsina","weixin","sqq"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","weixin","sqq"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<script type="text/javascript">
+var video = document.getElementById("msplayer");  
+video.ontimeupdate = function() {myFunction()};
+function myFunction() 
+{ 
+var vTime = video.currentTime;
+if (vTime>[video:sksj]){
+video.pause();
+$("#ms_player").html("<div align='center' class='video-area' style='line-height:25px;background-color:#000;color:#fff;'><li style='height:15px;'></li><img src='{msvod:indextempurl}imgs/sk.png' width='80'></li><li style='color:red'>哥哥试看([video:sksj])秒结束啦~!</li><li><a href='/index.php/user/pay?type=vip' style='color:#fff;'>充值VIP无限观看哦【充值】</a></li><li style='height:15px;'></li></div>");
+}
+}
+</script>
+<script type="text/javascript">
+setInterval("relocalhost()",[video:sksj]*1000);//1000为1秒钟
+function relocalhost()
+{
+location.href="/index.php/video/tishi/id/[video:id]";
+}
+</script>
+{msvod:bottom}
+</body>
+</html>

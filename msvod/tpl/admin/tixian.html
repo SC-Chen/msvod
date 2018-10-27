@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title><?=L('login_title')?></title>
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link type="text/css" rel="stylesheet" href="<?=Web_Path?>packs/admin/css/style.css" />
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/jquery-min.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/common.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/select-ui.min.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/datepicker/wdatepicker.js"></script>
+</head>
+<body>
+<div class="place">
+<span><?=L('place')?></span>
+<ul class="placeul"><li><a href="<?=site_url('admin/opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('admin/daili')?>"><?=L('tpl_01')?></a></li></ul>
+</div>
+<div class="formbody">
+<div id="usual1" class="usual"> 
+<div class="itab" style="margin-right:15px;">
+<ul> 
+<li><a href="<?=site_url('admin/daili_type/lists')?>" class="selected">提现记录</a></li> 
+<li><a href="<?=site_url('admin/daili_type')?>">提现方式</a></li> 
+</ul>
+</div> 
+</div> 
+<div class="rightinfo">
+<form action="<?=site_url('admin/daili_type/lists')?>" method="post">
+<ul class="seachform">
+<li><label>
+<div class="vocation">
+<select class="select3" name="zid">
+<option value="0"<?php if($zid==0) echo ' selected';?>>全部</option>
+<option value="1"<?php if($zid==1) echo ' selected';?>>等待审批</option>
+<option value="2"<?php if($zid==2) echo ' selected';?>>已批提现</option>
+</select>
+</div>
+<div class="vocation">&nbsp;会员ID</div>
+</label><input style="width:150px;" name="key" value="<?=$key?>" type="text" class="scinput" />
+</li>
+<li><label>&nbsp;</label><input name="so" type="submit" class="scbtn" value="<?=L('tpl_15')?>"/></li>
+</ul>
+</form>
+<form action="<?=site_url('admin/daili/del')?>" method="post" id="myform" name="myform">
+<table width="100%" class="imgtable">
+<thead>
+<tr>
+<th><?=L('tpl_17')?></th>
+<th><?=L('tpl_06')?></th>
+<th>提现方式</th>
+<th>提现金额</th>
+<th>状态</th>
+<th>提现账号</th>
+<th>账号姓名</th>
+<th>联系电话</th>
+<th>提现时间
+</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<?php
+if(empty($tixian)) echo '<tr><td align="center" height="50" colspan="15">'.L('tpl_36').'</td></tr>';
+foreach ($tixian as $row) {
+$logo=!empty($row->logo)?'<img width="30" src="'.piclink('logo',$row->logo).'">':'-';
+//分类
+$rowz=$this->db->query("SELECT name FROM ".MS_SqlPrefix."daili_type where id=".$row->cid."")->row();
+$rows=$this->db->query("SELECT * FROM ".MS_SqlPrefix."user where id=".$row->uid."")->row();
+$zuname=$rowz->name;
+$dou="'";
+$ss='';
+if($row->zid==2){$ss='style="display:none"';$zname='已审批';}else{$zname='<font color="red">等待审批</font>';}
+echo '
+<tr height="35">
+<td>'.$row->uid.'</td>
+<td><a href="'.userlink('index',$rows->id,$rows->name).'" target="web">'.$rows->name.'</a></td>
+<!--td><a href="'.userlink('index',$row->id,$row->name).'" target="web">'.$row->nichen.'</a></td-->
+<td>'.$zuname.'</td>
+<td>'.$row->tcion.' 元</td>
+<td>'.$zname.'</td>
+<td >'.substr($row->text,0,100).'</td>
+<td >'.substr($row->name,0,100).'</td>
+<td >'.substr($row->tell,0,100).'</td>
+<td>'.date('Y-m-d',$row->dltime).'</td>
+<td> <a href="'.site_url('admin/daili_type/edit').'?id='.$row->id.'" '.$ss.'>审批</a>-/-<a href="javascript:void(0);" onclick="Popsbox(\'删除提现记录\',505,245,\'您确定要删除这条提现记录吗\',\''.site_url('admin/daili_type/del').'?id='.$row->id.'\');">删除</a></td>
+</tr> ';
+}
+?>
+</tbody>
+</table>
+<div class="tools">
+<ul class="toolbar">
+<li class="click quanxuan"><span><img src="<?=Web_Path?>packs/admin/images/t04.png" /></span>选择</li>
+<li class="click" onclick="Popsbox('<?=L('tpl_19')?>',505,245,'<?=L('tpl_23')?>','submit');"><span><img src="<?=Web_Path?>packs/admin/images/t03.png" /></span>删除选中</li>
+</ul>
+</div>
+</form>
+<div class="pagin">
+<div class="message"><?=vsprintf(L('tpl_51'),array($nums,$page))?></div>
+<ul class="paginList"><?=$pages?></ul>
+</div>
+</div> 
+<div class="footer"><?=vsprintf(L('bottom'),array('{elapsed_time}','{sql_queries}','{memory_usage}'))?></div>
+<script type="text/javascript"> 
+$(document).ready(function(e) {
+$(".select3").uedSelect({
+width : 80,
+clas:'uew-select2'
+});
+});
+$('.imgtable tbody tr:odd').addClass('odd');
+</script>
+</body>
+</html>

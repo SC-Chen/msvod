@@ -1,0 +1,110 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gbk" />
+<title>{msvod:title}_{msvod:webname}</title>
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/style.css"/>
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/user.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/blackblue.css" />
+<script type="text/javascript" src="{msvod:indextempurl}js/city.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.validform.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/common.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.emot.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.poshytip.js"></script>
+</head>
+<body>
+<div>
+<div class="sidebar"  >
+<div style="background-color:#000000; overflow:hidden;" >
+{msvod:indexleft}
+</div>
+<div class="main">
+{msvod:indexhead}
+<script language="javascript">
+$("#dhcdys").hover(function(){$("#dhcdys").attr("class","nvs3 bc");$(".dh").show()},function(){$("#dhcdys").attr("class","nvs2 bc");$(".dh").hide()})
+ShowCdQuantity();
+</script>
+<div class="mainct">
+<div class="sctop">
+<ul>
+<div style="float:left; height:42px; margin-right:5px;"><a href="[user:url userlink=news,add]" class="btn btn-small btn-danger " style="border-radius:0px;">我要投稿小说</a></div>
+<div style="float:left; line-height:32px; text-indent:32px;" class="alertico">
+<span style="color:#0066CC">投稿小说到本站并且审核通过你将得到<font color="red" size=4> {msvod:addcion} </font>金币奖励，金币可以用于消费本站视频/小说/图片观看以及阅读，还可以升级为VIP哦~！</span></div>
+</ul>
+</div>
+<br>
+<table width="450" border="0">
+<tbody><tr>
+<td class="fouces_menuoff"><a href="[user:url userlink=news]">我发布的</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=news,verify]">审核中的</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=look]">我阅读的</a></td>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table width="100%" border="0" cellspacing="2" cellpadding="2"  class="table borderx3">
+<form class="think-form" action="[user:newssave]" method="post">
+<tr>
+<th height="30" colspan="3" class="fbold" style="font-size:14px;">小说投稿</th>
+<tr>
+<tr>
+<td height="35" align=right>小说分类：</td>
+<td width="27%">
+<select class="rinput" name="cid" style="width:140px;">
+{msvod:class table="news_list" fid="0" sort="xid" order="asc"}
+<option value="[class:id]">&nbsp;|—[class:name]</option>
+{msvodtype:class2 table="news_list" fid="auto" sort="xid" order="asc"}
+<option value="[class2:id]">&nbsp;|&nbsp;&nbsp;&nbsp;|—[class2:name]</option>
+{/msvodtype:class2}
+{/msvod:class}
+</select></td>
+<td width="60%">&nbsp;</td>
+</tr>
+<tr>
+<td width="13%" height="35" align=right>小说名称：</td>
+<td width="27%"><input class="rinput" type="text" name="name" id="name" value="" datatype="*2-20" nullmsg="小说名称不能为空" errormsg="名称为2-20个字以内"/></td>
+<td width="60%">&nbsp;</td>
+</tr>
+<tr>
+<td height="35" align=right>小说标签：</td>
+<td><input class="rinput" type="text" id="tags" name="tags"/>&nbsp;<input onClick="msvod_tags('tags');" class="button" type="button" name="button" value="&nbsp;快速选择&nbsp;">
+<span class="validform_checktip"></span></td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td height="35" align=right>观看金币：</td>
+<td><input class="rinput" type="text" style="width:50px;" name="cion" value="0" datatype="n" nullmsg="金币不能为空" errormsg="金币格式不正确"/>&nbsp;&nbsp;
+
+<span class="validform_checktip"></span></td>
+<td>&nbsp;</td>
+
+<tr>
+<td height="35" align=right style="color:">小说内容：</td>
+<td><textarea style="width:400px;height:120px;" class="rinput" name="content" datatype="*" nullmsg="小说内容不能为空"></textarea>
+ 
+<span class="validform_checktip"></span></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td width="13%" height=40 align="center" >&nbsp;</td>
+<td width="27%" height=50>
+<input type="hidden" name="token" value="[user:token]"/>
+<input class="btn btn-primary btn-small" style="border-radius:0px;" type="submit" value="立即上传" /></td>
+<div id="divFileProgressContainer"></div>
+<td width="60%">&nbsp;</td>
+</tr>
+</form>
+</table>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('#chongzhi1').addClass('chongzhi1');
+miniblog.addinit();
+</script>
+</body>
+</html>

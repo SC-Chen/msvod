@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="gbk">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title>{msvod:title}</title>
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<link href="{msvod:indextempurl}imgs/style.css" rel="stylesheet">
+<link href="{msvod:indextempurl}lib/css/ionic.min.css" rel="stylesheet">
+<script src="{msvod:indextempurl}lib/js/ionic.bundle.min.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}imgs/index2.js"></script>
+<style type="text/css">
+.pic img{
+width:auto;
+height:auto;
+max-width:100%;
+max-height:100%;
+</style>
+</head>
+<body ng-app="ionicApp" animation="slide-left-right-ios7" ng-controller="SlideController">
+{msvod:head}
+<ion-content id="contents" overflow-scroll="true"  style="overflow:scroll;">
+<div class="wrapnews padding">
+<h1 class="news-header">[news:name len=23]</h1>
+<section class="info">
+<span class="year">日期：[news:addtime style=Y-m-d]</span>&nbsp;&nbsp;&nbsp;<span class="read">阅读：[news:hits] 次</span></section>
+<section class="news-content pic">
+<p>
+[news:content]
+</p>
+亲小说到此结束咯~!
+</section>
+</div>
+</ion-content>
+{msvod:bottom}
+</body>
+</html>

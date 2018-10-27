@@ -1,0 +1,68 @@
+<div name="comment" class="new_comment">
+{msvod:pl table="pl" did="auto" fid="0" pagesize="5" sort="id" order="desc"}
+<dl>
+<dt><a title="[pl:user zd=nichen]" target="_blank" href="[pl:url ulink=index]" class="show_userCard_link"><img src="[pl:user zd=logo]" width="48" height="48" alt="[pl:user zd=nichen]"></a></dt>
+<dd style="margin-left:-5px;">
+<div class="new_comment_info"><a title="[pl:user zd=nichen]" target="_blank" href="[pl:url ulink=index]" class="show_userCard_link">[pl:user zd=nichen]</a><em></em></div>
+<div class="new_comment_text">[pl:content]</div>
+<div class="new_comment_from"><span>[pl:addtime style=time]</span><em class="new_comment_btn">
+{if:[pl:uid]=={msvod:uid}}<a href="###" onclick="msvod_pldel('[pl:id]');" class="new_comment_del" title="删除"><b>删除</b></a>{end if}
+<a href="###" onclick="msvod_hf('[pl:id]');" class="new_comment_return"><b></b><m style="padding-top:15px;">回复</a></em></div>
+<div class="new_comment_reply" id="msvod_hf_[pl:id]" style="display:none;"><textarea rows="3" cols="50"  id="msvod_pl_hf_[pl:id]">回复@[pl:user]@:</textarea><input type="button"  onclick="msvod_plhf('[pl:id]','回复@[pl:user]@:');" value="回复"></div>
+{msvodtype:pl2 table="pl" fid="auto" sort="id" order="desc"}
+<div class="new_hf">
+<div class="text"><a target="_blank" href="[pl2:url ulink=index]"><img src="[pl2:user zd=logo]" width="30" height="30" alt="[pl2:user zd=nichen]">&nbsp;&nbsp;<strong>[pl2:user zd=nichen]</strong></a>&nbsp;<font color=#333>[pl2:content]&nbsp;&nbsp;&nbsp;&nbsp;<font color=#666>[pl2:addtime style=time]</font>
+{if:[pl2:uid]=={msvod:uid}}<a class="del" href="###" onclick="msvod_pldel('[pl2:id]');"><b>删除</b></a>{end if}
+</div>
+</div>
+{/msvodtype:pl2}
+</dd>
+</dl>
+{/msvod:pl}
+<div class="new_page">
+<span class="new_page_rt" style="display:{if:{msvod:pagecout}==1}none{end if};">
+<a href="{msvod:pagefirst}">首页</a>
+<a href="{msvod:pageup}">上一页</a>
+{msvod:pagenum len=8}
+<a href="{msvod:pagedown}">下一页</a>
+<a href="{msvod:pagelast}">尾页</a>
+<span class="new_page_total">共有<em>{msvod:pagedata}</em>条评论</span>
+</span>
+</div>
+</div>
+<div class="new_message">
+<div class="new_msg_tips_bg"<?php if(Pl_Youke==1 || !empty($_SESSION['msvod__id'])) echo ' style="display:none;"';?>>
+<div class="new_msg_tips">需登录以后才能发表，<a href="{msvod:loginlink}" target="_blank">立即登录</a>&nbsp;|&nbsp;<a href="{msvod:reglink}" target="_blank">注册</a></div>
+</div>
+<div class="new_msg_hd">
+<div class="new_msg_tit"><h2>我要评论</h2></div>
+<div class="new_msg_face_btn"><a class="icon_biaoqing" href="###" onclick="faces();" id="faces" title="插入表情">插入表情</a></div>
+</div>
+<div class="new_face_all" id="msvod_faces" style="display:none;">[pl:faces]</div>
+<input type='hidden' id='pl_token' value='[pl:token]'/>
+<div class="new_msg_val"><textarea style="width:98%;" name="msvod_pl_content" id="msvod_pl_content"></textarea>
+</div>
+<div class="new_msg_do">
+<span class="new_msg_button"><input class="new_msg_btn" type="button" onclick="msvod_pladd()" value="发表评论"></span>
+</div>
+</div>
+<script type='text/javascript'>
+function msvod_hf(_id){
+var none=$('#msvod_hf_'+_id).css('display');
+if(none=='none'){
+$('#msvod_hf_'+_id).show();
+}else{
+$('#msvod_hf_'+_id).hide();
+}
+}
+function faces(){
+var none=$('#msvod_faces').css('display');
+if(none=='none'){
+$('#msvod_faces').show();
+$('#faces').text('关闭表情');
+}else{
+$('#msvod_faces').hide();
+$('#faces').text('打开表情');
+}
+}
+</script>

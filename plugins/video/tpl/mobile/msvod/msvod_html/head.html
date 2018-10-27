@@ -1,0 +1,17 @@
+<header>
+<ion-header-bar>
+<a class="logo" href="#">{msvod:webname}</a>
+<div class="iconsrt">
+<a class="icon ion-ios-search-strong" href="/index.php/video/search" style="font-size: 25px;position: relative;top:2px;"></a>
+<!--<a class="icon ion-android-time" style="position: relative;top:1px;"></a>-->
+<a href="/index.php/user/space" class="icon ion-android-contact" style="position: relative;top:1px;"></a>
+</div>
+</ion-header-bar>
+<ion-header-bar class="bar-subheader">
+<ion-scroll zooming="true" direction="x" scrollbar-x="false" class="button-bar">
+{msvod:class table="video_list" field="id,name,xid" sort="xid" fid="9" loop="50" order="asc"}
+<a href="[class:url zdy=video,id,lists,id]" class="tab">[class:name]</a>
+{/msvod:class}
+</ion-scroll>
+</ion-header-bar>
+</header>

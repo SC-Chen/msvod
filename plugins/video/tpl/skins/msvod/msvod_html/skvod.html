@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-http://W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<html>
+<meta property="og:type" content="image"/>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<meta http-equiv="Cache-Control" content="no-transform " />
+<title>{msvod:title}_{msvod:webname}</title>
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/style.css">
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/ding.css">
+<link rel="stylesheet" href="{msvod:indextempurl}css/danchu.css"> 
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.lazyload.js"></script>
+<script type="text/javascript" src="/index.php/video/play/msvod/[video:id]/0/0" charset=gbk></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/common.js"></script>
+<script type="text/javascript" src="{msvod:tempurl}js/common.js"></script>
+<script src="{msvod:indextempurl}js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body id="top">
+<div style="line-height:30px;background-color:#000;color:red;font-size:15px;">&nbsp;&nbsp;您目前的身份是（[video:youke][video:pthy]）仅能试看本视频[video:sksj]秒，加入本站VIP会员后可观看完整版<a style="color:red;" href="/index.php/user/pay" target="_blank">【点击这里充值会员】</a></div>
+<div class="playArea" id="a1">{if:[video:zc]==0}[video:player]{else}[video:m3u8]{end if}</div>
+<script type="text/javascript">
+var ua = navigator.userAgent.toLowerCase();   {
+var alertmessage="游客或普通用户试看视频[video:sksj]秒，VIP会员可观看完整版~!"
+var once_per_session=1
+function get_cookie(Name) {
+var search = Name + "="
+var returnvalue = "";
+if (document.cookie.length > 0) {
+ offset = document.cookie.indexOf(search)
+if (offset != -1) {
+offset += search.length
+end = document.cookie.indexOf(";", offset);
+if (end == -1)
+end = document.cookie.length;
+returnvalue=unescape(document.cookie.substring(offset, end))
+}
+}
+return returnvalue;
+}
+function alertornot(){
+if (get_cookie('alerted')==''){
+loadalert()
+document.cookie="alerted=yes"
+}
+}
+function loadalert(){
+alert(alertmessage)
+}
+if (once_per_session==0)
+loadalert()
+else
+alertornot()
+}
+</script>
+</body>
+</html>

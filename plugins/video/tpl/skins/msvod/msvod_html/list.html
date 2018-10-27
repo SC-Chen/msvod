@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-http://W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<html>
+<meta property="og:type" content="image"/>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<title>{msvod:title}_{msvod:webname}</title>
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/style.css">
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/ding.css">
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.lazyload.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/common.js"></script>
+<script src="{msvod:indextempurl}js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body id="top">
+{msvod:indexhead}
+<div class="content clearfix">
+<div class="mod-common clearfix">
+<div class="mod-channel" style="margin-top:10px;">
+<div class="channel-title">
+<h2>[video:name]</h2>
+<span style="float:right;margin-top:20px;">
+<a href="[video:url link=lists,id]" class="{if:'{msvod:fid}'=='id'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">最新发布</a>
+<a href="[video:url link=lists,ding]" class="{if:'{msvod:fid}'=='ding'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">网友点赞</a> 
+<a href="[video:url link=lists,play]" class="{if:'{msvod:fid}'=='play'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">网友在看</a> 
+<a href="[video:url link=lists,hits]" class="{if:'{msvod:fid}'=='hits'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">热门播放</a> 
+<a href="[video:url link=lists,down]" class="{if:'{msvod:fid}'=='down'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">热门下载</a> 
+<a href="[video:url link=lists,fav]" class="{if:'{msvod:fid}'=='fav'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">热门收藏</a> 
+<a href="[video:url link=lists,yue]" class="{if:'{msvod:fid}'=='yue'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">本月热门</a> 
+<a href="[video:url link=lists,zhou]" class="{if:'{msvod:fid}'=='zhou'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">本周热门</a> 
+<a href="[video:url link=lists,ri]" class="{if:'{msvod:fid}'=='ri'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">今日热门</a> 
+</span>
+</div>
+<div class="channel-ctn">
+<div class="cnt channel-show" id="channel-0">
+<div class="mediaThumbsbox">
+<ul class="mediaThumbs" id="thumbs">
+{msvod:video table="video" field="id,name,addtime,pic,hits,shits,dhits,cion,sc,vip,color,uid" pagesize="20" cid="auto" sort="addtime" order="desc"}
+<li class="col-md-4">
+<div class="libox">
+<div class="mediaCover">
+<a href="[video:url zdy=video,id,play,id]">
+<img class="mediaThumb" src="[video:pic dir=video]" style="display:block;">
+<i class="icon-facetime-video"></i>
+<div class="icons"><i class="icon-play"></i></div>
+<div class="uploader">
+<img class="userThumb" src="[video:user zd=logo]">
+<span>[video:user zd=name]</span>
+</div>                             
+</a>
+</div>
+<h3><a href="[video:url zdy=video,id,play,id]"><font color="[video:color]">[video:name len=17]</font></a></h3>
+<div class="additionalInfo clearfix">
+<p><i class="icoindexs icon-time"></i>[video:addtime style=Y-m-d]<span style="color:red;float:right;">[video:sc]</span></p>
+</div>                      
+<ul class="details clearfix">
+<li>[video:hits]<i class="icoindexs icon-thumbs-up-kan"></i></li>
+<li>[video:dhits]<i class="icoindexs icon-thumbs-up-ding"></i></li>
+{if:[video:vip]>1}<li style="color:red;">Vip<i class="icoindexs icon-thumbs-up-vip"></i></li>{end if}
+<li style="color:red;">[video:cion]<i class="icoindexs icon-thumbs-up-jb"></i></li>
+</ul>
+</div>
+</li>
+{/msvod:video}
+{if:{msvod:pagedata}==0}<div style="text-align:center;color:red;font-size:16px;line-height:50px"><b>&nbsp;&nbsp;该栏目没有视频记录~!</b></div>{end if}
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="pages">
+<ul>
+<li><a href="{msvod:pageup}" title="上一页">&lt;</a></li>
+{msvod:pagenum len=8}
+<li><a href="{msvod:pagelast}" title="末页">...</a></li>
+<li><a href="{msvod:pagedown}" title="下一页">&gt;</a></li>
+</ul>
+</div>
+</div>
+</div>
+{msvod:indexbottom}
+</body>
+</html>

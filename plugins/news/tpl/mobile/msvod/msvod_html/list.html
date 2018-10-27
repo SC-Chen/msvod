@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="gbk">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title>{msvod:title}</title>
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<link href="{msvod:indextempurl}imgs/style.css" rel="stylesheet">
+<link href="{msvod:indextempurl}lib/css/ionic.min.css" rel="stylesheet">
+<script src="{msvod:indextempurl}lib/js/ionic.bundle.min.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}imgs/index.js"></script>
+</head>
+<body ng-app="ionicApp" animation="slide-left-right-ios7" ng-controller="SlideController">
+{msvod:head}
+<ion-content id="contents" overflow-scroll="true"  style="overflow:scroll;">
+<section class="g-con mgt-10">
+<h2 class="m-h2-tit"><a href="#"><span class="tit">[news:name]</span></a></h2>
+<ul class="mgt-10">
+{msvod:news table="news" field="id,color,name,addtime" pagesize="20" cid="auto" sort="id" order="desc"}
+<li class="news">
+<a href="[news:url zdy=news,id,show,id]" class="flexbox">
+<h6 class="txt flexmiddle">
+<i class="icon ion-android-arrow-dropright"></i> <font color="[news:color]">[news:name]</font></h6>
+<span>[news:addtime style=Y-m-d]</span>
+</a>
+</li>
+{/msvod:news}
+{if:{msvod:pagedata}==0}<div style="text-align:center;color:red;font-size:16px;line-height:50px"><b>&nbsp;&nbsp;该栏目没有记录~!</b></div>{end if}
+</ul>
+</section>
+<div class="mod_pagenav">
+<a href="{msvod:pagefirst}" title="首页" class="PageBox">首页</a> 
+<a href="{msvod:pageup}" title="上一页" class="PageBox">上一页</a> 
+<span></span>
+<a href="{msvod:pagedown}" title="下一页" class="PageBox">下一页</a> 
+<a href="{msvod:pagelast}" title="尾页" class="PageBox">尾页</a>
+</div>
+</ion-content>
+{msvod:bottom}
+</body>
+</html>

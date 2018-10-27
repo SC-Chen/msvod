@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-http://W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<html>
+<meta property="og:type" content="image"/>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<title>{msvod:title}_{msvod:webname}</title>
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/style.css">
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/ding.css">
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.lazyload.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/common.js"></script>
+<script src="{msvod:indextempurl}js/jquery.SuperSlide.2.1.1.js"></script>
+<style type="text/css">
+img{
+width:auto;
+height:auto;
+max-width:650px;
+max-height:100%;
+}
+</style>
+</head>
+<body id="top">
+{msvod:indexhead}
+<div class="content clearfix" style="margin-top:20px;">
+<div class="mod-common clearfix">
+<div style="background:#fff;line-height:45px; border: 1px solid #e5e6e6;">
+{msvod:class table="tu_list" field="id,name" fid="auto" loop="10" order="asc"}
+<a href="[class:url zdy=tu,id,lists,id]" class="{if:[class:id]==[tu:cid]}dhxz{else}dh{end if}" style="margin-left:7px;margin-right:8px;">[class:name]</a> 
+<span style="margin-left:3px;margin-right:4px;"></span>  
+{/msvod:class}
+</div>
+<div class="ad-link" style="margin-top:10px;">
+<div class="left">
+<div class="box">
+<div class="title"><h1>正在阅读：[tu:name]</h1></div>
+<div class="xsnr">
+<table width="100%" height="30" border="0" align="center">
+<tr>
+<td align="center" style="line-height:30px;border-bottom:#d4d4d4 dotted 1px;"><b style="font-size:14px;">
+更新时间：[tu:addtime style=Y-m-d H:i:s]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+阅读：[tu:hits]&nbsp;次&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作者：[tu:user zd=name]</b></td>
+</tr>
+</table>
+<table width="100%" border="0" align="center" cellpadding="10" cellspacing="10" >
+<tr>
+<td valign="top">
+<div style="line-height:30px;font-size:14px;text-indent:2em;">[tu:content]</div>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" style="line-height:30px;border-top:#d4d4d4 dotted 1px;">
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;上一篇：<a href="[tu:slink]" title="[tu:sname]">[tu:sname]</a></td>
+<td align="right">下一篇：<a href="[tu:xlink]" title="[tu:xname]">[tu:xname]</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+</table>
+<div class="txt">
+</div>
+</div>
+</div>
+</div>
+<div class="right">
+<div class="box" style="height:781px;background:#fff;">
+<div class="title"><h1>热门[tu:zdy zd=tu_list,name,cid]图片</h1></div>
+<div class="xs">
+<table width="99%" border="0" align="center" cellpadding="5" cellspacing="0">
+{msvod:tu table="tu" field="id,color,name,addtime,hits,color" cid="auto" loop="19" sort="hits"}
+<tr>
+<td width="30" height="35" style="border-bottom:#d4d4d4 dotted 1px;" align="center"><img src="{msvod:indextempurl}/images/text.png"></td>
+<td height="35" style="border-bottom:#d4d4d4 dotted 1px;"><a href="[tu:url zdy=tu,id,show,id]"><font color="[tu:color]">[tu:name len=17]</font></a></td>
+<td height="35" align="center" style="border-bottom:#d4d4d4 dotted 1px;">[tu:hits]&nbsp;</td>
+</tr>
+{/msvod:tu}
+{msvod:tu table="tu" field="id,color,name,addtime,hits,color" cid="auto" start="20" loop="1" sort="hits"}
+<tr>
+<td width="30" height="35" style=" " align="center"><img src="{msvod:indextempurl}/images/text.png"></td>
+<td height="35" style=" "><a href="[tu:url zdy=tu,id,show,id]"><font color="[tu:color]">[tu:name len=17]</font></a></td>
+<td height="35" align="center" style=" ">[tu:hits]&nbsp;</td>
+</tr>
+{/msvod:tu}
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{msvod:indexbottom}
+</body>
+</html>

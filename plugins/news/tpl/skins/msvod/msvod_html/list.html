@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-http://W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<html>
+<meta property="og:type" content="image"/>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<title>{msvod:title}_{msvod:webname}</title>
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/style.css">
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/ding.css">
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.lazyload.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/common.js"></script>
+<script src="{msvod:indextempurl}js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body id="top">
+{msvod:indexhead}
+<div class="content clearfix" style="margin-top:20px;">
+<div class="mod-common clearfix">
+<div style="background:#fff;line-height:45px; border: 1px solid #e5e6e6;">
+{msvod:class table="news_list" field="id,name" id="12" loop="1" order="asc"}
+<a href="[class:url zdy=news,id,lists,id]" class="{if:[news:id]==[class:id]}dhxz{else}dh{end if}" style="margin-left:7px;margin-right:8px;">全部</a> 
+<span style="margin-left:3px;margin-right:4px;"></span>  
+{/msvod:class}
+{msvod:class table="news_list" field="id,name" fid="auto" loop="5" order="asc"}
+<a href="[class:url zdy=news,id,lists,id]" class="{if:[news:id]==[class:id]}dhxz{else}dh{end if}" style="margin-left:7px;margin-right:8px;">[class:name]</a> 
+<span style="margin-left:3px;margin-right:4px;"></span>  
+{/msvod:class}
+</div>
+<div class="ad-link" style="margin-top:10px;">
+<div class="left">
+<div class="box" style="height:780px;background:#fff;">
+<div class="title"><h1>最新[news:name]小说</h1></div>
+<div class="xs">
+<table width="100%" border="0" >
+<tr>
+<td valign="top">
+<table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">
+{msvod:news table="news" field="id,color,name,addtime" pagesize="20" cid="auto" sort="id" order="desc"}
+<tr>
+<td width="30" height="25" style="border-bottom:#d4d4d4 dotted 1px;" align="center"><img src="{msvod:indextempurl}/images/text.png"></td>
+<td height="35" style="border-bottom:#d4d4d4 dotted 1px;"><a href="[news:url zdy=news,id,show,id]" target="_blank"><font color="[news:color]">[news:name]</font></a></td>
+<td height="35" align="right" style="border-bottom:#d4d4d4 dotted 1px;">[news:addtime style=Y-m-d]&nbsp;&nbsp;</td>
+</tr>
+{/msvod:news}
+</table>	
+</td>
+</tr>
+</table>
+<div class="txt">
+</div>
+</div>
+</div>
+<div class="pages" style="margin-top:10px;">
+<ul>
+<li><a href="{msvod:pageup}" title="上一页">&lt;</a></li>
+{msvod:pagenum len=8}
+<li><a href="{msvod:pagelast}" title="末页">...</a></li>
+<li><a href="{msvod:pagedown}" title="下一页">&gt;</a></li>
+</ul>
+</div>
+</div>
+<div class="right">
+<div class="box" style="height:781px;background:#fff;">
+<div class="title"><h1>热门阅读[news:name]</h1></div>
+<div class="xs">
+<table width="99%" border="0" align="center" cellpadding="5" cellspacing="0">
+{msvod:news table="news" field="id,color,name,addtime,hits,color" cid="auto" loop="19" sort="hits"}
+<tr>
+<td width="30" height="35" style="border-bottom:#d4d4d4 dotted 1px;" align="center"><img src="{msvod:indextempurl}/images/text.png"></td>
+<td height="35" style="border-bottom:#d4d4d4 dotted 1px;"><a href="[news:url zdy=news,id,show,id]" target="_blank"><font color="[news:color]">[news:name]</font></a></td>
+<td height="35" align="center" style="border-bottom:#d4d4d4 dotted 1px;">[news:hits]&nbsp;</td>
+</tr>
+{/msvod:news}
+{msvod:news table="news" field="id,color,name,addtime,hits,color" cid="auto" start="20" loop="1" sort="hits"}
+<tr>
+<td width="30" height="35" style=" " align="center"><img src="{msvod:indextempurl}/images/text.png"></td>
+<td height="35" style=" "><a href="[news:url zdy=news,id,show,id]" target="_blank"><font color="[news:color]">[news:name]</font></a></td>
+<td height="35" align="center" style=" ">[news:hits]&nbsp;</td>
+</tr>
+{/msvod:news}
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{msvod:indexbottom}
+</body>
+</html>

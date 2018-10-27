@@ -1,0 +1,25 @@
+{msvod:indexhead}
+<div class="mainNav mainNav3">
+<ul>
+<li><a href="[user:url ulink=video]">视频</a></li>
+<li class="current"><a href="[user:url ulink=video,album]">专题</a></li>
+<li><a href="[user:url ulink=pic]">图片</a></li>
+</ul>
+</div>
+
+<ul class="pubList">
+{msvod:album table="video_topic" field="id,pic,name,tags,addtime" pagesize="10" uid="auto"}
+      <li>
+          <a href="[album:url link=topic/show]">
+          <span class="t-i"><img data-original="[album:pic dir=videotopic]" /></span>
+          <span class="t-t"><strong>[album:name]</strong><em>共收录[album:count zdy=video,tid,id]首</em></span>
+          <span class="t-z"><img src="{msvod:indextempurl}images/z2.png" /></span></a>
+      </li>
+{/msvod:album}
+</ul>
+<div class="mores">{if:{msvod:pagecout}<={msvod:pagenow}}没有更多了...{else}<a href="{msvod:pagedown}">点击加载更多..</a>{end if}</div>
+</div>
+
+</div>
+</div>
+{msvod:indexbottom}

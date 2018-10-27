@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="gbk">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title>{msvod:title}</title>
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<link href="{msvod:indextempurl}imgs/style.css" rel="stylesheet">
+<link href="{msvod:indextempurl}lib/css/ionic.min.css" rel="stylesheet">
+<script src="{msvod:indextempurl}lib/js/ionic.bundle.min.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}imgs/index.js"></script>
+<script type="text/javascript">
+angular.module('ionicApp', ['ionic'])
+.controller('SlideController', function ($scope) {
+$scope.myActiveSlide = 1;
+})
+</script>
+</head>
+<body ng-app="ionicApp" animation="slide-left-right-ios7" ng-controller="SlideController">
+{msvod:head}
+<ion-content id="contents" overflow-scroll="true"  style="overflow:scroll;">
+<div class="searchs">
+<form method="post" id="searchform" action="/index.php/video/search">
+<div class="bar bar-header item-input-inset">
+<label class="item-input-wrapper" >
+<i class="icon ion-ios-search placeholder-icon"></i>
+<input type="search" id="key" name="key" placeholder="输入关键字搜索视频...">
+</label>
+<button class="button" type="submit">搜索</button>
+</div>
+</form>
+</div>
+<section class="g-con mgt-10">
+<h2 class="m-h2-tit"><a href="#"> <span class="tit" style="color:#e75242;">搜索结果列表</span> </a></h2>
+<ul class="mgt-10">
+{msvod:video table="video" field="id,name,addtime,pic,hits,shits,dhits,cion,sc,vip,color" pagesize="20" cid="auto" sort="addtime" order="desc"}
+<li class="m-cd-i-wrap">
+<a class="m-cd-i" href="[video:url zdy=video,id,play,id]">
+<div class="pic">
+<img src="[video:pic dir=video]"><span class="r-sd">[video:addtime style=Y-m-d]</span>
+{if:[video:vip]>1}<i class="vipico"></i>{end if}</div>
+<div class="info flexbox">
+<h3 class="txt flexmiddle"><font color="[video:color]">[video:name len=11]</font></h3>
+<span>[video:cion]金币</span>
+</div>
+</a>
+</li>
+{/msvod:video}
+{if:{msvod:pagedata}==0}<div style="text-align:center;color:red;font-size:16px;line-height:50px"><b>&nbsp;&nbsp;没有搜索到视频记录~!</b></div>{end if}
+</ul>
+</section>
+<div class="mod_pagenav">
+<a href="{msvod:pagefirst}" title="首页" class="PageBox">首页</a> 
+<a href="{msvod:pageup}" title="上一页" class="PageBox">上一页</a> 
+<span></span>
+<a href="{msvod:pagedown}" title="下一页" class="PageBox">下一页</a> 
+<a href="{msvod:pagelast}" title="尾页" class="PageBox">尾页</a></div>
+</ion-content>
+{msvod:bottom}
+</body>
+</html>

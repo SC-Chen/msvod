@@ -1,0 +1,84 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gbk" />
+<title>{msvod:title}_{msvod:webname}</title>
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/user.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/blackblue.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/style.css"/>
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.emot.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.poshytip.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/common.js"></script>
+</head>
+<body>
+<div>
+<div class="sidebar"  >
+<div style="background-color:#000000; overflow:hidden;" >
+{msvod:indexleft}
+</div>
+<div class="main">
+{msvod:indexhead}
+<script language="javascript">
+$("#dhcdys").hover(function(){$("#dhcdys").attr("class","nvs3 bc");$(".dh").show()},function(){$("#dhcdys").attr("class","nvs2 bc");$(".dh").hide()})
+ShowCdQuantity();
+</script>
+<div class="mainct">
+<div class="sctop">
+<ul>
+<div style="float:left; height:42px; margin-right:5px;"><a href="[user:url userlink=video,add]" class="btn btn-small btn-danger " style="border-radius:0px;">我要上传视频</a></div>
+<div style="float:left; line-height:32px; text-indent:32px;" class="alertico">
+<span style="color:#0066CC">上传视频到本站并且审核通过你将得到<font color="red" size=4> {msvod:addcion} </font>金币奖励，金币可以用于消费本站视频观看，还可以升级为VIP哦~！</span></div>
+</ul>
+</div>
+<br>
+<table width="450" border="0">
+<tbody>
+<tr>
+<td class="fouces_menuoff"><a href="[user:url userlink=video]">我上传的</a></td>
+<td class="fouces_menuon" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=video,verify]">审核中的</a></td>
+<td class="fouces_menuoff"  style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=fav]">我收藏的</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=look]">我观看的</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=down]">我下载的</a></td>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table width="100%" border="0" cellspacing="1" cellpadding="1"  class="table borderx3" >
+<tr>
+<th height="30" colspan="1" class="fbold">审核中的视频</th>
+<tr>
+<td height="35">
+<div>
+ {msvod:video table="video" pagesize="21" uid="auto" yid="1" sort="time" order="desc"}
+<ul style="margin-left:14px;margin-top:15px;">
+<li style="float:left;margin-left:10px;margin-right:12px;margin-bottom:20px;box-shadow: 0 0 3px #2B2B2B;">
+<a title="[video:name]" href="[video:url link=play,id]" target="_blank" class="pic">
+<img  class="lazy" src="{msvodphp}piclink('video',getzd('video','pic','[video:did]'));{/msvodphp}" width="212" height="120" /></a>
+<p class="v_name" style="line-height:25px;"><a href="[video:url link=play,id]" target="_blank" title="[video:name]">&nbsp;[video:name len=15]</a>
+</p>
+</li>
+</ul>
+{/msvod:video}
+{if:{msvod:pagedata}==0}<div class="zanwu">暂无数据！</div>{end if}
+<div class="page" style="{if:{msvod:pagecout}<2}display:none;{end if}">
+<div class="pages">
+<em title="总数量">{msvod:pagedata}</em>
+<a href="{msvod:pagefirst}">首页</a>
+{msvod:pagenum len=8}
+<a href="{msvod:pagelast}">尾页</a>
+</div>
+</div>
+<div>
+</td>
+</table>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('#fouces1').addClass('fouces1');
+miniblog.addinit();
+</script>
+</body>
+</html>

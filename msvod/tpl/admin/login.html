@@ -1,0 +1,36 @@
+<!Doctype html>
+<html>
+<head>
+<title><?=L('login_title')?></title>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/jquery-min.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/common.js"></script>
+<link href='<?=Web_Path?>packs/admin/news/css/style.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="login">
+<h2>MSVOD视频系统</h2>
+<div class="login-top">
+<h1>后台管理登陆</h1>
+<form action="<?=site_url('admin/login/log')?>?backurl=<?=$this->input->get('backurl')?>" method="post" id="formlogin" name="formlogin">
+<input name="adminname" type="text" id="txtAdminName" placeholder="登陆账户">
+<input name="adminpass" type="password" id="txtAdminPass"  placeholder="登陆密码" style="margin-top:10px;">
+<input name="admincodes" type="password" id="txtAdminCodes"  placeholder="验证码" style="margin-top:10px;">
+<div class="forgot" style="margin-top:8px;">
+<input type="submit" value="立即登陆" >
+</div>
+</form>
+
+<script type="text/javascript">adminlogin.init();</script>
+</div>
+<div class="login-bottom">
+<h3><b>&copy; 2008-2018 <a title="msvod" href="_blank">Msvod v6 </a></b></h3>
+</div>
+</div>	
+<div class="copyright">
+
+</div>
+</body>
+</html>

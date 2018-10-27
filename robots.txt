@@ -1,0 +1,8 @@
+# Robots For MSVOD 4.0
+User-agent: *
+Disallow: /attachment
+Disallow: /cache
+Disallow: /msvod
+Disallow: /Msdj
+Disallow: /plugins
+Disallow: /admin.php

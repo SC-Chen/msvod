@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title><?=L('admin_title')?></title>
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link href="<?=Web_Path?>packs/msvod/css/public.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?=Web_Path?>packs/msvod/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/msvod/js/global.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/msvod/js/jquery.tab.js"></script>
+
+<script type="text/javascript">
+$(function(){	
+//¶¥²¿µ¼º½ÇÐ»»
+$(".nav li a").click(function(){
+$(".nav li a.cu").removeClass("cu")
+$(this).addClass("cu");
+});
+$('.toggle-nav').click(function(){
+switchSysBar();
+});
+$('.nav a').click(function(){
+var id=$(this).attr('mid');
+Left_Src(id);
+});
+})
+function switchSysBar(){
+if (parent.document.getElementById("leftFrame").style.display==""){
+parent.document.getElementById("index").cols = "0,*";
+parent.document.getElementById("leftFrame").style.display="none";
+parent.document.getElementById("msvod").rows = "40,*,0";
+parent.document.getElementById("bottomFrame").style.display="none";
+}else{
+parent.document.getElementById("index").cols = "186,*";
+parent.document.getElementById("leftFrame").style.display="";
+parent.document.getElementById("msvod").rows = "40,*,40";
+parent.document.getElementById("bottomFrame").style.display="";
+}
+}
+function Left_Src(_id){
+parent.document.getElementById("leftFrame").src="<?=site_url('admin/opt/menu')?>?id="+_id+"&random="+Math.random();
+}
+</script>
+
+</head>
+<body>
+<div id="background" style="display:none"></div>
+<div id="dcWrap"> 
+<div id="dcHead">
+<div id="head">
+<div class="logo"><a href="gl.php"><img src="<?=Web_Path?>packs/msvod/images/dclogo.gif" alt="logo"></a></div>
+<div class="nav">
+<ul>
+<li><a mid="-1" style="font-size: 14px;" href="<?=site_url('admin/opt/main')?>" target="rightFrame" class="cu"><h2><?=L('head-03')?></h2></a></li>
+<li><a mid="-2" href="<?=site_url('admin/setting')?>" target="rightFrame"><h2><?=L('head-04')?></h2></a></li>
+<li><a mid="-3" href="<?=site_url('admin/label')?>" target="rightFrame"><h2><?=L('head-05')?></h2></a></li>
+<li><a mid="-4" href="<?=site_url('admin/user')?>" target="rightFrame"><h2><?=L('head-06')?></h2></a></li>
+<?php
+foreach ($plub as $row) {
+$name=(MS_Language=='english')?$this->pinyin->result($row->name):$row->name;
+echo '<li><a mid="'.$row->id.'" href="'.site_url('admin/plugins/setting').'?dir='.$row->dir.'" target="rightFrame"><h2>'.$name.'</h2></a></li>';
+}
+?>
+</ul>
+<ul class="navRight">
+<li><a href="/"  title="ÍøÕ¾Ê×Ò³" target="_blank">ÍøÕ¾Ê×Ò³</a></li>
+<li><a href="<?=site_url('admin/opt/del_cache')?>" target="rightFrame" title="Çå³ýÒ³Ãæ»º´æ">Ò³Ãæ»º´æ</a></li>
+<li><a href="<?=site_url('admin/opt/del_dbcache')?>" target="rightFrame" title="Çå³ýÊý¾Ý»º´æ">Êý¾Ý»º´æ</a></li>
+<li><a href="<?=site_url('admin/opt/del_piccache')?>" target="rightFrame" title="Çå³ýÍ¼Æ¬»º´æ">Í¼Æ¬»º´æ</a></li>
+
+</li>
+<li class="noRight"><a onClick="return confirm('<?=L('head-11')?>');" href="<?=site_url('admin/login/logout')?>" style="#ffff00;" target="_top" title="<?=L('head-12')?>">ÍË³öµÇÂ½</a></li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+
