@@ -20,7 +20,7 @@ width : 120	,
 height: 20
 });
 });
-//×ª»»
+//è½¬æ¢
 function xuan(id) {
 var csids=document.getElementById("csids"+id).disabled;
 if(csids==true){
@@ -53,23 +53,23 @@ document.getElementById('opss'+i).style.display='none';
 <body>
 <form name=form method=post action="<?=site_url('news/admin/news/pl_save')?>">
 <table align="center" width="100%" border="1" cellspacing="0" cellpadding="3" bordercolor="#C4DFF4">
-<tr height="30"><td colspan="2" align="center"><b style="font-size:18px;">Ğ¡ËµÅúÁ¿²Ù×÷</b></td></tr>
+<tr height="30"><td colspan="2" align="center"><b style="font-size:18px;">å°è¯´æ‰¹é‡æ“ä½œ</b></td></tr>
 <tr height="30">
-<td align="center"><label style="font-size:16px;"><input onclick="zh(1)" name='xid' type='radio' value='1' <?php if(!empty($id)) echo 'checked';?>>°´ID²Ù×÷</label></td>
-<td align="center"><label style="font-size:16px;"><input onclick="zh(2)" name='xid' type='radio' value='2'>°´·ÖÀà²Ù×÷</label></td>
+<td align="center"><label style="font-size:16px;"><input onclick="zh(1)" name='xid' type='radio' value='1' <?php if(!empty($id)) echo 'checked';?>>æŒ‰IDæ“ä½œ</label></td>
+<td align="center"><label style="font-size:16px;"><input onclick="zh(2)" name='xid' type='radio' value='2'>æŒ‰åˆ†ç±»æ“ä½œ</label></td>
 </tr>
 <tr>
-<td style="<?php if(empty($id)) echo 'display:none';?>" id="opss1" align="center" colspan="3">ÌîĞ´Òª²Ù×÷µÄID:    <input type="text" name="id" class="dfinput" style="width:400px;" value="<?=$id?>"></td>
+<td style="<?php if(empty($id)) echo 'display:none';?>" id="opss1" align="center" colspan="3">å¡«å†™è¦æ“ä½œçš„ID:    <input type="text" name="id" class="dfinput" style="width:400px;" value="<?=$id?>"></td>
 <td style="display:none" id="opss2" align="center" colspan="3">    
-<div style="margin-left:10px;" class="vocation"><select class="select" style="left:0;" name='cids'><option value=0>=========Ñ¡ÔñÒª²Ù×÷µÄ·ÖÀà============</option>
+<div style="margin-left:10px;" class="vocation"><select class="select" style="left:0;" name='cids'><option value=0>=========é€‰æ‹©è¦æ“ä½œçš„åˆ†ç±»============</option>
 <?php
 $sstrss="";
 $query = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."news_list where fid=0 order by xid asc"); 
 foreach ($query->result() as $row) {
-$sstrss.='<option value="'.$row->id.'">&nbsp;|¡ª'.$row->name.'</option>';
+$sstrss.='<option value="'.$row->id.'">&nbsp;|â€”'.$row->name.'</option>';
 $query2 = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."news_list where fid=".$row->id." order by xid asc"); 
 foreach ($query2->result() as $row2) {
-$sstrss.='<option value="'.$row2->id.'">&nbsp;|&nbsp;&nbsp;&nbsp;|¡ª'.$row2->name.'</option>';
+$sstrss.='<option value="'.$row2->id.'">&nbsp;|&nbsp;&nbsp;&nbsp;|â€”'.$row2->name.'</option>';
 }
 }
 echo $sstrss;
@@ -83,48 +83,48 @@ echo $sstrss;
 <td align="center" width="40%"><table align="center">
 
 <tr height="30">
-<td Height="25" align="right">&nbsp;&nbsp;<label id="csid1"><input onclick="xuan(1)" name="csid[]" type="checkbox" value="hits">&nbsp;Äê¶ÈÈËÆø&nbsp;</label></td>
+<td Height="25" align="right">&nbsp;&nbsp;<label id="csid1"><input onclick="xuan(1)" name="csid[]" type="checkbox" value="hits">&nbsp;å¹´åº¦äººæ°”&nbsp;</label></td>
 <td Height="25"><input class="dfinput" style="width:120px;height:20px;line-height:20px;" name='hits' id="csids1" type='text' value='0' disabled /></td>
 </tr>
 <tr height="30">
-<td align="right">&nbsp;&nbsp;<label id="csid2"><input onclick="xuan(2)" name="csid[]" type="checkbox" value="rhits">&nbsp;Ã¿ÈÕÈËÆø&nbsp;</label></td>
+<td align="right">&nbsp;&nbsp;<label id="csid2"><input onclick="xuan(2)" name="csid[]" type="checkbox" value="rhits">&nbsp;æ¯æ—¥äººæ°”&nbsp;</label></td>
 <td><input class="dfinput" style="width:120px;height:20px;line-height:20px;" name='rhits' id="csids2" type='text' value='0' disabled /></td>
 </tr>
 <tr height="30">
-<td align="right">&nbsp;&nbsp;<label id="csid3"><input onclick="xuan(3)" name="csid[]" type="checkbox" value="zhits">&nbsp;Ã¿ÖÜÈËÆø&nbsp;</label></td>
+<td align="right">&nbsp;&nbsp;<label id="csid3"><input onclick="xuan(3)" name="csid[]" type="checkbox" value="zhits">&nbsp;æ¯å‘¨äººæ°”&nbsp;</label></td>
 <td><input class="dfinput" style="width:120px;height:20px;line-height:20px;" name='zhits' id="csids3" type='text' value='0' disabled /></td>
 </tr>
 <tr height="30">
-<td align="right">&nbsp;&nbsp;<label id="csid4"><input onclick="xuan(4)" name="csid[]" type="checkbox" value="yhits">&nbsp;Ã¿ÔÂÈËÆø&nbsp;</label></td>
+<td align="right">&nbsp;&nbsp;<label id="csid4"><input onclick="xuan(4)" name="csid[]" type="checkbox" value="yhits">&nbsp;æ¯æœˆäººæ°”&nbsp;</label></td>
 <td><input class="dfinput" style="width:120px;height:20px;line-height:20px;" name='yhits' id="csids4" type='text' value='0' disabled /></td>
 </tr>
 <!--<tr height="30">
-<td align="right">&nbsp;&nbsp;<label id="csid5"><input onclick="xuan(5)" name="csid[]" type="checkbox" value="xhits">&nbsp;ÏÂÔØÈËÆø&nbsp;</label></td>
+<td align="right">&nbsp;&nbsp;<label id="csid5"><input onclick="xuan(5)" name="csid[]" type="checkbox" value="xhits">&nbsp;ä¸‹è½½äººæ°”&nbsp;</label></td>
 <td><input class="dfinput" style="width:120px;height:20px;line-height:20px;" name='xhits' id="csids5" type='text' value='0' disabled /></td>
 </tr>-->
 <!--<tr height="30">
-<td align="right">&nbsp;&nbsp;<label id="csid6"><input onclick="xuan(6)" name="csid[]" type="checkbox" value="shits">&nbsp;ÊÕ²ØÈËÆø&nbsp;</label></td>
+<td align="right">&nbsp;&nbsp;<label id="csid6"><input onclick="xuan(6)" name="csid[]" type="checkbox" value="shits">&nbsp;æ”¶è—äººæ°”&nbsp;</label></td>
 <td><input class="dfinput" style="width:120px;height:20px;line-height:20px;" name='shits' id="csids6" type='text' value='0' disabled /></td>
 </tr>-->
 <tr height="30">
-<td align="right">&nbsp;&nbsp;<label id="csid7"><input onclick="xuan(7)" name="csid[]" type="checkbox" value="user">&nbsp;ËùÊô»áÔ±&nbsp;</label></td>
+<td align="right">&nbsp;&nbsp;<label id="csid7"><input onclick="xuan(7)" name="csid[]" type="checkbox" value="user">&nbsp;æ‰€å±ä¼šå‘˜&nbsp;</label></td>
 <td><input class="dfinput" style="width:120px;height:20px;line-height:20px;" name='user' id="csids7" type='text' value='' disabled /></td>
 </tr>
 <tr height="30">
-<td align="right">&nbsp;&nbsp;<label id="csid14"><input onclick="xuan(14)" name="csid[]" type="checkbox" value="yid">&nbsp;Ğ¡ËµÉóºË&nbsp;</label></td>
-<td><input name='yid' type='radio' id='csids14' value='0' checked disabled>&nbsp;Í¨¹ı&nbsp;<input name='yid' type='radio' id='csidsc14' value='1' disabled>&nbsp;È¡Ïû&nbsp;&nbsp;</label></td>
+<td align="right">&nbsp;&nbsp;<label id="csid14"><input onclick="xuan(14)" name="csid[]" type="checkbox" value="yid">&nbsp;å°è¯´å®¡æ ¸&nbsp;</label></td>
+<td><input name='yid' type='radio' id='csids14' value='0' checked disabled>&nbsp;é€šè¿‡&nbsp;<input name='yid' type='radio' id='csidsc14' value='1' disabled>&nbsp;å–æ¶ˆ&nbsp;&nbsp;</label></td>
 </tr>
 </table>
 </td>
 <td align="center" width="50%"><table align="center">
 <tr height="30">
-<td align="right"><label id="csid11"><input onclick="xuan(11)" name="csid[]" type="checkbox" value="cion">&nbsp;ÔÄ¶Á½ğ±Ò&nbsp;</label></td>
+<td align="right"><label id="csid11"><input onclick="xuan(11)" name="csid[]" type="checkbox" value="cion">&nbsp;é˜…è¯»é‡‘å¸&nbsp;</label></td>
 <td><input class="dfinput" style="width:120px;height:20px;line-height:20px;" name='cion' id="csids11" type='text' value='1' disabled /></td>
 </tr>
 <tr height="30">
-<td align="right"><label id="csid10"><input onclick="xuan(10)" name="csid[]" type="checkbox" value="vip">&nbsp;»áÔ±È¨ÏŞ&nbsp;</label></td>
+<td align="right"><label id="csid10"><input onclick="xuan(10)" name="csid[]" type="checkbox" value="vip">&nbsp;ä¼šå‘˜æƒé™&nbsp;</label></td>
 <td><div class="vocation"><select name='vip' id="csids10" class="select2" disabled>
-<option value="0">»áÔ±×éÈ¨ÏŞ</option>
+<option value="0">ä¼šå‘˜ç»„æƒé™</option>
 <?php
 $query = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."userzu order by id asc"); 
 foreach ($query->result() as $row) {
@@ -135,11 +135,11 @@ echo '<option value="'.$row->id.'"'.$clas.'>'.$row->name.'</option>';
 </select></div></td>
 </tr>
 <tr height="30">
-<td align="right"><label id="csid13"><input onclick="xuan(13)" name="csid[]" type="checkbox" value="reco">&nbsp;ÍÆ¼öĞÇ¼Ê&nbsp;</label></td>
-<td><div class="vocation"><select name='reco' id="csids13" class="select2" disabled><option value='0'>¡î¡î¡î¡î¡î</option><option value='1'>¡ï¡î¡î¡î¡î</option><option value='2'>¡ï¡ï¡î¡î¡î</option><option value='3'>¡ï¡ï¡ï¡î¡î</option><option value='4'>¡ï¡ï¡ï¡ï¡î</option><option value='5'>¡ï¡ï¡ï¡ï¡ï</option></select></div></td>
+<td align="right"><label id="csid13"><input onclick="xuan(13)" name="csid[]" type="checkbox" value="reco">&nbsp;æ¨èæ˜Ÿé™…&nbsp;</label></td>
+<td><div class="vocation"><select name='reco' id="csids13" class="select2" disabled><option value='0'>â˜†â˜†â˜†â˜†â˜†</option><option value='1'>â˜…â˜†â˜†â˜†â˜†</option><option value='2'>â˜…â˜…â˜†â˜†â˜†</option><option value='3'>â˜…â˜…â˜…â˜†â˜†</option><option value='4'>â˜…â˜…â˜…â˜…â˜†</option><option value='5'>â˜…â˜…â˜…â˜…â˜…</option></select></div></td>
 </tr>
 <tr height="30">
-<td align="right"><label id="csid16"><input onclick="xuan(16)" name="csid[]" type="checkbox" value="cid">&nbsp;×ªÒÆ·ÖÀà&nbsp;</label></td>
+<td align="right"><label id="csid16"><input onclick="xuan(16)" name="csid[]" type="checkbox" value="cid">&nbsp;è½¬ç§»åˆ†ç±»&nbsp;</label></td>
 <td><div class="vocation"><select name='cid' id="csids16" class="select2" disabled>
 <?php
 echo $sstrss;
@@ -148,10 +148,10 @@ echo $sstrss;
 </td>
 </tr>
 <!--<tr height="30">
-<td align="right"><label id="csid17"><input onclick="xuan(17)" name="csid[]" type="checkbox" value="tid">&nbsp;ÅúÁ¿×¨Ìâ&nbsp;</label></td>
+<td align="right"><label id="csid17"><input onclick="xuan(17)" name="csid[]" type="checkbox" value="tid">&nbsp;æ‰¹é‡ä¸“é¢˜&nbsp;</label></td>
 <td><div class="vocation"><select name='tid' id="csids17" class="select2" disabled>
 <?php
-echo '<option value=0>È¡Ïû</option>';
+echo '<option value=0>å–æ¶ˆ</option>';
 $sqlstr="select id,name from ".MS_SqlPrefix."news_topic order by id desc";
 $result=$this->db->query($sqlstr);
 foreach ($result->result() as $row) {
@@ -162,16 +162,16 @@ echo '<option value='.$row->id.'>'.$row->name.'</option>';
 </td>
 </tr>-->
 <tr height="30">
-<td align="right"><label id="csid18"><input onclick="xuan(18)" name="csid[]" type="checkbox" value="hid">&nbsp;ÅúÁ¿É¾³ı&nbsp;</label></td>
-<td><div class="vocation"><select name='hid' id="csids18" class="select2" disabled><option value=1>ÒÆ½ø»ØÊÕÕ¾</option><option value=0>»¹Ô­»ØÊÕÕ¾</option><option value=2>Ö±½ÓÉ¾³ı</option></select></div>
+<td align="right"><label id="csid18"><input onclick="xuan(18)" name="csid[]" type="checkbox" value="hid">&nbsp;æ‰¹é‡åˆ é™¤&nbsp;</label></td>
+<td><div class="vocation"><select name='hid' id="csids18" class="select2" disabled><option value=1>ç§»è¿›å›æ”¶ç«™</option><option value=0>è¿˜åŸå›æ”¶ç«™</option><option value=2>ç›´æ¥åˆ é™¤</option></select></div>
 </td>
 </tr>
 </table>
 </td>
 </tr>
 <tr><td height="30" align="center" colspan=2>
-<input style="width:120px;" type="submit" name="ZTADD" value="ÅúÁ¿ĞŞ¸Ä" class="button">&nbsp;&nbsp;&nbsp;
-<input style="width:120px;" type="button" onclick="parent.tip_cokes();" name="qx" value="È¡ÏûĞŞ¸Ä" class="button">
+<input style="width:120px;" type="submit" name="ZTADD" value="æ‰¹é‡ä¿®æ”¹" class="button">&nbsp;&nbsp;&nbsp;
+<input style="width:120px;" type="button" onclick="parent.tip_cokes();" name="qx" value="å–æ¶ˆä¿®æ”¹" class="button">
 </td></tr>
 </table>
 </form>

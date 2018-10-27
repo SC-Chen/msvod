@@ -10,12 +10,12 @@ class MsdjAdmin extends CI_Model {
 	function __construct() {
 		parent::__construct();
 		$this->lang->load( 'admin_msvod' );
-		//ÅĞ¶ÏÊÇ·ñ´ÓÕıÈ·µÄÈë¿Ú½øÀ´µÄ
+		//åˆ¤æ–­æ˜¯å¦ä»æ­£ç¡®çš„å…¥å£è¿›æ¥çš„
 		if ( !defined( 'IS_ADMIN' ) ) {
 			header( "location:" . $Web_Path );
 			exit;
 		} else {
-			//ÅĞ¶ÏºóÌ¨ÓòÃû
+			//åˆ¤æ–­åå°åŸŸå
 			if ( $_SERVER[ 'HTTP_HOST' ] != Web_Url ) {
 				header( "location:http://" . Web_Url . Web_Path . SELF );
 				exit;
@@ -23,7 +23,7 @@ class MsdjAdmin extends CI_Model {
 		}
 	}
 
-	//¼ì²âºóÌ¨µÇÈë
+	//æ£€æµ‹åå°ç™»å…¥
 	function Admin_Login( $key = '' ) {
 		if ( empty( $key ) ) {
 			$id = isset( $_SESSION[ 'admin_id' ] ) ? intval( $_SESSION[ 'admin_id' ] ) : 0;
@@ -43,10 +43,10 @@ class MsdjAdmin extends CI_Model {
 
 		if ( empty( $id ) || empty( $name ) || empty( $pass ) ) {
 			$login = FALSE;
-			//ÅĞ¶Ï¼Ç×¡µÇÂ¼COOKIE
+			//åˆ¤æ–­è®°ä½ç™»å½•COOKIE
 			if ( $admin_id > 0 && !empty( $admin_login ) ) {
 
-				//ÅĞ¶Ï·Ç·¨COOKIE
+				//åˆ¤æ–­éæ³•COOKIE
 				if ( !preg_match( '/^[0-9a-zA-Z]*$/', $admin_login ) ) {
 					$adminlogin = '';
 				}
@@ -68,22 +68,22 @@ class MsdjAdmin extends CI_Model {
 		} else {
 			$admin = $this->db->query( "SELECT * FROM " . MS_SqlPrefix . "admin where id=" . $id . "" )->row();
 			if ( $admin ) {
-				//ÃÜÂë²»¶Ô
+				//å¯†ç ä¸å¯¹
 				if ( md5( $admin->adminpass ) != $pass || $admin->adminname != $name ) {
 					die( "<script>" . $type . ".location='" . site_url( 'login/logout' ) . "';</script>" );
 				}
-				//IP²»¶Ô
+				//IPä¸å¯¹
 				//if(getip()!=$admin->logip){
 				//die("<script>".$type.".location='".site_url('login/logout')."';</script>");
 				//}
-				//ÅĞ¶ÏÈ¨ÏŞ
+				//åˆ¤æ–­æƒé™
 				if ( $admin->sid > 1 ) {
 					$zu = $this->db->query( "SELECT sys,app FROM " . MS_SqlPrefix . "adminzu where id=" . $admin->sid . "" )->row();
 					if ( !defined( 'PLUBPATH' ) ) {
-						$quanxian = $zu->sys; //ÏµÍ³Ä¬ÈÏÈ¨ÏŞ
+						$quanxian = $zu->sys; //ç³»ç»Ÿé»˜è®¤æƒé™
 					} else {
 						$apparr = unarraystring( $zu->app );
-						$quanxian = ( !empty( $apparr[ PLUBPATH ] ) ) ? $apparr[ PLUBPATH ] : ''; //°å¿éÈ¨ÏŞ
+						$quanxian = ( !empty( $apparr[ PLUBPATH ] ) ) ? $apparr[ PLUBPATH ] : ''; //æ¿å—æƒé™
 					}
 					$arr = @parse_url( REQUEST_URI );
 					$re_url = str_replace( "/" . SELF . "/", "", $arr[ 'path' ] );
@@ -107,7 +107,7 @@ class MsdjAdmin extends CI_Model {
 		}
 	}
 
-	//°²×°°æ¿é
+	//å®‰è£…ç‰ˆå—
 	function plub_install( $dir, $name ) {
 		$msg = L( 'plub_msg_00' );
 		if ( is_dir( FCPATH . 'plugins/' . $dir ) ) {
@@ -115,11 +115,11 @@ class MsdjAdmin extends CI_Model {
 			if ( is_file( $api_file ) ) {
 				$model = require $api_file;
 				if ( $model[ 'mid' ] ) {
-					//»ñÈ¡Êı¾İ±íÎÄ¼ş
+					//è·å–æ•°æ®è¡¨æ–‡ä»¶
 					$sql_file = FCPATH . 'plugins/' . $dir . '/config/install.php';
 					if ( is_file( $api_file ) ) {
 						$install = require $sql_file;
-						//Êı¾İ±í°²×°
+						//æ•°æ®è¡¨å®‰è£…
 						if ( is_array( $install ) ) {
 							foreach ( $install as $sql ) {
 								$this->MsdjDB->get_table( str_replace( '{prefix}', MS_SqlPrefix, $sql ) );
@@ -128,9 +128,9 @@ class MsdjAdmin extends CI_Model {
 							$this->MsdjDB->get_table( str_replace( '{prefix}', MS_SqlPrefix, $install ) );
 						}
 					}
-					// ¸üĞÂÕ¾µãµ½°æ¿é±í,Ê×ÏÈÅĞ¶ÏÊÇ·ñ°²×°
+					// æ›´æ–°ç«™ç‚¹åˆ°ç‰ˆå—è¡¨,é¦–å…ˆåˆ¤æ–­æ˜¯å¦å®‰è£…
 					$row = $this->db->get_where(MS_SqlPrefix. "plugins", array("dir"=>$dir) )->row();
-					if ( !$row ) { //²»´æÔÚ¡£Ôò°²×°½ø¿â
+					if ( !$row ) { //ä¸å­˜åœ¨ã€‚åˆ™å®‰è£…è¿›åº“
 						$add[ 'name' ] = $model[ 'name' ];
 						$add[ 'author' ] = $model[ 'author' ];
 						$add[ 'version' ] = $model[ 'version' ];

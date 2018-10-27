@@ -5,9 +5,9 @@ require_once("http.php");
 define('Qiniu_RSF_EOF', 'EOF');
 
 /**
- * 1. Ê×´ÎÇëÇó marker = ""
- * 2. ÎŞÂÛ err ÖµÈçºÎ£¬¾ùÓ¦¸ÃÏÈ¿´ items ÊÇ·ñÓĞÄÚÈİ
- * 3. Èç¹ûºóĞøÃ»ÓĞ¸ü¶àÊı¾İ£¬err ·µ»Ø EOF£¬markerOut ·µ»Ø ""£¨µ«²»Í¨¹ı¸ÃÌØÕ÷À´ÅĞ¶ÏÊÇ·ñ½áÊø£©
+ * 1. é¦–æ¬¡è¯·æ±‚ marker = ""
+ * 2. æ— è®º err å€¼å¦‚ä½•ï¼Œå‡åº”è¯¥å…ˆçœ‹ items æ˜¯å¦æœ‰å†…å®¹
+ * 3. å¦‚æœåç»­æ²¡æœ‰æ›´å¤šæ•°æ®ï¼Œerr è¿”å› EOFï¼ŒmarkerOut è¿”å› ""ï¼ˆä½†ä¸é€šè¿‡è¯¥ç‰¹å¾æ¥åˆ¤æ–­æ˜¯å¦ç»“æŸï¼‰
  */
 function Qiniu_RSF_ListPrefix(
 	$self, $bucket, $prefix = '', $marker = '', $limit = 0) // => ($items, $markerOut, $err)

@@ -21,7 +21,7 @@ function add(optionStr,n){
 var znum=$('#m_playarea').find("li").length;
 var i=znum+1;
 var optionStr=unescape(optionStr);
-var area="<li id='playfb"+i+"' style='float:left;margin-bottom:7px;'><label>²¥·ÅµØÖ·"+i+"</label><div class='vocation'><select class='select4' id='m_playfrom"+i+"' name='playform[]'>"+optionStr+"</select></div><div style='margin-top:5px;'>&nbsp;&nbsp;&nbsp;<input type='button' value='¸ñÊ½Ğ£Õı' title='Ğ£ÕıÏÂ·½ÎÄ±¾¿òÖĞµÄÊı¾İ¸ñÊ½' onclick='repairUrl("+i+",0)' class='button'/>&nbsp;<input type='button' value='µØÖ·²É¼¯' title='Ö±½Ó´ÓÊÓÆµÕ¾µØÖ·ÀïÌáÈ¡µØÖ·' onclick='getvideoUrl("+i+",0)' class='button'/> <input type='button' name='Submit' value='ÊÓÆµÉÏ´«' class='button' onClick=\"Uploadup('video','m_playurl',"+i+");\">µØÖ·¸ñÊ½£º<font color='red'>¼¯Êı$µØÖ·$À´Ô´</font>(¶à¼¯·ÖĞĞ)</font>&nbsp;&nbsp;<img onclick=\"$('#m_playarea li:eq("+$(this).index()+")').remove();\" src='"+parent.web_path+"packs/admin/images/btn_dec.gif' style='cursor:pointer' title='É¾³ı²¥·ÅÀ´Ô´"+i+"' align='absmiddle'/></div><div style='float:left;margin-left:85px;margin-top:5px;'><textarea class='textinput' cols='120' rows='8' name='purl[]'  id='m_playurl"+i+"'></textarea></div>";
+var area="<li id='playfb"+i+"' style='float:left;margin-bottom:7px;'><label>æ’­æ”¾åœ°å€"+i+"</label><div class='vocation'><select class='select4' id='m_playfrom"+i+"' name='playform[]'>"+optionStr+"</select></div><div style='margin-top:5px;'>&nbsp;&nbsp;&nbsp;<input type='button' value='æ ¼å¼æ ¡æ­£' title='æ ¡æ­£ä¸‹æ–¹æ–‡æœ¬æ¡†ä¸­çš„æ•°æ®æ ¼å¼' onclick='repairUrl("+i+",0)' class='button'/>&nbsp;<input type='button' value='åœ°å€é‡‡é›†' title='ç›´æ¥ä»è§†é¢‘ç«™åœ°å€é‡Œæå–åœ°å€' onclick='getvideoUrl("+i+",0)' class='button'/> <input type='button' name='Submit' value='è§†é¢‘ä¸Šä¼ ' class='button' onClick=\"Uploadup('video','m_playurl',"+i+");\">åœ°å€æ ¼å¼ï¼š<font color='red'>é›†æ•°$åœ°å€$æ¥æº</font>(å¤šé›†åˆ†è¡Œ)</font>&nbsp;&nbsp;<img onclick=\"$('#m_playarea li:eq("+$(this).index()+")').remove();\" src='"+parent.web_path+"packs/admin/images/btn_dec.gif' style='cursor:pointer' title='åˆ é™¤æ’­æ”¾æ¥æº"+i+"' align='absmiddle'/></div><div style='float:left;margin-left:85px;margin-top:5px;'><textarea class='textinput' cols='120' rows='8' name='purl[]'  id='m_playurl"+i+"'></textarea></div>";
 $('#m_playarea').append(area);
 $(".select4").uedSelect({
 width : 200			  
@@ -31,7 +31,7 @@ function add2(optionStr,n){
 var znum=$('#m_downarea').find("li").length;
 var i=znum+1;
 var optionStr=unescape(optionStr);
-var area="<li id='playfb2"+i+"' style='float:left;margin-bottom:7px;'><label>ÏÂÔØµØÖ·"+i+"</label><div class='vocation'><select class='select4' id='m_downfrom"+i+"' name='downform[]'>"+optionStr+"</select></div><div style='margin-top:5px;'>&nbsp;&nbsp;&nbsp;<input type='button' value='¸ñÊ½Ğ£Õı' title='Ğ£ÕıÏÂ·½ÎÄ±¾¿òÖĞµÄÊı¾İ¸ñÊ½' onclick='repairUrl("+i+",2)' class='button'/>&nbsp;<input type='button' value='µØÖ·²É¼¯' title='Ö±½Ó´ÓÊÓÆµÕ¾µØÖ·ÀïÌáÈ¡µØÖ·' onclick='getvideoUrl("+i+",2)' class='button'/> <input type='button' name='Submit' value='ÊÓÆµÉÏ´«' class='button' onClick=\"Uploadup('video','m_downurl',"+i+");\">µØÖ·¸ñÊ½£º<font color='#0000ff'>¼¯Êı$µØÖ·$À´Ô´</font>(¶à¼¯·ÖĞĞ)</font>&nbsp;&nbsp;<img onclick=\"$('#m_downarea li:eq("+$(this).index()+")').remove();\" src='"+parent.web_path+"packs/admin/images/btn_dec.gif' style='cursor:pointer' title='É¾³ı²¥·ÅÀ´Ô´"+i+"' align='absmiddle'/></div><div style='float:left;margin-left:85px;margin-top:5px;'><textarea class='textinput' cols='120' rows='8' name='durl[]'  id='m_downurl"+i+"'></textarea></div>";
+var area="<li id='playfb2"+i+"' style='float:left;margin-bottom:7px;'><label>ä¸‹è½½åœ°å€"+i+"</label><div class='vocation'><select class='select4' id='m_downfrom"+i+"' name='downform[]'>"+optionStr+"</select></div><div style='margin-top:5px;'>&nbsp;&nbsp;&nbsp;<input type='button' value='æ ¼å¼æ ¡æ­£' title='æ ¡æ­£ä¸‹æ–¹æ–‡æœ¬æ¡†ä¸­çš„æ•°æ®æ ¼å¼' onclick='repairUrl("+i+",2)' class='button'/>&nbsp;<input type='button' value='åœ°å€é‡‡é›†' title='ç›´æ¥ä»è§†é¢‘ç«™åœ°å€é‡Œæå–åœ°å€' onclick='getvideoUrl("+i+",2)' class='button'/> <input type='button' name='Submit' value='è§†é¢‘ä¸Šä¼ ' class='button' onClick=\"Uploadup('video','m_downurl',"+i+");\">åœ°å€æ ¼å¼ï¼š<font color='#0000ff'>é›†æ•°$åœ°å€$æ¥æº</font>(å¤šé›†åˆ†è¡Œ)</font>&nbsp;&nbsp;<img onclick=\"$('#m_downarea li:eq("+$(this).index()+")').remove();\" src='"+parent.web_path+"packs/admin/images/btn_dec.gif' style='cursor:pointer' title='åˆ é™¤æ’­æ”¾æ¥æº"+i+"' align='absmiddle'/></div><div style='float:left;margin-left:85px;margin-top:5px;'><textarea class='textinput' cols='120' rows='8' name='durl[]'  id='m_downurl"+i+"'></textarea></div>";
 $('#m_downarea').append(area);
 $(".select4").uedSelect({
 width : 200			  
@@ -45,7 +45,7 @@ var urlStr=$("#m_downurl"+i).val();
 var fromText=$("#m_playfrom"+i).val();
 var urlStr=$("#m_playurl"+i).val();
 }
-if (urlStr.length==0){alert('ÇëÌîĞ´µØÖ·');return false;}
+if (urlStr.length==0){alert('è¯·å¡«å†™åœ°å€');return false;}
 var urlArray=urlStr.split("\n");
 var newStr="";
 for(j=0;j<urlArray.length;j++){
@@ -53,7 +53,7 @@ if(urlArray[j].length>0){
 t=urlArray[j].split('$'),flagCount=t.length-1
 switch(flagCount){
 case 0:
-urlArray[j]='µÚ'+(j<9 ? '0' : '')+(j+1)+'¼¯$'+urlArray[j]+'$'+fromText
+urlArray[j]='ç¬¬'+(j<9 ? '0' : '')+(j+1)+'é›†$'+urlArray[j]+'$'+fromText
 break;
 case 1:
 urlArray[j]=urlArray[j]+'$'+fromText
@@ -81,10 +81,10 @@ $("#m_playurl"+i).val(trimOuterStr(newStr,"\n"));
 }
 }
 function getvideoUrl(id,sid){
-Popsboxif('µØÖ·²É¼¯',480,176,parent.web_path+parent.web_self+'/video/admin/video/caiji?id='+id+'&sid='+sid);
+Popsboxif('åœ°å€é‡‡é›†',480,176,parent.web_path+parent.web_self+'/video/admin/video/caiji?id='+id+'&sid='+sid);
 }
 function Uploadup(dir,types,ids){
-Popsboxif('ÉÏ´«ÊÓÆµ',550,450,parent.web_path+parent.web_self+'/upload/up?dir='+dir+'&fhid='+types+'&fid='+ids+'&sid=1&type=*&nums=10');
+Popsboxif('ä¸Šä¼ è§†é¢‘',550,450,parent.web_path+parent.web_self+'/upload/up?dir='+dir+'&fhid='+types+'&fid='+ids+'&sid=1&type=*&nums=10');
 }
 function trimOuterStr(str,outerstr){
 var len1

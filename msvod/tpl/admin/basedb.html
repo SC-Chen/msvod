@@ -40,7 +40,7 @@
         <tbody>
 <?php
 foreach ($tables as $row) {
-        $bname=empty($row->Comment)?'':' £¨'.$row->Comment.'£©';
+        $bname=empty($row->Comment)?'':' ï¼ˆ'.$row->Comment.'ï¼‰';
         echo '
         <tr height="30">
         <td><input name="id[]" type="checkbox" value="'.$row->Name.'" /></td>
@@ -63,7 +63,7 @@ foreach ($tables as $row) {
             <li class="click" onclick="cmd(2);"><span></span><?=L('tpl_17')?></li>
        </ul>
         <ul class="toolbar1">
-            <li style="border:0"><?=L('tpl_18')?>£º<input name="size" type="text" id="size" class="dfinput" value="1024" style="width:55px;"/>&nbsp;KB</li>
+            <li style="border:0"><?=L('tpl_18')?>ï¼š<input name="size" type="text" id="size" class="dfinput" value="1024" style="width:55px;"/>&nbsp;KB</li>
             <li class="click" onclick="cmd(3);"><span></span><font color=#0000ff><?=L('tpl_19')?></font></li>
        </ul>
     </div>

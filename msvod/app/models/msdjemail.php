@@ -26,7 +26,7 @@ class MsdjEmail extends CI_Model
            $this->load->library('email', $config);
     }
 
-    //发送EMAIL
+    //鍙戦�丒MAIL
     function send($tomail,$title,$neir) {
 		   if(MS_Smtpmode==0) return FALSE;
            $this->email->from(MS_Smtpmail, MS_Smtpname);
@@ -34,7 +34,7 @@ class MsdjEmail extends CI_Model
            $this->email->subject($title);
            $this->email->message($neir); 
 		   if ( ! $this->email->send()){
-                //echo $this->email->print_debugger();  //返回信息
+                //echo $this->email->print_debugger();  //杩斿洖淇℃伅
                 return FALSE;
 		   }else{
                 return TRUE;

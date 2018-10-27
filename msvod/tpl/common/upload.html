@@ -69,7 +69,7 @@ function att_show(serverData,file)
 	    }
 	    parent.layer.closeAll();
 	}else{
-	    if(msg=='no') msg='ÉÏ´«Ê§°Ü';
+	    if(msg=='no') msg='ä¸Šä¼ å¤±è´¥';
 	    alert(msg);
 		location.reload();
 	}
@@ -91,7 +91,7 @@ function att_show(serverData,file)
 					<input type="button" id="btupload" value="<?=L('up_tpl_03')?>" onClick="swfu.startUpload();" />
 					<div id="nameTip" class="onShow"><?=L('up_tpl_04')?> <font color=red><?=$nums?></font> <?=L('up_tpl_05')?> <font color=red><?=($size/1024)?></font> MB</div>
 					<div class="bk3"></div>
-					<div class="lh24"><?=L('up_tpl_06').str_replace(array(';', '*.'), array('¡¢', ''), $types)?></div>
+					<div class="lh24"><?=L('up_tpl_06').str_replace(array(';', '*.'), array('ã€', ''), $types)?></div>
 				</div> 	
 				<div class="bk10"></div>
 				<fieldset class="blue pad-10" id="swfupload">

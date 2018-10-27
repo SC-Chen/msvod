@@ -1,4 +1,4 @@
 <?php
-define('MS_Upy_Name',''); //ÓÖÅÄÔÆÊÚÈ¨ÕËºÅ  
-define('MS_Upy_Pwd',''); //ÓÖÅÄÔÆÊÚÈ¨ÃÜÂë   
-define('MS_Upy_Bucket',''); //ÓÖÅÄÔÆ¿Õ¼äÃû 
+define('MS_Upy_Name',''); //åˆæ‹äº‘æŽˆæƒè´¦å·  
+define('MS_Upy_Pwd',''); //åˆæ‹äº‘æŽˆæƒå¯†ç    
+define('MS_Upy_Bucket',''); //åˆæ‹äº‘ç©ºé—´å 

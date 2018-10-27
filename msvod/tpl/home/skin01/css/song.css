@@ -19,7 +19,7 @@ img{border:0; vertical-align:bottom;}
 .s_content .song_list li .tips_gray{ padding-left:10px; width:130px; white-space:nowrap; overflow:hidden;text-overflow:ellipsis;}
 .s_content .song_list li .tips_gray a:link,.s_content .song_list li .tips_gray a:visited{ color:#999;}
 
-/* 分页 */
+/* 鍒嗛〉 */
 .page{ margin:30px auto 0; text-align:center;}
 .page_list{ height:40px; line-height:26px;}
 .page_list a{ display:inline-block; border:1px solid #ddd; padding:0 10px; margin:0 2px; font-size:14px; border-radius:4px;box-shadow:0 1px 0 #fff inset;}
@@ -94,7 +94,7 @@ img{border:0; vertical-align:bottom;}
 .dj_detail_lists,.dj_detail_info,.more_content{margin:30px 0; overflow:hidden;}
 
 
-/* 标题 */
+/* 鏍囬 */
 .dj_title{ border-bottom:#f3f3f3 solid 1px; line-height:34px; zoom:1;}
 .dj_title a.list_coll:link,.dj_title a.list_coll:visited,
 .dj_title a.song_coll:link,.dj_title a.song_coll:visited{ font-weight:normal; border:#fff solid 1px; padding:0 20px; height:33px; line-height:33px; color:#666;}
@@ -116,7 +116,7 @@ img{border:0; vertical-align:bottom;}
 .dj_tool a.more:link,.dj_tool a.more:visited{ background:url(../images/dj_icon.png) -140px -27px no-repeat; color:#fff; height:20px; line-height:20px; padding:0 6px 0 30px; margin:15px 0 0 20px; display:inline;}
 .dj_tool a.more:hover{text-decoration:none;}
 
-/* 歌单 */
+/* 姝屽崟 */
 .dj_lists ul.l_items{ width:1008px;}
 .dj_lists ul li.w_25{margin:40px 0 10px 0;}
 .dj_lists ul li .s_page{ width:194px; border:#d6dde3 solid 5px; position:relative;}
@@ -188,13 +188,13 @@ dl.dj_infos dd .tag_box label.no_tags{background:#fff; color:#666;}
 dl.dj_infos dd p{line-height:24px; color:#999;}
 dl.dj_infos dd p a:link,dl.dj_infos dd p a:visited{ color:#59a809;}
 
-/* if 列表为空 */
+/* if 鍒楄〃涓虹┖ */
 .dj_mian .song_null{ height:190px;}
 .dj_mian .song_null i{width:135px; height:133px; background:url(../images/null_song.png) no-repeat; display:block; margin:10px auto;}
 .dj_mian .song_null p{ color:#666; margin-bottom:5px;}
 .dj_mian .song_null p a:link,.dj_mian .song_null p a:visited{ color:#59a809;}
 
-/* 歌单 详细列表 */
+/* 姝屽崟 璇︾粏鍒楄〃 */
 .dj_detail_lists .dj_songlists ul.c_wap{ border-left:#f3f3f3 solid 1px; margin:0 0 0 -1px;}
 .dj_detail_lists ul.c_wap li{ border-bottom:#f3f3f3 solid 1px; height:26px; line-height:26px; padding:13px 0;}
 .dj_detail_lists ul.c_wap li:hover{ background:#fafafa;}

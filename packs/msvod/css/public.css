@@ -1,7 +1,7 @@
 @charset "gbk";
 /*(C) 2012-2013 Douco Inc.*/
 
-/* È«¾ÖÍ¨ÓÃ
+/* å…¨å±€é€šç”¨
 ----------------------------------------------- */
 body {
 background-color: #fff;
@@ -104,7 +104,7 @@ font-weight: bold;
 #vcode {
 cursor: pointer;
 }
-/* Ö÷Ìå¿ò¼Ü
+/* ä¸»ä½“æ¡†æ¶
 ----------------------------------------------- */
 #dcWrap {
 width: 100%;
@@ -304,7 +304,7 @@ border-radius: 10px;
 display: block;
 padding: 0 6px;
 }
-/* ¹«¹²¶¥²¿
+/* å…¬å…±é¡¶éƒ¨
 ----------------------------------------------- */
 #head .logo {
 border-right: 1px solid #515151;
@@ -356,7 +356,7 @@ border-left: 0;
 #head .nav .noRight {
 border-right: 0;
 }
-/*- ÏÂÀ­²Ëµ¥ -*/
+/*- ä¸‹æ‹‰èœå• -*/
 #head .nav .M {
 position: relative;
 }
@@ -416,7 +416,7 @@ color: #0072C6;
 background-color: #F9F9F9;
 color: #0072C6;
 }
-/* ¹«¹²¹ÜÀí²Ëµ¥
+/* å…¬å…±ç®¡ç†èœå•
 ----------------------------------------------- */
 #menu {
 margin-right: -1px;
@@ -547,7 +547,7 @@ background-position: 13px -919px;
 #menu li i.download {
 background-position: 13px -959px;
 }
-/* µ±Ç°Î»ÖÃ
+/* å½“å‰ä½ç½®
 ----------------------------------------------- */
 #urHere {
 background-color:#F5F5F5;
@@ -563,7 +563,7 @@ color: #A0A0A0;
 #urHere b {
 margin: 0 13px;
 }
-/* ¹«¹²Ö÷ÇøÓò
+/* å…¬å…±ä¸»åŒºåŸŸ
 ----------------------------------------------- */
 .mainBox {
 border-left: 1px solid #FFF;
@@ -610,7 +610,7 @@ background: #FFFBCC;
 padding: 10px;
 margin-bottom: 20px;
 }
-/* ¹«¹²ÑùÊ½
+/* å…¬å…±æ ·å¼
 ----------------------------------------------- */
 #maskBox {
 position: relative;
@@ -661,7 +661,7 @@ line-height: 30px;
 color: #FFF;
 font-weight: bold;
 }
-/* Ê×Ò³
+/* é¦–é¡µ
 ----------------------------------------------- */
 #index .indexBox {
 margin-bottom: 20px;
@@ -720,7 +720,7 @@ color:#60BBFF;
 #index .help .text {
 line-height: 200%;
 }
-/* µ¥Ò³Ãæ
+/* å•é¡µé¢
 ----------------------------------------------- */
 .page dl {
 border: 1px dotted #CCC;
@@ -757,7 +757,7 @@ color: #CCC;
 .page dd a {
 color: #999;
 }
-/* Ê×Ò³ÉÌÆ·É¸Ñ¡
+/* é¦–é¡µå•†å“ç­›é€‰
 ----------------------------------------------- */
 .homeSortLeft {
 margin-right: 70px;
@@ -801,7 +801,7 @@ font-family: Arial, Verdana, sans-serif;
 text-align: right;
 color: #666;
 }
-/* Í¼Æ¬Ä£¿é¹ÜÀí
+/* å›¾ç‰‡æ¨¡å—ç®¡ç†
 ----------------------------------------------- */
 .imgModule form {
 padding:0 7px;
@@ -820,7 +820,7 @@ background-color:#FFF;
 .imgModule .formEdit .btn {
 float:right;
 }
-/* ¶©µ¥ÖĞĞÄ
+/* è®¢å•ä¸­å¿ƒ
 ----------------------------------------------- */
 #order .tracking .trackingNo {
 float:left;
@@ -856,7 +856,7 @@ margin-top:5px;
 #order .trackingSubmit .edit {
 display:none;
 }
-/* ÍøÕ¾¹ÜÀíÔ±
+/* ç½‘ç«™ç®¡ç†å‘˜
 ----------------------------------------------- */
 #manager .cloudAccount {
 background: url(../images/icon_cloud_account.png) no-repeat center top;
@@ -879,7 +879,7 @@ font-size:18px;
 margin-right:20px;
 color:#60BBFF;
 }
-/* ÁôÑÔ°å
+/* ç•™è¨€æ¿
 ----------------------------------------------- */
 #guestBook .book {
 border: 1px dotted #CCCCCC;
@@ -909,7 +909,7 @@ margin-top: 30px;
 #guestBook .replySubmit {
 margin-top: 30px;
 }
-/* ÔÆÖĞĞÄ
+/* äº‘ä¸­å¿ƒ
 ----------------------------------------------- */
 #cloud .filter a {
 margin-right:20px;
@@ -1021,7 +1021,7 @@ padding:10px 0 30px 0;
 #douFrame .selectBox a {
 margin:0 25px;
 }
-/* Ä£¿éÀ©Õ¹
+/* æ¨¡å—æ‰©å±•
 ----------------------------------------------- */
 #module .install {
 margin-top:150px;
@@ -1070,7 +1070,7 @@ margin-bottom:3px;
 }
 #module .uninstall .list ul li a {
 }
-/* Ä£°åÀ©Õ¹
+/* æ¨¡æ¿æ‰©å±•
 ----------------------------------------------- */
 #theme .enable {
 border-bottom: 1px solid #DDD;
@@ -1157,7 +1157,7 @@ margin-right:10px;
 float:right;
 color:#999;
 }
-/* ÊÖ»ú°æ
+/* æ‰‹æœºç‰ˆ
 ----------------------------------------------- */
 #mobileBox {
 background-color:#F5F5F5;
@@ -1193,7 +1193,7 @@ font-weight:bold;
 background-color:#FFF;
 margin-right:-1px;
 }
-/* ÓÃ»§µÇÂ¼
+/* ç”¨æˆ·ç™»å½•
 ----------------------------------------------- */
 #login {
 margin: 0px auto;
@@ -1266,7 +1266,7 @@ width: 100px;
 #login .reset .inpLi .inpLogin {
 width: 250px;
 }
-/* ·ÖÒ³
+/* åˆ†é¡µ
 ----------------------------------------------- */
 .pager {
 text-align: right;
@@ -1277,7 +1277,7 @@ color: #666;
 color: #666;
 text-decoration: underline;
 }
-/* ĞÅÏ¢ÌáÊ¾
+/* ä¿¡æ¯æç¤º
 ----------------------------------------------- */
 /*- douMsg -*/
 #douMsg {
@@ -1329,7 +1329,7 @@ background: url(../images/icon_back.gif) no-repeat left top;
 padding-left: 25px;
 font-size: 14px;
 }
-/* ¹«¹²µ×²¿
+/* å…¬å…±åº•éƒ¨
 ----------------------------------------------- */
 #footer {
 margin-top: -1px;

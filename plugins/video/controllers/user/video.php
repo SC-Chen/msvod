@@ -16,124 +16,124 @@ $this->MsdjUser->User_Login();
 $this->load->helper('string');
 }
 
-//ÒÑÉóºË
+//å·²å®¡æ ¸
 public function index()
 {
-$cid=intval($this->uri->segment(4)); //·ÖÀàID
-$page=intval($this->uri->segment(5)); //·ÖÒ³
-//Ä£°å
+$cid=intval($this->uri->segment(4)); //åˆ†ç±»ID
+$page=intval($this->uri->segment(5)); //åˆ†é¡µ
+//æ¨¡æ¿
 $tpl='video.html';
-//URLµØÖ·
+//URLåœ°å€
 $url='video/index/'.$cid;
 $sqlstr = "select {field} from ".MS_SqlPrefix."video where yid=0 and uid=".$_SESSION['msvod__id'];
 if($cid>0){
 $cids=getChild($cid);
 $sqlstr.= " and cid in(".$cids.")";
 }
-//µ±Ç°»áÔ±
+//å½“å‰ä¼šå‘˜
 $row=$this->MsdjDB->get_row_arr('user','*',$_SESSION['msvod__id']);
 if(empty($row['nichen'])) $row['nichen']=$row['name'];
-//×°ÔØÄ£°å
-$title='ÎÒµÄÊÓÆµ - »áÔ±ÖĞĞÄ';
+//è£…è½½æ¨¡æ¿
+$title='æˆ‘çš„è§†é¢‘ - ä¼šå‘˜ä¸­å¿ƒ';
 $ids['uid']=$_SESSION['msvod__id'];
 $ids['uida']=$_SESSION['msvod__id'];
 $Mark_Text=$this->MsdjTpl->user_list($row,$url,$page,$tpl,$title,$cid,$sqlstr,$ids,true,false);
 $Mark_Text=str_replace("[video:cid]",$cid,$Mark_Text);
-//»áÔ±°æ¿éµ¼º½
+//ä¼šå‘˜ç‰ˆå—å¯¼èˆª
 $Mark_Text=$this->skins->msvodumenu($Mark_Text,$_SESSION['msvod__id']);
 $Mark_Text=$this->skins->labelif($Mark_Text);
 echo $Mark_Text;
 }
 
-//´ıÉóºË
+//å¾…å®¡æ ¸
 public function verify()
 {
-$cid=intval($this->uri->segment(4)); //·ÖÀàID
-$page=intval($this->uri->segment(5)); //·ÖÒ³
-//Ä£°å
+$cid=intval($this->uri->segment(4)); //åˆ†ç±»ID
+$page=intval($this->uri->segment(5)); //åˆ†é¡µ
+//æ¨¡æ¿
 $tpl='verify.html';
-//URLµØÖ·
+//URLåœ°å€
 $url='video/verify/'.$cid;
 $sqlstr = "select {field} from ".MS_SqlPrefix."video where yid=1 and uid=".$_SESSION['msvod__id'];
 if($cid>0){
 $cids=getChild($cid);
 $sqlstr.= " and cid in(".$cids.")";
 }
-//µ±Ç°»áÔ±
+//å½“å‰ä¼šå‘˜
 $row=$this->MsdjDB->get_row_arr('user','*',$_SESSION['msvod__id']);
 if(empty($row['nichen'])) $row['nichen']=$row['name'];
-//×°ÔØÄ£°å
-$title='´ıÉóÊÓÆµ - »áÔ±ÖĞĞÄ';
+//è£…è½½æ¨¡æ¿
+$title='å¾…å®¡è§†é¢‘ - ä¼šå‘˜ä¸­å¿ƒ';
 $ids['uid']=$_SESSION['msvod__id'];
 $ids['uida']=$_SESSION['msvod__id'];
 $Mark_Text=$this->MsdjTpl->user_list($row,$url,$page,$tpl,$title,$cid,$sqlstr,$ids,true,false);
 $Mark_Text=str_replace("[video:cid]",$cid,$Mark_Text);
-//»áÔ±°æ¿éµ¼º½
+//ä¼šå‘˜ç‰ˆå—å¯¼èˆª
 $Mark_Text=$this->skins->msvodumenu($Mark_Text,$_SESSION['msvod__id']);
 $Mark_Text=$this->skins->labelif($Mark_Text);
 echo $Mark_Text;
 }
 
-//ÉÏ´«ÊÓÆµ
+//ä¸Šä¼ è§†é¢‘
 public function add()
 {
-//Ä£°å
+//æ¨¡æ¿
 $tpl='add.html';
-//URLµØÖ·
+//URLåœ°å€
 $url='video/add';
-//µ±Ç°»áÔ±
+//å½“å‰ä¼šå‘˜
 $row=$this->MsdjDB->get_row_arr('user','*',$_SESSION['msvod__id']);
 if(empty($row['nichen'])) $row['nichen']=$row['name'];
 
-//¼ì²â·¢±íÈ¨ÏŞ
+//æ£€æµ‹å‘è¡¨æƒé™
 $rowz=$this->MsdjDB->get_row('userzu','aid,sid',$row['zid']);
 if(!$rowz || $rowz->aid==0){
-msg_url('ÄúËùÔÚ»áÔ±×éÃ»ÓĞÈ¨ÏŞ·¢±íÊÓÆµ~!','javascript:history.back();');
+msg_url('æ‚¨æ‰€åœ¨ä¼šå‘˜ç»„æ²¡æœ‰æƒé™å‘è¡¨è§†é¢‘~!','javascript:history.back();');
 }
 
-//×°ÔØÄ£°å
-$title='ÉÏ´«ÊÓÆµ - »áÔ±ÖĞĞÄ';
+//è£…è½½æ¨¡æ¿
+$title='ä¸Šä¼ è§†é¢‘ - ä¼šå‘˜ä¸­å¿ƒ';
 $ids['uid']=$_SESSION['msvod__id'];
 $ids['uida']=$_SESSION['msvod__id'];
 $Mark_Text=$this->MsdjTpl->user_list($row,$url,1,$tpl,$title,'','',$ids,true,false);
 //token
 $Mark_Text=str_replace("[user:token]",get_token('video_token'),$Mark_Text);
-//Ìá½»µØÖ·
+//æäº¤åœ°å€
 $Mark_Text=str_replace("[user:videosave]",spacelink('video,save','video'),$Mark_Text);
-//»áÔ±°æ¿éµ¼º½
+//ä¼šå‘˜ç‰ˆå—å¯¼èˆª
 $Mark_Text=$this->skins->msvodumenu($Mark_Text,$_SESSION['msvod__id']);
 $Mark_Text=$this->skins->labelif($Mark_Text);
 echo $Mark_Text;
 }
 
-//ÉÏ´«ÊÓÆµ±£´æ
+//ä¸Šä¼ è§†é¢‘ä¿å­˜
 public function save()
 {
 $token=$this->input->post('token', TRUE);
-if(!get_token('video_token',1,$token)) msg_url('·Ç·¨Ìá½»~!','javascript:history.back();');
+if(!get_token('video_token',1,$token)) msg_url('éæ³•æäº¤~!','javascript:history.back();');
 
-//¼ì²â·¢±íÈ¨ÏŞ
+//æ£€æµ‹å‘è¡¨æƒé™
 $zuid=getzd('user','zid',$_SESSION['msvod__id']);
 $rowu=$this->MsdjDB->get_row('userzu','aid,sid',$zuid);
 if(!$rowu || $rowu->aid==0){
-msg_url('ÄúËùÔÚ»áÔ±×éÃ»ÓĞÈ¨ÏŞ·¢±íÊÓÆµ~!','javascript:history.back();');
+msg_url('æ‚¨æ‰€åœ¨ä¼šå‘˜ç»„æ²¡æœ‰æƒé™å‘è¡¨è§†é¢‘~!','javascript:history.back();');
 }
-//¼ì²â·¢±íÊı¾İÊÇ·ñĞèÒªÉóºË
+//æ£€æµ‹å‘è¡¨æ•°æ®æ˜¯å¦éœ€è¦å®¡æ ¸
 $look['yid']=($rowu->sid==1)?0:1;
 
-//±ØÌî×Ö¶Î
+//å¿…å¡«å­—æ®µ
 $look['name']=str_encode($_POST['name']);
 $look['cid']=intval($this->input->post('cid'));
 $look['purl']=$this->input->post('purl', TRUE, TRUE);
 $look['durl']=$this->input->post('durl', TRUE, TRUE);
 
-//¼ì²â±ØĞë×Ö¶Î
-if($look['cid']==0) msg_url('ÇëÑ¡ÔñÊÓÆµ·ÖÀà~!','javascript:history.back();');
-if(empty($look['name'])) msg_url('ÊÓÆµÃû³Æ²»ÄÜÎª¿Õ~!','javascript:history.back();');
-if(empty($look['purl'])) msg_url('ÊÓÆµµØÖ·²»ÄÜÎª¿Õ~!','javascript:history.back();');
-if(empty($look['durl'])) msg_url('ÊÓÆµµØÖ·²»ÄÜÎª¿Õ~!','javascript:history.back();');
+//æ£€æµ‹å¿…é¡»å­—æ®µ
+if($look['cid']==0) msg_url('è¯·é€‰æ‹©è§†é¢‘åˆ†ç±»~!','javascript:history.back();');
+if(empty($look['name'])) msg_url('è§†é¢‘åç§°ä¸èƒ½ä¸ºç©º~!','javascript:history.back();');
+if(empty($look['purl'])) msg_url('è§†é¢‘åœ°å€ä¸èƒ½ä¸ºç©º~!','javascript:history.back();');
+if(empty($look['durl'])) msg_url('è§†é¢‘åœ°å€ä¸èƒ½ä¸ºç©º~!','javascript:history.back();');
 
-//Ñ¡Ìî×Ö¶Î
+//é€‰å¡«å­—æ®µ
 $look['tid']=intval($this->input->post('tid'));
 $look['cion']=intval($this->input->post('cion'));
 $look['dcion']=intval($this->input->post('dcion'));
@@ -150,14 +150,14 @@ $look['uid']=$_SESSION['msvod__id'];
 $look['addtime']=time();
 
 $singer=$this->input->post('singer', TRUE, TRUE);
-//ÅĞ¶ÏÑİÔ±ÊÇ·ñ´æÔÚ
+//åˆ¤æ–­æ¼”å‘˜æ˜¯å¦å­˜åœ¨
 if(!empty($singer)){
 $row=$this->MsdjDB->get_row('singer','id',$singer,'name');
 if($row){
 $look['singerid']=$row->id;
 }
 }
-//»ñÈ¡´óĞ¡¡¢ÒôÖÊ¡¢Ê±³¤
+//è·å–å¤§å°ã€éŸ³è´¨ã€æ—¶é•¿
 if(substr($look['purl'],0,7)!='http://' && UP_Mode==1){
 if(UP_Pan==''){
 $filename=FCPATH.$look['purl'];
@@ -170,35 +170,35 @@ $look['dx']=!empty($arr['Filesize'])?formatsize($arr['Filesize']):'';
 $look['yz']=!empty($arr['Bitrate'])?$arr['Bitrate'].' Kbps':'';
 $look['sc']=!empty($arr['Length mm:ss'])?$arr['Length mm:ss']:'';
 }
-//Ôö¼Óµ½Êı¾İ¿â
+//å¢åŠ åˆ°æ•°æ®åº“
 $did=$this->MsdjDB->get_insert('video',$look);
 if(intval($did)==0){
-msg_url('ÊÓÆµ·¢²¼Ê§°Ü£¬ÇëÉÔºòÔÙÊÔ~!','javascript:history.back();');
+msg_url('è§†é¢‘å‘å¸ƒå¤±è´¥ï¼Œè¯·ç¨å€™å†è¯•~!','javascript:history.back();');
 }
 
-//´İ»Ùtoken
+//æ‘§æ¯token
 get_token('video_token',2);
 
-//Ôö¼Ó¶¯Ì¬
+//å¢åŠ åŠ¨æ€
 $dt['dir'] = 'video';
 $dt['uid'] = $_SESSION['msvod__id'];
 $dt['did'] = $did;
 $dt['yid'] = $look['yid'];
-$dt['title'] = '·¢²¼ÁËÊÓÆµ';
+$dt['title'] = 'å‘å¸ƒäº†è§†é¢‘';
 $dt['name'] = $look['name'];
 $dt['link'] = linkurl('play','id',$did,1,'video');
 $dt['addtime'] = time();
 $this->MsdjDB->get_insert('dt',$dt);
 
-//Èç¹ûÃâÉóºË£¬Ôò¸ø»áÔ±Ôö¼ÓÏàÓ¦½ğ±Ò¡¢»ı·Ö
+//å¦‚æœå…å®¡æ ¸ï¼Œåˆ™ç»™ä¼šå‘˜å¢åŠ ç›¸åº”é‡‘å¸ã€ç§¯åˆ†
 if($look['yid']==0){
 $addhits=getzd('user','addhits',$_SESSION['msvod__id']);
 if($addhits<User_Nums_Add){
 $this->db->query("update ".MS_SqlPrefix."user set cion=cion+".User_Cion_Add.",jinyan=jinyan+".User_Jinyan_Add.",addhits=addhits+1 where id=".$_SESSION['msvod__id']."");
 }
-msg_url('¹§Ï²Äú£¬ÊÓÆµ·¢²¼³É¹¦~!',spacelink('video','video'));
+msg_url('æ­å–œæ‚¨ï¼Œè§†é¢‘å‘å¸ƒæˆåŠŸ~!',spacelink('video','video'));
 }else{
-msg_url('¹§Ï²Äú£¬ÊÓÆµ·¢²¼³É¹¦,ÇëµÈ´ı¹ÜÀíÔ±ÉóºË~!',spacelink('video/verify','video'));
+msg_url('æ­å–œæ‚¨ï¼Œè§†é¢‘å‘å¸ƒæˆåŠŸ,è¯·ç­‰å¾…ç®¡ç†å‘˜å®¡æ ¸~!',spacelink('video/verify','video'));
 }
 }
 }

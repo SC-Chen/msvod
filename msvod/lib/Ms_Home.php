@@ -1,8 +1,8 @@
 <?php
-define('Home_Mode',0);  //»áÔ±Î±¾²Ì¬¿ª¹Ø    
-define('Home_Ym',0); //¶þ¼¶ÓòÃû¿ª¹Ø  
-define('Home_Fs',1);  //»áÔ±Ö÷Ò³µØÖ··½Ê½£¬1Îª»áÔ±Ãû£¬2Îª»áÔ±ID   
-define('Home_Hits',0); //ÊÇ·ñ¿ªÆô·ÀË¢»úÖÆ    
-define('Home_YmUrl','msvod.com');  //·ºÓòÃûµØÖ·   
-define('Home_Ymext','www|user|home|video|vod|pic|singer|news');  //·ºÓòÃû±£ÁôµØÖ· 
-define('Home_Skins','skin01/html/'); //¿Õ¼äÄ¬ÈÏÄ£°åÂ·¾¶
+define('Home_Mode',0);  //ä¼šå‘˜ä¼ªé™æ€å¼€å…³    
+define('Home_Ym',0); //äºŒçº§åŸŸåå¼€å…³  
+define('Home_Fs',1);  //ä¼šå‘˜ä¸»é¡µåœ°å€æ–¹å¼ï¼Œ1ä¸ºä¼šå‘˜åï¼Œ2ä¸ºä¼šå‘˜ID   
+define('Home_Hits',0); //æ˜¯å¦å¼€å¯é˜²åˆ·æœºåˆ¶    
+define('Home_YmUrl','msvod.com');  //æ³›åŸŸååœ°å€   
+define('Home_Ymext','www|user|home|video|vod|pic|singer|news');  //æ³›åŸŸåä¿ç•™åœ°å€ 
+define('Home_Skins','skin01/html/'); //ç©ºé—´é»˜è®¤æ¨¡æ¿è·¯å¾„

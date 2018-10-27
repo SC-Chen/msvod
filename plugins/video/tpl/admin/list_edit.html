@@ -51,7 +51,7 @@ $(document).ready(function(e) {
 $query = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."video_list where fid=0 order by xid asc"); 
 foreach ($query->result() as $row) {
             $clas=($row->id==$fid)?' selected="selected"':'';
-			echo '<option value="'.$row->id.'"'.$clas.'>&nbsp;|¡ª'.$row->name.'</option>';
+			echo '<option value="'.$row->id.'"'.$clas.'>&nbsp;|â€”'.$row->name.'</option>';
 }
 ?>
                              </select>

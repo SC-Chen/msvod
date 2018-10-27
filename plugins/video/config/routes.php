@@ -7,7 +7,7 @@
  */
 
 /**
- * Ä¬ÈÏÂ·ÓÉÅäÖÃ£¨²»ÔÊÐí¸ü¸Ä£©
+ * é»˜è®¤è·¯ç”±é…ç½®ï¼ˆä¸å…è®¸æ›´æ”¹ï¼‰
  */
 if(Home_Ym==0){
    $route['([a-zA-Z0-9\_\-]+)/home/'.PLUBPATH.'/([0-9_\/]+)'] = 'home/'.PLUBPATH.'/index/$1/$2';
@@ -21,8 +21,8 @@ if(Home_Ym==0){
 
 if (is_file(FCPATH.'plugins/'.PLUBPATH.'/config/rewrite.php')) require FCPATH.'plugins/'.PLUBPATH.'/config/rewrite.php';
 /**
- * ×Ô¶¨ÒåÂ·ÓÉ
+ * è‡ªå®šä¹‰è·¯ç”±
  */
  
-//$route['×Ô¶¨ÒåÂ·ÓÉÕýÔò¹æÔò']	= 'Ö¸ÏòµÄÂ·ÓÉURI£¨URI¹æÔò£º¿ØÖÆÆ÷/·½·¨/²ÎÊý1µÄÖµ/²ÎÊý2µÄÖµ...£©';
+//$route['è‡ªå®šä¹‰è·¯ç”±æ­£åˆ™è§„åˆ™']	= 'æŒ‡å‘çš„è·¯ç”±URIï¼ˆURIè§„åˆ™ï¼šæŽ§åˆ¶å™¨/æ–¹æ³•/å‚æ•°1çš„å€¼/å‚æ•°2çš„å€¼...ï¼‰';
 

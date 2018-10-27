@@ -7,7 +7,7 @@
 */
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 /**
-* Ä£°å½âÎöÀà
+* æ¨¡æ¿è§£æç±»
 */
 class Skins {
 
@@ -16,23 +16,23 @@ public function __construct()
 $this->ci = &get_instance();
 }
 
-//½âÎöÄ£°å
+//è§£ææ¨¡æ¿
 public function template_parse($str,$ts=TRUE,$if=true) {
 if(empty($str)) msg_txt(L('skins_null'));
-//½âÎöÍ·²¿¡¢µ×²¿¡¢×óÓÒ·ÖÀ¸
+//è§£æå¤´éƒ¨ã€åº•éƒ¨ã€å·¦å³åˆ†æ 
 $str = $this->topandend($str);
-//»áÔ±µÇÂ¼¿ò
+//ä¼šå‘˜ç™»å½•æ¡†
 $str=str_replace('{msvod:logkuang}',$this->logkuang(),$str);
-//×Ô¶¨Òå±êÇ©
+//è‡ªå®šä¹‰æ ‡ç­¾
 $str=$this->msvodopt($str);
-//½âÎöÈ«¾Ö±êÇ©
+//è§£æå…¨å±€æ ‡ç­¾
 $str=$this->msvod_common($str);
-//Êı¾İÑ­»·
+//æ•°æ®å¾ªç¯
 $str=$this->csskins($str);
-//Êı¾İÍ³¼Æ±êÇ©
+//æ•°æ®ç»Ÿè®¡æ ‡ç­¾
 $str=$this->cscount($str);
 
-//PHP´úÂë½âÎö
+//PHPä»£ç è§£æ
 preg_match_all('/{msvodphp}([\s\S]+?){\/msvodphp}/',$str,$php_arr);
 if(!empty($php_arr[0])){
 for($i=0;$i<count($php_arr[0]);$i++){
@@ -41,7 +41,7 @@ $str=$this->msvod_php($php_arr[0][$i],$php_arr[1][$i],$str);
 }
 unset($php_arr);
 
-//Êı¾İÍ³¼Æ½âÎö
+//æ•°æ®ç»Ÿè®¡è§£æ
 preg_match_all('/{msvodcount\s+param\=\"(.*?)\"}/',$str,$count_arr);
 if(!empty($count_arr[0])){
 for($i=0;$i<count($count_arr[0]);$i++){
@@ -51,7 +51,7 @@ $str=str_replace($count_arr[0][$i],$link,$str);
 }
 unset($count_arr);
 
-//»áÔ±Ö÷Ò³Ä£°å
+//ä¼šå‘˜ä¸»é¡µæ¨¡æ¿
 preg_match_all('/{msvodweb}([\s\S]+?){\/msvodweb}/',$str,$web_arr);
 if(!empty($web_arr[0])){
 for($i=0;$i<count($web_arr[0]);$i++){
@@ -60,17 +60,17 @@ $str=$this->msvod_web($web_arr[0][$i],$web_arr[1][$i],$str);
 }
 unset($web_arr);
 
-//½âÎöIFÅĞ¶Ï±êÇ©
+//è§£æIFåˆ¤æ–­æ ‡ç­¾
 if($if) $str=$this->labelif($str);
-//¼ÓÈëÈ«¾ÖJS
+//åŠ å…¥å…¨å±€JS
 if($ts) $str=ms_addjs($str);
 
-//ºóÌ¨²Ù×÷
+//åå°æ“ä½œ
 if (defined('IS_ADMIN')){
 $str=str_replace(SELF,"index.php",$str);
 }
 
-//Î±¾²Ì¬
+//ä¼ªé™æ€
 if (defined('PLUBPATH')){
 $Web_Mode=config('Web_Mode',PLUBPATH);
 if($Web_Mode==2){
@@ -81,14 +81,14 @@ if(Web_Mode==3){
 $str=str_replace("index.php/","",$str);
 }
 }*/
-//ÊÖ»ú¶ş¼¶ÓòÃûµçÄÔ°æ
+//æ‰‹æœºäºŒçº§åŸŸåç”µè„‘ç‰ˆ
 if(defined('MOBILE_YM')){
 $str  = str_replace(Web_Url,Mobile_Url,$str);
 }
 return $str;
 }
 
-//×Ô¶¨ÒåÍ³¼Æ±êÇ©
+//è‡ªå®šä¹‰ç»Ÿè®¡æ ‡ç­¾
 public function cscount($strs){
 preg_match_all('/{msvodtj\s+param\=\"([a-zA-Z0-9\_\-\|\=]+)\"}/',$strs,$Arrtj);
 if(!empty($Arrtj[1])){
@@ -131,7 +131,7 @@ unset($Arrtj);
 return $strs;
 }
 
-//½âÎöMSVOD´ó±êÇ©
+//è§£æMSVODå¤§æ ‡ç­¾
 public function csskins($str,$autoarr=array()){
 $str=$this->msvodopt($str);
 preg_match_all('/{msvod:([\S]+)\s+(.*?)}([\s\S]+?){\/msvod:\1}/',$str,$str_arr);
@@ -141,7 +141,7 @@ $str=$this->msvod_sql_to($str_arr[1][$i],$str_arr[2][$i],$str_arr[0][$i],$str_ar
 }
 }
 unset($str_arr);
-//¶ş¼¶·ÖÀà
+//äºŒçº§åˆ†ç±»
 preg_match_all('/{msvodtype:([\S]+)\s+(.*?)}([\s\S]+?){\/msvodtype:\1}/',$str,$str_arr2);
 if(!empty($str_arr2)){
 for($i=0;$i<count($str_arr2[0]);$i++){
@@ -152,12 +152,12 @@ unset($str_arr2);
 return $str;
 }
 
-//×Ô¶¨ÒåOPTÄ£°å
+//è‡ªå®šä¹‰OPTæ¨¡æ¿
 public function msvodopt($str,$uid=0){
-//×ÖÄ¸±êÇ©½âÎö
-preg_match_all('/{msvodzm:([0-9]+)}([\s\S]+?){\/msvodzm}/',$str,$Mark_ZM);  //ÊÓÆµ×ÖÄ¸ËÑË÷±êÇ©½âÎö
+//å­—æ¯æ ‡ç­¾è§£æ
+preg_match_all('/{msvodzm:([0-9]+)}([\s\S]+?){\/msvodzm}/',$str,$Mark_ZM);  //è§†é¢‘å­—æ¯æœç´¢æ ‡ç­¾è§£æ
 if(!empty($Mark_ZM)){
-$strzm=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','ÆäËû');
+$strzm=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','å…¶ä»–');
 for($k=0;$k<count($Mark_ZM[0]);$k++){
 $zmstr='';
 $zmlen=($Mark_ZM[1][$k]>27)?27:$Mark_ZM[1][$k];
@@ -168,7 +168,7 @@ $str=str_replace($Mark_ZM[0][$k],$zmstr,$str);
 }
 }	
 unset($Mark_ZM);
-//×Ô¶¨Òå±êÇ©½âÎö
+//è‡ªå®šä¹‰æ ‡ç­¾è§£æ
 preg_match_all('/{msvodself:([A-Za-z0-9-_]+)}/',$str,$Arrself);
 if(!empty($Arrself[1])){
 for($i=0;$i<count($Arrself[1]);$i++){
@@ -180,7 +180,7 @@ $str=str_replace($Arrself[0][$i],str_decode($row->selflable),$str);
 }
 }
 unset($Arrself);
-//×Ô¶¨ÒåJS±êÇ©½âÎö
+//è‡ªå®šä¹‰JSæ ‡ç­¾è§£æ
 preg_match_all('/{msvodjs:([A-Za-z0-9-_]+)}/',$str,$ArrJs);   
 if(!empty($ArrJs[1])){
 for($j=0;$j<count($ArrJs[1]);$j++){
@@ -192,14 +192,14 @@ $str=str_replace($ArrJs[0][$j],"<script src='http://".Web_Url.Web_Path."attachme
 }
 }
 unset($ArrJs);
-//×Ô¶¨ÒåÒ³Ãæ±êÇ©½âÎö
+//è‡ªå®šä¹‰é¡µé¢æ ‡ç­¾è§£æ
 preg_match_all('/{msvodpage:([A-Za-z0-9-_]+)}/',$str,$ArrPage);   
 if(!empty($ArrPage[1])){
 for($j=0;$j<count($ArrPage[1]);$j++){
 $sql="SELECT url FROM ".MS_SqlPrefix."page where name='".$ArrPage[1][$j]."'";
 $rows=$this->ci->db->query($sql)->row(); 
 if($rows){
-if(Web_Mode==3){  //Î±¾²Ì¬
+if(Web_Mode==3){  //ä¼ªé™æ€
 $rows->url=str_replace('index.php/','',$rows->url);
 }
 $str=str_replace($ArrPage[0][$j],"http://".Web_Url.$rows->url,$str);
@@ -207,8 +207,8 @@ $str=str_replace($ArrPage[0][$j],"http://".Web_Url.$rows->url,$str);
 }
 }
 unset($ArrPage);
-//×Ô¶¨ÒåoptÄ£°å
-preg_match_all('/{msvod:opt-([A-Za-z0-9-_]+)}/',$str,$ArrBd);   //°ñµ¥±êÇ©½âÎö
+//è‡ªå®šä¹‰optæ¨¡æ¿
+preg_match_all('/{msvod:opt-([A-Za-z0-9-_]+)}/',$str,$ArrBd);   //æ¦œå•æ ‡ç­¾è§£æ
 if(!empty($ArrBd[1])){
 for($i=0;$i<count($ArrBd[1]);$i++){
 $dir='';
@@ -226,10 +226,10 @@ $str=str_replace($ArrBd[0][$i],site_url('opt/'.$ArrBd[1][$i]),$str);
 }else{
 $opt=str_replace($dir.'-','',$ArrBd[1][$i]);
 $optlink='http://'.Web_Url.Web_Path.'index.php/'.$dir.'/opt/'.$opt;
-//¶ş¼¶ÓòÃû
+//äºŒçº§åŸŸå
 $Ym_Mode=config('Ym_Mode',$dir);
 $Ym_Url=config('Ym_Url',$dir);
-$Web_Mode=config('Web_Mode',$dir); //ÔËĞĞÄ£Ê½
+$Web_Mode=config('Web_Mode',$dir); //è¿è¡Œæ¨¡å¼
 if($Ym_Mode==1 && $Web_Mode<3 && !defined('MOBILE_YM')){
 $optlink=str_replace(Web_Url.Web_Path.'index.php/'.$dir.'/',$Ym_Url.Web_Path.'index.php/',$optlink);
 }
@@ -246,9 +246,9 @@ unset($ArrBd);
 return $str;
 }
 
-//½âÎö»áÔ±°æ¿éµ¼º½
+//è§£æä¼šå‘˜ç‰ˆå—å¯¼èˆª
 public function msvodumenu($str,$uid=0){
-preg_match_all('/{msvodmenu:([A-Za-z0-9]+)}([\s\S]+?){\/msvodmenu}/',$str,$Mark_M);   //°ñµ¥±êÇ©½âÎö
+preg_match_all('/{msvodmenu:([A-Za-z0-9]+)}([\s\S]+?){\/msvodmenu}/',$str,$Mark_M);   //æ¦œå•æ ‡ç­¾è§£æ
 if(!empty($Mark_M) && !empty($Mark_M[0][0])){
 $us=$this->ci->db->query("select level,zid from ".MS_SqlPrefix."user where id=".$uid."")->row_array();
 if(!$us){
@@ -260,7 +260,7 @@ $result=$this->ci->db->query($sqlstr);
 $menu_s='';
 foreach ($result->result() as $row) {
 if(file_exists(FCPATH.'plugins/'.$row->dir.'/config/menu.php') && file_exists(FCPATH.'plugins/'.$row->dir.'/config/site.php')){
-preg_match_all('/{msvodmenu:auto}([\s\S]+?){\/msvodmenu:auto}/',$str,$Mark_A);   //°ñµ¥±êÇ©½âÎö
+preg_match_all('/{msvodmenu:auto}([\s\S]+?){\/msvodmenu:auto}/',$str,$Mark_A);   //æ¦œå•æ ‡ç­¾è§£æ
 if(!empty($Mark_A)){
 $site_arr=require(FCPATH.'plugins/'.$row->dir.'/config/site.php');
 $menu_arr=require(FCPATH.'plugins/'.$row->dir.'/config/menu.php');
@@ -290,13 +290,13 @@ unset($Mark_M);
 return $str;
 }
 
-//½âÎöÍ·²¿¡¢µ×²¿¡¢×óÓÒ·ÖÀ¸
+//è§£æå¤´éƒ¨ã€åº•éƒ¨ã€å·¦å³åˆ†æ 
 public function topandend($str,$skins=''){
 $str = preg_replace ( "/\{msvod:head\}/", $this->topandbottom('head',$skins), $str );
 $str = preg_replace ( "/\{msvod:left\}/", $this->topandbottom('left',$skins), $str );
 $str = preg_replace ( "/\{msvod:right\}/", $this->topandbottom('right',$skins), $str );
 $str = preg_replace ( "/\{msvod:bottom\}/", $this->topandbottom('bottom',$skins), $str );
-//»ñÈ¡·Ç°æ¿éÄ£°å
+//è·å–éç‰ˆå—æ¨¡æ¿
 $str = preg_replace ( "/\{msvod:indexhead\}/", $this->topandbottom2('indexhead',$skins), $str );
 $str = preg_replace ( "/\{msvod:indexleft\}/", $this->topandbottom2('indexleft',$skins), $str );
 $str = preg_replace ( "/\{msvod:indexright\}/", $this->topandbottom2('indexright',$skins), $str );
@@ -304,7 +304,7 @@ $str = preg_replace ( "/\{msvod:indexbottom\}/", $this->topandbottom2('indexbott
 return $str;
 }
 
-//½âÎöÍ·²¿µ×²¿Ä£°å
+//è§£æå¤´éƒ¨åº•éƒ¨æ¨¡æ¿
 public function topandbottom($type,$skins=''){
 $str='';
 if(defined('PLUBPATH')){
@@ -364,7 +364,7 @@ $str = file_exists($files) ? file_get_contents($files) : '';
 return $str;
 }
 
-//½âÎö·Ç°æ¿éÍ·²¿µ×²¿Ä£°å
+//è§£æéç‰ˆå—å¤´éƒ¨åº•éƒ¨æ¨¡æ¿
 public function topandbottom2($type,$skins=''){
 $str='';
 $Skin_Path=(defined('PLUBPATH')) ? APPPATH : MSVOD;
@@ -410,13 +410,13 @@ $str = file_exists($files) ? file_get_contents($files) : '';
 return $str;
 }
 
-//È«¾Ö»áÔ±µÇÂ½¿ò
+//å…¨å±€ä¼šå‘˜ç™»é™†æ¡†
 public function logkuang(){
-if(defined('PLUBPATH')){ //°æ¿é
+if(defined('PLUBPATH')){ //ç‰ˆå—
 $type=PLUBPATH;
-}elseif(defined('USERPATH')){ //»áÔ±ÖĞĞÄ
+}elseif(defined('USERPATH')){ //ä¼šå‘˜ä¸­å¿ƒ
 $type='user';
-}elseif(defined('HOMEPATH')){ //»áÔ±¿Õ¼ä
+}elseif(defined('HOMEPATH')){ //ä¼šå‘˜ç©ºé—´
 $type='home';
 }else{
 $type='index';
@@ -440,9 +440,9 @@ msvod_login();
 return $Mark_Text;
 }
 
-//½âÎöÈ«¾Ö±êÇ©
+//è§£æå…¨å±€æ ‡ç­¾
 public function msvod_common($str,$skins=''){
-//½âÎöÍ·²¿¡¢µ×²¿¡¢×óÓÒ·ÖÀ¸
+//è§£æå¤´éƒ¨ã€åº•éƒ¨ã€å·¦å³åˆ†æ 
 $str = $this->topandend($str,$skins);
 $str  = str_replace("{msvod:webname}",Web_Name,$str);
 $str  = str_replace("{msvod:weburl}",Web_Url,$str);
@@ -463,7 +463,7 @@ $str  = str_replace("{msvod:usersc}",User_Sc,$str);
 $str  = str_replace("{msvod:wxzh}",MS_Tenpay_ID,$str);
 $str  = str_replace("{msvod:wxewm}",MS_Tenpay_Key,$str);
 $str  = str_replace("{msvod:sknr}",MS_Sk_Info,$str);
-//SEO´úÂë
+//SEOä»£ç 
 $seo  = (defined('PLUBPATH'))?config('Seo'):'';
 $title=(!empty($seo['title']))?$seo['title']:str_decode(Web_Title);
 $str  = str_replace("{msvod:title}",$title,$str);
@@ -477,7 +477,7 @@ $str  = str_replace("{msvod:qq}",Admin_QQ,$str);
 $str  = str_replace("{msvod:tel}",Admin_Tel,$str);
 $str  = str_replace("{msvod:icp}",Web_Icp,$str);
 
-//ÅĞ¶ÏµÇÂ¼×´Ì¬
+//åˆ¤æ–­ç™»å½•çŠ¶æ€
 if(isset($_SESSION['msvod__id']) && isset($_SESSION['msvod__login'])){
 $str  = str_replace("{msvod:login}","ok",$str);
 $str  = str_replace("{msvod:uid}",$_SESSION['msvod__id'],$str);
@@ -486,17 +486,17 @@ $str  = str_replace("{msvod:login}","no",$str);
 $str  = str_replace("{msvod:uid}",0,$str);
 }
 
-//ÍøÕ¾²¿·ÖÁ´½Ó
+//ç½‘ç«™éƒ¨åˆ†é“¾æ¥
 if(Web_Mode==3){
 $str=str_replace('{msvod:gbooklink}','http://'.Web_Url.Web_Path.'gbook',$str);
 }else{
 $str=str_replace('{msvod:gbooklink}',site_url('gbook'),$str);
 }
-//ËÑË÷Á´½Ó
+//æœç´¢é“¾æ¥
 $solink='';
 if($dir!=''){
-$Ym_Mode=config('Ym_Mode',$dir); //¶ş¼¶ÓòÃû×´Ì¬
-$Ym_Url=config('Ym_Url',$dir);   //¶ş¼¶ÓòÃûµØÖ·
+$Ym_Mode=config('Ym_Mode',$dir); //äºŒçº§åŸŸåçŠ¶æ€
+$Ym_Url=config('Ym_Url',$dir);   //äºŒçº§åŸŸååœ°å€
 if($Ym_Mode==1){
 $solink='http://'.$Ym_Url.Web_Path.'index.php/search';
 }else{
@@ -521,20 +521,20 @@ $str=userurl($str);
 return $str;
 }
 
-//×é×°SQL±êÇ©
+//ç»„è£…SQLæ ‡ç­¾
 public function msvod_sql($fields, $para, $str_arr, $label, $sorts='', $autoarr=array(), $cid=0, $sql='') {
 preg_match_all("/([a-z]+)\=[\"]?([^\"]+)[\"]?/i", stripslashes($para), $matches, PREG_SET_ORDER);
 $arr = array('field', 'table', 'loop', 'pagesize', 'order', 'sort', 'start');
-//»ñÈ¡Êı¾İ±í
+//è·å–æ•°æ®è¡¨
 $table=$this->arr_val('table',$matches);
-if($table==''){  //Ä£°å±êÇ©´íÎó£¬È±ÉÙtable²ÎÊı
+if($table==''){  //æ¨¡æ¿æ ‡ç­¾é”™è¯¯ï¼Œç¼ºå°‘tableå‚æ•°
 $strs=str_replace($label,".....",$str_arr);
 msg_txt(vsprintf(L('skins_table'),array($strs)));
 }
-//»ñÈ¡Òª²éÑ¯µÄ×Ö¶Î
+//è·å–è¦æŸ¥è¯¢çš„å­—æ®µ
 $field=$this->arr_val('field',$matches);
 if(!$field) $field="*";
-if(!$this->ci->db->table_exists(MS_SqlPrefix.$table)){  //Êı¾İ±í²»´æÔÚ
+if(!$this->ci->db->table_exists(MS_SqlPrefix.$table)){  //æ•°æ®è¡¨ä¸å­˜åœ¨
 $strs=str_replace($label,".....",$str_arr);
 msg_txt(vsprintf(L('skins_table_err'),array($strs,$table)));
 }
@@ -549,14 +549,14 @@ if(in_array($v[1], $arr)) {
 $v[1] = $v[2];
 continue;
 }
-//½âÎö×ÖÄ¸ËÑË÷±êÇ©
+//è§£æå­—æ¯æœç´¢æ ‡ç­¾
 if($v[1]=='zm'){
 $zmall=explode(",",$v[2]);
-if($this->ci->db->field_exists($zmall[0], $table)){ //ÅĞ¶ÏÌõ¼ş×Ö¶ÎÊÇ·ñ´æÔÚ
+if($this->ci->db->field_exists($zmall[0], $table)){ //åˆ¤æ–­æ¡ä»¶å­—æ®µæ˜¯å¦å­˜åœ¨
 $zimu_arr=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
 $zimu_arr1=array(-20319,-20283,-19775,-19218,-18710,-18526,-18239,-17922,-1,-17417,-16474,-16212,-15640,-15165,-14922,-14914,-14630,-14149,-14090,-13318,-1,-1,-12838,-12556,-11847,-11055);
 $zimu_arr2=array(-20284,-19776,-19219,-18711  ,-18527,-18240,-17923,-17418,-1,-16475,-16213,-15641,-15166,-14923,-14915,-14631,-14150,-14091,-13319,-12839,-1,-1,-12557,-11848,-11056,-2050);
-if(!in_array(strtoupper($zmall[1]),$zimu_arr)){ //ÆäËû
+if(!in_array(strtoupper($zmall[1]),$zimu_arr)){ //å…¶ä»–
 $sql.=" and substring( ".$zmall[0].", 1, 1 ) NOT REGEXP '^[a-zA-Z]' and substring( ".$zmall[0].", 1, 1 ) REGEXP '^[u4e00-u9fa5]'";
 }else{
 $posarr=array_keys($zimu_arr,strtoupper($zmall[1]));
@@ -564,9 +564,9 @@ $pos=$posarr[0];
 $sql.=" and (((ord( substring(".$zmall[0].", 1, 1 ) ) -65536>=".($zimu_arr1[$pos])." and  ord( substring( ".$zmall[0].", 1, 1 ) ) -65536<=".($zimu_arr2[$pos]).")) or UPPER(substring( ".$zmall[0].", 1, 1 ))='".$zimu_arr[$pos]."')";
 }
 }
-}elseif ($this->ci->db->field_exists($v[1], $table)){ //ÅĞ¶ÏÌõ¼ş×Ö¶ÎÊÇ·ñ´æÔÚ
+}elseif ($this->ci->db->field_exists($v[1], $table)){ //åˆ¤æ–­æ¡ä»¶å­—æ®µæ˜¯å¦å­˜åœ¨
 
-if($v[2]=='auto' || substr($v[2],0,5)=='auto,'){ //µ±Ç°·ÖÀà
+if($v[2]=='auto' || substr($v[2],0,5)=='auto,'){ //å½“å‰åˆ†ç±»
 $auall=explode(",",$v[2]);
 if(!empty($auall[1])){
 if(empty($autoarr[$auall[1]])){
@@ -581,7 +581,7 @@ $vs=0;
 $vs=(is_array($autoarr))?$autoarr[$v[1]]:$autoarr;
 }
 }
-if($v[1]=='tags'){ //TAGS±êÇ©
+if($v[1]=='tags'){ //TAGSæ ‡ç­¾
 $sql.=" and (".$this->gettags($vs).")";
 }elseif(!empty($vs)){
 if($v[1]=='cid' && is_numeric($vs)){
@@ -611,11 +611,11 @@ $sql.=" and ".$v[1]." in (".$v[2].")";
 if($v[1]=='hid') $hid=1;
 if($v[1]=='yid') $yid=1;
 }
-//ÅĞ¶ÏÉóºË×Ö¶Î
+//åˆ¤æ–­å®¡æ ¸å­—æ®µ
 if ($yid==0 && strpos($sql,'yid=')===FALSE && $this->ci->db->field_exists('yid', $table)){
 $sql.=' and yid=0';
 }
-//ÅĞ¶Ï»ØÊÕÕ¾×Ö¶Î
+//åˆ¤æ–­å›æ”¶ç«™å­—æ®µ
 if ($hid==0 && strpos($sql,'hid=')===FALSE && $this->ci->db->field_exists('hid', $table)){
 $sql.=' and hid=0';
 }
@@ -634,7 +634,7 @@ unset($matches);
 return $sql;
 }
 
-//½âÎöSQL±êÇ©
+//è§£æSQLæ ‡ç­¾
 public function msvod_sql_to($fields, $para, $str_arr, $label, $str, $autoarr) {
 $sql=$this->msvod_sql($fields, $para, $str_arr, $label, '', $autoarr);
 $result_array=$this->ci->db->query($sql)->result_array();
@@ -652,7 +652,7 @@ $str=str_replace($str_arr,$Data_Content,$str);
 return $str;
 }
 
-//½âÎöMSVOD±êÇ©
+//è§£æMSVODæ ‡ç­¾
 public function msvod_skins($field, $str, $label, $row, $sorti=1, $autoarr=array()) {
 
 preg_match_all('/\['.$field.':\s*([0-9a-zA-Z\_\-]+)([\s]*[link|ulink|dir|level|zd|len|style]*)[=]??([\d0-9a-zA-Z\,\_\{\}\/\-\\\\:\s]*)\]/',$str,$field_arr);
@@ -666,43 +666,43 @@ $label=str_replace('['.$field.':'.$type.']',date('Y-m-d H:i:s',$row[$type]),$lab
 $label=str_replace('['.$field.':'.$type.']',$row[$type],$label);
 }
 
-//ÅĞ¶Ï×Ô¶¨Òå±êÇ©
+//åˆ¤æ–­è‡ªå®šä¹‰æ ‡ç­¾
 if(!empty($field_arr[2][$i]) && !empty($field_arr[3][$i])){
-//¸ñÊ½»¯Ê±¼ä
+//æ ¼å¼åŒ–æ—¶é—´
 if(trim($field_arr[2][$i])=='style' && trim($field_arr[3][$i])=='time'){
 $label=str_replace($field_arr[0][$i],datetime($row[$type]),$label);
-//»ñÈ¡IPµØÇø
+//è·å–IPåœ°åŒº
 }elseif(trim($field_arr[2][$i])=='style' && trim($field_arr[3][$i])=='city'){
 $this->ci->load->library('ip');
 $label=str_replace($field_arr[0][$i],$this->ci->ip->address($row[$type]),$label);
-//×Ô¶¨ÒåÊ±¼ä
+//è‡ªå®šä¹‰æ—¶é—´
 }elseif(trim($field_arr[2][$i])=='style'){
 $label=str_replace($field_arr[0][$i],date(str_replace('f','i',$field_arr[3][$i]),$row[$type]),$label);
-//Í¼Æ¬µØÖ·
+//å›¾ç‰‡åœ°å€
 }elseif(trim($field_arr[2][$i])=='dir'){
 $lall=explode(",",$field_arr[3][$i]);
 $lass=count($lall)>1?$lall[1]:'';
 $pic=piclink($lall[0],$row[$type],$lass);
 $label=str_replace($field_arr[0][$i],$pic,$label);
 }
-//×Ö·û½ØÈ¡
+//å­—ç¬¦æˆªå–
 if(trim($field_arr[2][$i])=='len'){
 $label=str_replace($field_arr[0][$i],sub_str(str_checkhtml($row[$type]),$field_arr[3][$i]),$label);
 }
 }
-}else{  //Íâ²¿×Ö¶Î
+}else{  //å¤–éƒ¨å­—æ®µ
 
 switch($type){
-//Ğò
+//åº
 case 'i'  :  
-//ÅĞ¶Ï´Ó¼¸¿ªÊ¼
+//åˆ¤æ–­ä»å‡ å¼€å§‹
 if(trim($field_arr[2][$i])=='len'){
 $label=str_replace($field_arr[0][$i],($sorti+$field_arr[3][$i]),$label);
 }else{
 $label=str_replace($field_arr[0][$i],$sorti,$label);
 }
 break;
-//IPµØÀíÎ»ÖÃ
+//IPåœ°ç†ä½ç½®
 case 'addres'  :  
 if(trim($field_arr[2][$i])=='zd' && !empty($field_arr[3][$i]) && array_key_exists($field_arr[3][$i],$row)){
 $zd=$field_arr[3][$i];
@@ -710,7 +710,7 @@ $this->ci->load->library('ip');
 $label=str_replace($field_arr[0][$i],$this->ci->ip->address($row[$zd]),$label);
 }
 break;
-//×Ô¶¨Òå×Ö¶Î
+//è‡ªå®šä¹‰å­—æ®µ
 case 'zdy'  :  
 if(trim($field_arr[2][$i])=='zd' && !empty($field_arr[3][$i])){
 $arr=explode(',',$field_arr[3][$i]);
@@ -721,7 +721,7 @@ $label=str_replace($field_arr[0][$i],getzd($arr[0],$arr[1],$szd,$czd),$label);
 }
 }
 break;
-//Êı¾İÍ³¼Æ
+//æ•°æ®ç»Ÿè®¡
 case 'count'  : 
 if(trim($field_arr[2][$i])=='zdy' && !empty($field_arr[3][$i])){
 $count=0;
@@ -748,11 +748,11 @@ $count = $query[0]['count'];
 $label=str_replace($field_arr[0][$i],$count,$label);
 }
 break;
-//»áÔ±ĞÅÏ¢
+//ä¼šå‘˜ä¿¡æ¯
 case 'user'  :  
 if(($field=='user' or array_key_exists('uid',$row) or array_key_exists('uidb',$row)) && trim($field_arr[2][$i])=='zd' && !empty($field_arr[3][$i])){
 $ziduan=$field_arr[3][$i];
-$zdneir=($field=='gbook' or $field=='pl')?'ÓÎ¿Í':'null';
+$zdneir=($field=='gbook' or $field=='pl')?'æ¸¸å®¢':'null';
 if($field=='user'){
 $uid=$row['id'];
 }else{
@@ -784,13 +784,13 @@ if($zdneir==0) $zdneir=1;
 $zdneir=getzd('userzu','name',$zdneir);
 }
 if($ziduan=='qianm'){
-if(empty($zdneir)) $zdneir='ÔİÊ±Ã»ÓĞÇ©Ãû...';
+if(empty($zdneir)) $zdneir='æš‚æ—¶æ²¡æœ‰ç­¾å...';
 }
 if($ziduan=='city'){
-if(empty($zdneir)) $zdneir='±£ÃÜ';
+if(empty($zdneir)) $zdneir='ä¿å¯†';
 }
 $label=str_replace($field_arr[0][$i],$zdneir,$label);
-//»áÔ±µÈ¼¶
+//ä¼šå‘˜ç­‰çº§
 }elseif(($field=='user' or array_key_exists('uid',$row) or array_key_exists('uidb',$row)) && trim($field_arr[2][$i])=='level' && !empty($field_arr[3][$i])){
 $zdneir='';
 if($field=='user'){
@@ -799,29 +799,29 @@ $uid=$row['id'];
 $uid=!empty($row['uid'])?$row['uid']:(!empty($row['uidb'])?$row['uidb']:0);
 }
 $jinyan=getzd('user','jinyan',$uid);
-if($field_arr[3][$i]=='1'){ //ĞÇĞÇÊı
+if($field_arr[3][$i]=='1'){ //æ˜Ÿæ˜Ÿæ•°
 $zdneir=getlevel($jinyan,1);
 }
-if($field_arr[3][$i]=='2'){ //ÏÂ¸ö¼¶±ğĞèÒª¾­Ñé
+if($field_arr[3][$i]=='2'){ //ä¸‹ä¸ªçº§åˆ«éœ€è¦ç»éªŒ
 $zdneir=getlevel($jinyan,2);
 }
-if($field_arr[3][$i]=='3'){ //ÏÂ¸ö¼¶±ğÊ£Óà¾­Ñé
+if($field_arr[3][$i]=='3'){ //ä¸‹ä¸ªçº§åˆ«å‰©ä½™ç»éªŒ
 $zdneir=getlevel($jinyan,3);
 }
-if($field_arr[3][$i]=='4'){ //Ê£Óà°Ù·Ö±È
+if($field_arr[3][$i]=='4'){ //å‰©ä½™ç™¾åˆ†æ¯”
 $zdneir=getlevel($jinyan,4);
 }
-if($field_arr[3][$i]=='5'){ //Ãû³Æ
+if($field_arr[3][$i]=='5'){ //åç§°
 $zdneir=getlevel($jinyan,5);
 }
 $label=str_replace($field_arr[0][$i],$zdneir,$label);
 }
 break;
-//ÑİÔ±ĞÅÏ¢
+//æ¼”å‘˜ä¿¡æ¯
 case 'singer'  :  
 if(array_key_exists('singerid',$row) && trim($field_arr[2][$i])=='zd' && !empty($field_arr[3][$i])){
 $zdneir='null';
-if($this->ci->db->table_exists(MS_SqlPrefix.'singer')){  //ÑİÔ±±í´æÔÚ
+if($this->ci->db->table_exists(MS_SqlPrefix.'singer')){  //æ¼”å‘˜è¡¨å­˜åœ¨
 $ziduan=$field_arr[3][$i];
 if($this->ci->db->field_exists($ziduan, MS_SqlPrefix.'singer')){
 $rows=$this->ci->db->query("SELECT ".$ziduan." FROM ".MS_SqlPrefix."singer where id='".$row['singerid']."'")->row();
@@ -837,23 +837,23 @@ $zdneir=piclink('singer',$zdneir);
 $label=str_replace($field_arr[0][$i],$zdneir,$label);
 }
 break;
-//°æ¿éÁ´½Ó
+//ç‰ˆå—é“¾æ¥
 case 'murl'  :  
 if(array_key_exists('dir',$row)){
 $link=msvodlink($row['dir']);
 $label=str_replace($field_arr[0][$i],$link,$label);
 } 
 break;
-//ÍøÕ¾Á´½Ó
+//ç½‘ç«™é“¾æ¥
 case 'url'  : 
-//È«¾Ö
+//å…¨å±€
 if(array_key_exists('id',$row) && trim($field_arr[2][$i])=='link' && !empty($field_arr[3][$i])){
 $lall=explode(",",$field_arr[3][$i]);
 $lass=count($lall)>1?$lall[1]:'';
 $link=linkurl($lall[0],$lass,$row['id']);
 $label=str_replace($field_arr[0][$i],$link,$label);
 }
-//»áÔ±
+//ä¼šå‘˜
 if((array_key_exists('uid',$row) || array_key_exists('uidb',$row) || $field=='user') && trim($field_arr[2][$i])=='ulink' && !empty($field_arr[3][$i])){
 $link='';
 if($field=='user'){
@@ -875,12 +875,12 @@ $link=userlink($lall[0],$rowu->id,$rowu->name,$lass);
 }
 $label=str_replace($field_arr[0][$i],$link,$label);
 }
-//»áÔ±ÖĞĞÄ...
+//ä¼šå‘˜ä¸­å¿ƒ...
 if(trim($field_arr[2][$i])=='userlink' && !empty($field_arr[3][$i])){
 $link=spacelink($field_arr[3][$i]);
 $label=str_replace($field_arr[0][$i],$link,$label);
 }
-//×Ô¶¨ÒåURL£¬°å¿é£¬×Ö¶Î£¬²ÎÊı£¬²ÎÊı...
+//è‡ªå®šä¹‰URLï¼Œæ¿å—ï¼Œå­—æ®µï¼Œå‚æ•°ï¼Œå‚æ•°...
 if(trim($field_arr[2][$i])=='zdy' && !empty($field_arr[3][$i])){
 $lall=explode(",",$field_arr[3][$i]);
 if(!array_key_exists($lall[1],$row) || $row[$lall[1]]==0){
@@ -895,7 +895,7 @@ break;
 }
 }
 }
-//ÅĞ¶ÏÊÇ·ñÇ¶Ì×¶ş¼¶
+//åˆ¤æ–­æ˜¯å¦åµŒå¥—äºŒçº§
 preg_match_all('/{msvodtype:([\S]+)\s+(.*?)}([\s\S]+?){\/msvodtype:\1}/',$label,$type_arr);
 if(!empty($type_arr)){
 for($i=0;$i<count($type_arr[0]);$i++){
@@ -908,7 +908,7 @@ unset($field_arr);
 return $label;
 }
 
-// »áÔ±Ö÷Ò³Ä£°å±êÇ©´¦Àí
+// ä¼šå‘˜ä¸»é¡µæ¨¡æ¿æ ‡ç­¾å¤„ç†
 public function msvod_web($web,$content,$str) {
 $dir=MSVOD.'tpl/home/';
 $newweb='';
@@ -920,11 +920,11 @@ if (is_dir($filePath)){
 $confiles=$filePath.'/config.php';
 if (file_exists($confiles)){
 $con=require_once($confiles);
-$vip='È«²¿¼¶±ğ';
+$vip='å…¨éƒ¨çº§åˆ«';
 if($con['vip']>0){
 $vip=getzd('userzu','name',$con['vip']);
 }
-$level='È«²¿µÈ¼¶';
+$level='å…¨éƒ¨ç­‰çº§';
 if($con['level']>0){
 $level=getzd('userlevel','name',$con['level']);
 }
@@ -942,7 +942,7 @@ $str=str_replace($web,$newweb,$str);
 return $str;
 }
 
-// php±êÇ©´¦Àí
+// phpæ ‡ç­¾å¤„ç†
 public function msvod_php($php,$content,$str) {
 $evalstr=" return $content";
 $newsphp=@eval($evalstr);
@@ -950,7 +950,7 @@ $str=str_replace($php,$newsphp,$str);
 return $str;
 }
 
-//if±êÇ©´¦Àí
+//ifæ ‡ç­¾å¤„ç†
 public function labelif($Mark_Text){
 $Mark_Text = $this->labelif2($Mark_Text);
 $ifRule = "{if:(.*?)}(.*?){end if}";
@@ -1010,7 +1010,7 @@ $Mark_Text=str_replace($arr[0][$i],"",$Mark_Text);
 return $Mark_Text;
 }
 
-//ifÇ¶Ì×±êÇ©´¦Àí
+//ifåµŒå¥—æ ‡ç­¾å¤„ç†
 public function labelif2($Mark_Text){
 $ifRule = "{toif:(.*?)}(.*?){end toif}";
 $ifRule2 = "{elsetoif";
@@ -1069,7 +1069,7 @@ $Mark_Text=str_replace($arr[0][$i],"",$Mark_Text);
 return $Mark_Text;
 }
 
-//²éÕÒÊı×éÖ¸¶¨ÔªËØ
+//æŸ¥æ‰¾æ•°ç»„æŒ‡å®šå…ƒç´ 
 public function arr_val($key,$array){
 foreach ($array as $v) {
 if(strtolower($v[1])==$key){
@@ -1080,11 +1080,11 @@ break;
 return NULL;
 }
 
-//Ïà¹Ø±êÇ©×ª»»
+//ç›¸å…³æ ‡ç­¾è½¬æ¢
 public function gettags($tags){
 $tags_list=$tags_key="";
 $tags=trim($tags);
-$Str=" @,@£¬@|@/@_";
+$Str=" @,@ï¼Œ@|@/@_";
 $StrArr=explode('@',$Str);
 for($i=0;$i<=5;$i++){
 if(stristr($tags,$StrArr[$i])){

@@ -23,17 +23,17 @@ ShowCdQuantity();
 <div class="mainct">
 <div class="sctop">
 <ul>
-<div style="float:left; height:42px; margin-right:5px;"><a href="[user:url userlink=news,add]" class="btn btn-small btn-danger " style="border-radius:0px;">ÎÒÒªÍ¶¸åĞ¡Ëµ</a></div>
+<div style="float:left; height:42px; margin-right:5px;"><a href="[user:url userlink=news,add]" class="btn btn-small btn-danger " style="border-radius:0px;">æˆ‘è¦æŠ•ç¨¿å°è¯´</a></div>
 <div style="float:left; line-height:32px; text-indent:32px;" class="alertico">
-<span style="color:#0066CC">Í¶¸åĞ¡Ëµµ½±¾Õ¾²¢ÇÒÉóºËÍ¨¹ıÄã½«µÃµ½<font color="red" size=4> {msvod:addcion} </font>½ğ±Ò½±Àø£¬½ğ±Ò¿ÉÒÔÓÃÓÚÏû·Ñ±¾Õ¾ÊÓÆµ/Ğ¡Ëµ/Í¼Æ¬¹Û¿´ÒÔ¼°ÔÄ¶Á£¬»¹¿ÉÒÔÉı¼¶ÎªVIPÅ¶~£¡</span></div>
+<span style="color:#0066CC">æŠ•ç¨¿å°è¯´åˆ°æœ¬ç«™å¹¶ä¸”å®¡æ ¸é€šè¿‡ä½ å°†å¾—åˆ°<font color="red" size=4> {msvod:addcion} </font>é‡‘å¸å¥–åŠ±ï¼Œé‡‘å¸å¯ä»¥ç”¨äºæ¶ˆè´¹æœ¬ç«™è§†é¢‘/å°è¯´/å›¾ç‰‡è§‚çœ‹ä»¥åŠé˜…è¯»ï¼Œè¿˜å¯ä»¥å‡çº§ä¸ºVIPå“¦~ï¼</span></div>
 </ul>
 </div>
 <br>
 <table width="450" border="0">
 <tbody><tr>
-<td class="fouces_menuoff"><a href="[user:url userlink=news]">ÎÒ·¢²¼µÄ</a></td>
-<td class="fouces_menuon" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=news,verify]">ÉóºËÖĞµÄ</a></td>
-<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=look]">ÎÒÔÄ¶ÁµÄ</a></td>
+<td class="fouces_menuoff"><a href="[user:url userlink=news]">æˆ‘å‘å¸ƒçš„</a></td>
+<td class="fouces_menuon" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=news,verify]">å®¡æ ¸ä¸­çš„</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=look]">æˆ‘é˜…è¯»çš„</a></td>
 </td>
 </tr>
 </tbody>
@@ -42,12 +42,12 @@ ShowCdQuantity();
 <table width="100%" border="0" cellspacing="2" cellpadding="2"  class="table borderx3">
 <form class="think-form" action="[user:groupsave]" method="post">
 <tr>
-<th height="30" colspan="2" class="fbold">ÉóºËÖĞµÄ</th>
+<th height="30" colspan="2" class="fbold">å®¡æ ¸ä¸­çš„</th>
 <tr>
 <td height="35">
 <div class="main_nav2">
 <ul>
-<li{if:[news:cid]==0} class="current"{end if}><a href="[user:url userlink=news]">È«²¿ÀàĞÍ</a></li>
+<li{if:[news:cid]==0} class="current"{end if}><a href="[user:url userlink=news]">å…¨éƒ¨ç±»å‹</a></li>
 {msvod:class table="news_list" loop="10" order="asc"}
 <li{if:[news:cid]==[class:id]} class="current"{end if}><a href="[user:url userlink=news,index]/[class:id]">[class:name]</a></li>
 {/msvod:class}
@@ -55,11 +55,11 @@ ShowCdQuantity();
 </div>
 <table width="100%" border="0">
 <tr>
-<td width="150" height="40" align="center" style="line-height:30px;"><strong>ĞòºÅ</strong></td>
-<td width="650" height="40" align="left" style="line-height:40px;"><strong>Ğ¡ËµÃû³Æ</strong></td>
-<td height="40" align="center" style="line-height:40px;"><strong>·ÖÀà</strong></td>
-<td height="40" align="center" style="line-height:40px;"><strong>ÈËÆø</strong></td>
-<td height="40" align="center" style="line-height:40px;"><strong>Ê±¼ä</strong></td>
+<td width="150" height="40" align="center" style="line-height:30px;"><strong>åºå·</strong></td>
+<td width="650" height="40" align="left" style="line-height:40px;"><strong>å°è¯´åç§°</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>åˆ†ç±»</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>äººæ°”</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>æ—¶é—´</strong></td>
 </tr>
 {msvod:news table="news" pagesize="20" yid="1" uid="auto" sort="time" order="desc"}
 <tr class="{if:[pay:i]%2==1}re{end if}">
@@ -76,13 +76,13 @@ ShowCdQuantity();
 <table width="100%" border="0" style="border-top: 1px solid #ddd;line-height:50px;">
 <tr>
 <td height="50" align="center">
-{if:{msvod:pagedata}==0}<div class="zanwu">ÔİÎŞÊı¾İ£¡</div>{end if}
+{if:{msvod:pagedata}==0}<div class="zanwu">æš‚æ— æ•°æ®ï¼</div>{end if}
 <div class="page" style="{if:{msvod:pagecout}<0}display:none;{end if}">
 <div class="pages">
-<em title="×ÜÊıÁ¿">{msvod:pagedata}</em>
-<a href="{msvod:pagefirst}">Ê×Ò³</a>
+<em title="æ€»æ•°é‡">{msvod:pagedata}</em>
+<a href="{msvod:pagefirst}">é¦–é¡µ</a>
 {msvod:pagenum len=8}
-<a href="{msvod:pagelast}">Î²Ò³</a>
+<a href="{msvod:pagelast}">å°¾é¡µ</a>
 </div>
 </div>
 </td>

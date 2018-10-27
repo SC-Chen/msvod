@@ -1234,7 +1234,7 @@ function swfUploadLoadFailed() {
 function uploadStart(file)
 {
 	var progress = new FileProgress(file, this.customSettings.progressTarget);
-	progress.setStatus("ÕıÔÚÉÏ´«ÇëÉÔºó...");
+	progress.setStatus("æ­£åœ¨ä¸Šä¼ è¯·ç¨å...");
 	return true;
 }
 function uploadProgress(file, bytesLoaded, bytesTotal)
@@ -1243,9 +1243,9 @@ function uploadProgress(file, bytesLoaded, bytesTotal)
 	var progress = new FileProgress(file, this.customSettings.progressTarget);
 	progress.setProgress(percent);
         if(percent==100){
-	    progress.setStatus("ÉÏ´«³É¹¦£¬ÕıÔÚµÈ´ıÊı¾İ·µ»Ø£¬ÇëÉÔºó...");
+	    progress.setStatus("ä¸Šä¼ æˆåŠŸï¼Œæ­£åœ¨ç­‰å¾…æ•°æ®è¿”å›ï¼Œè¯·ç¨å...");
         }else{
-	    progress.setStatus("ÕıÔÚÉÏ´«("+percent+" %)ÇëÉÔºó...");
+	    progress.setStatus("æ­£åœ¨ä¸Šä¼ ("+percent+" %)è¯·ç¨å...");
         }
 }
 function uploadSuccess(file, serverData)
@@ -1253,7 +1253,7 @@ function uploadSuccess(file, serverData)
 	att_show(serverData,file);
 	var progress = new FileProgress(file, this.customSettings.progressTarget);
 	progress.setComplete();
-	progress.setStatus("ÎÄ¼şÉÏ´«³É¹¦");
+	progress.setStatus("æ–‡ä»¶ä¸Šä¼ æˆåŠŸ");
 }
 function uploadComplete(file) {
 	if (this.getStats().files_queued > 0) {
@@ -1266,28 +1266,28 @@ function uploadError(file, errorCode, message) {
 	switch (errorCode)
 	{
 		case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
-			msg = "ÉÏ´«´íÎó: " + message;
+			msg = "ä¸Šä¼ é”™è¯¯: " + message;
 			break;
 		case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
-			msg = "ÉÏ´«´íÎó";
+			msg = "ä¸Šä¼ é”™è¯¯";
 			break;
 		case SWFUpload.UPLOAD_ERROR.IO_ERROR:
-			msg = "·şÎñÆ÷ I/O ´íÎó";
+			msg = "æœåŠ¡å™¨ I/O é”™è¯¯";
 			break;
 		case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
-			msg = "·şÎñÆ÷°²È«ÈÏÖ¤´íÎó";
+			msg = "æœåŠ¡å™¨å®‰å…¨è®¤è¯é”™è¯¯";
 			break;
 		case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
-			msg = "¸½¼ş°²È«¼ì²âÊ§°Ü£¬ÉÏ´«ÖÕÖ¹";
+			msg = "é™„ä»¶å®‰å…¨æ£€æµ‹å¤±è´¥ï¼Œä¸Šä¼ ç»ˆæ­¢";
 			break;
 		case SWFUpload.UPLOAD_ERROR.FILE_CANCELLED:
-			msg = 'ÉÏ´«È¡Ïû';
+			msg = 'ä¸Šä¼ å–æ¶ˆ';
 			break;
 		case SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED:
-			msg = 'ÉÏ´«ÖÕÖ¹';
+			msg = 'ä¸Šä¼ ç»ˆæ­¢';
 			break;
 		case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
-			msg = 'µ¥´ÎÉÏ´«ÎÄ¼şÊıÏŞÖÆÎª '+swfu.settings.file_upload_limit+' ¸ö';
+			msg = 'å•æ¬¡ä¸Šä¼ æ–‡ä»¶æ•°é™åˆ¶ä¸º '+swfu.settings.file_upload_limit+' ä¸ª';
 			break;
 		default:
 			msg = message;
@@ -1303,18 +1303,18 @@ function fileQueueError(file, errorCode, message)
 	var errormsg;
 	switch (errorCode) {
 	case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
-		errormsg = "Çë²»ÒªÉÏ´«¿ÕÎÄ¼ş";
+		errormsg = "è¯·ä¸è¦ä¸Šä¼ ç©ºæ–‡ä»¶";
 		break;
 	case SWFUpload.QUEUE_ERROR.QUEUE_LIMIT_EXCEEDED:
-		errormsg = "¶ÓÁĞÎÄ¼şÊıÁ¿³¬¹ıÉè¶¨Öµ";
+		errormsg = "é˜Ÿåˆ—æ–‡ä»¶æ•°é‡è¶…è¿‡è®¾å®šå€¼";
 		break;
 	case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
-		errormsg = "ÎÄ¼ş³ß´ç³¬¹ıÉè¶¨Öµ";
+		errormsg = "æ–‡ä»¶å°ºå¯¸è¶…è¿‡è®¾å®šå€¼";
 		break;
 	case SWFUpload.QUEUE_ERROR.INVALID_FILETYPE:
-		errormsg = "ÎÄ¼şÀàĞÍ²»ºÏ·¨";
+		errormsg = "æ–‡ä»¶ç±»å‹ä¸åˆæ³•";
 	default:
-		errormsg = 'ÉÏ´«´íÎó£¬ÇëÉÏ´«MP3»òM4A£¡';
+		errormsg = 'ä¸Šä¼ é”™è¯¯ï¼Œè¯·ä¸Šä¼ MP3æˆ–M4Aï¼';
 		break;
 	}
 

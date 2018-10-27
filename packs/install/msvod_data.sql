@@ -1,28 +1,28 @@
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (1, '∞¥ƒÍ¥˙', 0, 1);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (2, '∞¥«˙∑Á', 0, 2);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (3, '∞¥–ƒ«È', 0, 3);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (4, '∞¥µÿ”Ú', 0, 4);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (5, '∞¥¿‡–Õ', 0, 5);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (6, '70∫Û', 1, 1);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (7, '80∫Û', 1, 2);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (8, '90∫Û', 1, 3);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (1, 'ÊåâÂπ¥‰ª£', 0, 1);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (2, 'ÊåâÊõ≤È£é', 0, 2);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (3, 'ÊåâÂøÉÊÉÖ', 0, 3);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (4, 'ÊåâÂú∞Âüü', 0, 4);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (5, 'ÊåâÁ±ªÂûã', 0, 5);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (6, '70Âêé', 1, 1);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (7, '80Âêé', 1, 2);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (8, '90Âêé', 1, 3);#msvod#
 INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (9, 'POP', 2, 1);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (10, 'œÁ¥Â', 2, 2);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (11, '÷–π˙∑Á', 2, 3);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (12, 'œÎøﬁ', 3, 1);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (13, '”«…À', 3, 2);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (14, 'º≈ƒØ', 3, 3);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (15, '√¿∫√', 3, 4);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (16, 'ƒ⁄µÿ', 4, 1);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (17, '≈∑√¿', 4, 2);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (18, '»’∫´', 4, 3);#msvod#
-INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (19, '∏€Ã®', 4, 4);#msvod#
-INSERT INTO `{Prefix}userlevel` (`id`, `name`, `xid`, `stars`, `jinyan`) VALUES (1, '≥ıº∂', 1, 1, 0);#msvod#
-INSERT INTO `{Prefix}userlevel` (`id`, `name`, `xid`, `stars`, `jinyan`) VALUES (2, '÷–º∂', 2, 5, 200);#msvod#
-INSERT INTO `{Prefix}userlevel` (`id`, `name`, `xid`, `stars`, `jinyan`) VALUES (3, '∏ﬂº∂', 3, 10, 500);#msvod#
-INSERT INTO `{Prefix}userlevel` (`id`, `name`, `xid`, `stars`, `jinyan`) VALUES (4, '‘™¿œ', 4, 15, 1000);#msvod#
-INSERT INTO `{Prefix}userzu` (`id`, `name`, `xid`, `color`, `pic`, `info`, `cion_y`, `cion_m`, `cion_d`, `fid`, `aid`, `sid`, `vid`, `mid`, `did`) VALUES (1, '◊¢≤·ª·‘±', 1, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0);#msvod#
-INSERT INTO `{Prefix}userzu` (`id`, `name`, `xid`, `color`, `pic`, `info`, `cion_y`, `cion_m`, `cion_d`, `fid`, `aid`, `sid`, `vid`, `mid`, `did`) VALUES (2, '÷–º∂ª·‘±', 2, '', '', '', 1000, 100, 10, 0, 0, 0, 1, 1, 0);#msvod#
-INSERT INTO `{Prefix}userzu` (`id`, `name`, `xid`, `color`, `pic`, `info`, `cion_y`, `cion_m`, `cion_d`, `fid`, `aid`, `sid`, `vid`, `mid`, `did`) VALUES (3, 'ª∆◊Íª·‘±', 3, '#CC9933', '', 'ª∆◊Íª·‘±', 300, 100, 10, 1, 1, 1, 1, 1, 1);#msvod#
-INSERT INTO `{Prefix}adminzu` (`id`, `name`, `sys`, `app`) VALUES (1, '≥¨º∂π‹¿Ì‘±', '', '');#msvod#
-INSERT INTO `{Prefix}adminzu` (`id`, `name`, `sys`, `app`) VALUES (2, 'Õ¯’æ±‡º≠‘±', '', '');
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (10, '‰π°Êùë', 2, 2);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (11, '‰∏≠ÂõΩÈ£é', 2, 3);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (12, 'ÊÉ≥Âì≠', 3, 1);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (13, 'Âøß‰º§', 3, 2);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (14, 'ÂØÇÂØû', 3, 3);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (15, 'ÁæéÂ•Ω', 3, 4);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (16, 'ÂÜÖÂú∞', 4, 1);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (17, 'Ê¨ßÁæé', 4, 2);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (18, 'Êó•Èü©', 4, 3);#msvod#
+INSERT INTO `{Prefix}tags` (`id`, `name`, `fid`, `xid`) VALUES (19, 'Ê∏ØÂè∞', 4, 4);#msvod#
+INSERT INTO `{Prefix}userlevel` (`id`, `name`, `xid`, `stars`, `jinyan`) VALUES (1, 'ÂàùÁ∫ß', 1, 1, 0);#msvod#
+INSERT INTO `{Prefix}userlevel` (`id`, `name`, `xid`, `stars`, `jinyan`) VALUES (2, '‰∏≠Á∫ß', 2, 5, 200);#msvod#
+INSERT INTO `{Prefix}userlevel` (`id`, `name`, `xid`, `stars`, `jinyan`) VALUES (3, 'È´òÁ∫ß', 3, 10, 500);#msvod#
+INSERT INTO `{Prefix}userlevel` (`id`, `name`, `xid`, `stars`, `jinyan`) VALUES (4, 'ÂÖÉËÄÅ', 4, 15, 1000);#msvod#
+INSERT INTO `{Prefix}userzu` (`id`, `name`, `xid`, `color`, `pic`, `info`, `cion_y`, `cion_m`, `cion_d`, `fid`, `aid`, `sid`, `vid`, `mid`, `did`) VALUES (1, 'Ê≥®ÂÜå‰ºöÂëò', 1, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0);#msvod#
+INSERT INTO `{Prefix}userzu` (`id`, `name`, `xid`, `color`, `pic`, `info`, `cion_y`, `cion_m`, `cion_d`, `fid`, `aid`, `sid`, `vid`, `mid`, `did`) VALUES (2, '‰∏≠Á∫ß‰ºöÂëò', 2, '', '', '', 1000, 100, 10, 0, 0, 0, 1, 1, 0);#msvod#
+INSERT INTO `{Prefix}userzu` (`id`, `name`, `xid`, `color`, `pic`, `info`, `cion_y`, `cion_m`, `cion_d`, `fid`, `aid`, `sid`, `vid`, `mid`, `did`) VALUES (3, 'ÈªÑÈíª‰ºöÂëò', 3, '#CC9933', '', 'ÈªÑÈíª‰ºöÂëò', 300, 100, 10, 1, 1, 1, 1, 1, 1);#msvod#
+INSERT INTO `{Prefix}adminzu` (`id`, `name`, `sys`, `app`) VALUES (1, 'Ë∂ÖÁ∫ßÁÆ°ÁêÜÂëò', '', '');#msvod#
+INSERT INTO `{Prefix}adminzu` (`id`, `name`, `sys`, `app`) VALUES (2, 'ÁΩëÁ´ôÁºñËæëÂëò', '', '');

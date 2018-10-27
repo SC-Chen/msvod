@@ -13,82 +13,82 @@
 </head>
 <body>
 <div class="place">
-    <span>λ�ã�</span>
-    <ul class="placeul"><li><a href="<?=site_url('opt/main')?>">��ҳ</a></li><li><a href="<?=site_url('tu/admin/topic')?>">ͼƬר�����</a></li></ul>
+    <span>位置：</span>
+    <ul class="placeul"><li><a href="<?=site_url('opt/main')?>">首页</a></li><li><a href="<?=site_url('tu/admin/topic')?>">图片专题管理</a></li></ul>
 </div>
 <div class="formbody">
     <div id="usual1" class="usual"> 
         <div class="itab">
   	        <ul> 
-               <li><a href="<?=site_url('tu/admin/topic')?>" class="selected">ͼƬר���б�</a></li> 
-               <li><a href="<?=site_url('tu/admin/topic/edit')?>">����ͼƬר��</a></li>  
+               <li><a href="<?=site_url('tu/admin/topic')?>" class="selected">图片专题列表</a></li> 
+               <li><a href="<?=site_url('tu/admin/topic/edit')?>">增加图片专题</a></li>  
   	        </ul>
         </div> 
     </div> 
     <div class="rightinfo">
 	<form action="<?=site_url('tu/admin/topic')?>" method="post">
     <ul class="seachform">
-         <li><label>ר������</label><input style="width:150px;" name="key" value="<?=$key?>" type="text" class="scinput" />
+         <li><label>专题名称</label><input style="width:150px;" name="key" value="<?=$key?>" type="text" class="scinput" />
          </li>
          <li>
          <div style="margin-left:10px;" class="vocation">
                 <select class="select3" name="yid">
-                   <option value="0"<?php if($yid==0) echo ' selected';?>>״̬</option>
-                   <option value="1"<?php if($yid==1) echo ' selected';?>>����</option>
-                   <option value="2"<?php if($yid==2) echo ' selected';?>>����</option>
+                   <option value="0"<?php if($yid==0) echo ' selected';?>>状态</option>
+                   <option value="1"<?php if($yid==1) echo ' selected';?>>正常</option>
+                   <option value="2"<?php if($yid==2) echo ' selected';?>>锁定</option>
                 </select>
          </div>
          <div style="margin-left:10px;" class="vocation">
                 <select class="select3" name="tid">
-                   <option value="0"<?php if($tid==0) echo ' selected';?>>�Ƿ��Ƽ�</option>
-                   <option value="1"<?php if($tid==1) echo ' selected';?>>δ�Ƽ�</option>
-                   <option value="2"<?php if($tid==2) echo ' selected';?>>���Ƽ�</option>
+                   <option value="0"<?php if($tid==0) echo ' selected';?>>是否推荐</option>
+                   <option value="1"<?php if($tid==1) echo ' selected';?>>未推荐</option>
+                   <option value="2"<?php if($tid==2) echo ' selected';?>>已推荐</option>
                 </select>
          </div>  
          <div style="margin-left:10px;" class="vocation">
                 <select class="select3" name="sort">
-                   <option value=""<?php if($sort=='') echo ' selected';?>>ר������</option>
-	               <option value="id"<?php if($sort=='id') echo ' selected';?>>ID���</option>
-	               <option value="addtime"<?php if($sort=='addtime') echo ' selected';?>>����ʱ��</option>
-	               <option value="hits"<?php if($sort=='hits') echo ' selected';?>>������</option>
-	               <option value="yhits"<?php if($sort=='yhits') echo ' selected';?>>������</option>
-	               <option value="zhits"<?php if($sort=='zhits') echo ' selected';?>>������</option>
-	               <option value="rhits"<?php if($sort=='rhits') echo ' selected';?>>������</option>
+                   <option value=""<?php if($sort=='') echo ' selected';?>>专题排序</option>
+	               <option value="id"<?php if($sort=='id') echo ' selected';?>>ID编号</option>
+	               <option value="addtime"<?php if($sort=='addtime') echo ' selected';?>>更新时间</option>
+	               <option value="hits"<?php if($sort=='hits') echo ' selected';?>>总人气</option>
+	               <option value="yhits"<?php if($sort=='yhits') echo ' selected';?>>月人气</option>
+	               <option value="zhits"<?php if($sort=='zhits') echo ' selected';?>>周人气</option>
+	               <option value="rhits"<?php if($sort=='rhits') echo ' selected';?>>日人气</option>
                 </select>
          </div>  
          </li>
-         <li><label>&nbsp;</label><input name="so" type="submit" class="scbtn" value="��ѯ"/></li>
+         <li><label>&nbsp;</label><input name="so" type="submit" class="scbtn" value="查询"/></li>
     </ul>
 	</form>
 	<form action="<?=site_url('tu/admin/topic/del')?>" method="post" id="myform" name="myform">
     <table class="imgtable">
     	<thead>
     	<tr>
-        <th>ѡ</th>
+        <th>选</th>
         <th>ID</th>
-        <th width="70px;">ͼƬ</th>
-        <th width="370px;">ר������</th>
-        <th>ͼƬ��</th>
-        <th>����</th>
-        <th>�Ƽ�</th>
-        <th>״̬</th>
-        <th>����ʱ��</th>
-        <th>����</th>
+        <th width="70px;">图片</th>
+        <th width="370px;">专题名称</th>
+        <th>图片数</th>
+        <th>人气</th>
+        <th>推荐</th>
+        <th>状态</th>
+        <th>更新时间</th>
+        <th>操作</th>
         </tr>
         </thead>
 
         <tbody>
 <?php
-if(empty($topic)) echo '<tr><td align="center" height="50" colspan="10">û���ҵ���ؼ�¼~!</td></tr>';
+if(empty($topic)) echo '<tr><td align="center" height="50" colspan="10">没有找到相关记录~!</td></tr>';
 foreach ($topic as $row) {
-        //ͼƬ����
+        //图片数量
 		$numss=$this->db->query("SELECT id FROM ".MS_SqlPrefix."tu where tid=".$row->id."")->num_rows();
         $pic=!empty($row->pic)?'<img height="30" src="'.piclink('tutopic',$row->pic).'">':'-';
-		//״̬
-		$zt=($row->yid==0)?'<a title="�������" href="javascript:get_cmd(\''.site_url('tu/admin/topic/init').'?sid=1\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="����������" href="javascript:get_cmd(\''.site_url('tu/admin/topic/init').'?sid=0\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
-		//�Ƽ�״̬
-		$tj=($row->tid==1)?'<a title="���ȡ���Ƽ�" href="javascript:get_cmd(\''.site_url('tu/admin/topic/init').'?sid=0\',\'tj\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="����Ƽ�" href="javascript:get_cmd(\''.site_url('tu/admin/topic/init').'?sid=1\',\'tj\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
-		//ʱ�����
+		//状态
+		$zt=($row->yid==0)?'<a title="点击锁定" href="javascript:get_cmd(\''.site_url('tu/admin/topic/init').'?sid=1\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="点击解除锁定" href="javascript:get_cmd(\''.site_url('tu/admin/topic/init').'?sid=0\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
+		//推荐状态
+		$tj=($row->tid==1)?'<a title="点击取消推荐" href="javascript:get_cmd(\''.site_url('tu/admin/topic/init').'?sid=0\',\'tj\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="点击推荐" href="javascript:get_cmd(\''.site_url('tu/admin/topic/init').'?sid=1\',\'tj\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
+		//时间加亮
 		if(date('Y-m-d',$row->addtime)==date('Y-m-d')){
              $addtime='<font color=red>'.date('Y-m-d',$row->addtime).'</font>';
 		}else{
@@ -105,7 +105,7 @@ foreach ($topic as $row) {
         <td id="tj_'.$row->id.'">'.$tj.'</td>
         <td id="zt_'.$row->id.'">'.$zt.'</td>
         <td>'.$addtime.'</td>
-        <td><a href="'.site_url('tu/admin/topic/edit').'?id='.$row->id.'">�޸�</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);" onclick="Popsbox(\'��ʾ��Ϣ\',505,245,\'��ȷ��ɾ����\',\''.site_url('tu/admin/topic/del').'?id='.$row->id.'\');">ɾ��</a></td>
+        <td><a href="'.site_url('tu/admin/topic/edit').'?id='.$row->id.'">修改</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);" onclick="Popsbox(\'提示信息\',505,245,\'您确定删除吗？\',\''.site_url('tu/admin/topic/del').'?id='.$row->id.'\');">删除</a></td>
         </tr> ';
 }
 ?>
@@ -113,20 +113,20 @@ foreach ($topic as $row) {
     </table>
     <div class="tools">
        <ul class="toolbar">
-            <li class="click quanxuan"><span><img src="<?=Web_Path?>packs/admin/images/t04.png" /></span>ȫѡ</li>
-            <li class="click" onclick="Popsbox('��ʾ��Ϣ',505,245,'��ȷ��ɾ����ѡͼƬ��','submit');"><span><img src="<?=Web_Path?>packs/admin/images/t03.png" /></span>ɾ��ѡ��</li>
+            <li class="click quanxuan"><span><img src="<?=Web_Path?>packs/admin/images/t04.png" /></span>全选</li>
+            <li class="click" onclick="Popsbox('提示信息',505,245,'您确定删除所选图片吗？','submit');"><span><img src="<?=Web_Path?>packs/admin/images/t03.png" /></span>删除选中</li>
        </ul>
        <ul class="toolbar1">
-            <li class="click"><a href="<?=site_url('tu/admin/topic/edit')?>"><span><img src="<?=Web_Path?>packs/admin/images/t01.png" /></span>����ר��</a></li>
+            <li class="click"><a href="<?=site_url('tu/admin/topic/edit')?>"><span><img src="<?=Web_Path?>packs/admin/images/t01.png" /></span>新增专题</a></li>
        </ul>
     </div>
 	</form>
     <div class="pagin">
-    	<div class="message">��<i class="blue"><?=$nums?></i>����¼����ǰ��ʾ��&nbsp;<i class="blue"><?=$page?>&nbsp;</i>ҳ</div>
+    	<div class="message">共<i class="blue"><?=$nums?></i>条记录，当前显示第&nbsp;<i class="blue"><?=$page?>&nbsp;</i>页</div>
         <ul class="paginList"><?=$pages?></ul>
     </div>
 </div> 
-<div class="footer">ҳ��ִ��ʱ��{elapsed_time}�룬��{sql_queries}����ѯ��䣬�����ڴ�{memory_usage}</div>
+<div class="footer">页面执行时间{elapsed_time}秒，共{sql_queries}个查询语句，消耗内存{memory_usage}</div>
 <script type="text/javascript"> 
 $(document).ready(function(e) {
 	$(".select3").uedSelect({

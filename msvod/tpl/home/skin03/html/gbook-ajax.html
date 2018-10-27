@@ -1,16 +1,16 @@
 				<div class="box_msg" id="comments_container_anchor">
-				    <div class="main_tit"><h2 class="main_tit_msg">ÎÒÒªÁôÑÔ({msvod:pagedata})</h2></div>
+				    <div class="main_tit"><h2 class="main_tit_msg">æˆ‘è¦ç•™è¨€({msvod:pagedata})</h2></div>
 					<div class="msg_release">
 					    <div class="release_login" style="display:{if:'{msvod:login}'=='ok'}none{else}block{end if};">
-						    <p class="release_login_tips">ÈçÒª·¢ÑÔ£¬ÇëÏÈ <a href="{msvod:loginlink}" class="f_yel">µÇÂ¼</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{msvod:reglink}" class="f_yel">¿ìËÙ×¢²á</a></p>
+						    <p class="release_login_tips">å¦‚è¦å‘è¨€ï¼Œè¯·å…ˆ <a href="{msvod:loginlink}" class="f_yel">ç™»å½•</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{msvod:reglink}" class="f_yel">å¿«é€Ÿæ³¨å†Œ</a></p>
 						</div>
 						<div class="release_cont">
 						    <input type='hidden' id='gbook_token' value='[gbook:token]'/>
 						    <textarea cols="50" id="msvod_gbook_content" class="release_cont_txt release_cont_big" rows="4" style="resize: none; overflow-y: hidden;"></textarea>
 						</div>
 						<div class="msg_action">
-						    <span class="face"><a href="###" onclick="faces(0);" id="faces0" class="face_btn comments_face_btn"><b class="face_icon"></b>Ìí¼Ó±íÇé</a></span>
-							<span class="msg_action_btn"><input onclick="msvod_home_gbookadd();" type="button" value="·¢±íÁôÑÔ"></span>
+						    <span class="face"><a href="###" onclick="faces(0);" id="faces0" class="face_btn comments_face_btn"><b class="face_icon"></b>æ·»åŠ è¡¨æƒ…</a></span>
+							<span class="msg_action_btn"><input onclick="msvod_home_gbookadd();" type="button" value="å‘è¡¨ç•™è¨€"></span>
 						</div>
 						<div class="comments_face_list face_list" id="msvod_faces" style="display:none;">[gbook:faces]</div>
 					</div>
@@ -22,27 +22,27 @@
 							    <div class="msg_list_name">
 								    <a target="_blank" href="[gbook:url ulink=index]" class="show_userCard_link f14 lt">[gbook:user zd=nichen]</a>
 									<em class="lt">
-                                        {if:[gbook:user zd=vip]>0}<img width="17" src="{msvod:tempurl}images/icon/vip.gif" border="0" title="VIP»áÔ±">{end if}{if:[gbook:user zd=rzid]>0}<img width="17" src="{msvod:tempurl}images/icon/realname.gif" border="0" title="ÊµÃûÈÏÖ¤">{end if}{if:[gbook:user zd=tid]>0}<img width="17" src="{msvod:tempurl}images/icon/recommend.gif" border="0" title="ÍÆ¼öÑİÔ±">{end if}{if:[gbook:user zd=hits]>2000}<img width="17" src="{msvod:tempurl}images/icon/star.gif" border="0" title="Ã÷ĞÇ»áÔ±">{end if}
+                                        {if:[gbook:user zd=vip]>0}<img width="17" src="{msvod:tempurl}images/icon/vip.gif" border="0" title="VIPä¼šå‘˜">{end if}{if:[gbook:user zd=rzid]>0}<img width="17" src="{msvod:tempurl}images/icon/realname.gif" border="0" title="å®åè®¤è¯">{end if}{if:[gbook:user zd=tid]>0}<img width="17" src="{msvod:tempurl}images/icon/recommend.gif" border="0" title="æ¨èæ¼”å‘˜">{end if}{if:[gbook:user zd=hits]>2000}<img width="17" src="{msvod:tempurl}images/icon/star.gif" border="0" title="æ˜æ˜Ÿä¼šå‘˜">{end if}
 									</em>
 								</div>
 								<div class="msg_list_txt">[gbook:neir]</div>
 								<div class="msg_list_from">
 								    <span class="lt tips_gray">[gbook:addtime style=time]</span>
 									<em class="msg_list_btn rt">
-									   <a href="###" onclick="msvod_hf('[gbook:id]');" class="msg_list_return" title="»Ø¸´"><b>»Ø¸´</b>([gbook:count zdy=gbook,fid,id])</a>
-									   {if:[gbook:uidb]=={msvod:uid} || [gbook:uida]=={msvod:uid}}<a href="###" onclick="msvod_home_gbookdel('[gbook:id]');" class="msg_list_del" title="É¾³ı"><b>É¾³ı</b></a>{end if}
+									   <a href="###" onclick="msvod_hf('[gbook:id]');" class="msg_list_return" title="å›å¤"><b>å›å¤</b>([gbook:count zdy=gbook,fid,id])</a>
+									   {if:[gbook:uidb]=={msvod:uid} || [gbook:uida]=={msvod:uid}}<a href="###" onclick="msvod_home_gbookdel('[gbook:id]');" class="msg_list_del" title="åˆ é™¤"><b>åˆ é™¤</b></a>{end if}
 									</em>
 								</div>
 								<div class="msg_list_reply" id="msvod_hf_[gbook:id]" style="display: none;">
 								    <span class="msg_list_reply_arrow arrow_box"></span>
 									<div class="msg_release">
-									    <div class="release_cont"><textarea cols="50" id="msvod_gbook_hf_[gbook:id]" class="release_cont_txt" rows="4">»Ø¸´@[gbook:user zd=name]@:</textarea></div>
-										<div class="msg_action"><span class="msg_action_btn"><input type="button" onclick="msvod_home_gbookhf('[gbook:id]','»Ø¸´@[gbook:user zd=name]@:');" value="»Ø¸´"></span></div>
+									    <div class="release_cont"><textarea cols="50" id="msvod_gbook_hf_[gbook:id]" class="release_cont_txt" rows="4">å›å¤@[gbook:user zd=name]@:</textarea></div>
+										<div class="msg_action"><span class="msg_action_btn"><input type="button" onclick="msvod_home_gbookhf('[gbook:id]','å›å¤@[gbook:user zd=name]@:');" value="å›å¤"></span></div>
 									</div>
 									{msvodtype:gbook2 table="gbook" fid="auto" sort="id" order="desc"}
 									<dl><dt><a target="_blank" href="[gbook2:url ulink=index]" class="show_userCard_link"><img src="[gbook2:user zd=logo]" width="40" height="40" alt=""></a></dt><dd><div class="msg_list_name"><a target="_blank" href="[gbook2:url ulink=index]" class="show_userCard_link f14 lt">[gbook2:user zd=nichen]</a></div><div class="msg_list_txt">[gbook2:neir]</div><div class="msg_list_from"><span class="lt tips_gray">[gbook2:addtime style=time]</span><em class="msg_list_btn rt">
-									<a href="###" onclick="$('#msvod_gbook_hf_[gbook2:fid]').val('»Ø¸´@[gbook2:user zd=name]@:');" class="msg_list_return" title="»Ø¸´"><b>»Ø¸´</b></a>
-                                    {if:[gbook2:uidb]=={msvod:uid} || [gbook2:uida]=={msvod:uid}}<a href="###" onclick="msvod_home_gbookdel('[gbook2:id]');" class="msg_list_del" title="É¾³ı"><b>É¾³ı</b></a>{end if}
+									<a href="###" onclick="$('#msvod_gbook_hf_[gbook2:fid]').val('å›å¤@[gbook2:user zd=name]@:');" class="msg_list_return" title="å›å¤"><b>å›å¤</b></a>
+                                    {if:[gbook2:uidb]=={msvod:uid} || [gbook2:uida]=={msvod:uid}}<a href="###" onclick="msvod_home_gbookdel('[gbook2:id]');" class="msg_list_del" title="åˆ é™¤"><b>åˆ é™¤</b></a>{end if}
 									</em></div></dd></dl>
 									{/msvodtype:gbook2}
 							   </div>
@@ -51,10 +51,10 @@
 {/msvod:gbook}
 						<div class="msg_page f14 tc fa_g6 g6 mt20 msg_page_green" style="display:{if:{msvod:pagecout}==1}none{end if};">
 						<span class="msg_page_list">
-						<a href="{msvod:pageup}" class="commentsPrevPage">ÉÏÒ»Ò³</a>
+						<a href="{msvod:pageup}" class="commentsPrevPage">ä¸Šä¸€é¡µ</a>
 						{msvod:pagenum len=6}
-						<a href="{msvod:pagedown}" class="commentsNextPage">ÏÂÒ»Ò³</a></span>
-						<span class="msg_page_jump ml10"> µ½<input type="text" id="gbook_page" class="tc commentsJumpPageTxt" size="4" maxlength="4">Ò³<a href="javascript:msvod_home_gbook($('#gbook_page').val());" class="tdn commentsJumpPageBtn">È· ¶¨</a></span></div>
+						<a href="{msvod:pagedown}" class="commentsNextPage">ä¸‹ä¸€é¡µ</a></span>
+						<span class="msg_page_jump ml10"> åˆ°<input type="text" id="gbook_page" class="tc commentsJumpPageTxt" size="4" maxlength="4">é¡µ<a href="javascript:msvod_home_gbook($('#gbook_page').val());" class="tdn commentsJumpPageBtn">ç¡® å®š</a></span></div>
 					</div>
 				</div>
 <script type='text/javascript'>

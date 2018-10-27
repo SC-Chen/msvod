@@ -21,34 +21,34 @@ select{opacity:99;filter:alpha(opacity=99);border: 1px solid #ccc;}
 </style>
 </head>
 <body>
-<!----¶¯Ì¬×ªÈ¦----->
-<div id="loading" style="display:none;position: absolute;left:40%;top:300px;z-index:10;"><span style="width:100px;height:40px;line-height:40px;background-color:#ccc;">&nbsp;&nbsp;<img align="absmiddle" src="<?=Web_Path?>packs/admin/images/loading.gif">Êı¾İ¼ÓÔØÖĞ</span></div>
+<!----åŠ¨æ€è½¬åœˆ----->
+<div id="loading" style="display:none;position: absolute;left:40%;top:300px;z-index:10;"><span style="width:100px;height:40px;line-height:40px;background-color:#ccc;">&nbsp;&nbsp;<img align="absmiddle" src="<?=Web_Path?>packs/admin/images/loading.gif">æ•°æ®åŠ è½½ä¸­</span></div>
 <div class="place">
     <span><?=L('place')?></span>
-    <ul class="placeul"><li><a href="<?=site_url('opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('tu/admin/html/show')?>">ÄÚÈİÒ³Éú³É</a></li></ul>
+    <ul class="placeul"><li><a href="<?=site_url('opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('tu/admin/html/show')?>">å†…å®¹é¡µç”Ÿæˆ</a></li></ul>
 </div>
 <div class="formbody">
     <div id="usual1" class="usual"> 
         <div class="itab">
   	        <ul> 
-               <li><a href="#tab1" class="selected">ÅúÁ¿Éú³É×Ô¶¨ÒåÒ³</a></li> 
+               <li><a href="#tab1" class="selected">æ‰¹é‡ç”Ÿæˆè‡ªå®šä¹‰é¡µ</a></li> 
   	        </ul>
         </div> 
   	    <div id="tab1" class="tabson">
       	   <ul class="forminfo">
 		        <form action="<?=site_url('tu/admin/html/opt_save')?>" method="post" id="myform" name="myform">
-                <li><label style="line-height:170px;height:170px;">Ñ¡Ôñ×Ô¶¨ÒåÒ³Ãæ</label>
+                <li><label style="line-height:170px;height:170px;">é€‰æ‹©è‡ªå®šä¹‰é¡µé¢</label>
                   <div class="vocation">
                       <select style="width:200px;height:170px;" multiple name="path[]">
 <?php
 foreach ($skins_skins as $path) {
-			    echo '<option value="'.$path.'">|¡ª'.$path.'</option>';
+			    echo '<option value="'.$path.'">|â€”'.$path.'</option>';
 }
 ?>
                       </select>
                   </div>
 				  <div style="line-height:170px;height:170px;">
-				       <input style="margin-top:70px;margin-left:20px;" name="button" type="submit" class="btn logs" value="¿ªÊ¼Éú³ÉÑ¡ÖĞ"/>
+				       <input style="margin-top:70px;margin-left:20px;" name="button" type="submit" class="btn logs" value="å¼€å§‹ç”Ÿæˆé€‰ä¸­"/>
 				  </div>
                 </li>
 				</form>

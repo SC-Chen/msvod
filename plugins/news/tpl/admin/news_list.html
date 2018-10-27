@@ -13,41 +13,41 @@
 </head>
 <body>
 <div class="place">
-    <span>Î»ÖÃ£º</span>
-    <ul class="placeul"><li><a href="<?=site_url('opt/main')?>">Ê×Ò³</a></li><li><a href="<?=site_url('news/admin/lists')?>">Ğ¡Ëµ·ÖÀà¹ÜÀí</a></li></ul>
+    <span>ä½ç½®ï¼š</span>
+    <ul class="placeul"><li><a href="<?=site_url('opt/main')?>">é¦–é¡µ</a></li><li><a href="<?=site_url('news/admin/lists')?>">å°è¯´åˆ†ç±»ç®¡ç†</a></li></ul>
 </div>
 <div class="rightinfo">
     <table class="tablelist">
     	<thead>
     	<tr align="left">
-        <th width="250">±àºÅ¡¢Ãû³Æ</th>
-        <th width="50">ÅÅĞò</th>
-        <th width="100">ÖĞÎÄ</th>
-        <th width="100">Ó¢ÎÄ</th>
-        <th width="110">Ä£°å</th>
-        <th width="40">×´Ì¬</th>
-		<th width="*">²Ù×÷</th>
+        <th width="250">ç¼–å·ã€åç§°</th>
+        <th width="50">æ’åº</th>
+        <th width="100">ä¸­æ–‡</th>
+        <th width="100">è‹±æ–‡</th>
+        <th width="110">æ¨¡æ¿</th>
+        <th width="40">çŠ¶æ€</th>
+		<th width="*">æ“ä½œ</th>
         </tr>
         </thead>
         <form action="<?=site_url('news/admin/lists/plsave')?>" id="myform" name="myform" method="post">
         <tbody>
 <?php
 foreach ($news_list as $row) {
-        //ÊıÁ¿
+        //æ•°é‡
         $nums=$this->db->query("SELECT id FROM ".MS_SqlPrefix."news where cid=".$row->id."")->num_rows();
-		//×´Ì¬
-		$zt=($row->yid==0)?'<a title="µã»÷Òş²Ø" href="javascript:get_cmd(\''.site_url('news/admin/lists/init').'?sid=1\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="µã»÷ÏÔÊ¾" href="javascript:get_cmd(\''.site_url('news/admin/lists/init').'?sid=0\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
+		//çŠ¶æ€
+		$zt=($row->yid==0)?'<a title="ç‚¹å‡»éšè—" href="javascript:get_cmd(\''.site_url('news/admin/lists/init').'?sid=1\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="ç‚¹å‡»æ˜¾ç¤º" href="javascript:get_cmd(\''.site_url('news/admin/lists/init').'?sid=0\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
         echo '<tr>
-		<td><input name="id[]" type="checkbox" value="'.$row->id.'">'.$row->id.'¡¢'.$row->name.'(<font color="red">'.$nums.'</font>)</td>
+		<td><input name="id[]" type="checkbox" value="'.$row->id.'">'.$row->id.'ã€'.$row->name.'(<font color="red">'.$nums.'</font>)</td>
 		<td><input class="dfinput" style="width:45px;" name="xid_'.$row->id.'" value="'.$row->xid.'"></td>
 		<td><input class="dfinput" style="width:90px;" name="name_'.$row->id.'" value="'.$row->name.'"></td>
 		<td><input class="dfinput" style="width:90px;" name="bname_'.$row->id.'" value="'.$row->bname.'"></td>
 		<td><input class="dfinput" style="width:100px;" name="skins_'.$row->id.'" value="'.$row->skins.'"></td>
 		<td id="zt_'.$row->id.'">'.$zt.'</td>
 		<td>
-		<a href="###" onclick="Popsbox(\'ÌáÊ¾ĞÅÏ¢\',505,245,\'Í¬Ê±»áÉ¾³ı¸Ã·ÖÀàÏÂµÄËùÓĞ×Ó·ÖÀà£¬ÄúÈ·¶¨É¾³ıÂğ£¿\',\''.site_url('news/admin/lists/del').'?id='.$row->id.'\');">É¾³ı</a>&nbsp;|&nbsp;
-		<a href="'.site_url('news/admin/lists/edit').'?id='.$row->id.'">ĞŞ¸Ä</a>&nbsp;|&nbsp;
-		<a href="'.site_url('news/admin/lists/edit').'?fid='.$row->id.'" style="color:green;">ĞÂÔö</a>
+		<a href="###" onclick="Popsbox(\'æç¤ºä¿¡æ¯\',505,245,\'åŒæ—¶ä¼šåˆ é™¤è¯¥åˆ†ç±»ä¸‹çš„æ‰€æœ‰å­åˆ†ç±»ï¼Œæ‚¨ç¡®å®šåˆ é™¤å—ï¼Ÿ\',\''.site_url('news/admin/lists/del').'?id='.$row->id.'\');">åˆ é™¤</a>&nbsp;|&nbsp;
+		<a href="'.site_url('news/admin/lists/edit').'?id='.$row->id.'">ä¿®æ”¹</a>&nbsp;|&nbsp;
+		<a href="'.site_url('news/admin/lists/edit').'?fid='.$row->id.'" style="color:green;">æ–°å¢</a>
 		</td>
 		</tr>';
 
@@ -55,20 +55,20 @@ foreach ($news_list as $row) {
         $sql_string = "SELECT * FROM ".MS_SqlPrefix."news_list where fid=".$row->id." order by xid asc";
         $query = $this->db->query($sql_string); 
 		foreach ($query->result() as $rows) {
-                //ÊıÁ¿
+                //æ•°é‡
                 $nums=$this->db->query("SELECT id FROM ".MS_SqlPrefix."news where cid=".$rows->id."")->num_rows();
-		        //×´Ì¬
-		        $zt=($rows->yid==0)?'<a title="µã»÷Òş²Ø" href="javascript:get_cmd(\''.site_url('news/admin/lists/init').'?sid=1\',\'zt\','.$rows->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="µã»÷ÏÔÊ¾" href="javascript:get_cmd(\''.site_url('news/admin/lists/init').'?sid=0\',\'zt\','.$rows->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
+		        //çŠ¶æ€
+		        $zt=($rows->yid==0)?'<a title="ç‚¹å‡»éšè—" href="javascript:get_cmd(\''.site_url('news/admin/lists/init').'?sid=1\',\'zt\','.$rows->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="ç‚¹å‡»æ˜¾ç¤º" href="javascript:get_cmd(\''.site_url('news/admin/lists/init').'?sid=0\',\'zt\','.$rows->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
                 echo '<tr>
-				<td><input name="id[]" type="checkbox" value="'.$rows->id.'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;©À&nbsp;'.$rows->id.'¡¢'.$rows->name.'(<font color="red">'.$nums.'</font>)</td>
+				<td><input name="id[]" type="checkbox" value="'.$rows->id.'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;â”œ&nbsp;'.$rows->id.'ã€'.$rows->name.'(<font color="red">'.$nums.'</font>)</td>
 		        <td><input class="dfinput" style="width:45px;" name="xid_'.$rows->id.'" value="'.$rows->xid.'"></td>
 		        <td><input class="dfinput" style="width:90px;" name="name_'.$rows->id.'" value="'.$rows->name.'"></td>
 		        <td><input class="dfinput" style="width:90px;" name="bname_'.$rows->id.'" value="'.$rows->bname.'"></td>
 		        <td><input class="dfinput" style="width:100px;" name="skins_'.$rows->id.'" value="'.$rows->skins.'"></td>
 		        <td id="zt_'.$rows->id.'">'.$zt.'</td>
 		        <td>
-		        <a href="###" onclick="Popsbox(\'ÌáÊ¾ĞÅÏ¢\',505,245,\'ÄúÈ·¶¨É¾³ıÂğ£¿\',\''.site_url('news/admin/lists/del').'?id='.$rows->id.'\');">É¾³ı</a>&nbsp;|&nbsp;
-	        	<a href="'.site_url('news/admin/lists/edit').'?id='.$rows->id.'">ĞŞ¸Ä</a>
+		        <a href="###" onclick="Popsbox(\'æç¤ºä¿¡æ¯\',505,245,\'æ‚¨ç¡®å®šåˆ é™¤å—ï¼Ÿ\',\''.site_url('news/admin/lists/del').'?id='.$rows->id.'\');">åˆ é™¤</a>&nbsp;|&nbsp;
+	        	<a href="'.site_url('news/admin/lists/edit').'?id='.$rows->id.'">ä¿®æ”¹</a>
 		        </td>
 		        </tr>';
 		}
@@ -78,34 +78,34 @@ foreach ($news_list as $row) {
     </table>
     <div class="tools">
        <ul class="toolbar">
-            <li class="click quanxuan"><span><img src="<?=Web_Path?>packs/admin/images/t04.png" /></span>È«Ñ¡</li>
-            <li class="click" onclick="Popsbox('ÌáÊ¾ĞÅÏ¢',505,245,'ÄúÈ·¶¨ĞŞ¸ÄËùÑ¡Âğ£¿','submit');"><span><img src="<?=Web_Path?>packs/admin/images/t02.png" /></span>ĞŞ¸ÄÑ¡ÖĞ</li>
-            <li class="click"><a href="<?=site_url('news/admin/lists/edit')?>"><span><img src="<?=Web_Path?>packs/admin/images/t01.png" /></span>ĞÂÔö´óÀà</a></li>
+            <li class="click quanxuan"><span><img src="<?=Web_Path?>packs/admin/images/t04.png" /></span>å…¨é€‰</li>
+            <li class="click" onclick="Popsbox('æç¤ºä¿¡æ¯',505,245,'æ‚¨ç¡®å®šä¿®æ”¹æ‰€é€‰å—ï¼Ÿ','submit');"><span><img src="<?=Web_Path?>packs/admin/images/t02.png" /></span>ä¿®æ”¹é€‰ä¸­</li>
+            <li class="click"><a href="<?=site_url('news/admin/lists/edit')?>"><span><img src="<?=Web_Path?>packs/admin/images/t01.png" /></span>æ–°å¢å¤§ç±»</a></li>
        </ul>
         <ul class="toolbar1">
-            <li style="border:0;"><div style="float:left;">×ªÒÆµ½£º</div>
+            <li style="border:0;"><div style="float:left;">è½¬ç§»åˆ°ï¼š</div>
 			<div class="vocation">
             <select style="float:left;" class="select2" name="cid" id="cid">
-		         <option value="0">ÇëÑ¡ÔñÄ¿±ê</option>
+		         <option value="0">è¯·é€‰æ‹©ç›®æ ‡</option>
 <?php
 $query = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."news_list where fid=0 order by xid asc"); 
 foreach ($query->result() as $row) {
-		echo '<option value="'.$row->id.'">&nbsp;|¡ª'.$row->name.'</option>';
+		echo '<option value="'.$row->id.'">&nbsp;|â€”'.$row->name.'</option>';
         $sql_string = "SELECT id,name FROM ".MS_SqlPrefix."news_list where fid=".$row->id." order by xid asc";
         $query = $this->db->query($sql_string); 
 		foreach ($query->result() as $row2) {
-             echo '<option value="'.$row2->id.'">&nbsp;|&nbsp;&nbsp;&nbsp;|¡ª'.$row2->name.'</option>';
+             echo '<option value="'.$row2->id.'">&nbsp;|&nbsp;&nbsp;&nbsp;|â€”'.$row2->name.'</option>';
 		}
 }
 ?>
             </select>
 			</div>
             </li>
-            <li class="click" onclick="cmd();"><span></span><font color=#0000ff>È·¶¨×ªÒÆ</font></li>
+            <li class="click" onclick="cmd();"><span></span><font color=#0000ff>ç¡®å®šè½¬ç§»</font></li>
        </ul>
     </div>
 	</form>
-    <div class="footer">Ò³ÃæÖ´ĞĞÊ±¼ä{elapsed_time}Ãë£¬¹²{sql_queries}¸ö²éÑ¯Óï¾ä£¬ÏûºÄÄÚ´æ{memory_usage}</div>
+    <div class="footer">é¡µé¢æ‰§è¡Œæ—¶é—´{elapsed_time}ç§’ï¼Œå…±{sql_queries}ä¸ªæŸ¥è¯¢è¯­å¥ï¼Œæ¶ˆè€—å†…å­˜{memory_usage}</div>
 </div>
 <script type="text/javascript"> 
 $(".select2").uedSelect({
@@ -114,7 +114,7 @@ $(".select2").uedSelect({
 function cmd() {
     var cid=$('#cid').val();
 	if(cid==0){
-         alert('ÇëÑ¡ÔñÄ¿±ê');
+         alert('è¯·é€‰æ‹©ç›®æ ‡');
 	}else{
          $('#myform').attr('action','<?=site_url('news/admin/lists/zhuan')?>?cid='+cid);
 	     $('#myform').submit();

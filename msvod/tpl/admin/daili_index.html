@@ -21,9 +21,9 @@
 <div id="usual1" class="usual"> 
 <div class="itab">
 <ul> 
-<li><a href="<?=site_url('admin/daili/daili_index')?>" class="selected">´úÀíÁÐ±í</a></li> 
-<li><a href="<?=site_url('admin/daili')?>">ÏÂ¼¶ÁÐ±í</a></li> 
-<li><a href="<?=site_url('admin/daili/verify')?>">´ýÉóºËÁÐ±í</a></li> 
+<li><a href="<?=site_url('admin/daili/daili_index')?>" class="selected">ä»£ç†åˆ—è¡¨</a></li> 
+<li><a href="<?=site_url('admin/daili')?>">ä¸‹çº§åˆ—è¡¨</a></li> 
+<li><a href="<?=site_url('admin/daili/verify')?>">å¾…å®¡æ ¸åˆ—è¡¨</a></li> 
 </ul>
 </div> 
 </div> 
@@ -38,13 +38,13 @@
 <th><?=L('tpl_14')?></th>
 <th><?=L('tpl_21')?>
 </th>
-<th>Ïû·Ñ×Ü½ð¶î
+<th>æ¶ˆè´¹æ€»é‡‘é¢
 </th>
-<th>Ìá³É×Ü½ð¶î</th>
-<th>¿ÉÓÃ×Ü½ð¶î
+<th>ææˆæ€»é‡‘é¢</th>
+<th>å¯ç”¨æ€»é‡‘é¢
 </th>
-<th>ÏÂÏßÈËÊý</th>
-<th>´úÀí<?=L('tpl_31')?></th>
+<th>ä¸‹çº¿äººæ•°</th>
+<th>ä»£ç†<?=L('tpl_31')?></th>
 <th><?=L('tpl_32')?>
 </th>
 <th><?=L('tpl_35')?></th>
@@ -58,15 +58,15 @@ $logo=!empty($row->logo)?'<img width="30" src="'.piclink('logo',$row->logo).'">'
 $count_sql="SELECT count(*) as count FROM ".MS_SqlPrefix."user where dlid=".$row->id."";
 $query = $this->db->query($count_sql)->result_array();
 $total = $query[0]['count'];
-//ÈÏÖ¤×´Ì¬
+//è®¤è¯çŠ¶æ€
 if($row->dlrz!=2){
-$rz='<a title="µã»÷Í¨¹ý´úÀí" href="javascript:get_cmd(\''.site_url('admin/daili/init').'?rzid=0\',\'rz\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>';
+$rz='<a title="ç‚¹å‡»é€šè¿‡ä»£ç†" href="javascript:get_cmd(\''.site_url('admin/daili/init').'?rzid=0\',\'rz\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>';
 }else{
-$rz='<a title="µã»÷È¡Ïû´úÀí" href="javascript:get_cmd(\''.site_url('admin/daili/init').'?rzid=2\',\'rz\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
+$rz='<a title="ç‚¹å‡»å–æ¶ˆä»£ç†" href="javascript:get_cmd(\''.site_url('admin/daili/init').'?rzid=2\',\'rz\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
 }
-//VIP»áÔ±
+//VIPä¼šå‘˜
 $vip=($row->vip>0)?' <img title="'.L('tpl_41').'" align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/vip.gif" />':'';
-//»áÔ±×é
+//ä¼šå‘˜ç»„
 $rowz=$this->db->query("SELECT name FROM ".MS_SqlPrefix."userzu where id=".$row->zid."")->row();
 $zuname=($rowz)?$rowz->name:L('tpl_42');
 if(empty($row->nichen)) $row->nichen='-';
@@ -78,13 +78,13 @@ echo '
 <!--td><a href="'.userlink('index',$row->id,$row->name).'" target="web">'.$row->nichen.'</a></td-->
 <td>'.$zuname.'</td>
 <td>'.$row->lognum.'</td>
-<td>'.getdaili($row->id,2).' Ôª</td>
-<td>'.getdaili($row->id,1).' Ôª</td>
-<td>'.getdaili($row->id,3).' Ôª</td>
-<td>'.getdailiuser($row->id).' ÈË</td>
+<td>'.getdaili($row->id,2).' å…ƒ</td>
+<td>'.getdaili($row->id,1).' å…ƒ</td>
+<td>'.getdaili($row->id,3).' å…ƒ</td>
+<td>'.getdailiuser($row->id).' äºº</td>
 <td id="rz_'.$row->id.'">'.$rz.'</td>
 <td>'.date('Y-m-d',$row->addtime).'</td>
-<td><a href="'.site_url('admin/daili').'?key='.$row->id.'">²éÑ¯´úÀíÏÂ¼¶</a></td>
+<td><a href="'.site_url('admin/daili').'?key='.$row->id.'">æŸ¥è¯¢ä»£ç†ä¸‹çº§</a></td>
 </tr> ';
 }
 ?>

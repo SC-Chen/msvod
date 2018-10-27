@@ -3,7 +3,7 @@ class Kuaipan {
 
     const VERSION = '1.0';
     /**
-     * »ñÈ¡ÊÚÈ¨ĞèÒªÖªµÀµÄ¼¸¸öuri
+     * è·å–æˆæƒéœ€è¦çŸ¥é“çš„å‡ ä¸ªuri
      */
     public $authorize_uris = array (
             'request_token' => 'https://openapi.kuaipan.cn/open/requestToken',
@@ -12,7 +12,7 @@ class Kuaipan {
     );
 
     /**
-     * api¶ÔÓ¦µÄurl£¬ »°ËµapiµØÖ·Ó¦¸ÃÓĞ¸ö¹æÂÉ°¡¡£¡£¡£²»È»Ò²²»ÓÃÕâÃ´½¹×ÆÁË¡£¡£¡£
+     * apiå¯¹åº”çš„urlï¼Œ è¯è¯´apiåœ°å€åº”è¯¥æœ‰ä¸ªè§„å¾‹å•Šã€‚ã€‚ã€‚ä¸ç„¶ä¹Ÿä¸ç”¨è¿™ä¹ˆç„¦ç¼äº†ã€‚ã€‚ã€‚
      *
      * @var array
      */
@@ -53,7 +53,7 @@ class Kuaipan {
     private $error_msg = '';
 
     /**
-     * session ÖĞ´æ´¢×îÖÕoauth_token¼°oauth_token_secretµÄkey
+     * session ä¸­å­˜å‚¨æœ€ç»ˆoauth_tokenåŠoauth_token_secretçš„key
      */
     const SKEY_ACCESS_TOKEN = 's_access_token';
     const SKEY_ACCESS_SECRET = 's_access_secret';
@@ -62,7 +62,7 @@ class Kuaipan {
 
 
     /**
-     * ¹¹Ôìº¯Êı
+     * æ„é€ å‡½æ•°
      * @param string $consumer_key
      * @param string $consumer_secret
      */
@@ -72,7 +72,7 @@ class Kuaipan {
     }
 
     /**
-     * »ñÈ¡µ±Ç°ÉèÖÃµÄ½á¹û·µ»Ø¸ñÊ½
+     * è·å–å½“å‰è®¾ç½®çš„ç»“æœè¿”å›æ ¼å¼
      * @return string
      */
     public function getFormat() {
@@ -80,7 +80,7 @@ class Kuaipan {
     }
 
     /**
-     * ÉèÖÃ·µ»ØµÄ½á¹û¸ñÊ½:json/array
+     * è®¾ç½®è¿”å›çš„ç»“æœæ ¼å¼:json/array
      *
      * @param string $format
      */
@@ -135,7 +135,7 @@ class Kuaipan {
             $api_uri = rtrim ( $api_uri, '/' ) . '/' . trim ( $path, '\\/' );
         }
         $full_uri = $this->finalUri($api_uri, $params, $http_method, $_SESSION[self::SKEY_ACCESS_SECRET]);
-		if($api=='fileops/download_file'){  //ÏÂÔØ
+		if($api=='fileops/download_file'){  //ä¸‹è½½
             return $full_uri;
 		}
         // $uri, $http_method = 'GET', $file_path = '', $header = array ()
@@ -153,11 +153,11 @@ class Kuaipan {
     }
 
     /**
-     * Ê¹ÓÃcurl·¢ËÍrequest
+     * ä½¿ç”¨curlå‘é€request
      * @param string $uri
      * @param string $http_method
-     * @param string $file_path  Èç¹ûĞèÒª·¢ËÍÎÄ¼ş£¬Õâ¸ö²ÎÊıÊÇÎÄ¼şµØÖ·
-     * @param string $header  ¶îÍâµÄÍ·ĞÅÏ¢
+     * @param string $file_path  å¦‚æœéœ€è¦å‘é€æ–‡ä»¶ï¼Œè¿™ä¸ªå‚æ•°æ˜¯æ–‡ä»¶åœ°å€
+     * @param string $header  é¢å¤–çš„å¤´ä¿¡æ¯
      * @throws Exception
      */
     protected function request($uri, $http_method = 'GET', $file_path = '', $header = array ()) {
@@ -249,7 +249,7 @@ class Kuaipan {
     }
     
     /**
-     * »ñÈ¡Ò»¸öÊÚÈ¨url£¬ÓÃ»§´ò¿ª´ÎÊÚÈ¨´°¿Ú½øĞĞÊÚÈ¨²Ù×÷
+     * è·å–ä¸€ä¸ªæˆæƒurlï¼Œç”¨æˆ·æ‰“å¼€æ¬¡æˆæƒçª—å£è¿›è¡Œæˆæƒæ“ä½œ
      * 
      * @param string $callback_uri
      * @return boolean|string
@@ -271,10 +271,10 @@ class Kuaipan {
     }
 
     /**
-     * »ñÈ¡access token
+     * è·å–access token
      * 
-     * @param string $oauth_token  ÓÃ»§ÊÚÈ¨ÒÔºó£¬callback»ñÈ¡µ½µÄoauth_token
-     * @param string $oauth_verifier  ÓÃ»§ÊÚÈ¨ÒÔºó£¬callback»ñÈ¡µ½µÄoauth_verifier
+     * @param string $oauth_token  ç”¨æˆ·æˆæƒä»¥åï¼Œcallbackè·å–åˆ°çš„oauth_token
+     * @param string $oauth_verifier  ç”¨æˆ·æˆæƒä»¥åï¼Œcallbackè·å–åˆ°çš„oauth_verifier
      */
     public function getAccessToken($oauth_token = '', $oauth_verifier = '') {
         $ret = false;
@@ -306,7 +306,7 @@ class Kuaipan {
     }
 
     /**
-     * ·µ»ØÇëÇóµÄ´íÎóĞÅÏ¢£ºhttp code, error msg.
+     * è¿”å›è¯·æ±‚çš„é”™è¯¯ä¿¡æ¯ï¼šhttp code, error msg.
      *
      * @return multitype:string
      */
@@ -318,7 +318,7 @@ class Kuaipan {
     }
 
     /**
-     * Éú³É×îÖÕµÄrequeset uri
+     * ç”Ÿæˆæœ€ç»ˆçš„requeset uri
      * @param string $request_uri
      * @param array $params
      * @param string $secret
@@ -337,7 +337,7 @@ class Kuaipan {
 
 
     /**
-     * requestÖ®Ç°£¬¶Ô²¿·Ö²ÎÊı½øĞĞ³õÊ¼»¯´¦Àí
+     * requestä¹‹å‰ï¼Œå¯¹éƒ¨åˆ†å‚æ•°è¿›è¡Œåˆå§‹åŒ–å¤„ç†
      *
      * @param array $params
      */
@@ -351,7 +351,7 @@ class Kuaipan {
     }
 
     /**
-     * Éú³ÉÇëÇóĞèÒªµÄsignature
+     * ç”Ÿæˆè¯·æ±‚éœ€è¦çš„signature
      *
      * @param string $uri
      * @param string $http_method
@@ -366,7 +366,7 @@ class Kuaipan {
     }
 
     /**
-	 * »ñÈ¡Ç©ÃûĞèÒªµÄbasestring
+	 * è·å–ç­¾åéœ€è¦çš„basestring
 	 *
 	 * @return string
 	 */
@@ -407,7 +407,7 @@ class Kuaipan {
 	}
 
 	/**
-	 * »ñÈ¡Ğ­ÒéÄ¬ÈÏµÄ¶Ë¿ÚºÅ
+	 * è·å–åè®®é»˜è®¤çš„ç«¯å£å·
 	 *
 	 * @param string scheme
 	 * @return int

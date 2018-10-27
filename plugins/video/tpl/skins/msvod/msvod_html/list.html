@@ -24,15 +24,15 @@
 <div class="channel-title">
 <h2>[video:name]</h2>
 <span style="float:right;margin-top:20px;">
-<a href="[video:url link=lists,id]" class="{if:'{msvod:fid}'=='id'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">×îĞÂ·¢²¼</a>
-<a href="[video:url link=lists,ding]" class="{if:'{msvod:fid}'=='ding'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">ÍøÓÑµãÔŞ</a> 
-<a href="[video:url link=lists,play]" class="{if:'{msvod:fid}'=='play'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">ÍøÓÑÔÚ¿´</a> 
-<a href="[video:url link=lists,hits]" class="{if:'{msvod:fid}'=='hits'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">ÈÈÃÅ²¥·Å</a> 
-<a href="[video:url link=lists,down]" class="{if:'{msvod:fid}'=='down'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">ÈÈÃÅÏÂÔØ</a> 
-<a href="[video:url link=lists,fav]" class="{if:'{msvod:fid}'=='fav'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">ÈÈÃÅÊÕ²Ø</a> 
-<a href="[video:url link=lists,yue]" class="{if:'{msvod:fid}'=='yue'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">±¾ÔÂÈÈÃÅ</a> 
-<a href="[video:url link=lists,zhou]" class="{if:'{msvod:fid}'=='zhou'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">±¾ÖÜÈÈÃÅ</a> 
-<a href="[video:url link=lists,ri]" class="{if:'{msvod:fid}'=='ri'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">½ñÈÕÈÈÃÅ</a> 
+<a href="[video:url link=lists,id]" class="{if:'{msvod:fid}'=='id'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">æœ€æ–°å‘å¸ƒ</a>
+<a href="[video:url link=lists,ding]" class="{if:'{msvod:fid}'=='ding'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">ç½‘å‹ç‚¹èµ</a> 
+<a href="[video:url link=lists,play]" class="{if:'{msvod:fid}'=='play'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">ç½‘å‹åœ¨çœ‹</a> 
+<a href="[video:url link=lists,hits]" class="{if:'{msvod:fid}'=='hits'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">çƒ­é—¨æ’­æ”¾</a> 
+<a href="[video:url link=lists,down]" class="{if:'{msvod:fid}'=='down'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">çƒ­é—¨ä¸‹è½½</a> 
+<a href="[video:url link=lists,fav]" class="{if:'{msvod:fid}'=='fav'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">çƒ­é—¨æ”¶è—</a> 
+<a href="[video:url link=lists,yue]" class="{if:'{msvod:fid}'=='yue'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">æœ¬æœˆçƒ­é—¨</a> 
+<a href="[video:url link=lists,zhou]" class="{if:'{msvod:fid}'=='zhou'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">æœ¬å‘¨çƒ­é—¨</a> 
+<a href="[video:url link=lists,ri]" class="{if:'{msvod:fid}'=='ri'}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">ä»Šæ—¥çƒ­é—¨</a> 
 </span>
 </div>
 <div class="channel-ctn">
@@ -66,7 +66,7 @@
 </div>
 </li>
 {/msvod:video}
-{if:{msvod:pagedata}==0}<div style="text-align:center;color:red;font-size:16px;line-height:50px"><b>&nbsp;&nbsp;¸ÃÀ¸Ä¿Ã»ÓĞÊÓÆµ¼ÇÂ¼~!</b></div>{end if}
+{if:{msvod:pagedata}==0}<div style="text-align:center;color:red;font-size:16px;line-height:50px"><b>&nbsp;&nbsp;è¯¥æ ç›®æ²¡æœ‰è§†é¢‘è®°å½•~!</b></div>{end if}
 </ul>
 </div>
 </div>
@@ -74,10 +74,10 @@
 </div>
 <div class="pages">
 <ul>
-<li><a href="{msvod:pageup}" title="ÉÏÒ»Ò³">&lt;</a></li>
+<li><a href="{msvod:pageup}" title="ä¸Šä¸€é¡µ">&lt;</a></li>
 {msvod:pagenum len=8}
-<li><a href="{msvod:pagelast}" title="Ä©Ò³">...</a></li>
-<li><a href="{msvod:pagedown}" title="ÏÂÒ»Ò³">&gt;</a></li>
+<li><a href="{msvod:pagelast}" title="æœ«é¡µ">...</a></li>
+<li><a href="{msvod:pagedown}" title="ä¸‹ä¸€é¡µ">&gt;</a></li>
 </ul>
 </div>
 </div>

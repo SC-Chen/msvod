@@ -13,37 +13,37 @@ class MsdjDB extends CI_Model {
 
 	function __construct() {
 		parent::__construct();
-//¼ÓÔØÊı¾İ¿âÁ¬½Ó
+//åŠ è½½æ•°æ®åº“è¿æ¥
 		$this->load->database();
-//¼ÓÔØµ±Ç°Ä£°åÄ¿Â¼
+//åŠ è½½å½“å‰æ¨¡æ¿ç›®å½•
 		if (!defined('PLUBPATH')) {
 			if (defined('IS_ADMIN')) {
-				//ºóÌ¨ÊÓÍ¼
+				//åå°è§†å›¾
 				$this->load->get_templates('admin');
 			} elseif (defined('HOMEPATH')) {
-				//»áÔ±¿Õ¼äÊÓÍ¼
+				//ä¼šå‘˜ç©ºé—´è§†å›¾
 				$this->load->get_templates('home');
 			} elseif (defined('USERPATH')) {
-				//»áÔ±ÖĞĞÄÊÓÍ¼
+				//ä¼šå‘˜ä¸­å¿ƒè§†å›¾
 				$this->load->get_templates('user');
 			} else {
-				//Ä¬ÈÏÊÓÍ¼
+				//é»˜è®¤è§†å›¾
 				$this->load->get_templates();
 			}
 		} else {
-			//°å¿éÊÓÍ¼
+			//æ¿å—è§†å›¾
 
 			$this->load->get_templates(PLUBPATH);
 		}
 	}
 
-//¶àÌõ¼ş²éÑ¯
+//å¤šæ¡ä»¶æŸ¥è¯¢
 	function get_all($sql) {
 		$query = $this->db->query($sql);
 		return $query->result();
 	}
 
-//¶àÌõ¼ş²éÑ¯×ÜÊıÁ¿
+//å¤šæ¡ä»¶æŸ¥è¯¢æ€»æ•°é‡
 	function get_allnums($sql = '') {
 		if (!empty($sql)) {
 			preg_match('/select\s*(.+)from/i', strtolower($sql), $sqlarr);
@@ -61,7 +61,7 @@ class MsdjDB extends CI_Model {
 		return $nums;
 	}
 
-//²éÑ¯×ÜÊıÁ¿
+//æŸ¥è¯¢æ€»æ•°é‡
 	function get_nums($table, $czd = '', $arr = '') {
 		$sql = "SELECT count(*) as count FROM " . MS_SqlPrefix . $table;
 		if (!empty($czd) && !empty($arr)) {
@@ -84,7 +84,7 @@ class MsdjDB extends CI_Model {
 		return $nums;
 	}
 
-//°´Ìõ¼ş²éÑ¯µ¥Ò»¶ÔÏó
+//æŒ‰æ¡ä»¶æŸ¥è¯¢å•ä¸€å¯¹è±¡
 	function get_row($table, $fzd = '*', $arr = '', $czd = 'id') {
 		if ($czd && $arr) {
 			$this->db->where($czd, $arr);
@@ -94,7 +94,7 @@ class MsdjDB extends CI_Model {
 		return $query->row();
 	}
 
-//°´Ìõ¼ş²éÑ¯µ¥Ò»¶ÔÏó
+//æŒ‰æ¡ä»¶æŸ¥è¯¢å•ä¸€å¯¹è±¡
 	function get_row_arr($table, $fzd = '*', $arr = '', $czd = 'id') {
 		if ($czd && $arr) {
 			$this->db->where($czd, $arr);
@@ -104,7 +104,7 @@ class MsdjDB extends CI_Model {
 		return $query->row_array();
 	}
 
-//°´Ìõ¼ş²éÑ¯
+//æŒ‰æ¡ä»¶æŸ¥è¯¢
 	function get_select($table, $czd = '', $fzd = '*', $arr = '') {
 		if ($czd && $arr) {
 			$this->db->where($czd, $arr);
@@ -114,13 +114,13 @@ class MsdjDB extends CI_Model {
 		return $query->result();
 	}
 
-//Ôö¼Ó
+//å¢åŠ 
 	function get_insert($table, $arr) {
 		if ($arr) {
 			$this->db->insert($table, $arr);
 			$ids = $this->db->insert_id();
 			if ($ids) {
-//ÅĞ¶Ï¶¯Ì¬±£ÁôÊıÁ¿
+//åˆ¤æ–­åŠ¨æ€ä¿ç•™æ•°é‡
 				if ($table == 'dt' && User_Dtts > 0 && !empty($_SESSION['msvod__id'])) {
 					$rows = $this->db->query("select count(*) as count from " . MS_SqlPrefix . "dt where uid=" . $_SESSION['msvod__id'] . "")->result_array();
 					$nums = (int) $rows[0]['count'];
@@ -129,7 +129,7 @@ class MsdjDB extends CI_Model {
 						$this->db->query("DELETE FROM " . MS_SqlPrefix . "dt where uid=" . $_SESSION['msvod__id'] . " order by addtime asc LIMIT " . $limit);
 					}
 				}
-//ÅĞ¶ÏËµËµ±£ÁôÊıÁ¿
+//åˆ¤æ–­è¯´è¯´ä¿ç•™æ•°é‡
 				if ($table == 'blog' && User_Ssts > 0 && !empty($_SESSION['msvod__id'])) {
 					$rows = $this->db->query("select count(*) as count from " . MS_SqlPrefix . "blog where uid=" . $_SESSION['msvod__id'] . "")->result_array();
 					$nums = (int) $rows[0]['count'];
@@ -138,7 +138,7 @@ class MsdjDB extends CI_Model {
 						$this->db->query("DELETE FROM " . MS_SqlPrefix . "blog where uid=" . $_SESSION['msvod__id'] . " order by addtime asc LIMIT " . $limit);
 					}
 				}
-//ÅĞ¶Ï·Ã¿Í±£ÁôÊıÁ¿
+//åˆ¤æ–­è®¿å®¢ä¿ç•™æ•°é‡
 				if ($table == 'funco' && User_Fkts > 0 && !empty($_SESSION['msvod__id'])) {
 					$rows = $this->db->query("select count(*) as count from " . MS_SqlPrefix . "funco where uida=" . $_SESSION['msvod__id'] . "")->result_array();
 					$nums = (int) $rows[0]['count'];
@@ -147,7 +147,7 @@ class MsdjDB extends CI_Model {
 						$this->db->query("DELETE FROM " . MS_SqlPrefix . "funco where uida=" . $_SESSION['msvod__id'] . " order by addtime asc LIMIT " . $limit);
 					}
 				}
-//ÅĞ¶Ï·ÛË¿±£ÁôÊıÁ¿
+//åˆ¤æ–­ç²‰ä¸ä¿ç•™æ•°é‡
 				if ($table == 'fans' && User_Fsts > 0 && !empty($_SESSION['msvod__id'])) {
 					$rows = $this->db->query("select count(*) as count from " . MS_SqlPrefix . "fans where uida=" . $_SESSION['msvod__id'] . "")->result_array();
 					$nums = (int) $rows[0]['count'];
@@ -156,7 +156,7 @@ class MsdjDB extends CI_Model {
 						$this->db->query("DELETE FROM " . MS_SqlPrefix . "fans where uida=" . $_SESSION['msvod__id'] . " order by addtime asc LIMIT " . $limit);
 					}
 				}
-//ÅĞ¶Ï¹Ø×¢±£ÁôÊıÁ¿
+//åˆ¤æ–­å…³æ³¨ä¿ç•™æ•°é‡
 				if ($table == 'friend' && User_Hyts > 0 && !empty($_SESSION['msvod__id'])) {
 					$rows = $this->db->query("select count(*) as count from " . MS_SqlPrefix . "friend where uida=" . $_SESSION['msvod__id'] . "")->result_array();
 					$nums = (int) $rows[0]['count'];
@@ -172,7 +172,7 @@ class MsdjDB extends CI_Model {
 		}
 	}
 
-//ĞŞ¸Ä
+//ä¿®æ”¹
 	function get_update($table, $id, $arr, $zd = 'id') {
 		if (!empty($id)) {
 			if (is_array($id)) {
@@ -190,7 +190,7 @@ class MsdjDB extends CI_Model {
 		}
 	}
 
-//É¾³ı
+//åˆ é™¤
 	function get_del($table, $ids, $zd = 'id') {
 		if (is_array($ids)) {
 			$this->db->where_in($zd, $ids);
@@ -204,12 +204,12 @@ class MsdjDB extends CI_Model {
 		}
 	}
 
-//´´½¨±í
+//åˆ›å»ºè¡¨
 	function get_table($sql) {
-//´´½¨Êı¾İ¿â
+//åˆ›å»ºæ•°æ®åº“
 		$conn = @mysqli_connect(MS_Sqlserver, MS_Sqluid, MS_Sqlpwd);
 		if (!$conn) {
-			$this->MsdjAdmin->Admin_Url('<font color=red>±§Ç¸,Êı¾İ¿âÁ¬½ÓÊ§°Ü£¡</font>', 'javascript:history.back();');
+			$this->MsdjAdmin->Admin_Url('<font color=red>æŠ±æ­‰,æ•°æ®åº“è¿æ¥å¤±è´¥ï¼</font>', 'javascript:history.back();');
 			exit();
 		}
 		@mysqli_select_db($conn, MS_Sqlname);
@@ -217,7 +217,7 @@ class MsdjDB extends CI_Model {
 		@mysqli_query( $conn,$sql);
 	}
 
-//»ñÈ¡ÈÎÒâ×Ö¶ÎĞÅÏ¢
+//è·å–ä»»æ„å­—æ®µä¿¡æ¯
 	function getzd($table, $ziduan, $id, $cha = 'id') {
 		if ($table && $ziduan && $id) {
 			$this->db->where($cha, $id);
@@ -231,12 +231,12 @@ class MsdjDB extends CI_Model {
 		}
 	}
 
-//½âÎö¶à¸ö·ÖÀàID  Èç cid=1,2,3,4,5,6
+//è§£æå¤šä¸ªåˆ†ç±»ID  å¦‚ cid=1,2,3,4,5,6
 	function getchild($cid, $table) {
 		if (!empty($cid)) {
 			$ClassArr = explode(',', $cid);
 			for ($i = 0; $i < count($ClassArr); $i++) {
-				$sql = "select id from " . MS_SqlPrefix . $table . " where fid='$ClassArr[$i]'"; //sqlÓï¾äµÄ×éÖ¯·µ»Ø
+				$sql = "select id from " . MS_SqlPrefix . $table . " where fid='$ClassArr[$i]'"; //sqlè¯­å¥çš„ç»„ç»‡è¿”å›
 				$result = $this->db->query($sql);
 				if ($result) {
 					foreach ($result->result() as $row) {

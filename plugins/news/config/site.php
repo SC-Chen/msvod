@@ -15,13 +15,13 @@ return array (
   array (
     'lists' => 
     array (
-      'title' => 'ÁÐ±íÒ³¹æÔò',
+      'title' => 'åˆ—è¡¨é¡µè§„åˆ™',
       'uri' => 'lists/index/{sort}/{id}/{page}',
       'url' => 'list-{sort}-{id}-{page}.html',
     ),
     'show' => 
     array (
-      'title' => 'ÄÚÈÝÒ³¹æÔò',
+      'title' => 'å†…å®¹é¡µè§„åˆ™',
       'uri' => 'show/index/id/{id}',
       'url' => 'show-{id}.html',
     ),
@@ -30,21 +30,21 @@ return array (
   array (
     'lists' => 
     array (
-      'title' => 'ÁÐ±íÒ³¹æÔò',
+      'title' => 'åˆ—è¡¨é¡µè§„åˆ™',
       'url' => 'news/list-{sort}-{id}-{page}.html',
       'check' => '1',
     ),
     'show' => 
     array (
-      'title' => 'ÄÚÈÝÒ³¹æÔò',
+      'title' => 'å†…å®¹é¡µè§„åˆ™',
       'url' => 'news/show-{id}.html',
       'check' => '1',
     ),
   ),
   'Seo' => 
   array (
-    'title' => 'Ð¡Ëµ',
-    'keywords' => 'Ð¡Ëµ',
-    'description' => 'Ð¡Ëµ',
+    'title' => 'å°è¯´',
+    'keywords' => 'å°è¯´',
+    'description' => 'å°è¯´',
   ),
 );?>

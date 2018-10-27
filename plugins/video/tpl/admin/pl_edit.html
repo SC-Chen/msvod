@@ -20,7 +20,7 @@ width : 120	,
 height: 20
 });
 });
-//×ª»»
+//è½¬æ¢
 function xuan(id) {
 var csids=document.getElementById("csids"+id).disabled;
 if(csids==true){
@@ -66,10 +66,10 @@ document.getElementById('opss'+i).style.display='none';
 $sstrss="";
 $query = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."video_list where fid=0 order by xid asc"); 
 foreach ($query->result() as $row) {
-$sstrss.='<option value="'.$row->id.'">&nbsp;|¡ª'.$row->name.'</option>';
+$sstrss.='<option value="'.$row->id.'">&nbsp;|â€”'.$row->name.'</option>';
 $query2 = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."video_list where fid=".$row->id." order by xid asc"); 
 foreach ($query2->result() as $row2) {
-$sstrss.='<option value="'.$row2->id.'">&nbsp;|&nbsp;&nbsp;&nbsp;|¡ª'.$row2->name.'</option>';
+$sstrss.='<option value="'.$row2->id.'">&nbsp;|&nbsp;&nbsp;&nbsp;|â€”'.$row2->name.'</option>';
 }
 }
 echo $sstrss;
@@ -118,11 +118,11 @@ echo $sstrss;
 <td><input name='yid' type='radio' id='csids14' value='0' checked disabled>&nbsp;<?=L('tpl_217')?>&nbsp;<input name='yid' type='radio' id='csidsc14' value='1' disabled>&nbsp;<?=L('tpl_218')?>&nbsp;&nbsp;</label></td>
 </tr>
 <tr height="30">
-<td align="right"><label id="csid19"><input onclick="xuan(19)" name="csid[]" type="checkbox" value="cion">&nbsp;¹Û¿´½ğ±Ò&nbsp;</label></td>
+<td align="right"><label id="csid19"><input onclick="xuan(19)" name="csid[]" type="checkbox" value="cion">&nbsp;è§‚çœ‹é‡‘å¸&nbsp;</label></td>
 <td><input class="dfinput" style="width:120px;height:20px;line-height:20px;" name='cion' id="csids19" type='text' value='1' disabled /></td>
 </tr>
 <tr height="30">
-<td align="right"><label id="csid22"><input onclick="xuan(22)" name="csid[]" type="checkbox" value="dcion">&nbsp;ÏÂÔØ½ğ±Ò&nbsp;</label></td>
+<td align="right"><label id="csid22"><input onclick="xuan(22)" name="csid[]" type="checkbox" value="dcion">&nbsp;ä¸‹è½½é‡‘å¸&nbsp;</label></td>
 <td><input class="dfinput" style="width:120px;height:20px;line-height:20px;" name='dcion' id="csids22" type='text' value='1' disabled /></td>
 </tr>
 </table>
@@ -143,7 +143,7 @@ echo '<option value="'.$row->id.'"'.$clas.'>'.$row->name.'</option>';
 </tr>
 <tr height="30">
 <td align="right"><label id="csid13"><input onclick="xuan(13)" name="csid[]" type="checkbox" value="reco">&nbsp;<?=L('tpl_222')?>&nbsp;</label></td>
-<td><div class="vocation"><select name='reco' id="csids13" class="select2" disabled><option value='0'>¡î¡î¡î¡î¡î</option><option value='1'>¡ï¡î¡î¡î¡î</option><option value='2'>¡ï¡ï¡î¡î¡î</option><option value='3'>¡ï¡ï¡ï¡î¡î</option><option value='4'>¡ï¡ï¡ï¡ï¡î</option><option value='5'>¡ï¡ï¡ï¡ï¡ï</option></select></div></td>
+<td><div class="vocation"><select name='reco' id="csids13" class="select2" disabled><option value='0'>â˜†â˜†â˜†â˜†â˜†</option><option value='1'>â˜…â˜†â˜†â˜†â˜†</option><option value='2'>â˜…â˜…â˜†â˜†â˜†</option><option value='3'>â˜…â˜…â˜…â˜†â˜†</option><option value='4'>â˜…â˜…â˜…â˜…â˜†</option><option value='5'>â˜…â˜…â˜…â˜…â˜…</option></select></div></td>
 </tr>
 <tr height="30">
 <td align="right"><label id="csid16"><input onclick="xuan(16)" name="csid[]" type="checkbox" value="cid">&nbsp;<?=L('tpl_223')?>&nbsp;</label></td>

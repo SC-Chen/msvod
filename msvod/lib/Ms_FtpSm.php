@@ -1,6 +1,6 @@
 <?php
-define('FTP_Sm_Server','127.0.0.1');  //Ô¶³ÌFTP·þÎñÆ÷IP   
-define('FTP_Sm_Port','21');  //Ô¶³ÌFTP¶Ë¿Ú  
-define('FTP_Sm_Name','111');  //Ô¶³ÌFTPÕÊºÅ  
-define('FTP_Sm_Pass','111');  //Ô¶³ÌFTPÃÜÂë  
-define('FTP_Sm_Ive',false);  //ÊÇ·ñÊ¹ÓÃ±»¶¯Ä£Ê½
+define('FTP_Sm_Server','127.0.0.1');  //è¿œç¨‹FTPæœåŠ¡å™¨IP   
+define('FTP_Sm_Port','21');  //è¿œç¨‹FTPç«¯å£  
+define('FTP_Sm_Name','111');  //è¿œç¨‹FTPå¸å·  
+define('FTP_Sm_Pass','111');  //è¿œç¨‹FTPå¯†ç   
+define('FTP_Sm_Ive',false);  //æ˜¯å¦ä½¿ç”¨è¢«åŠ¨æ¨¡å¼

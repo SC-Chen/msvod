@@ -3,13 +3,13 @@
 if (!defined('MSVODPATH')) exit('No permission resources');
 
 /**
- * °æ¿éÅäÖÃ¡¢°æÈ¨ËµÃ÷
+ * ç‰ˆå—é…ç½®ã€ç‰ˆæƒè¯´æ˜Ž
  */
 
 return array(
-	'mid'			=> 21,           //°æ¿éID £¬¿ª·¢ÕßÌîÐ´1
-	'name'			=> 'Ð¡Ëµ',      //°æ¿éÃû³Æ
-	'author'		=> 'MSVOD¹Ù·½', //¿ª·¢ÕßÃû³Æ
-	'version'		=> '1.1',       //°æ¿é°æ±¾ºÅ
-	'description'   => 'MSVODÐ¡Ëµ°å¿é', //°å¿éËµÃ÷200×ÖÒÔÄÚ
+	'mid'			=> 21,           //ç‰ˆå—ID ï¼Œå¼€å‘è€…å¡«å†™1
+	'name'			=> 'å°è¯´',      //ç‰ˆå—åç§°
+	'author'		=> 'MSVODå®˜æ–¹', //å¼€å‘è€…åç§°
+	'version'		=> '1.1',       //ç‰ˆå—ç‰ˆæœ¬å·
+	'description'   => 'MSVODå°è¯´æ¿å—', //æ¿å—è¯´æ˜Ž200å­—ä»¥å†…
 );

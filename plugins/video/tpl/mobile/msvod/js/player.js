@@ -17,7 +17,7 @@ var waps = {
           $('#btn_next').click(function () {
                play_next();
           });
-          //¸è´ÊÇÐ»»
+          //æ­Œè¯åˆ‡æ¢
           $('#btn_change').click(function () {
                var nones=document.getElementById("cover").style.display;
                if(nones=='none'){
@@ -76,7 +76,7 @@ function play_one(){
         }
         setInterval('ptimes()',500);
     }else{
-        alert('Äú»¹Ã»ÓÐÑ¡ÔñÊÓÆµ');
+        alert('æ‚¨è¿˜æ²¡æœ‰é€‰æ‹©è§†é¢‘');
     }
 }
 
@@ -93,7 +93,7 @@ function plays(){
         }
         setInterval('ptimes()',1000);
     }else{
-        alert('Äú»¹Ã»ÓÐÑ¡ÔñÊÓÆµ');
+        alert('æ‚¨è¿˜æ²¡æœ‰é€‰æ‹©è§†é¢‘');
     }
 }
 
@@ -110,7 +110,7 @@ function play_next(){
 }
 
 function ptimes(){
-    if(audio.ended){ //²¥·ÅÍê³É
+    if(audio.ended){ //æ’­æ”¾å®Œæˆ
         if(typeof(mp3_lrc)=="undefined"){
             play_next();
         }else{
@@ -123,7 +123,7 @@ function ptimes(){
         }else{
              $('#timeshow').html(mpetime);
              $('#time').html(totalTime);
-	     //²¥·Å½ø¶ÈÌõ
+	     //æ’­æ”¾è¿›åº¦æ¡
              var w=$('#progress_wrap').css('width');
 	     var progressValue = audio.currentTime/audio.duration*parseInt(w);
 	     $('#progress').css('width',parseInt(progressValue) + 'px');
@@ -135,9 +135,9 @@ function formatSeconds(value) {
    if(value=='NaN'){
        value=0;
    }
-   var theTime = parseInt(value);// Ãë
-   var theTime1 = 0;// ·Ö
-   var theTime2 = 0;// Ð¡Ê±
+   var theTime = parseInt(value);// ç§’
+   var theTime1 = 0;// åˆ†
+   var theTime2 = 0;// å°æ—¶
    if(theTime > 60) {
       theTime1 = parseInt(theTime/60);
       theTime = parseInt(theTime%60);

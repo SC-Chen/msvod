@@ -17,14 +17,14 @@ class Saomiao extends msvod_Controller {
             require_once MSVOD.'lib/Ms_FtpSm.php';
 	}
 
-    //±æµÿ…®√Ë
+    //Êú¨Âú∞Êâ´Êèè
 	public function index()
 	{
             $data['hz']="mp3|wma|mp4|flv|avi";
             $this->load->view('saomiao.html',$data);
 	}
 
-    //ªÒ»°ƒø¬ºƒ⁄»›
+    //Ëé∑ÂèñÁõÆÂΩïÂÜÖÂÆπ
 	public function yps()
 	{
  	        $dir = $this->input->get_post('dir');
@@ -54,7 +54,7 @@ class Saomiao extends msvod_Controller {
             $data['hz']=$hz;
             $data['paths']=$paths;
 
-	        //ºÏ≤È¿©’π√˚
+	        //Ê£ÄÊü•Êâ©Â±ïÂêç
 			$ext_arr = explode("|", $hz);
             $dirs=$list=array();
 		    if ($showarr) {
@@ -89,7 +89,7 @@ class Saomiao extends msvod_Controller {
             $this->load->view('saomiao_look.html',$data);
 	}
 
-	//≈˙¡ø»Îø‚
+	//ÊâπÈáèÂÖ•Â∫ì
 	public function ruku()
 	{
  	        $dir = $this->input->get_post('dir');
@@ -97,7 +97,7 @@ class Saomiao extends msvod_Controller {
  	        $hz = $this->input->get_post('hz');
  	        $ids = $this->input->get_post('id');
             if(empty($path)) $path="/";
-			if(empty($ids)) admin_msg('±ß«∏£¨«Î—°‘Ò“™»Îø‚µƒ ˝æ›~!','javascript:history.back();','no');
+			if(empty($ids)) admin_msg('Êä±Ê≠âÔºåËØ∑ÈÄâÊã©Ë¶ÅÂÖ•Â∫ìÁöÑÊï∞ÊçÆ~!','javascript:history.back();','no');
 
             $dir=str_replace("\\","/",$dir);			
             $dir=str_replace("//","/",$dir);
@@ -116,14 +116,14 @@ class Saomiao extends msvod_Controller {
             $paths=str_replace("//","/",$paths);
             
 			$files='';
-			if(is_array($ids)){ //»´—°»Îø‚
+			if(is_array($ids)){ //ÂÖ®ÈÄâÂÖ•Â∫ì
                 foreach ($ids as $t) {
                     $file=$paths.'/'.$t;
                     $files.=str_replace("//","/",$file)."\r\n";
 			    }
 			    $files.='##msvod##';
 			    $files=str_replace("\r\n##msvod##","",$files);
-			}else{ //µ•Œƒº˛»Îø‚
+			}else{ //ÂçïÊñá‰ª∂ÂÖ•Â∫ì
                 $files=$paths.str_replace("//","/",$ids);
 				$files=str_replace("//","/",$files);
 			}
@@ -134,7 +134,7 @@ class Saomiao extends msvod_Controller {
             $this->load->view('saomiao_ruku.html',$data);
 	}
 
-	//»∑∂®»Îø‚
+	//Á°ÆÂÆöÂÖ•Â∫ì
 	public function save()
 	{
  	        $dir = $this->input->post('dir');
@@ -158,7 +158,7 @@ class Saomiao extends msvod_Controller {
             $hz=str_replace("php","",$hz);
             $hz=str_replace("||","|",$hz);
 
-            //»Îø‚ø™ º
+            //ÂÖ•Â∫ìÂºÄÂßã
             $data['cid']=$cid;
             $data['yid']=intval($this->input->post('yid'));
             $data['tid']=intval($this->input->post('tid'));
@@ -190,7 +190,7 @@ class Saomiao extends msvod_Controller {
 						$dir=$_SERVER['DOCUMENT_ROOT'];
                         $file=$dir.$file;
                   }
-				  if(is_dir($file)){  //Œƒº˛º–
+				  if(is_dir($file)){  //Êñá‰ª∂Â§π
 					     $strs=dirtofiles($file,$hz);
 						 if(!empty($strs)){
                              foreach ($strs as $value) {  
@@ -203,7 +203,7 @@ class Saomiao extends msvod_Controller {
 										$data['purl']=(!empty($playhz))?str_replace('.'.$exts,'.'.$playhz,$video):$video;
                                         $data['durl']=$video;
 
-										//≈–∂œ ˝æ› «∑Ò¥Ê‘⁄
+										//Âà§Êñ≠Êï∞ÊçÆÊòØÂê¶Â≠òÂú®
 										$row=$this->db->query("SELECT id FROM ".MS_SqlPrefix."video where durl='".$data['durl']."'")->row();
 										if($row){
 
@@ -226,7 +226,7 @@ class Saomiao extends msvod_Controller {
 							 }
 						 }
 
-				  }else{  //Œƒº˛
+				  }else{  //Êñá‰ª∂
 
                          if(!empty($file)){
 
@@ -238,7 +238,7 @@ class Saomiao extends msvod_Controller {
 								$data['purl']=(!empty($playhz))?str_replace('.'.$exts,'.'.$playhz,$video):$video;
                                 $data['durl']=$video;
 
-								//≈–∂œ ˝æ› «∑Ò¥Ê‘⁄
+								//Âà§Êñ≠Êï∞ÊçÆÊòØÂê¶Â≠òÂú®
 								$row=$this->db->query("SELECT id FROM ".MS_SqlPrefix."video where durl='".$data['durl']."'")->row();
 								if($row){
 
@@ -263,7 +263,7 @@ class Saomiao extends msvod_Controller {
             die("<br>&nbsp;&nbsp;&nbsp;&nbsp;<font style=color:red;font-size:14pt;><b>".L('plub_93')."</b></font><script>setTimeout('ReadGo();',3000);function ReadGo(){window.location.href ='javascript:history.go(-2);'}</script>");
 	}
 
-    //FTP…®√Ë
+    //FTPÊâ´Êèè
 	public function ftp()
 	{
 		    if(FTP_Sm_Server=='' || FTP_Sm_Name==''){
@@ -272,13 +272,13 @@ class Saomiao extends msvod_Controller {
             $this->load->view('saomiao_ftp.html');
 	}
 
-    //FTP…®√Ë≈‰÷√
+    //FTPÊâ´ÊèèÈÖçÁΩÆ
 	public function ftp_config()
 	{
             $this->load->view('saomiao_ftp_config.html');
 	}
 
-    //FTP…®√Ë≈‰÷√±£¥Ê
+    //FTPÊâ´ÊèèÈÖçÁΩÆ‰øùÂ≠ò
 	public function ftpsave()
 	{
 		    $FTP_Sm_Server = $this->input->post('FTP_Sm_Server', TRUE);
@@ -292,13 +292,13 @@ class Saomiao extends msvod_Controller {
 			if($ypass==$FTP_Sm_Pass) $FTP_Sm_Pass=FTP_Sm_Pass;
 
 	        $strs="<?php"."\r\n";
-	        $strs.="define('FTP_Sm_Server','".$FTP_Sm_Server."');  //‘∂≥ÃFTP∑˛ŒÒ∆˜IP   \r\n";
-	        $strs.="define('FTP_Sm_Port','".$FTP_Sm_Port."');  //‘∂≥ÃFTP∂Àø⁄  \r\n";
-	        $strs.="define('FTP_Sm_Name','".$FTP_Sm_Name."');  //‘∂≥ÃFTP’ ∫≈  \r\n";
-	        $strs.="define('FTP_Sm_Pass','".$FTP_Sm_Pass."');  //‘∂≥ÃFTP√‹¬Î  \r\n";
-	        $strs.="define('FTP_Sm_Ive',".$FTP_Sm_Ive.");  // «∑Ò π”√±ª∂Øƒ£ Ω";
+	        $strs.="define('FTP_Sm_Server','".$FTP_Sm_Server."');  //ËøúÁ®ãFTPÊúçÂä°Âô®IP   \r\n";
+	        $strs.="define('FTP_Sm_Port','".$FTP_Sm_Port."');  //ËøúÁ®ãFTPÁ´ØÂè£  \r\n";
+	        $strs.="define('FTP_Sm_Name','".$FTP_Sm_Name."');  //ËøúÁ®ãFTPÂ∏êÂè∑  \r\n";
+	        $strs.="define('FTP_Sm_Pass','".$FTP_Sm_Pass."');  //ËøúÁ®ãFTPÂØÜÁ†Å  \r\n";
+	        $strs.="define('FTP_Sm_Ive',".$FTP_Sm_Ive.");  //ÊòØÂê¶‰ΩøÁî®Ë¢´Âä®Ê®°Âºè";
 
-            //–¥Œƒº˛
+            //ÂÜôÊñá‰ª∂
             if (!write_file(MSVOD.'lib/Ms_FtpSm.php', $strs)){
                       admin_msg(L('plub_95'),site_url('video/admin/saomiao/ftp_config'),'no');
             }else{
@@ -306,7 +306,7 @@ class Saomiao extends msvod_Controller {
             }
 	}
 
-	//FTP…®√Ë»Îø‚
+	//FTPÊâ´ÊèèÂÖ•Â∫ì
 	public function ftpruku()
 	{
  	        $hz = $this->input->post('hz');
@@ -329,7 +329,7 @@ class Saomiao extends msvod_Controller {
             $paths=".".$path;
 
 
-            //»Îø‚ø™ º
+            //ÂÖ•Â∫ìÂºÄÂßã
             $data['cid']=$cid;
             $data['yid']=intval($this->input->post('yid'));
             $data['fid']=intval($this->input->post('fid'));
@@ -360,7 +360,7 @@ class Saomiao extends msvod_Controller {
 				'hostname' => FTP_Sm_Server,
 				'username' => FTP_Sm_Name,
 				'password' => FTP_Sm_Pass,
-		    ))) { // ¡¨Ω”ftp≥…π¶
+		    ))) { // ËøûÊé•ftpÊàêÂäü
                 $arrs = $this->ftp->list_files($paths);
 				$this->ftp->close();
 		    }else{
@@ -389,7 +389,7 @@ class Saomiao extends msvod_Controller {
 								$data['purl']=(!empty($playhz))?str_replace('.'.$exts,'.'.$playhz,$video):$video;
                                 $data['durl']=$video;
 
-								//≈–∂œ ˝æ› «∑Ò¥Ê‘⁄
+								//Âà§Êñ≠Êï∞ÊçÆÊòØÂê¶Â≠òÂú®
 								$row=$this->db->query("SELECT id FROM ".MS_SqlPrefix."video where durl='".$data['durl']."'")->row();
 								if($row){
 
@@ -406,7 +406,7 @@ class Saomiao extends msvod_Controller {
             die("<br>&nbsp;&nbsp;&nbsp;&nbsp;<font style=color:red;font-size:14pt;><b>".L('plub_93')."</b></font><script>setTimeout('ReadGo();',3000);function ReadGo(){window.location.href ='javascript:history.go(-2);'}</script>");
 	}
 
-    //ªÒ»° ”∆µ Ù–‘
+    //Ëé∑ÂèñËßÜÈ¢ëÂ±ûÊÄß
 	public function djinfo($dir)
 	{
         if(!file_exists($dir)) return false;

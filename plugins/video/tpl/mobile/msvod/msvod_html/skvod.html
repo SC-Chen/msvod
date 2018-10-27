@@ -23,26 +23,26 @@
 <div class="playtop"  >
 <h2 class="txt">[video:name len=25]</h2>
 <div class="flexbox">
-<div class="titledes flexmiddle" style="font-size:12px;"><p>[video:addtime style=Y-m-d]</p><p><font color="red">[video:hits]</font> ´Î²¥·Å</p></div>
+<div class="titledes flexmiddle" style="font-size:12px;"><p>[video:addtime style=Y-m-d]</p><p><font color="red">[video:hits]</font> æ¬¡æ’­æ”¾</p></div>
 <div class="flexbox icons_plsyrt">
 <a class="tab-item" href="javascript:;" onClick="video_ding([video:id]);">
 <i class="icon ion-thumbsup"></i>
 (<span class="mflikes-[video:id]-number" id="dhits"> [video:dhits] </span>)
 </a>
 <a class="tab-item"href="javascript:;" onClick="video_fav([video:id]);">
-<i class="icon ion-ios-star-outline"></i>ÊÕ²Ø
+<i class="icon ion-ios-star-outline"></i>æ”¶è—
 </a>
 <a class="tab-item" ng-click="toggle()">
-<i class="icon ion-ios-redo-outline"></i>·ÖÏí
+<i class="icon ion-ios-redo-outline"></i>åˆ†äº«
 </a>
 <a class="tab-item" href="/index.php/video/down/id/[video:id]">
-<i class="icon ion-ios-download-outline"></i>ÏÂÔØ
+<i class="icon ion-ios-download-outline"></i>ä¸‹è½½
 </a>
 </div>
 </div>
 </div>
 <section class="g-con mgt-10">
-<h2 class="m-h2-tit"><a href="#"> <span class="tit" style="color:#e75242;">²ÂÄãÏ²»¶µÄ</span> </a></h2>
+<h2 class="m-h2-tit"><a href="#"> <span class="tit" style="color:#e75242;">çŒœä½ å–œæ¬¢çš„</span> </a></h2>
 <ul class="mgt-10">
 {msvod:video table="video" loop="6" field="id,name,addtime,pic,hits,shits,dhits,cion,sc,vip,color" sort="rand"}
 <li class="m-cd-i-wrap">
@@ -52,7 +52,7 @@
 {if:[video:vip]>1}<i class="vipico"></i>{end if}</div>
 <div class="info flexbox">
 <h3 class="txt flexmiddle"><font color="[video:color]">[video:name len=11]</font></h3>
-<span>[video:cion]½ğ±Ò</span>
+<span>[video:cion]é‡‘å¸</span>
 </div>
 </a>
 </li>
@@ -62,28 +62,28 @@
 </ion-content>
 <div class="share_bg" ng-hide="shareVAR" >
 <div class="share-box" >
-<p>·ÖÏíÖÁ</p>
+<p>åˆ†äº«è‡³</p>
 <div class="bdsharebuttonbox flexbox" >
 <div target="_blank" href="javascript:void(0);" class="flexmiddle">
-<a href="#" class="icons icons-weibo" data-cmd="tsina" title="·ÖÏíµ½ĞÂÀËÎ¢²©"></a>
-<a href="#" data-cmd="tsina" title="·ÖÏíµ½ĞÂÀËÎ¢²©">ĞÂÀËÎ¢²©</a>
+<a href="#" class="icons icons-weibo" data-cmd="tsina" title="åˆ†äº«åˆ°æ–°æµªå¾®åš"></a>
+<a href="#" data-cmd="tsina" title="åˆ†äº«åˆ°æ–°æµªå¾®åš">æ–°æµªå¾®åš</a>
 </div>
 <div target="_blank" href="javascript:void(0);" class="flexmiddle">
-<a href="#" class="icons icons-qzone" data-cmd="qzone" title="·ÖÏíµ½QQ¿Õ¼ä"></a>
-<a href="#" data-cmd="qzone" title="·ÖÏíµ½QQ¿Õ¼ä">QQ¿Õ¼ä</a>
+<a href="#" class="icons icons-qzone" data-cmd="qzone" title="åˆ†äº«åˆ°QQç©ºé—´"></a>
+<a href="#" data-cmd="qzone" title="åˆ†äº«åˆ°QQç©ºé—´">QQç©ºé—´</a>
 </div>
 <div target="_blank" href="javascript:void(0);" class="flexmiddle">
-<a href="#" class="icons icons-qq" data-cmd="sqq" title="·ÖÏíµ½QQºÃÓÑ"></a>
-<a href="#" data-cmd="sqq" title="·ÖÏíµ½QQºÃÓÑ">QQºÃÓÑ</a>
+<a href="#" class="icons icons-qq" data-cmd="sqq" title="åˆ†äº«åˆ°QQå¥½å‹"></a>
+<a href="#" data-cmd="sqq" title="åˆ†äº«åˆ°QQå¥½å‹">QQå¥½å‹</a>
 </div>
 <div target="_blank" href="javascript:void(0);" class="flexmiddle">
-<a href="#" class="icons icons-weixin" data-cmd="weixin" title="·ÖÏíµ½Î¢ĞÅ"></a>
-<a href="#" data-cmd="weixin" title="·ÖÏíµ½Î¢ĞÅ">Î¢ĞÅ</a>
+<a href="#" class="icons icons-weixin" data-cmd="weixin" title="åˆ†äº«åˆ°å¾®ä¿¡"></a>
+<a href="#" data-cmd="weixin" title="åˆ†äº«åˆ°å¾®ä¿¡">å¾®ä¿¡</a>
 </div>
 </div>
-<p><a ng-click="toggle()" class="share-box-cancel clearfix">È¡Ïû</a></p></div>
+<p><a ng-click="toggle()" class="share-box-cancel clearfix">å–æ¶ˆ</a></p></div>
 </div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"60"},"share":{},"image":{"viewList":["qzone","tsina","weixin","sqq"],"viewText":"·ÖÏíµ½£º","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","weixin","sqq"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"60"},"share":{},"image":{"viewList":["qzone","tsina","weixin","sqq"],"viewText":"åˆ†äº«åˆ°ï¼š","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","weixin","sqq"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 <script type="text/javascript">
 var video = document.getElementById("msplayer");  
 video.ontimeupdate = function() {myFunction()};
@@ -92,12 +92,12 @@ function myFunction()
 var vTime = video.currentTime;
 if (vTime>[video:sksj]){
 video.pause();
-$("#ms_player").html("<div align='center' class='video-area' style='line-height:25px;background-color:#000;color:#fff;'><li style='height:15px;'></li><img src='{msvod:indextempurl}imgs/sk.png' width='80'></li><li style='color:red'>¸ç¸çÊÔ¿´([video:sksj])Ãë½áÊøÀ²~!</li><li><a href='/index.php/user/pay?type=vip' style='color:#fff;'>³äÖµVIPÎŞÏŞ¹Û¿´Å¶¡¾³äÖµ¡¿</a></li><li style='height:15px;'></li></div>");
+$("#ms_player").html("<div align='center' class='video-area' style='line-height:25px;background-color:#000;color:#fff;'><li style='height:15px;'></li><img src='{msvod:indextempurl}imgs/sk.png' width='80'></li><li style='color:red'>å“¥å“¥è¯•çœ‹([video:sksj])ç§’ç»“æŸå•¦~!</li><li><a href='/index.php/user/pay?type=vip' style='color:#fff;'>å……å€¼VIPæ— é™è§‚çœ‹å“¦ã€å……å€¼ã€‘</a></li><li style='height:15px;'></li></div>");
 }
 }
 </script>
 <script type="text/javascript">
-setInterval("relocalhost()",[video:sksj]*1000);//1000Îª1ÃëÖÓ
+setInterval("relocalhost()",[video:sksj]*1000);//1000ä¸º1ç§’é’Ÿ
 function relocalhost()
 {
 location.href="/index.php/video/tishi/id/[video:id]";

@@ -81,7 +81,7 @@ echo '<tr height="25"><td>['.$mx.':'.$row['Field'].']</td><td>'.$sm.'</td></tr>'
 }else{ 
 if(file_exists(FCPATH.'plugins/'.$dir.'/config/install.php')){
 $SQLDB = require_once(FCPATH.'plugins/'.$dir.'/config/install.php');
-//≈–∂œ ˝æ›ø‚
+//Âà§Êñ≠Êï∞ÊçÆÂ∫ì
 if(is_array($SQLDB)){
 foreach ($SQLDB as $sql) {
 preg_match('/CREATE TABLE IF NOT EXISTS `{prefix}([\s\S]+?)`([\s\S]+?)COMMENT=\'([\s\S]+?)\';/',$sql,$tarr);

@@ -40,23 +40,23 @@ $sql_string.=" order by addtime desc";
 $count_sql = str_replace('*','count(*) as count',$sql_string);
 $query = $this->db->query($count_sql)->result_array();
 $total = $query[0]['count'];
-$totalPages = ceil($total / $per_page); // ×ÜÒ³Êı
+$totalPages = ceil($total / $per_page); // æ€»é¡µæ•°
 if($total<$per_page){
 $per_page=$total;
 }
 $sql_string.=' limit '. $per_page*($pages-1) .','. $per_page;
 $data= $this->db->query($sql_string)->result();
-if(empty($data)) exit('<br>=================µ±Ç°Ã»ÓĞ¼ÇÂ¼!===================<br>');
-echo "<table align='left' border='0'style='border-collapse:collapse;'><tr><td>&nbsp;ÕıÔÚËæ»úÈËÆøµÚ<font style='color:red; font-size:15px; font-style:italic'>".$pages."</font>Ò³£¬¹²<font style='color:red; font-size:15px; font-style:italic'>".$totalPages."</font>Ò³&nbsp;&nbsp;&nbsp;<a href='".site_url('video/admin/tools/lists')."'><font color=#0000ff>½ô¼±Í£Ö¹</font></a></td></tr>" ;
+if(empty($data)) exit('<br>=================å½“å‰æ²¡æœ‰è®°å½•!===================<br>');
+echo "<table align='left' border='0'style='border-collapse:collapse;'><tr><td>&nbsp;æ­£åœ¨éšæœºäººæ°”ç¬¬<font style='color:red; font-size:15px; font-style:italic'>".$pages."</font>é¡µï¼Œå…±<font style='color:red; font-size:15px; font-style:italic'>".$totalPages."</font>é¡µ&nbsp;&nbsp;&nbsp;<a href='".site_url('video/admin/tools/lists')."'><font color=#0000ff>ç´§æ€¥åœæ­¢</font></a></td></tr>" ;
 foreach ($data as $row) { 
 $hits=mt_rand($kshits,$jshits);
 $this->db->query("update ".MS_SqlPrefix."video set ".$renqi."=".$hits." where id=".$row->id."");
-echo "<tr><td>&nbsp;<font style=font-size:10pt;><font color=red>".$row->name."</font>µÄÈËÆø±äÎªÁË<font color=red>".$hits."</font></font></td></tr>";
+echo "<tr><td>&nbsp;<font style=font-size:10pt;><font color=red>".$row->name."</font>çš„äººæ°”å˜ä¸ºäº†<font color=red>".$hits."</font></font></td></tr>";
 }
 if($pages>=$totalPages){
-die("<tr><td>&nbsp;<font style=color:red;font-size:10pt;><b>ËùÓĞµÄËæ»úÈËÆøÍê±Ï£®£®£®£®</b></font></td></tr></table>");
+die("<tr><td>&nbsp;<font style=color:red;font-size:10pt;><b>æ‰€æœ‰çš„éšæœºäººæ°”å®Œæ¯•ï¼ï¼ï¼ï¼</b></font></td></tr></table>");
 }else{	
-die("<tr><td>&nbsp;<font style=font-size:10pt;>ÔİÍ£5Ãëºó¼ÌĞøËæ»úÈËÆø £®£®£®£®</font><script language='javascript'>setTimeout('ReadGo();',".(5000).");function ReadGo(){location.href='".site_url('video/admin/tools/lists')."?pages=".($pages+1)."&page=".$per_page."&cid=".$cid."&renqi=".$renqi."&jshits=".$jshits."&day=".$day."&kshits=".$kshits."';}</script></td></tr></table>");
+die("<tr><td>&nbsp;<font style=font-size:10pt;>æš‚åœ5ç§’åç»§ç»­éšæœºäººæ°” ï¼ï¼ï¼ï¼</font><script language='javascript'>setTimeout('ReadGo();',".(5000).");function ReadGo(){location.href='".site_url('video/admin/tools/lists')."?pages=".($pages+1)."&page=".$per_page."&cid=".$cid."&renqi=".$renqi."&jshits=".$jshits."&day=".$day."&kshits=".$kshits."';}</script></td></tr></table>");
 }
 }
 }

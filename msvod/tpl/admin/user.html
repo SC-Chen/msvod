@@ -124,15 +124,15 @@ echo '&nbsp;<a title="'.L('tpl_34').'" href="?sort=addtime&desc=asc"><i class="s
 if(empty($user)) echo '<tr><td align="center" height="50" colspan="15">'.L('tpl_36').'</td></tr>';
 foreach ($user as $row) {
 $logo=!empty($row->logo)?'<img width="30" src="'.piclink('logo',$row->logo).'">':'-';
-//��Ա״̬
+//会员状态
 $zt=($row->sid==0)?'<a title="'.L('tpl_37').'" href="javascript:get_cmd(\''.site_url('admin/user/init').'?sid=1\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="'.L('tpl_38').'" href="javascript:get_cmd(\''.site_url('admin/user/init').'?sid=0\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
-//�Ƽ�״̬
+//推荐状态
 //$tj=($row->tid==1)?'<a title="'.L('tpl_52').'" href="javascript:get_cmd(\''.site_url('admin/user/init').'?tid=0\',\'tj\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="'.L('tpl_53').'" href="javascript:get_cmd(\''.site_url('admin/user/init').'?tid=1\',\'tj\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
-//��֤״̬
+//认证状态
 //$rz=($row->rzid==1)?'<a title="'.L('tpl_39').'" href="javascript:get_cmd(\''.site_url('admin/user/init').'?rzid=0\',\'rz\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="'.L('tpl_40').'" href="javascript:get_cmd(\''.site_url('admin/user/init').'?rzid=1\',\'rz\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
-//VIP��Ա
+//VIP会员
 $vip=($row->vip>0)?' <img title="'.L('tpl_41').'" align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/vip.gif" />':'';
-//��Ա��
+//会员组
 $rowz=$this->db->query("SELECT name FROM ".MS_SqlPrefix."userzu where id=".$row->zid."")->row();
 $zuname=($rowz)?$rowz->name:L('tpl_42');
 if(empty($row->nichen)) $row->nichen='-';

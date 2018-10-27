@@ -16,7 +16,7 @@
 {msvod:head}     
 <div class="k_content no_flush_content">
             <div class="k_main">
-			    <div class="main_tit"><h2 class="main_tit_msg">{if:[user:id]=={msvod:uid}}ÎÒ{else}TA{end if}µÄËµËµ</h2></div>
+			    <div class="main_tit"><h2 class="main_tit_msg">{if:[user:id]=={msvod:uid}}æˆ‘{else}TA{end if}çš„è¯´è¯´</h2></div>
 				<div class="trends">
                     <div class="qbox pq_wen">
                         <div class="tr_time"><em>[blog:addtime style=m/d]</em>[blog:addtime style=Y]</div>
@@ -38,8 +38,8 @@
             <div class="k_right">
 				<div class="follow">
                     <div class="right_tit">
-                        <h3 class="right_tit_follow">{if:[user:id]=={msvod:uid}}ÎÒ{else}TA{end if}µÄ¹Ø×¢</h3>
-                        <a class="rt f_green right_tit_more" href="[user:url ulink=friend]">¸ü¶à<b></b></a>
+                        <h3 class="right_tit_follow">{if:[user:id]=={msvod:uid}}æˆ‘{else}TA{end if}çš„å…³æ³¨</h3>
+                        <a class="rt f_green right_tit_more" href="[user:url ulink=friend]">æ›´å¤š<b></b></a>
                     </div>
                     <div class="follow_list">
 {msvod:friend table="friend" field="uidb,addtime" uida="auto" loop="3"}
@@ -47,17 +47,17 @@
                             <dt><a target="_blank" class="show_userCard_link" href="[friend:url ulink=index]"><img src="[friend:user zd=logo]" width="50" height="50" alt="[friend:user zd=nichen]" /></a></dt>
                             <dd class="follow_name">
                                 <h4><a class="show_userCard_link" href="[friend:url ulink=index]">[friend:user zd=nichen]</a></h4>
-                                <p class="tips_gray">{msvodcount param="friend|uida=[friend:uidb]"}ÈË¹Ø×¢</p>
+                                <p class="tips_gray">{msvodcount param="friend|uida=[friend:uidb]"}äººå…³æ³¨</p>
                             </dd>
-                            <dd class="follow_action"><a href="###" onClick="home.fansadd('[friend:uidb]',1);" class="follow_btn gz[friend:uidb]"><em>+</em>¹Ø×¢</a></dd>
+                            <dd class="follow_action"><a href="###" onClick="home.fansadd('[friend:uidb]',1);" class="follow_btn gz[friend:uidb]"><em>+</em>å…³æ³¨</a></dd>
                         </dl>
 {/msvod:friend}
                      </div>
                 </div>
                 <div class="fans">
                     <div class="right_tit">
-                        <h3 class="right_tit_fans">{if:[user:id]=={msvod:uid}}ÎÒ{else}TA{end if}µÄ·ÛË¿</h3>
-                        <a class="rt f_green right_tit_more" href="[user:url ulink=fans]">¸ü¶à<b></b></a>
+                        <h3 class="right_tit_fans">{if:[user:id]=={msvod:uid}}æˆ‘{else}TA{end if}çš„ç²‰ä¸</h3>
+                        <a class="rt f_green right_tit_more" href="[user:url ulink=fans]">æ›´å¤š<b></b></a>
                     </div>
                     <div class="fans_list">
                         <ul>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="guest">
                     <div class="right_tit">
-                        <h3 class="right_tit_guest">×î½ü·Ã¿Í</h3>
+                        <h3 class="right_tit_guest">æœ€è¿‘è®¿å®¢</h3>
                     </div>
                     <div class="fans_list guest_list">
                         <ul id="ListGuest">

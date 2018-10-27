@@ -51,9 +51,9 @@
 <?php
 if(empty($pay)) echo '<tr><td align="center" height="50" colspan="6">'.L('tpl_26').'</td></tr>';
 foreach ($pay as $row) {
-		//»áÔ±
+		//ä¼šå‘˜
         $rowa=$this->db->query("SELECT name FROM ".MS_SqlPrefix."user where id=".$row->uid."")->row();
-		$uname=($rowa)?$rowa->name:L('tpl_12').'£¬UID£º'.$row->uid;
+		$uname=($rowa)?$rowa->name:L('tpl_12').'ï¼ŒUIDï¼š'.$row->uid;
 
         echo '
         <tr height="35">

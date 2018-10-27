@@ -21,9 +21,9 @@
 <div id="usual1" class="usual"> 
 <div class="itab">
 <ul> 
-<li><a href="<?=site_url('admin/daili/daili_index')?>" >´úÀíÁĞ±í</a></li> 
-<li><a href="<?=site_url('admin/daili')?>" class="selected">ÏÂ¼¶ÁĞ±í</a></li> 
-<li><a href="<?=site_url('admin/daili/verify')?>">´ıÉóºËÁĞ±í</a></li> 
+<li><a href="<?=site_url('admin/daili/daili_index')?>" >ä»£ç†åˆ—è¡¨</a></li> 
+<li><a href="<?=site_url('admin/daili')?>" class="selected">ä¸‹çº§åˆ—è¡¨</a></li> 
+<li><a href="<?=site_url('admin/daili/verify')?>">å¾…å®¡æ ¸åˆ—è¡¨</a></li> 
 </ul>
 </div> 
 </div> 
@@ -32,7 +32,7 @@
 <ul class="seachform">
 <li><label>
 <div class="vocation">
-»áÔ±ID
+ä¼šå‘˜ID
 </div>
 </label><input style="width:150px;" name="key" value="<?=$key?>" type="text" class="scinput" />
 </li>
@@ -48,8 +48,8 @@
 <th><?=L('tpl_06')?></th>
 <th><?=L('tpl_14')?></th>
 <th><?=L('tpl_21')?></th>
-<th>ÉÏ¼¶´úÀí</th>
-<th>Ìá³É×Ü½ğ¶î</th>
+<th>ä¸Šçº§ä»£ç†</th>
+<th>ææˆæ€»é‡‘é¢</th>
 <th><?=L('tpl_32')?>
 </th>
 </tr>
@@ -60,11 +60,11 @@ if(empty($user)) echo '<tr><td align="center" height="50" colspan="15">'.L('tpl_
 foreach ($user as $rows) {
 $row=$this->db->query("SELECT * FROM ".MS_SqlPrefix."user where id=".$rows->uid."")->row();
 $logo=!empty($row->logo)?'<img width="30" src="'.piclink('logo',$row->logo).'">':'-';
-//»áÔ±×é
+//ä¼šå‘˜ç»„
 $rowz=$this->db->query("SELECT name FROM ".MS_SqlPrefix."userzu where id=".$row->zid."")->row();
 $zuname=($rowz)?$rowz->name:L('tpl_42');
 if(empty($row->nichen)) $row->nichen='-';
-//´úÀí
+//ä»£ç†
 $daili=$this->db->query("SELECT * FROM ".MS_SqlPrefix."user where id=".$rows->dlid."")->row();
 $userurl=site_url('admin/daili');
 echo '
@@ -76,7 +76,7 @@ echo '
 <td>'.$zuname.'</td>
 <td>'.$row->lognum.'</td>
 <td><a href="'.$userurl.'?key='.$row->dlid.'">'.$daili->name.'</a></td>
-<td>'.getdaili($rows->dlid,0,$rows->uid).' Ôª</td>
+<td>'.getdaili($rows->dlid,0,$rows->uid).' å…ƒ</td>
 <td>'.date('Y-m-d',$row->addtime).'</td>
 </tr> ';
 }

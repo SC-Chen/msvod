@@ -7,7 +7,7 @@
 */
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-//½âÎö¶à¸ö·ÖÀàID  Èç cid=1,2,3,4,5,6
+//è§£æå¤šä¸ªåˆ†ç±»ID  å¦‚ cid=1,2,3,4,5,6
 function getChild($CID,$type='video_list',$zd='fid'){
 $ci = &get_instance();
 if (!isset($ci->db)){
@@ -16,7 +16,7 @@ $ci->load->database();
 if(!empty($CID)){
 $ClassArr=explode(',',$CID);
 for($i=0;$i<count($ClassArr);$i++){
-$sql="select id from ".MS_SqlPrefix.$type." where ".$zd."='$ClassArr[$i]'";//sqlÓï¾äµÄ×éÖ¯·µ»Ø
+$sql="select id from ".MS_SqlPrefix.$type." where ".$zd."='$ClassArr[$i]'";//sqlè¯­å¥çš„ç»„ç»‡è¿”å›
 $result=$ci->db->query($sql)->result();
 if(!empty($result)){
 foreach ($result as $row) {
@@ -28,7 +28,7 @@ $CID=implode(',',$ClassArr);
 }
 return $CID;
 }
-//»ñÈ¡Êı¾İ×ÜÊı
+//è·å–æ•°æ®æ€»æ•°
 function getcount($table='video',$sid=0){
 $ci = &get_instance();
 if (!isset($ci->db)){
@@ -44,9 +44,9 @@ $nums=$query[0]['count'];
 return (int)$nums;
 }
 
-//±êÇ©½âÎö
+//æ ‡ç­¾è§£æ
 function SearchLink($Search_Key,$fid='tags'){
-$Search_link='http://'.Web_Url.Web_Path.'index.php/video/'; //°å¿éµØÖ·
+$Search_link='http://'.Web_Url.Web_Path.'index.php/video/'; //æ¿å—åœ°å€
 $Search_List=$Search_Key1="";
 $Search_Key=trim($Search_Key);
  
@@ -62,10 +62,10 @@ $Search_List.="<A target=\"tags\" HREF=\"".$Search_link."search?".$fid."=".urlen
 }else{
 $Search_List="<A target=\"tags\" HREF=\"".$Search_link."search?".$fid."=".urlencode($Search_Key)."\">".$Search_Key."</A> ";
 }
-//¿ªÆô¶ş¼¶ÓòÃû
-$Ym_Mode=config('Ym_Mode','video'); //¶ş¼¶ÓòÃû×´Ì¬
-$Ym_Url=config('Ym_Url','video');   //¶ş¼¶ÓòÃûµØÖ·
-$Web_Mode=config('Web_Mode','video');   //°æ¿éÔËĞĞÄ£Ê½
+//å¼€å¯äºŒçº§åŸŸå
+$Ym_Mode=config('Ym_Mode','video'); //äºŒçº§åŸŸåçŠ¶æ€
+$Ym_Url=config('Ym_Url','video');   //äºŒçº§åŸŸååœ°å€
+$Web_Mode=config('Web_Mode','video');   //ç‰ˆå—è¿è¡Œæ¨¡å¼
 if($Ym_Mode==1){
 if($Web_Mode==2){
 $Search_List  = str_replace(Web_Url.Web_Path."index.php/video/",$Ym_Url.Web_Path,$Search_List);

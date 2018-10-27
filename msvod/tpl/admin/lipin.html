@@ -15,15 +15,15 @@
 <body>
 <div class="place">
 <span><?=L('place')?></span>
-<ul class="placeul"><li><a href="<?=site_url('admin/opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('admin/video/admin/video')?>">礼品管理</a></li></ul>
+<ul class="placeul"><li><a href="<?=site_url('admin/opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('admin/video/admin/video')?>">绀煎搧绠＄悊</a></li></ul>
 </div>
 <div class="formbody">
 <div id="usual1" class="usual"> 
 <div class="itab">
 <ul> 
-<li><a href="<?=site_url('admin/lipin')?>" class="selected">礼品列表</a></li> 
-<li><a href="<?=site_url('admin/lipin/lists')?>">兑换记录</a></li> 
-<li><a href="<?=site_url('admin/lipin/edit')?>">新增礼品</a></li> 
+<li><a href="<?=site_url('admin/lipin')?>" class="selected">绀煎搧鍒楄〃</a></li> 
+<li><a href="<?=site_url('admin/lipin/lists')?>">鍏戞崲璁板綍</a></li> 
+<li><a href="<?=site_url('admin/lipin/edit')?>">鏂板绀煎搧</a></li> 
 </ul>
 </div> 
 </div> 
@@ -33,24 +33,24 @@
 <thead>
 <tr>
 <th>ID</th>
-<th width="70px;">图片</th>
-<th width="370px;">名字</th>
-<th>类型</th>
-<th>金额</th>
-<th>时间</th>
-<th>操作</th>
+<th width="70px;">鍥剧墖</th>
+<th width="370px;">鍚嶅瓧</th>
+<th>绫诲瀷</th>
+<th>閲戦</th>
+<th>鏃堕棿</th>
+<th>鎿嶄綔</th>
 </tr>
 </thead>
 
 <tbody>
 <?php
-if(empty($video)) echo '<tr><td align="center" height="50" colspan="10">没有数据</td></tr>';
+if(empty($video)) echo '<tr><td align="center" height="50" colspan="10">娌℃湁鏁版嵁</td></tr>';
 foreach ($video as $row) {
 $pic=!empty($row->pic)?'<a href="'.piclink('lipin',$row->pic).'" target="pic"><img height="30" src="'.piclink('lipin',$row->pic).'"></a>':'-';
-if($row->cid==0){$zids='充值卡';}
-if($row->cid==1){$zids='实体物品';}
-if($row->cid==2){$zids='虚拟物品';}
-//时间加亮
+if($row->cid==0){$zids='鍏呭�煎崱';}
+if($row->cid==1){$zids='瀹炰綋鐗╁搧';}
+if($row->cid==2){$zids='铏氭嫙鐗╁搧';}
+//鏃堕棿鍔犱寒
 if(date('Y-m-d',$row->addtime)==date('Y-m-d')){
 $addtime='<font color=red>'.date('Y-m-d',$row->addtime).'</font>';
 }else{
@@ -66,7 +66,7 @@ echo '
 <td>'.$zids.'</td>
 <td>'.$row->cion.'</td>
 <td>'.$addtime.'</td>
-<td><a href="'.site_url('admin/lipin/edit').'?id='.$row->id.'">编辑</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);" onclick="Popsbox(\'删除礼品记录\',505,245,\'您确定要删除这条礼品记录吗\',\''.site_url('admin/lipin/del').'?id='.$row->id.'\');">删除</a></td>
+<td><a href="'.site_url('admin/lipin/edit').'?id='.$row->id.'">缂栬緫</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);" onclick="Popsbox(\'鍒犻櫎绀煎搧璁板綍\',505,245,\'鎮ㄧ‘瀹氳鍒犻櫎杩欐潯绀煎搧璁板綍鍚梊',\''.site_url('admin/lipin/del').'?id='.$row->id.'\');">鍒犻櫎</a></td>
 </tr> ';
 }
 ?>

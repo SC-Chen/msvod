@@ -6,14 +6,14 @@
 * @Dtime:2014-07-27
 */
 @header('Content-Type: text/html; charset=gbk');
-//ÅĞ¶ÏÊÇ·ñ°²×°
+//åˆ¤æ–­æ˜¯å¦å®‰è£…
 if(!file_exists(FCPATH.'packs/install/install.lock') && strpos(REQUEST_URI,'index.php/install/') === FALSE){
 $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['SCRIPT_NAME'];
 $url = substr($url,0,-9);
 $url .= 'index.php/install/';
 header("location:".$url);exit;
 }
-//×°ÔØÈ«¾ÖÅäÖÃÎÄ¼ş
+//è£…è½½å…¨å±€é…ç½®æ–‡ä»¶
 require_once 'Ms_Version.php';
 require_once 'Ms_DB.php';
 require_once 'Ms_Config.php';
@@ -27,29 +27,29 @@ require_once 'Ms_Denglu.php';
 require_once 'Ms_Muthorize.php';
 require_once 'Ms_Ftp.php';
 require_once 'Ms_Sms.php';
-//ÅĞ¶ÏÍøÕ¾ÔËĞĞ×´Ì¬
+//åˆ¤æ–­ç½‘ç«™è¿è¡ŒçŠ¶æ€
 if(!defined('IS_ADMIN') && Web_Off==0){
 die(Web_Onneir);
 }
-//ÅĞ¶Ï»áÔ±ÏµÍ³¿ª¹Ø
+//åˆ¤æ–­ä¼šå‘˜ç³»ç»Ÿå¼€å…³
 if(!defined('IS_ADMIN') && User_Mode==0 && strpos(REQUEST_URI,'user') !== FALSE){
 die(User_No_info);
 }
-//ÊÖ»ú¿Í»§¶Ë·ÃÎÊ±êÊ¾
+//æ‰‹æœºå®¢æˆ·ç«¯è®¿é—®æ ‡ç¤º
 if(preg_match("/(iPhone|iPad|iPod|Android)/i", strtoupper($_SERVER['HTTP_USER_AGENT']))){
 if(Mobile_Is==1 && !defined('IS_ADMIN')){
 define('MOBILE', true);	
 }
 }
-//ÊÖ»ú¶ş¼¶ÓòÃû
+//æ‰‹æœºäºŒçº§åŸŸå
 if(Mobile_Is==1 && $_SERVER['HTTP_HOST']==Mobile_Url){
 define('MOBILE_YM', true);	
 }
-//ÅĞ¶ÏÊÖ»ú·ÃÎÊÓòÃû
+//åˆ¤æ–­æ‰‹æœºè®¿é—®åŸŸå
 if(defined('MOBILE_YM') && !defined('MOBILE')){
 define('MOBILE', true);	
 }
-//ÅĞ¶Ï»áÔ±Ö÷Ò³·ºÓòÃû
+//åˆ¤æ–­ä¼šå‘˜ä¸»é¡µæ³›åŸŸå
 if(Home_Ym==1){
 $HOME_YMALL=explode(".",$_SERVER['HTTP_HOST']);
 $HOME_YM=str_replace($HOME_YMALL[0].'.', "",$_SERVER['HTTP_HOST']);
@@ -58,16 +58,16 @@ if($HOME_YMALL[0]!='www' && !in_array($HOME_YMALL[0], $HOME_EXT) && $HOME_YM==Ho
 define('HOMEPATH', 'home');
 }
 }
-//ÅĞ¶Ï°æ¿é°ó¶¨ÓòÃû
+//åˆ¤æ–­ç‰ˆå—ç»‘å®šåŸŸå
 $_ERYM=FALSE;
 if(file_exists(MSVOD.'lib/Ms_Domain.php')){
 $_MS_Domain = require_once(MSVOD.'lib/Ms_Domain.php');
 if (is_array($_MS_Domain)) {
 foreach ($_MS_Domain as $key => $host) {
 if($_SERVER['HTTP_HOST']==$host){
-if($key=='user'){ //»áÔ±ÖĞĞÄ¶ş¼¶ÓòÃû
+if($key=='user'){ //ä¼šå‘˜ä¸­å¿ƒäºŒçº§åŸŸå
 define('USERPATH', $key);
-//ÅĞ¶Ï°æ¿é»áÔ±¶ş¼¶ÓòÃû
+//åˆ¤æ–­ç‰ˆå—ä¼šå‘˜äºŒçº§åŸŸå
 $REQUEST=str_replace('index.php/','',REQUEST_URI);
 $SELFALL=(substr($REQUEST,0,1)=='/')?substr($REQUEST,1):$REQUEST;
 $Mxall=explode("/",$SELFALL);
@@ -75,7 +75,7 @@ if(file_exists(FCPATH.'plugins/'.$Mxall[0].'/config/site.php')){
 define('PLUBPATH', $Mxall[0]);
 $app_folder = 'plugins/'.$Mxall[0];
 }
-}else{ //°å¿é¶ş¼¶ÓòÃû
+}else{ //æ¿å—äºŒçº§åŸŸå
 if (!defined('PLUBPATH')) {
 $app_folder = 'plugins/'.$key;
 define('PLUBPATH', $key);
@@ -87,30 +87,30 @@ break;
 }
 }
 }
-//°å¿éÎ´¿ªÆô¶ş¼¶ÓòÃû»ñµÃ°æ¿éÊµ¼ÊÄ¿Â¼
+//æ¿å—æœªå¼€å¯äºŒçº§åŸŸåè·å¾—ç‰ˆå—å®é™…ç›®å½•
 if(!$_ERYM){
 $SELF='';
-if(strpos(REQUEST_URI,SELF)!==FALSE){ //¶¯Ì¬Ä£Ê½
+if(strpos(REQUEST_URI,SELF)!==FALSE){ //åŠ¨æ€æ¨¡å¼
 $SELFALL=explode(SELF."/",REQUEST_URI);
 if(count($SELFALL)>1){
 $Mxall=explode("/",$SELFALL[1]);
 $SELF=str_replace("/", "", $Mxall[0]);
 }
-}else{ //Î±¾²Ì¬Ä£Ê½
+}else{ //ä¼ªé™æ€æ¨¡å¼
 $SELFALL=(substr(REQUEST_URI,0,1)=='/')?substr(REQUEST_URI,1):REQUEST_URI;
 $Mxall=explode("/",$SELFALL);
 $SELF=str_replace("/", "", $Mxall[0]);
 }
-//°å¿é
+//æ¿å—
 if(!empty($SELF) && is_dir(FCPATH.'plugins/'.$SELF) && file_exists(FCPATH.'plugins/'.$SELF.'/controllers/index.php')){
 $app_folder = 'plugins/'.$SELF;
 define('PLUBPATH', $SELF);
 }
-//»áÔ±ÖĞĞÄ
+//ä¼šå‘˜ä¸­å¿ƒ
 if((!defined('PLUBPATH') && $SELF=='user') || (defined('PLUBPATH') && strpos(REQUEST_URI,$SELF.'/user')!==FALSE)){
 define('USERPATH', $SELF);
 }
-//»áÔ±Ö÷Ò³
+//ä¼šå‘˜ä¸»é¡µ
 if(!empty($Mxall) && count($Mxall)>1){
 $Hall=explode("?",$Mxall[1]);
 $SELF=str_replace("/", "", $Hall[0]);
@@ -119,7 +119,7 @@ if((!defined('PLUBPATH') && $SELF=='home') || (defined('PLUBPATH') && strpos(REQ
 define('HOMEPATH', $SELF);
 }
 }
-//ÅĞ¶Ï°å¿é»áÔ±¿ØÖÆÆ÷
+//åˆ¤æ–­æ¿å—ä¼šå‘˜æ§åˆ¶å™¨
 if(!defined('IS_ADMIN') && !defined('PLUBPATH')){
 $arr=parse_url(REQUEST_URI);
 $re_url=str_replace("/".SELF."/", "",$arr['path']);
@@ -127,32 +127,32 @@ if(substr($re_url,0,1)=='/') $re_url=substr($re_url,1);
 $permarr=explode('/',$re_url);
 $SELF=$permarr[0];
 if(!empty($SELF)){
-//ÊÖ»ú·ÃÎÊ
+//æ‰‹æœºè®¿é—®
 if(defined('MOBILE') && is_dir(FCPATH.'plugins/'.$SELF) && !file_exists(MSVOD.'app/controllers/home/'.$SELF.'.php')){
 define('PLUBPATH', $SELF);
 $app_folder = 'plugins/'.$SELF;
-//»áÔ±
+//ä¼šå‘˜
 }elseif((defined('USERPATH') || defined('HOMEPATH')) && is_dir(FCPATH.'plugins/'.$SELF) && !file_exists(MSVOD.'app/controllers/user/'.$SELF.'.php')){
 define('PLUBPATH', $SELF);
 $app_folder = 'plugins/'.$SELF;
 }
 }
-//ÅĞ¶Ï»áÔ±Ö÷Ò³°æ¿é
+//åˆ¤æ–­ä¼šå‘˜ä¸»é¡µç‰ˆå—
 if(!defined('PLUBPATH') && defined('HOMEPATH')){
 if(count($permarr)>2){
 $SELF=$permarr[2];
-//ÊÖ»ú·ÃÎÊ
+//æ‰‹æœºè®¿é—®
 if(defined('MOBILE') && is_dir(FCPATH.'plugins/'.$SELF) && !file_exists(MSVOD.'app/controllers/home/'.$SELF.'.php')){
 define('PLUBPATH', $SELF);
 $app_folder = 'plugins/'.$SELF;
-//»áÔ±
+//ä¼šå‘˜
 }elseif((defined('USERPATH') || defined('HOMEPATH')) && is_dir(FCPATH.'plugins/'.$SELF) && !file_exists(MSVOD.'app/controllers/home/'.$SELF.'.php')){
 define('PLUBPATH', $SELF);
 $app_folder = 'plugins/'.$SELF;
 }
 }
 }
-//»áÔ±Ö÷Ò³°æ¿é
+//ä¼šå‘˜ä¸»é¡µç‰ˆå—
 if(!defined('PLUBPATH') && defined('HOMEPATH')){
 if(is_dir(FCPATH.'plugins/'.$SELF) && file_exists(FCPATH.'plugins/'.$SELF.'/controllers/index.php')){
 $app_folder = 'plugins/'.$SELF;
@@ -160,11 +160,11 @@ define('PLUBPATH', $SELF);
 }
 }
 }
-//¼ÓÔØ°å¿éÅäÖÃ
+//åŠ è½½æ¿å—é…ç½®
 if(defined('PLUBPATH') && file_exists(FCPATH.'plugins/'.PLUBPATH.'/config/site.php')){
 $PLUBARR[PLUBPATH] = require FCPATH.'plugins/'.PLUBPATH.'/config/site.php';
 }
-//ÅĞ¶ÏÊÖ»ú¿Í»§¶Ë·ÃÎÊ
+//åˆ¤æ–­æ‰‹æœºå®¢æˆ·ç«¯è®¿é—®
 if(defined('MOBILE')){
 if(!defined('IS_ADMIN') && Mobile_Is==1){
 if(Home_Ym==0 && Mobile_Url!='' && $_SERVER['HTTP_HOST']!=Mobile_Url){
@@ -178,7 +178,7 @@ if((Mobile_Is==0 || Mobile_Win==0) && $_SERVER['HTTP_HOST']==Mobile_Url){
 header("location:".$Web_Link);exit;
 }
 }
-//»ñÈ¡µ±Ç°Ä¿Â¼Â·¾¶²ÎÊı
+//è·å–å½“å‰ç›®å½•è·¯å¾„å‚æ•°
 function msvod_cur_url() { 
 if(!empty($_SERVER["REQUEST_URI"])){ 
 $scrtName = $_SERVER["REQUEST_URI"]; 
@@ -191,7 +191,7 @@ $nowurl = $scrtName;
 $nowurl = $scrtName."?".$_SERVER["QUERY_STRING"]; 
 } 
 } 
-//ÅĞ¶ÏÎ±¾²Ì¬È¥µôindex.php
+//åˆ¤æ–­ä¼ªé™æ€å»æ‰index.php
 $web_mode = Web_Mode;
 if(defined('PLUBPATH')){
 global $PLUBARR;

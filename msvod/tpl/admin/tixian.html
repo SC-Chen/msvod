@@ -21,8 +21,8 @@
 <div id="usual1" class="usual"> 
 <div class="itab" style="margin-right:15px;">
 <ul> 
-<li><a href="<?=site_url('admin/daili_type/lists')?>" class="selected">ÌáÏÖ¼ÇÂ¼</a></li> 
-<li><a href="<?=site_url('admin/daili_type')?>">ÌáÏÖ·½Ê½</a></li> 
+<li><a href="<?=site_url('admin/daili_type/lists')?>" class="selected">æç°è®°å½•</a></li> 
+<li><a href="<?=site_url('admin/daili_type')?>">æç°æ–¹å¼</a></li> 
 </ul>
 </div> 
 </div> 
@@ -32,12 +32,12 @@
 <li><label>
 <div class="vocation">
 <select class="select3" name="zid">
-<option value="0"<?php if($zid==0) echo ' selected';?>>È«²¿</option>
-<option value="1"<?php if($zid==1) echo ' selected';?>>µÈ´ıÉóÅú</option>
-<option value="2"<?php if($zid==2) echo ' selected';?>>ÒÑÅúÌáÏÖ</option>
+<option value="0"<?php if($zid==0) echo ' selected';?>>å…¨éƒ¨</option>
+<option value="1"<?php if($zid==1) echo ' selected';?>>ç­‰å¾…å®¡æ‰¹</option>
+<option value="2"<?php if($zid==2) echo ' selected';?>>å·²æ‰¹æç°</option>
 </select>
 </div>
-<div class="vocation">&nbsp;»áÔ±ID</div>
+<div class="vocation">&nbsp;ä¼šå‘˜ID</div>
 </label><input style="width:150px;" name="key" value="<?=$key?>" type="text" class="scinput" />
 </li>
 <li><label>&nbsp;</label><input name="so" type="submit" class="scbtn" value="<?=L('tpl_15')?>"/></li>
@@ -49,15 +49,15 @@
 <tr>
 <th><?=L('tpl_17')?></th>
 <th><?=L('tpl_06')?></th>
-<th>ÌáÏÖ·½Ê½</th>
-<th>ÌáÏÖ½ğ¶î</th>
-<th>×´Ì¬</th>
-<th>ÌáÏÖÕËºÅ</th>
-<th>ÕËºÅĞÕÃû</th>
-<th>ÁªÏµµç»°</th>
-<th>ÌáÏÖÊ±¼ä
+<th>æç°æ–¹å¼</th>
+<th>æç°é‡‘é¢</th>
+<th>çŠ¶æ€</th>
+<th>æç°è´¦å·</th>
+<th>è´¦å·å§“å</th>
+<th>è”ç³»ç”µè¯</th>
+<th>æç°æ—¶é—´
 </th>
-<th>²Ù×÷</th>
+<th>æ“ä½œ</th>
 </tr>
 </thead>
 <tbody>
@@ -65,26 +65,26 @@
 if(empty($tixian)) echo '<tr><td align="center" height="50" colspan="15">'.L('tpl_36').'</td></tr>';
 foreach ($tixian as $row) {
 $logo=!empty($row->logo)?'<img width="30" src="'.piclink('logo',$row->logo).'">':'-';
-//·ÖÀà
+//åˆ†ç±»
 $rowz=$this->db->query("SELECT name FROM ".MS_SqlPrefix."daili_type where id=".$row->cid."")->row();
 $rows=$this->db->query("SELECT * FROM ".MS_SqlPrefix."user where id=".$row->uid."")->row();
 $zuname=$rowz->name;
 $dou="'";
 $ss='';
-if($row->zid==2){$ss='style="display:none"';$zname='ÒÑÉóÅú';}else{$zname='<font color="red">µÈ´ıÉóÅú</font>';}
+if($row->zid==2){$ss='style="display:none"';$zname='å·²å®¡æ‰¹';}else{$zname='<font color="red">ç­‰å¾…å®¡æ‰¹</font>';}
 echo '
 <tr height="35">
 <td>'.$row->uid.'</td>
 <td><a href="'.userlink('index',$rows->id,$rows->name).'" target="web">'.$rows->name.'</a></td>
 <!--td><a href="'.userlink('index',$row->id,$row->name).'" target="web">'.$row->nichen.'</a></td-->
 <td>'.$zuname.'</td>
-<td>'.$row->tcion.' Ôª</td>
+<td>'.$row->tcion.' å…ƒ</td>
 <td>'.$zname.'</td>
 <td >'.substr($row->text,0,100).'</td>
 <td >'.substr($row->name,0,100).'</td>
 <td >'.substr($row->tell,0,100).'</td>
 <td>'.date('Y-m-d',$row->dltime).'</td>
-<td> <a href="'.site_url('admin/daili_type/edit').'?id='.$row->id.'" '.$ss.'>ÉóÅú</a>-/-<a href="javascript:void(0);" onclick="Popsbox(\'É¾³ıÌáÏÖ¼ÇÂ¼\',505,245,\'ÄúÈ·¶¨ÒªÉ¾³ıÕâÌõÌáÏÖ¼ÇÂ¼Âğ\',\''.site_url('admin/daili_type/del').'?id='.$row->id.'\');">É¾³ı</a></td>
+<td> <a href="'.site_url('admin/daili_type/edit').'?id='.$row->id.'" '.$ss.'>å®¡æ‰¹</a>-/-<a href="javascript:void(0);" onclick="Popsbox(\'åˆ é™¤æç°è®°å½•\',505,245,\'æ‚¨ç¡®å®šè¦åˆ é™¤è¿™æ¡æç°è®°å½•å—\',\''.site_url('admin/daili_type/del').'?id='.$row->id.'\');">åˆ é™¤</a></td>
 </tr> ';
 }
 ?>
@@ -92,8 +92,8 @@ echo '
 </table>
 <div class="tools">
 <ul class="toolbar">
-<li class="click quanxuan"><span><img src="<?=Web_Path?>packs/admin/images/t04.png" /></span>Ñ¡Ôñ</li>
-<li class="click" onclick="Popsbox('<?=L('tpl_19')?>',505,245,'<?=L('tpl_23')?>','submit');"><span><img src="<?=Web_Path?>packs/admin/images/t03.png" /></span>É¾³ıÑ¡ÖĞ</li>
+<li class="click quanxuan"><span><img src="<?=Web_Path?>packs/admin/images/t04.png" /></span>é€‰æ‹©</li>
+<li class="click" onclick="Popsbox('<?=L('tpl_19')?>',505,245,'<?=L('tpl_23')?>','submit');"><span><img src="<?=Web_Path?>packs/admin/images/t03.png" /></span>åˆ é™¤é€‰ä¸­</li>
 </ul>
 </div>
 </form>

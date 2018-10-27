@@ -9,16 +9,16 @@
  if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * ºº×Ö×ª»»Æ´Òô
+ * æ±‰å­—è½¬æ¢æ‹¼éŸ³
  */
  
 class Pinyin {
 
-    var $pinyin = array(); // ºº×ÖÆ´Òô¶ÔÕÕÊı×é
-    var $quanpin = true; // ÉèÖÃÎªÈ«Æ´»¹ÊÇÊ××ÖÄ¸
+    var $pinyin = array(); // æ±‰å­—æ‹¼éŸ³å¯¹ç…§æ•°ç»„
+    var $quanpin = true; // è®¾ç½®ä¸ºå…¨æ‹¼è¿˜æ˜¯é¦–å­—æ¯
 
     /**
-     * ¹¹Ôìº¯Êı
+     * æ„é€ å‡½æ•°
      */
     function __construct() {
         $this->ci = & get_instance();
@@ -534,7 +534,7 @@ class Pinyin {
     }
 
     /**
-     * ºº×Ö×ªÆ´Òôº¯Êı
+     * æ±‰å­—è½¬æ‹¼éŸ³å‡½æ•°
      *
      * @param string $s
      * @param bool $quanpin
@@ -546,11 +546,11 @@ class Pinyin {
         $s = preg_replace("/(|\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\+|\=|\{|\}|\[|\]|\||\\|\:|\;|\"|\'|\<|\,|\>|\.|\?|\/)/is", "", $s);
         $i = 0;
         $py = '';
-        // ¼ÓÈëÕâÒ»¾ä£¬×Ô¶¯Ê¶±ğUTF-8
-        if (strlen("Æ´Òô") > 4)
+        // åŠ å…¥è¿™ä¸€å¥ï¼Œè‡ªåŠ¨è¯†åˆ«UTF-8
+        if (strlen("æ‹¼éŸ³") > 4)
             $s = iconv('UTF-8', 'GBK', $s);
         if ($quanpin) {
-            // È«Æ´
+            // å…¨æ‹¼
             for ($i = 0; $i < strlen($s); $i++) {
                 if (ord($s[$i]) > 128) {
                     $char = $this->asi2py(ord($s[$i]) + ord($s[$i + 1]) * 256);
@@ -561,7 +561,7 @@ class Pinyin {
                 }
             }
         } else {
-            // Ê××ÖÄ¸
+            // é¦–å­—æ¯
             for ($i = 0; $i < strlen($s); $i++) {
                 if (ord($s[$i]) > 128) {
                     $char = $this->asi2py(ord($s[$i]) + ord($s[$i + 1]) * 256);
@@ -572,7 +572,7 @@ class Pinyin {
                 }
             }
         }
-        // ÅĞ¶ÏÊÇ·ñÊä³öĞ¡Ğ´×Ö·û
+        // åˆ¤æ–­æ˜¯å¦è¾“å‡ºå°å†™å­—ç¬¦
         return ($daxie == true ? $py : strtolower($py));
     }
 

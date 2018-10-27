@@ -1,8 +1,8 @@
 <?php
-define('MS_Smtpmode',2);      //SMTP¿ª¹Ø     
-define('MS_Smtphost','smtp.126.com');      //SMTP·þÎñÆ÷      
-define('MS_Smtpport','25');      //SMTP¶Ë¿Ú    
-define('MS_Smtpuser','msvod@126.com');      //SMTPÕÊºÅ     
-define('MS_Smtppass','888888');      //SMTPÃÜÂë     
-define('MS_Smtpmail','Msvod@126.com');      //·¢ËÍEMAIL     
-define('MS_Smtpname','Msvod÷ÈË¼µçÓ°');      //·¢ËÍÕßÃû³Æ
+define('MS_Smtpmode',2);      //SMTPå¼€å…³     
+define('MS_Smtphost','smtp.126.com');      //SMTPæœåŠ¡å™¨      
+define('MS_Smtpport','25');      //SMTPç«¯å£    
+define('MS_Smtpuser','msvod@126.com');      //SMTPå¸å·     
+define('MS_Smtppass','888888');      //SMTPå¯†ç      
+define('MS_Smtpmail','Msvod@126.com');      //å‘é€EMAIL     
+define('MS_Smtpname','Msvodé­…æ€ç”µå½±');      //å‘é€è€…åç§°

@@ -50,19 +50,19 @@
 if(empty($userzu)) echo '<tr><td align="center" height="50" colspan="11">'.L('tpl_36').'</td></tr>';
 foreach ($userzu as $row) {
         $xuan=($row->id>1)?'<input name="id[]" type="checkbox" value="'.$row->id.'" />':'--';
-		//»áÔ±ÊýÁ¿
+		//ä¼šå‘˜æ•°é‡
 		$usernums=$this->db->query("SELECT id FROM ".MS_SqlPrefix."user where zid=".$row->id."")->num_rows();
-		//ÉÏ´«¸½¼þÈ¨ÏÞ
+		//ä¸Šä¼ é™„ä»¶æƒé™
 		$fid=($row->fid==1)?'<a title="'.L('tpl_231').'" href="javascript:get_cmd(\''.site_url('admin/user/zu_init').'?sid=0\',\'fid\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="'.L('tpl_231').'" href="javascript:get_cmd(\''.site_url('admin/user/zu_init').'?sid=1\',\'fid\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
-		//·¢±íÊý¾ÝÈ¨ÏÞ
+		//å‘è¡¨æ•°æ®æƒé™
 		$aid=($row->aid==1)?'<a title="'.L('tpl_231').'" href="javascript:get_cmd(\''.site_url('admin/user/zu_init').'?sid=0\',\'aid\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="'.L('tpl_231').'" href="javascript:get_cmd(\''.site_url('admin/user/zu_init').'?sid=1\',\'aid\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
-		//·¢±íÊý¾ÝÉóºËÈ¨ÏÞ
+		//å‘è¡¨æ•°æ®å®¡æ ¸æƒé™
 		$sid=($row->sid==1)?'<a title="'.L('tpl_231').'" href="javascript:get_cmd(\''.site_url('admin/user/zu_init').'?sid=0\',\'sid\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="'.L('tpl_231').'" href="javascript:get_cmd(\''.site_url('admin/user/zu_init').'?sid=1\',\'sid\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
-		//×ÔÖúÉý¼¶È¨ÏÞ
+		//è‡ªåŠ©å‡çº§æƒé™
 		$vid=($row->vid==1)?'<a title="'.L('tpl_231').'" href="javascript:get_cmd(\''.site_url('admin/user/zu_init').'?sid=0\',\'vid\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="'.L('tpl_231').'" href="javascript:get_cmd(\''.site_url('admin/user/zu_init').'?sid=1\',\'vid\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
-		//Õ¾ÄÚÐÅÈ¨ÏÞ
+		//ç«™å†…ä¿¡æƒé™
 		$mid=($row->mid==1)?'<a title="'.L('tpl_231').'" href="javascript:get_cmd(\''.site_url('admin/user/zu_init').'?sid=0\',\'mid\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="'.L('tpl_231').'" href="javascript:get_cmd(\''.site_url('admin/user/zu_init').'?sid=1\',\'mid\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
-		//ÏÂÔØ¸½¼þÃâ·Ñ
+		//ä¸‹è½½é™„ä»¶å…è´¹
 		$did=($row->did==1)?'<a title="'.L('tpl_231').'" href="javascript:get_cmd(\''.site_url('admin/user/zu_init').'?sid=0\',\'did\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="'.L('tpl_231').'" href="javascript:get_cmd(\''.site_url('admin/user/zu_init').'?sid=1\',\'did\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
         echo '
         <tr height="35">

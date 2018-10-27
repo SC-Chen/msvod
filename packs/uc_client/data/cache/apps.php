@@ -24,7 +24,7 @@ $_CACHE['apps'] = array (
   array (
     'appid' => '2',
     'type' => 'UCHOME',
-    'name' => '个人家园',
+    'name' => '涓汉瀹跺洯',
     'url' => 'http://127.0.0.1/home',
     'ip' => '',
     'viewprourl' => '',
@@ -38,12 +38,12 @@ $_CACHE['apps'] = array (
 <root>
 	<item id="template"><![CDATA[<a href="{url}" target="_blank">{subject}</a>]]></item>
 	<item id="fields">
-		<item id="subject"><![CDATA[日志标题]]></item>
-		<item id="uid"><![CDATA[用户 ID]]></item>
-		<item id="username"><![CDATA[用户名]]></item>
-		<item id="dateline"><![CDATA[日期]]></item>
-		<item id="spaceurl"><![CDATA[空间地址]]></item>
-		<item id="url"><![CDATA[日志地址]]></item>
+		<item id="subject"><![CDATA[鏃ュ織鏍囬]]></item>
+		<item id="uid"><![CDATA[鐢ㄦ埛 ID]]></item>
+		<item id="username"><![CDATA[鐢ㄦ埛鍚峕]></item>
+		<item id="dateline"><![CDATA[鏃ユ湡]]></item>
+		<item id="spaceurl"><![CDATA[绌洪棿鍦板潃]]></item>
+		<item id="url"><![CDATA[鏃ュ織鍦板潃]]></item>
 	</item>
 </root>',
     'allowips' => '',

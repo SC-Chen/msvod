@@ -1,16 +1,16 @@
 <?php
 /* *
- * ÀàÃû£ºAlipayNotify
- * ¹¦ÄÜ£ºÖ§¸¶±¦Í¨Öª´¦ÀíÀà
- * ÏêÏ¸£º´¦ÀíÖ§¸¶±¦¸÷½Ó¿ÚÍ¨Öª·µ»Ø
- * °æ±¾£º3.2
- * ÈÕÆÚ£º2011-03-25
- * ËµÃ÷£º
- * ÒÔÏÂ´úÂëÖ»ÊÇÎªÁË·½±ãÉÌ»§²âÊÔ¶øÌá¹©µÄÑùÀý´úÂë£¬ÉÌ»§¿ÉÒÔ¸ù¾Ý×Ô¼ºÍøÕ¾µÄÐèÒª£¬°´ÕÕ¼¼ÊõÎÄµµ±àÐ´,²¢·ÇÒ»¶¨ÒªÊ¹ÓÃ¸Ã´úÂë¡£
- * ¸Ã´úÂë½ö¹©Ñ§Ï°ºÍÑÐ¾¿Ö§¸¶±¦½Ó¿ÚÊ¹ÓÃ£¬Ö»ÊÇÌá¹©Ò»¸ö²Î¿¼
+ * ç±»åï¼šAlipayNotify
+ * åŠŸèƒ½ï¼šæ”¯ä»˜å®é€šçŸ¥å¤„ç†ç±»
+ * è¯¦ç»†ï¼šå¤„ç†æ”¯ä»˜å®å„æŽ¥å£é€šçŸ¥è¿”å›ž
+ * ç‰ˆæœ¬ï¼š3.2
+ * æ—¥æœŸï¼š2011-03-25
+ * è¯´æ˜Žï¼š
+ * ä»¥ä¸‹ä»£ç åªæ˜¯ä¸ºäº†æ–¹ä¾¿å•†æˆ·æµ‹è¯•è€Œæä¾›çš„æ ·ä¾‹ä»£ç ï¼Œå•†æˆ·å¯ä»¥æ ¹æ®è‡ªå·±ç½‘ç«™çš„éœ€è¦ï¼ŒæŒ‰ç…§æŠ€æœ¯æ–‡æ¡£ç¼–å†™,å¹¶éžä¸€å®šè¦ä½¿ç”¨è¯¥ä»£ç ã€‚
+ * è¯¥ä»£ç ä»…ä¾›å­¦ä¹ å’Œç ”ç©¶æ”¯ä»˜å®æŽ¥å£ä½¿ç”¨ï¼Œåªæ˜¯æä¾›ä¸€ä¸ªå‚è€ƒ
 
- *************************×¢Òâ*************************
- * µ÷ÊÔÍ¨Öª·µ»ØÊ±£¬¿É²é¿´»ò¸ÄÐ´logÈÕÖ¾µÄÐ´ÈëTXTÀïµÄÊý¾Ý£¬À´¼ì²éÍ¨Öª·µ»ØÊÇ·ñÕý³£
+ *************************æ³¨æ„*************************
+ * è°ƒè¯•é€šçŸ¥è¿”å›žæ—¶ï¼Œå¯æŸ¥çœ‹æˆ–æ”¹å†™logæ—¥å¿—çš„å†™å…¥TXTé‡Œçš„æ•°æ®ï¼Œæ¥æ£€æŸ¥é€šçŸ¥è¿”å›žæ˜¯å¦æ­£å¸¸
  */
 
 require_once("alipay_core.function.php");
@@ -19,11 +19,11 @@ require_once("alipay_md5.function.php");
 
 class AlipayNotify {
     /**
-     * HTTPSÐÎÊ½ÏûÏ¢ÑéÖ¤µØÖ·
+     * HTTPSå½¢å¼æ¶ˆæ¯éªŒè¯åœ°å€
      */
 	var $https_verify_url = 'https://mapi.alipay.com/gateway.do?service=notify_verify&';
 	/**
-     * HTTPÐÎÊ½ÏûÏ¢ÑéÖ¤µØÖ·
+     * HTTPå½¢å¼æ¶ˆæ¯éªŒè¯åœ°å€
      */
 	var $http_verify_url = 'http://notify.alipay.com/trade/notify_query.do?';
 	var $alipay_config;
@@ -35,34 +35,34 @@ class AlipayNotify {
     	$this->__construct($alipay_config);
     }
     /**
-     * Õë¶Ônotify_urlÑéÖ¤ÏûÏ¢ÊÇ·ñÊÇÖ§¸¶±¦·¢³öµÄºÏ·¨ÏûÏ¢
-     * @return ÑéÖ¤½á¹û
+     * é’ˆå¯¹notify_urléªŒè¯æ¶ˆæ¯æ˜¯å¦æ˜¯æ”¯ä»˜å®å‘å‡ºçš„åˆæ³•æ¶ˆæ¯
+     * @return éªŒè¯ç»“æžœ
      */
 	function verifyNotify(){
-		if(empty($_POST)) {//ÅÐ¶ÏPOSTÀ´µÄÊý×éÊÇ·ñÎª¿Õ
+		if(empty($_POST)) {//åˆ¤æ–­POSTæ¥çš„æ•°ç»„æ˜¯å¦ä¸ºç©º
 			return false;
 		}
 		else {
 			
-			//¶Ônotify_data½âÃÜ
+			//å¯¹notify_dataè§£å¯†
 			$decrypt_post_para = $_POST;
 			if ($this->alipay_config['sign_type'] == '0001') {
 				$decrypt_post_para['notify_data'] = rsaDecrypt($decrypt_post_para['notify_data'], $this->alipay_config['private_key_path']);
 			}
 			
-			//notify_id´Ódecrypt_post_paraÖÐ½âÎö³öÀ´£¨Ò²¾ÍÊÇËµdecrypt_post_paraÖÐÒÑ¾­°üº¬notify_idµÄÄÚÈÝ£©
+			//notify_idä»Ždecrypt_post_paraä¸­è§£æžå‡ºæ¥ï¼ˆä¹Ÿå°±æ˜¯è¯´decrypt_post_paraä¸­å·²ç»åŒ…å«notify_idçš„å†…å®¹ï¼‰
 			$doc = new DOMDocument();
 			$doc->loadXML($decrypt_post_para['notify_data']);
 			$notify_id = $doc->getElementsByTagName( "notify_id" )->item(0)->nodeValue;
 			
-			//»ñÈ¡Ö§¸¶±¦Ô¶³Ì·þÎñÆ÷ATN½á¹û£¨ÑéÖ¤ÊÇ·ñÊÇÖ§¸¶±¦·¢À´µÄÏûÏ¢£©
+			//èŽ·å–æ”¯ä»˜å®è¿œç¨‹æœåŠ¡å™¨ATNç»“æžœï¼ˆéªŒè¯æ˜¯å¦æ˜¯æ”¯ä»˜å®å‘æ¥çš„æ¶ˆæ¯ï¼‰
 			$responseTxt = 'true';
 			if (! empty($notify_id)) {$responseTxt = $this->getResponse($notify_id);}
 			
-			//Éú³ÉÇ©Ãû½á¹û
+			//ç”Ÿæˆç­¾åç»“æžœ
 			$isSign = $this->getSignVeryfy($decrypt_post_para, $_POST["sign"],false);
 			
-			//Ð´ÈÕÖ¾¼ÇÂ¼
+			//å†™æ—¥å¿—è®°å½•
 			//if ($isSign) {
 			//	$isSignStr = 'true';
 			//}
@@ -73,9 +73,9 @@ class AlipayNotify {
 			//$log_text = $log_text.createLinkString($_POST);
 			//logResult($log_text);
 			
-			//ÑéÖ¤
-			//$responsetTxtµÄ½á¹û²»ÊÇtrue£¬Óë·þÎñÆ÷ÉèÖÃÎÊÌâ¡¢ºÏ×÷Éí·ÝÕßID¡¢notify_idÒ»·ÖÖÓÊ§Ð§ÓÐ¹Ø
-			//isSignµÄ½á¹û²»ÊÇtrue£¬Óë°²È«Ð£ÑéÂë¡¢ÇëÇóÊ±µÄ²ÎÊý¸ñÊ½£¨Èç£º´ø×Ô¶¨Òå²ÎÊýµÈ£©¡¢±àÂë¸ñÊ½ÓÐ¹Ø
+			//éªŒè¯
+			//$responsetTxtçš„ç»“æžœä¸æ˜¯trueï¼Œä¸ŽæœåŠ¡å™¨è®¾ç½®é—®é¢˜ã€åˆä½œèº«ä»½è€…IDã€notify_idä¸€åˆ†é’Ÿå¤±æ•ˆæœ‰å…³
+			//isSignçš„ç»“æžœä¸æ˜¯trueï¼Œä¸Žå®‰å…¨æ ¡éªŒç ã€è¯·æ±‚æ—¶çš„å‚æ•°æ ¼å¼ï¼ˆå¦‚ï¼šå¸¦è‡ªå®šä¹‰å‚æ•°ç­‰ï¼‰ã€ç¼–ç æ ¼å¼æœ‰å…³
 			if (preg_match("/true$/i",$responseTxt) && $isSign) {
 				return true;
 			} else {
@@ -85,18 +85,18 @@ class AlipayNotify {
 	}
 	
     /**
-     * Õë¶Ôreturn_urlÑéÖ¤ÏûÏ¢ÊÇ·ñÊÇÖ§¸¶±¦·¢³öµÄºÏ·¨ÏûÏ¢
-     * @return ÑéÖ¤½á¹û
+     * é’ˆå¯¹return_urléªŒè¯æ¶ˆæ¯æ˜¯å¦æ˜¯æ”¯ä»˜å®å‘å‡ºçš„åˆæ³•æ¶ˆæ¯
+     * @return éªŒè¯ç»“æžœ
      */
 	function verifyReturn(){
-		if(empty($_GET)) {//ÅÐ¶ÏGETÀ´µÄÊý×éÊÇ·ñÎª¿Õ
+		if(empty($_GET)) {//åˆ¤æ–­GETæ¥çš„æ•°ç»„æ˜¯å¦ä¸ºç©º
 			return false;
 		}
 		else {
-			//Éú³ÉÇ©Ãû½á¹û
+			//ç”Ÿæˆç­¾åç»“æžœ
 			$isSign = $this->getSignVeryfy($_GET, $_GET["sign"],true);
 			
-			//Ð´ÈÕÖ¾¼ÇÂ¼
+			//å†™æ—¥å¿—è®°å½•
 			//if ($isSign) {
 			//	$isSignStr = 'true';
 			//}
@@ -107,9 +107,9 @@ class AlipayNotify {
 			//$log_text = $log_text.createLinkString($_GET);
 			//logResult($log_text);
 			
-			//ÑéÖ¤
-			//$responsetTxtµÄ½á¹û²»ÊÇtrue£¬Óë·þÎñÆ÷ÉèÖÃÎÊÌâ¡¢ºÏ×÷Éí·ÝÕßID¡¢notify_idÒ»·ÖÖÓÊ§Ð§ÓÐ¹Ø
-			//isSignµÄ½á¹û²»ÊÇtrue£¬Óë°²È«Ð£ÑéÂë¡¢ÇëÇóÊ±µÄ²ÎÊý¸ñÊ½£¨Èç£º´ø×Ô¶¨Òå²ÎÊýµÈ£©¡¢±àÂë¸ñÊ½ÓÐ¹Ø
+			//éªŒè¯
+			//$responsetTxtçš„ç»“æžœä¸æ˜¯trueï¼Œä¸ŽæœåŠ¡å™¨è®¾ç½®é—®é¢˜ã€åˆä½œèº«ä»½è€…IDã€notify_idä¸€åˆ†é’Ÿå¤±æ•ˆæœ‰å…³
+			//isSignçš„ç»“æžœä¸æ˜¯trueï¼Œä¸Žå®‰å…¨æ ¡éªŒç ã€è¯·æ±‚æ—¶çš„å‚æ•°æ ¼å¼ï¼ˆå¦‚ï¼šå¸¦è‡ªå®šä¹‰å‚æ•°ç­‰ï¼‰ã€ç¼–ç æ ¼å¼æœ‰å…³
 			if ($isSign) {
 				return true;
 			} else {
@@ -119,18 +119,18 @@ class AlipayNotify {
 	}
 	
 	/**
-     * ½âÃÜ
-     * @param $input_para Òª½âÃÜÊý¾Ý
-     * @return ½âÃÜºó½á¹û
+     * è§£å¯†
+     * @param $input_para è¦è§£å¯†æ•°æ®
+     * @return è§£å¯†åŽç»“æžœ
      */
 	function decrypt($prestr) {
 		return rsaDecrypt($prestr, trim($this->alipay_config['private_key_path']));
 	}
 	
 	/**
-     * Òì²½Í¨ÖªÊ±£¬¶Ô²ÎÊý×ö¹Ì¶¨ÅÅÐò
-     * @param $para ÅÅÐòÇ°µÄ²ÎÊý×é
-     * @return ÅÅÐòºóµÄ²ÎÊý×é
+     * å¼‚æ­¥é€šçŸ¥æ—¶ï¼Œå¯¹å‚æ•°åšå›ºå®šæŽ’åº
+     * @param $para æŽ’åºå‰çš„å‚æ•°ç»„
+     * @return æŽ’åºåŽçš„å‚æ•°ç»„
      */
 	function sortNotifyPara($para) {
 		$para_sort['service'] = $para['service'];
@@ -141,26 +141,26 @@ class AlipayNotify {
 	}
 	
     /**
-     * »ñÈ¡·µ»ØÊ±µÄÇ©ÃûÑéÖ¤½á¹û
-     * @param $para_temp Í¨Öª·µ»ØÀ´µÄ²ÎÊýÊý×é
-     * @param $sign ·µ»ØµÄÇ©Ãû½á¹û
-     * @param $isSort ÊÇ·ñ¶Ô´ýÇ©ÃûÊý×éÅÅÐò
-     * @return Ç©ÃûÑéÖ¤½á¹û
+     * èŽ·å–è¿”å›žæ—¶çš„ç­¾åéªŒè¯ç»“æžœ
+     * @param $para_temp é€šçŸ¥è¿”å›žæ¥çš„å‚æ•°æ•°ç»„
+     * @param $sign è¿”å›žçš„ç­¾åç»“æžœ
+     * @param $isSort æ˜¯å¦å¯¹å¾…ç­¾åæ•°ç»„æŽ’åº
+     * @return ç­¾åéªŒè¯ç»“æžœ
      */
 	function getSignVeryfy($para_temp, $sign, $isSort) {
-		//³ýÈ¥´ýÇ©Ãû²ÎÊýÊý×éÖÐµÄ¿ÕÖµºÍÇ©Ãû²ÎÊý
+		//é™¤åŽ»å¾…ç­¾åå‚æ•°æ•°ç»„ä¸­çš„ç©ºå€¼å’Œç­¾åå‚æ•°
 		$para = paraFilter($para_temp);
 		if(!empty($para_temp['body']) && empty($para_filter['body'])){
             $para_filter['body']=$para_temp['body'];
 		}
-		//¶Ô´ýÇ©Ãû²ÎÊýÊý×éÅÅÐò
+		//å¯¹å¾…ç­¾åå‚æ•°æ•°ç»„æŽ’åº
 		if($isSort) {
 			$para = argSort($para);
 		} else {
 			$para = $this->sortNotifyPara($para);
 		}
 		
-		//°ÑÊý×éËùÓÐÔªËØ£¬°´ÕÕ¡°²ÎÊý=²ÎÊýÖµ¡±µÄÄ£Ê½ÓÃ¡°&¡±×Ö·ûÆ´½Ó³É×Ö·û´®
+		//æŠŠæ•°ç»„æ‰€æœ‰å…ƒç´ ï¼ŒæŒ‰ç…§â€œå‚æ•°=å‚æ•°å€¼â€çš„æ¨¡å¼ç”¨â€œ&â€å­—ç¬¦æ‹¼æŽ¥æˆå­—ç¬¦ä¸²
 		$prestr = createLinkstring($para);
 		
 		$isSgin = false;
@@ -182,13 +182,13 @@ class AlipayNotify {
 	}
 
     /**
-     * »ñÈ¡Ô¶³Ì·þÎñÆ÷ATN½á¹û,ÑéÖ¤·µ»ØURL
-     * @param $notify_id Í¨ÖªÐ£ÑéID
-     * @return ·þÎñÆ÷ATN½á¹û
-     * ÑéÖ¤½á¹û¼¯£º
-     * invalidÃüÁî²ÎÊý²»¶Ô ³öÏÖÕâ¸ö´íÎó£¬Çë¼ì²â·µ»Ø´¦ÀíÖÐpartnerºÍkeyÊÇ·ñÎª¿Õ 
-     * true ·µ»ØÕýÈ·ÐÅÏ¢
-     * false Çë¼ì²é·À»ðÇ½»òÕßÊÇ·þÎñÆ÷×èÖ¹¶Ë¿ÚÎÊÌâÒÔ¼°ÑéÖ¤Ê±¼äÊÇ·ñ³¬¹ýÒ»·ÖÖÓ
+     * èŽ·å–è¿œç¨‹æœåŠ¡å™¨ATNç»“æžœ,éªŒè¯è¿”å›žURL
+     * @param $notify_id é€šçŸ¥æ ¡éªŒID
+     * @return æœåŠ¡å™¨ATNç»“æžœ
+     * éªŒè¯ç»“æžœé›†ï¼š
+     * invalidå‘½ä»¤å‚æ•°ä¸å¯¹ å‡ºçŽ°è¿™ä¸ªé”™è¯¯ï¼Œè¯·æ£€æµ‹è¿”å›žå¤„ç†ä¸­partnerå’Œkeyæ˜¯å¦ä¸ºç©º 
+     * true è¿”å›žæ­£ç¡®ä¿¡æ¯
+     * false è¯·æ£€æŸ¥é˜²ç«å¢™æˆ–è€…æ˜¯æœåŠ¡å™¨é˜»æ­¢ç«¯å£é—®é¢˜ä»¥åŠéªŒè¯æ—¶é—´æ˜¯å¦è¶…è¿‡ä¸€åˆ†é’Ÿ
      */
 	function getResponse($notify_id) {
 		$transport = strtolower(trim($this->alipay_config['transport']));

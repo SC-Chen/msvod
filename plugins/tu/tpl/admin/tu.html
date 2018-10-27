@@ -14,17 +14,17 @@
 </head>
 <body>
 <div class="place">
-    <span>Î»ÖÃ£º</span>
-    <ul class="placeul"><li><a href="<?=site_url('opt/main')?>">Ê×Ò³</a></li><li><a href="<?=site_url('tu/admin/tu')?>">Í¼Æ¬¹ÜÀí</a></li></ul>
+    <span>ä½ç½®ï¼š</span>
+    <ul class="placeul"><li><a href="<?=site_url('opt/main')?>">é¦–é¡µ</a></li><li><a href="<?=site_url('tu/admin/tu')?>">å›¾ç‰‡ç®¡ç†</a></li></ul>
 </div>
 <div class="formbody">
     <div id="usual1" class="usual"> 
         <div class="itab">
   	        <ul> 
-               <li><a href="<?=site_url('tu/admin/tu')?>"<?php if($yid!=2 && $yid!=3) echo ' class="selected"';?>>Í¼Æ¬ÁĞ±í</a></li> 
-               <li><a href="<?=site_url('tu/admin/tu')?>?yid=2"<?php if($yid==2) echo ' class="selected"';?>>´ıÉóºËÍ¼Æ¬</a></li>  
-               <li><a href="<?=site_url('tu/admin/tu')?>?yid=3"<?php if($yid==3) echo ' class="selected"';?>>»ØÊÕÕ¾Í¼Æ¬</a></li> 
-               <li><a href="<?=site_url('tu/admin/tu/edit')?>">Ôö¼ÓÍ¼Æ¬</a></li>  
+               <li><a href="<?=site_url('tu/admin/tu')?>"<?php if($yid!=2 && $yid!=3) echo ' class="selected"';?>>å›¾ç‰‡åˆ—è¡¨</a></li> 
+               <li><a href="<?=site_url('tu/admin/tu')?>?yid=2"<?php if($yid==2) echo ' class="selected"';?>>å¾…å®¡æ ¸å›¾ç‰‡</a></li>  
+               <li><a href="<?=site_url('tu/admin/tu')?>?yid=3"<?php if($yid==3) echo ' class="selected"';?>>å›æ”¶ç«™å›¾ç‰‡</a></li> 
+               <li><a href="<?=site_url('tu/admin/tu/edit')?>">å¢åŠ å›¾ç‰‡</a></li>  
   	        </ul>
         </div> 
     </div> 
@@ -34,10 +34,10 @@
          <li><label>
              <div class="vocation">
                 <select class="select3" name="zd">
-                   <option value="name"<?php if($zd=='name') echo ' selected';?>>Í¼Æ¬Ãû³Æ</option>
-                   <option value="id"<?php if($zd=='id') echo ' selected';?>>Í¼Æ¬ID</option>
-                   <option value="user"<?php if($zd=='user') echo ' selected';?>>Â¼Èë»áÔ±</option>
-                   <option value="tags"<?php if($zd=='tags') echo ' selected';?>>¹Ø¼ü×Ö</option>
+                   <option value="name"<?php if($zd=='name') echo ' selected';?>>å›¾ç‰‡åç§°</option>
+                   <option value="id"<?php if($zd=='id') echo ' selected';?>>å›¾ç‰‡ID</option>
+                   <option value="user"<?php if($zd=='user') echo ' selected';?>>å½•å…¥ä¼šå‘˜</option>
+                   <option value="tags"<?php if($zd=='tags') echo ' selected';?>>å…³é”®å­—</option>
                 </select>
              </div>
          </label><input style="width:150px;" name="key" value="<?=$key?>" type="text" class="scinput" />
@@ -45,16 +45,16 @@
          <li>
          <div class="vocation">
                 <select class="select5" name="cid">
-		        <option value="0"<?php if($cid==0) echo ' selected';?>>Í¼Æ¬·ÖÀà</option>
+		        <option value="0"<?php if($cid==0) echo ' selected';?>>å›¾ç‰‡åˆ†ç±»</option>
 <?php
 $query = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."tu_list where fid=0 order by xid asc"); 
 foreach ($query->result() as $row) {
             $clas=($row->id==$cid)?' selected="selected"':'';
-			echo '<option value="'.$row->id.'"'.$clas.'>&nbsp;|¡ª'.$row->name.'</option>';
+			echo '<option value="'.$row->id.'"'.$clas.'>&nbsp;|â€”'.$row->name.'</option>';
             $query2 = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."tu_list where fid=".$row->id." order by xid asc"); 
             foreach ($query2->result() as $row2) {
                 $clas2=($row2->id==$cid)?' selected="selected"':'';
-			    echo '<option value="'.$row2->id.'"'.$clas2.'>&nbsp;|&nbsp;&nbsp;&nbsp;|¡ª'.$row2->name.'</option>';
+			    echo '<option value="'.$row2->id.'"'.$clas2.'>&nbsp;|&nbsp;&nbsp;&nbsp;|â€”'.$row2->name.'</option>';
 			}
 }
 ?>
@@ -62,82 +62,82 @@ foreach ($query->result() as $row) {
          </div>
          <div style="margin-left:10px;" class="vocation">
                 <select class="select3" name="yid">
-                   <option value="0"<?php if($yid==0) echo ' selected';?>>Í¼Æ¬×´Ì¬</option>
-                   <option value="1"<?php if($yid==1) echo ' selected';?>>Õı³£</option>
-                   <option value="2"<?php if($yid==2) echo ' selected';?>>´ıÉóºË</option>
-                   <option value="3"<?php if($yid==3) echo ' selected';?>>»ØÊÕÕ¾</option>
+                   <option value="0"<?php if($yid==0) echo ' selected';?>>å›¾ç‰‡çŠ¶æ€</option>
+                   <option value="1"<?php if($yid==1) echo ' selected';?>>æ­£å¸¸</option>
+                   <option value="2"<?php if($yid==2) echo ' selected';?>>å¾…å®¡æ ¸</option>
+                   <option value="3"<?php if($yid==3) echo ' selected';?>>å›æ”¶ç«™</option>
                 </select>
          </div>
          <div style="margin-left:10px;" class="vocation">
                 <select class="select4" name="reco">
-                   <option value="0"<?php if($reco==0) echo ' selected';?>>Í¼Æ¬ÍÆ¼ö</option>
-	               <option value="1"<?php if($reco=='1') echo ' selected';?>>¡ï¡î¡î¡î¡î</option>
-	               <option value="2"<?php if($reco=='2') echo ' selected';?>>¡ï¡ï¡î¡î¡î</option>
-	               <option value="3"<?php if($reco=='3') echo ' selected';?>>¡ï¡ï¡ï¡î¡î</option>
-	               <option value="4"<?php if($reco=='4') echo ' selected';?>>¡ï¡ï¡ï¡ï¡î</option>
-	               <option value="5"<?php if($reco=='5') echo ' selected';?>>¡ï¡ï¡ï¡ï¡ï</option>
+                   <option value="0"<?php if($reco==0) echo ' selected';?>>å›¾ç‰‡æ¨è</option>
+	               <option value="1"<?php if($reco=='1') echo ' selected';?>>â˜…â˜†â˜†â˜†â˜†</option>
+	               <option value="2"<?php if($reco=='2') echo ' selected';?>>â˜…â˜…â˜†â˜†â˜†</option>
+	               <option value="3"<?php if($reco=='3') echo ' selected';?>>â˜…â˜…â˜…â˜†â˜†</option>
+	               <option value="4"<?php if($reco=='4') echo ' selected';?>>â˜…â˜…â˜…â˜…â˜†</option>
+	               <option value="5"<?php if($reco=='5') echo ' selected';?>>â˜…â˜…â˜…â˜…â˜…</option>
                 </select>
          </div>  
          <div style="margin-left:10px;" class="vocation">
                 <select class="select3" name="sort">
-                   <option value=""<?php if($sort=='') echo ' selected';?>>Í¼Æ¬ÅÅĞò</option>
-	               <option value="id"<?php if($sort=='id') echo ' selected';?>>ID±àºÅ</option>
-	               <option value="addtime"<?php if($sort=='addtime') echo ' selected';?>>¸üĞÂÊ±¼ä</option>
-	               <option value="hits"<?php if($sort=='hits') echo ' selected';?>>×ÜÈËÆø</option>
-	               <option value="yhits"<?php if($sort=='yhits') echo ' selected';?>>ÔÂÈËÆø</option>
-	               <option value="zhits"<?php if($sort=='zhits') echo ' selected';?>>ÖÜÈËÆø</option>
-	               <option value="rhits"<?php if($sort=='rhits') echo ' selected';?>>ÈÕÈËÆø</option>
+                   <option value=""<?php if($sort=='') echo ' selected';?>>å›¾ç‰‡æ’åº</option>
+	               <option value="id"<?php if($sort=='id') echo ' selected';?>>IDç¼–å·</option>
+	               <option value="addtime"<?php if($sort=='addtime') echo ' selected';?>>æ›´æ–°æ—¶é—´</option>
+	               <option value="hits"<?php if($sort=='hits') echo ' selected';?>>æ€»äººæ°”</option>
+	               <option value="yhits"<?php if($sort=='yhits') echo ' selected';?>>æœˆäººæ°”</option>
+	               <option value="zhits"<?php if($sort=='zhits') echo ' selected';?>>å‘¨äººæ°”</option>
+	               <option value="rhits"<?php if($sort=='rhits') echo ' selected';?>>æ—¥äººæ°”</option>
                 </select>
          </div>  
          </li>
-         <li><label>&nbsp;</label><input name="so" type="submit" class="scbtn" value="²éÑ¯"/></li>
+         <li><label>&nbsp;</label><input name="so" type="submit" class="scbtn" value="æŸ¥è¯¢"/></li>
     </ul>
 	</form>
 	<form action="<?=site_url('tu/admin/tu/del')?>?yid=<?=$yid?>" method="post" id="myform" name="myform">
     <table class="imgtable">
     	<thead>
     	<tr>
-        <th>Ñ¡</th>
+        <th>é€‰</th>
         <th>ID</th>
-        <th width="70px;">Í¼Æ¬</th>
-        <th width="370px;">Í¼Æ¬±êÌâ</th>
-        <th>·ÖÀà</th>
-        <th>»áÔ±</th>
-        <th>ÈËÆø</th>
-        <th>ÍÆ¼ö</th>
-        <th>×´Ì¬</th>
-        <th>¸üĞÂÊ±¼ä</th>
-        <th>²Ù×÷</th>
+        <th width="70px;">å›¾ç‰‡</th>
+        <th width="370px;">å›¾ç‰‡æ ‡é¢˜</th>
+        <th>åˆ†ç±»</th>
+        <th>ä¼šå‘˜</th>
+        <th>äººæ°”</th>
+        <th>æ¨è</th>
+        <th>çŠ¶æ€</th>
+        <th>æ›´æ–°æ—¶é—´</th>
+        <th>æ“ä½œ</th>
         </tr>
         </thead>
 
         <tbody>
 <?php
-if(empty($tu)) echo '<tr><td align="center" height="50" colspan="10">Ã»ÓĞÕÒµ½Ïà¹Ø¼ÇÂ¼~!</td></tr>';
+if(empty($tu)) echo '<tr><td align="center" height="50" colspan="10">æ²¡æœ‰æ‰¾åˆ°ç›¸å…³è®°å½•~!</td></tr>';
 foreach ($tu as $row) {
         $pic=!empty($row->pic)?'<a href="'.piclink('tu',$row->pic).'" target="pic"><img height="30" src="'.piclink('tu',$row->pic).'"></a>':'-';
-		//×´Ì¬
-		$zt=($row->yid==0)?'<a title="µã»÷Ëø¶¨" href="javascript:get_cmd(\''.site_url('tu/admin/tu/init').'?sid=1\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="µã»÷½â³ıËø¶¨" href="javascript:get_cmd(\''.site_url('tu/admin/tu/init').'?sid=0\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
-		if($row->hid==1){ //»ØÊÕÕ¾
-		    $zt='<img title="»ØÊÕÕ¾" align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" />';
+		//çŠ¶æ€
+		$zt=($row->yid==0)?'<a title="ç‚¹å‡»é”å®š" href="javascript:get_cmd(\''.site_url('tu/admin/tu/init').'?sid=1\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="ç‚¹å‡»è§£é™¤é”å®š" href="javascript:get_cmd(\''.site_url('tu/admin/tu/init').'?sid=0\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
+		if($row->hid==1){ //å›æ”¶ç«™
+		    $zt='<img title="å›æ”¶ç«™" align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" />';
 		}
-		//ÍÆ¼ö×´Ì¬
-		$tj='<a title="µã»÷È¡ÏûÍÆ¼ö" href="javascript:get_cmd(\''.site_url('tu/admin/tu/init').'?sid=0\',\'tj\','.$row->id.');"><font color="#ff0033">¡Á</font></a>';
+		//æ¨èçŠ¶æ€
+		$tj='<a title="ç‚¹å‡»å–æ¶ˆæ¨è" href="javascript:get_cmd(\''.site_url('tu/admin/tu/init').'?sid=0\',\'tj\','.$row->id.');"><font color="#ff0033">Ã—</font></a>';
         for($i=1;$i<=$row->reco;$i++){
-            $tj.='<a title="ÍÆ¼ö£º'.$i.'ĞÇ" href="javascript:get_cmd(\''.site_url('tu/admin/tu/init').'?sid='.$i.'\',\'tj\','.$row->id.');">¡ï</a>';
+            $tj.='<a title="æ¨èï¼š'.$i.'æ˜Ÿ" href="javascript:get_cmd(\''.site_url('tu/admin/tu/init').'?sid='.$i.'\',\'tj\','.$row->id.');">â˜…</a>';
         }
         for($j=$row->reco+1;$j<=5;$j++){
-            $tj.='<a title="ÍÆ¼ö£º'.$j.'ĞÇ" href="javascript:get_cmd(\''.site_url('tu/admin/tu/init').'?sid='.$j.'\',\'tj\','.$row->id.');">¡î</a>';
+            $tj.='<a title="æ¨èï¼š'.$j.'æ˜Ÿ" href="javascript:get_cmd(\''.site_url('tu/admin/tu/init').'?sid='.$j.'\',\'tj\','.$row->id.');">â˜†</a>';
         }
-		//·ÖÀà
+		//åˆ†ç±»
 		$cname=$this->MsdjDB->getzd('tu_list','name',$row->cid);
-		//Ê±¼ä¼ÓÁÁ
+		//æ—¶é—´åŠ äº®
 		if(date('Y-m-d',$row->addtime)==date('Y-m-d')){
              $addtime='<font color=red>'.date('Y-m-d',$row->addtime).'</font>';
 		}else{
              $addtime=date('Y-m-d',$row->addtime);
 		}
-		//»áÔ±
+		//ä¼šå‘˜
 		$user='---';
 		if($row->uid>0){
             $user=$this->MsdjDB->getzd('user','name',$row->uid);
@@ -157,7 +157,7 @@ foreach ($tu as $row) {
         <td id="tj_'.$row->id.'">'.$tj.'</td>
         <td id="zt_'.$row->id.'">'.$zt.'</td>
         <td>'.$addtime.'</td>
-        <td><a href="'.site_url('tu/admin/tu/edit').'?id='.$row->id.'">ĞŞ¸Ä</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);" onclick="Popsbox(\'ÌáÊ¾ĞÅÏ¢\',505,245,\'ÄúÈ·¶¨É¾³ıÂğ£¿\',\''.site_url('tu/admin/tu/del').'?id='.$row->id.'&yid='.$yid.'\');">É¾³ı</a></td>
+        <td><a href="'.site_url('tu/admin/tu/edit').'?id='.$row->id.'">ä¿®æ”¹</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);" onclick="Popsbox(\'æç¤ºä¿¡æ¯\',505,245,\'æ‚¨ç¡®å®šåˆ é™¤å—ï¼Ÿ\',\''.site_url('tu/admin/tu/del').'?id='.$row->id.'&yid='.$yid.'\');">åˆ é™¤</a></td>
         </tr> ';
 }
 ?>
@@ -165,23 +165,23 @@ foreach ($tu as $row) {
     </table>
     <div class="tools">
        <ul class="toolbar">
-            <li class="click quanxuan"><span><img src="<?=Web_Path?>packs/admin/images/t04.png" /></span>È«Ñ¡</li>
-            <li class="click" onclick="Popsbox('ÌáÊ¾ĞÅÏ¢',505,245,'ÄúÈ·¶¨É¾³ıËùÑ¡Í¼Æ¬Âğ£¿','submit');"><span><img src="<?=Web_Path?>packs/admin/images/t03.png" /></span>É¾³ıËùÑ¡</li>
-            <li onclick="pledit();" class="click"><span><img src="<?=Web_Path?>packs/admin/images/t01.png" /></span>ÅúÁ¿ĞŞ¸Ä</li>
+            <li class="click quanxuan"><span><img src="<?=Web_Path?>packs/admin/images/t04.png" /></span>å…¨é€‰</li>
+            <li class="click" onclick="Popsbox('æç¤ºä¿¡æ¯',505,245,'æ‚¨ç¡®å®šåˆ é™¤æ‰€é€‰å›¾ç‰‡å—ï¼Ÿ','submit');"><span><img src="<?=Web_Path?>packs/admin/images/t03.png" /></span>åˆ é™¤æ‰€é€‰</li>
+            <li onclick="pledit();" class="click"><span><img src="<?=Web_Path?>packs/admin/images/t01.png" /></span>æ‰¹é‡ä¿®æ”¹</li>
 
 <?php 
-if($yid==3) echo '<li class="click" onclick="cmd(1);"><span><img src="'.Web_Path.'packs/admin/images/t05.png" /></span>»¹Ô­ËùÑ¡</li><li class="click" onclick="cmd(3);"><span></span>Ò»¼üÇå¿Õ»ØÊÕÕ¾</li>';
-if(config('Web_Mode')==3 && $yid!=3) echo '<li id="html" class="click" onclick="cmd(2);"><span><img src="'.Web_Path.'packs/admin/images/t04.png" /></span>Éú³ÉËùÑ¡</li><li class="click" id="loading" style="display:none;color:red"><span><img src="'.Web_Path.'packs/admin/images/loading.gif"></span>Ò³ÃæÉú³ÉÖĞ...</li>';
+if($yid==3) echo '<li class="click" onclick="cmd(1);"><span><img src="'.Web_Path.'packs/admin/images/t05.png" /></span>è¿˜åŸæ‰€é€‰</li><li class="click" onclick="cmd(3);"><span></span>ä¸€é”®æ¸…ç©ºå›æ”¶ç«™</li>';
+if(config('Web_Mode')==3 && $yid!=3) echo '<li id="html" class="click" onclick="cmd(2);"><span><img src="'.Web_Path.'packs/admin/images/t04.png" /></span>ç”Ÿæˆæ‰€é€‰</li><li class="click" id="loading" style="display:none;color:red"><span><img src="'.Web_Path.'packs/admin/images/loading.gif"></span>é¡µé¢ç”Ÿæˆä¸­...</li>';
 ?>
        </ul>
     </div>
 	</form>
     <div class="pagin">
-    	<div class="message">¹²<i class="blue"><?=$nums?></i>Ìõ¼ÇÂ¼£¬µ±Ç°ÏÔÊ¾µÚ&nbsp;<i class="blue"><?=$page?>&nbsp;</i>Ò³</div>
+    	<div class="message">å…±<i class="blue"><?=$nums?></i>æ¡è®°å½•ï¼Œå½“å‰æ˜¾ç¤ºç¬¬&nbsp;<i class="blue"><?=$page?>&nbsp;</i>é¡µ</div>
         <ul class="paginList"><?=$pages?></ul>
     </div>
 </div> 
-<div class="footer">Ò³ÃæÖ´ĞĞÊ±¼ä{elapsed_time}Ãë£¬¹²{sql_queries}¸ö²éÑ¯Óï¾ä£¬ÏûºÄÄÚ´æ{memory_usage}</div>
+<div class="footer">é¡µé¢æ‰§è¡Œæ—¶é—´{elapsed_time}ç§’ï¼Œå…±{sql_queries}ä¸ªæŸ¥è¯¢è¯­å¥ï¼Œæ¶ˆè€—å†…å­˜{memory_usage}</div>
 <script type="text/javascript"> 
 $(document).ready(function(e) {
 	$(".select3").uedSelect({
@@ -201,12 +201,12 @@ $('.imgtable tbody tr:odd').addClass('odd');
 function cmd(n) {
     if(n==1){
         $('#myform').attr('action','<?=site_url('tu/admin/tu/hy')?>');
-	    Popsbox('ÌáÊ¾ĞÅÏ¢',505,245,'ÄúÈ·¶¨»¹Ô­ËùÑ¡Í¼Æ¬Âğ£¿','submit');
+	    Popsbox('æç¤ºä¿¡æ¯',505,245,'æ‚¨ç¡®å®šè¿˜åŸæ‰€é€‰å›¾ç‰‡å—ï¼Ÿ','submit');
     } else if(n==3){
         $('#myform').attr('action','<?=site_url('tu/admin/tu/hy')?>');
-	    Popsbox('ÌáÊ¾ĞÅÏ¢',505,245,'²»¿É»¹Ô­£¬ÄúÈ·¶¨Çå¿Õ»ØÊÕÕ¾Âğ£¿','<?=site_url('tu/admin/tu/del')?>?ac=hui');
+	    Popsbox('æç¤ºä¿¡æ¯',505,245,'ä¸å¯è¿˜åŸï¼Œæ‚¨ç¡®å®šæ¸…ç©ºå›æ”¶ç«™å—ï¼Ÿ','<?=site_url('tu/admin/tu/del')?>?ac=hui');
 	}else{
-¡¡¡¡    var a=$("input[name='id[]']");  
+ã€€ã€€    var a=$("input[name='id[]']");  
         var v = [];
         for (var i = 0; i < a.length; i++) {
             if(a[i].checked){
@@ -220,14 +220,14 @@ function cmd(n) {
 	}
 }
 function pledit() {
-¡¡¡¡var a=$("input[name='id[]']");  
+ã€€ã€€var a=$("input[name='id[]']");  
     var v = [];
     for (var i = 0; i < a.length; i++) {
             if(a[i].checked){
                 v.push(a[i].value);
 			}
     }
-    Popsboxif('Í¼Æ¬ÅúÁ¿ĞŞ¸Ä',550,450,'<?=site_url('tu/admin/tu/pledit')?>?id='+v.join(','));
+    Popsboxif('å›¾ç‰‡æ‰¹é‡ä¿®æ”¹',550,450,'<?=site_url('tu/admin/tu/pledit')?>?id='+v.join(','));
 }
 </script>
 </body>

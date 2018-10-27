@@ -25,18 +25,18 @@ if(!empty($err)){
      echo '<tr><td style="color:red;"><b>&nbsp;&nbsp;&nbsp;&nbsp;'.$err.'</b></td></tr>';
 }else{
      echo '<tr><td>&nbsp;&nbsp;'.L('tpl_25').$name.'</td></tr>';
-     //×Ô¶¨Òå
+     //è‡ªå®šä¹‰
      if(!empty($zdy)){
          for ($i=0; $i < count($zdy['zd']); $i++) {
 		    if(is_array($zdy['text'][$i])){
                 $zdy['text'][$i]=implode("<br>",$zdy['text'][$i]);
 			}
-            echo '<tr><td>&nbsp;&nbsp;'.$zdy['name'][$i].'£º'.$zdy['text'][$i].'</td></tr>';
+            echo '<tr><td>&nbsp;&nbsp;'.$zdy['name'][$i].'ï¼š'.$zdy['text'][$i].'</td></tr>';
          }
      }
      if(!empty($pic)) echo '<tr><td>&nbsp;&nbsp;'.L('tpl_26').$pic.'</td></tr>';
 }
-if($oknum==$linkcount){ //µ±Ç°Ò³²É¼¯Íê±Ï
+if($oknum==$linkcount){ //å½“å‰é¡µé‡‡é›†å®Œæ¯•
          echo "<tr><td><font style=\"color:#0000ff\">&nbsp;&nbsp;".$title."&nbsp;&nbsp;".vsprintf(L('tpl_24'),array('2'))."</font></td><script>setTimeout('ReadGo();',1000);function ReadGo(){window.location='?ac=".$ac."&page=".($page+1)."&xid=".$xid."&id=".$id."'}</script>";
 }else{
         echo "<tr><td><font style=\"color:#0000ff\">&nbsp;&nbsp;".$title."&nbsp;&nbsp;".vsprintf(L('tpl_24'),array('1'))."</font></td></tr><script>setTimeout('ReadGo();',0000);function ReadGo(){window.location='?ac=".$ac."&okid=".($okid+1)."&page=".$page."&xid=".$ids."&id=".$id."'}</script>";

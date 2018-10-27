@@ -44,52 +44,52 @@ $("#seo2").hide();
 <body>
 <div class="place">
 <span><?=L('place')?></span>
-<ul class="placeul"><li><a href="<?=site_url('admin/opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('admin/lipin')?>">礼品管理</a></li></ul>
+<ul class="placeul"><li><a href="<?=site_url('admin/opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('admin/lipin')?>">绀煎搧绠＄悊</a></li></ul>
 </div>
 <div class="formbody">
 <div id="usual1" class="usual"> 
 <div class="itab">
 <ul> 
-<li><a href="<?=site_url('admin/lipin')?>">礼品列表</a></li> 
-<li><a href="<?=site_url('admin/lipin/lists')?>">兑换记录</a></li> 
-<li><a href="<?=site_url('admin/lipin/edit')?>" class="selected"><?=($id==0)?L('tpl_55'):L('tpl_56');?>礼品</a></li>  
+<li><a href="<?=site_url('admin/lipin')?>">绀煎搧鍒楄〃</a></li> 
+<li><a href="<?=site_url('admin/lipin/lists')?>">鍏戞崲璁板綍</a></li> 
+<li><a href="<?=site_url('admin/lipin/edit')?>" class="selected"><?=($id==0)?L('tpl_55'):L('tpl_56');?>绀煎搧</a></li>  
 </ul>
 </div> 
 <form action="<?=site_url('admin/lipin/save')?>" method="post">
 <div id="tab1" class="tabson">
 <ul class="forminfo">
-<li><label>分类</label>
+<li><label>鍒嗙被</label>
 <div class="vocation">
 <select class="select2" name="cid">
-<option value="0"<?php if($cid==0) echo ' selected';?>>手机话费</option>
-<option value="1"<?php if($cid==1) echo ' selected';?>>实体物品</option>
-<option value="2"<?php if($cid==2) echo ' selected';?>>虚拟物品</option>
+<option value="0"<?php if($cid==0) echo ' selected';?>>鎵嬫満璇濊垂</option>
+<option value="1"<?php if($cid==1) echo ' selected';?>>瀹炰綋鐗╁搧</option>
+<option value="2"<?php if($cid==2) echo ' selected';?>>铏氭嫙鐗╁搧</option>
 </select>
 </div>
 <div style="margin-left:10px;" class="vocation">
 <select class="select2" name="zid">
-<option value="0"<?php if($zid==0) echo ' selected';?>>显示</option>
-<option value="1"<?php if($zid=='1') echo ' selected';?>>隐藏</option>
+<option value="0"<?php if($zid==0) echo ' selected';?>>鏄剧ず</option>
+<option value="1"<?php if($zid=='1') echo ' selected';?>>闅愯棌</option>
 </select>
 </div> 
 
-&nbsp;&nbsp;&nbsp;<input class="box" name="addtime" type="checkbox" value="ok" checked="checked">&nbsp;更新时间
+&nbsp;&nbsp;&nbsp;<input class="box" name="addtime" type="checkbox" value="ok" checked="checked">&nbsp;鏇存柊鏃堕棿
 </li>
-<li><label>礼品名称</label><input id="name" name="name" type="text" class="dfinput" value="<?=$name?>" style="width:350px;"/>&nbsp;&nbsp;
+<li><label>绀煎搧鍚嶇О</label><input id="name" name="name" type="text" class="dfinput" value="<?=$name?>" style="width:350px;"/>&nbsp;&nbsp;
 </li>
-<li><label>礼品图片</label><input name="pic" id="pic" type="text" class="dfinput" value="<?=$pic?>" style="width:520px;"/>&nbsp;<input onClick="Popsboxif('上传图片',550,450,'<?=site_url('admin/upload/up')?>?dir=lipin');" class="button" type="button" name="button" value="上传图片"></li>
-<li><label>金额</label><input name="cion" type="text" class="dfinput" value="<?=$cion?>" style="width:65px;"/>
+<li><label>绀煎搧鍥剧墖</label><input name="pic" id="pic" type="text" class="dfinput" value="<?=$pic?>" style="width:520px;"/>&nbsp;<input onClick="Popsboxif('涓婁紶鍥剧墖',550,450,'<?=site_url('admin/upload/up')?>?dir=lipin');" class="button" type="button" name="button" value="涓婁紶鍥剧墖"></li>
+<li><label>閲戦</label><input name="cion" type="text" class="dfinput" value="<?=$cion?>" style="width:65px;"/>
 </li>
 
 <li>
-<label>礼品详情</label>
+<label>绀煎搧璇︽儏</label>
 <span id="text"><textarea style="width:760px;height:200px" class="textinput" name="text" id="text"><?=$text?></textarea><script type="text/javascript">AdminEditor('text');</script></span>
 </li>
 </ul>
 
 <ul class="forminfo">
 <input name="id" type="hidden" value="<?=$id?>">
-<li><label>&nbsp;</label><input name="Submit" type="Submit" class="btn" value="保存"/></li>
+<li><label>&nbsp;</label><input name="Submit" type="Submit" class="btn" value="淇濆瓨"/></li>
 </ul>
 </div> 
 </form>

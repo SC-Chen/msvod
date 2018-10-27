@@ -94,22 +94,22 @@
 <?php
 if(empty($topic)) echo '<tr><td align="center" height="50" colspan="11">'.L('tpl_41').'</td></tr>';
 foreach ($topic as $row) {
-        //ÊÓÆµÊýÁ¿
+        //è§†é¢‘æ•°é‡
 		$numss=$this->db->query("SELECT id FROM ".MS_SqlPrefix."video where tid=".$row->id."")->num_rows();
         $pic=!empty($row->pic)?'<img height="30" src="'.piclink('videotopic',$row->pic).'">':'-';
-		//×´Ì¬
+		//çŠ¶æ€
 		$zt=($row->yid==0)?'<a title="'.L('tpl_42').'" href="javascript:get_cmd(\''.site_url('video/admin/topic/init').'?sid=1\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="'.L('tpl_43').'" href="javascript:get_cmd(\''.site_url('video/admin/topic/init').'?sid=0\',\'zt\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
-		//ÍÆ¼ö×´Ì¬
+		//æŽ¨èçŠ¶æ€
 		$tj=($row->tid==1)?'<a title="'.L('tpl_44').'" href="javascript:get_cmd(\''.site_url('video/admin/topic/init').'?sid=0\',\'tj\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="'.L('tpl_45').'" href="javascript:get_cmd(\''.site_url('video/admin/topic/init').'?sid=1\',\'tj\','.$row->id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
-		//Ê±¼ä¼ÓÁÁ
+		//æ—¶é—´åŠ äº®
 		if(date('Y-m-d',$row->addtime)==date('Y-m-d')){
              $addtime='<font color=red>'.date('Y-m-d',$row->addtime).'</font>';
 		}else{
              $addtime=date('Y-m-d',$row->addtime);
 		}
-		//ÑÝÔ±
+		//æ¼”å‘˜
 		$singer='-';
-		if($this->db->table_exists(MS_SqlPrefix.'singer')){  //ÑÝÔ±±í´æÔÚ
+		if($this->db->table_exists(MS_SqlPrefix.'singer')){  //æ¼”å‘˜è¡¨å­˜åœ¨
              $singer=$this->MsdjDB->getzd('singer','name',$row->singerid);
 			 if($singer!='null'){
                  $singer='<a href="'.linkurl('show','',$row->singerid,1,'singer').'" target="singer">'.$singer.'</a>';

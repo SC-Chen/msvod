@@ -78,7 +78,7 @@ $total = $query[0]['count'];
 
 $base_url = site_url('video/admin/video')."?yid=".$yid."&zd=".$zd."&key=".$key."&cid=".$cid."&fid=".$fid."&sort=".$sort."&reco=".$reco;
 $per_page = 15; 
-$totalPages = ceil($total / $per_page); // ×ÜÒ³Êı
+$totalPages = ceil($total / $per_page); // æ€»é¡µæ•°
 $data['nums'] = $total;
 if($total<$per_page){
 $per_page=$total;
@@ -87,36 +87,36 @@ $sql_string.=' limit '. $per_page*($page-1) .','. $per_page;
 $query = $this->db->query($sql_string);
 
 $data['video'] = $query->result();
-$data['pages'] = get_admin_page($base_url,$totalPages,$page,10); //»ñÈ¡·ÖÒ³Àà
+$data['pages'] = get_admin_page($base_url,$totalPages,$page,10); //è·å–åˆ†é¡µç±»
 
 $this->load->view('video.html',$data);
 }
 
-//ÍÆ¼ö¡¢Ëø¶¨²Ù×÷
+//æ¨èã€é”å®šæ“ä½œ
 public function init()
 {
 $ac  = $this->input->get_post('ac',true);
 $id   = intval($this->input->get_post('id'));
 $sid  = intval($this->input->get_post('sid'));
-if($ac=='zt'){ //ÉóºË
+if($ac=='zt'){ //å®¡æ ¸
 $edit['yid']=$sid;
 if($sid==0) $this->dt($id);
 $str=($sid==0)?'<a title="'.L('plub_01').'" href="javascript:get_cmd(\''.site_url('video/admin/video/init').'?sid=1\',\'zt\','.$id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="'.L('plub_02').'" href="javascript:get_cmd(\''.site_url('video/admin/video/init').'?sid=0\',\'zt\','.$id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
-}elseif($ac=='tj'){  //ÍÆ¼ö
+}elseif($ac=='tj'){  //æ¨è
 $edit['reco']=$sid;
-$str='<a title="'.L('plub_03').'" href="javascript:get_cmd(\''.site_url('video/admin/video/init').'?sid=0\',\'tj\','.$id.');"><font color="#ff0033">¡Á</font></a>';
+$str='<a title="'.L('plub_03').'" href="javascript:get_cmd(\''.site_url('video/admin/video/init').'?sid=0\',\'tj\','.$id.');"><font color="#ff0033">Ã—</font></a>';
 for($i=1;$i<=$sid;$i++){
-$str.='<a title="'.vsprintf(L('plub_04'),array($i)).'" href="javascript:get_cmd(\''.site_url('video/admin/video/init').'?sid='.$i.'\',\'tj\','.$id.');">¡ï</a>';
+$str.='<a title="'.vsprintf(L('plub_04'),array($i)).'" href="javascript:get_cmd(\''.site_url('video/admin/video/init').'?sid='.$i.'\',\'tj\','.$id.');">â˜…</a>';
 }
 for($j=$sid+1;$j<=5;$j++){
-$str.='<a title="'.vsprintf(L('plub_04'),array($j)).'" href="javascript:get_cmd(\''.site_url('video/admin/video/init').'?sid='.$j.'\',\'tj\','.$id.');">¡î</a>';
+$str.='<a title="'.vsprintf(L('plub_04'),array($j)).'" href="javascript:get_cmd(\''.site_url('video/admin/video/init').'?sid='.$j.'\',\'tj\','.$id.');">â˜†</a>';
 }
 }
 $this->MsdjDB->get_update('video',$id,$edit);
 die($str);
 }
 
-//ÊÓÆµĞÂÔö¡¢ĞŞ¸Ä
+//è§†é¢‘æ–°å¢ã€ä¿®æ”¹
 public function edit()
 {
 $id   = intval($this->input->get('id'));
@@ -164,7 +164,7 @@ $data['keywords']='';
 $data['description']='';
 }else{
 $row=$this->db->query("SELECT * FROM ".MS_SqlPrefix."video where id=".$id."")->row(); 
-if(!$row) admin_msg(L('plub_05'),'javascript:history.back();','no');  //¼ÇÂ¼²»´æÔÚ
+if(!$row) admin_msg(L('plub_05'),'javascript:history.back();','no');  //è®°å½•ä¸å­˜åœ¨
 
 $data['id']=$row->id;
 $data['cid']=$row->cid;
@@ -211,7 +211,7 @@ $data['description']=$row->description;
 $this->load->view('video_edit.html',$data);
 }
 
-//ÊÓÆµ±£´æ
+//è§†é¢‘ä¿å­˜
 public function save()
 {
 $id   = intval($this->input->post('id'));
@@ -228,7 +228,7 @@ if(empty($name)||empty($data['cid'])){
 admin_msg(L('plub_06'),'javascript:history.back();','no');
 }
 
-//×Ô¶¯»ñÈ¡TAGS±êÇ©
+//è‡ªåŠ¨è·å–TAGSæ ‡ç­¾
 if(empty($tags)){
 $tags = gettag($name);
 }
@@ -273,7 +273,7 @@ $data['title']=$this->input->post('title',true);
 $data['keywords']=$this->input->post('keywords',true);
 $data['description']=$this->input->post('description',true);
 
-if($id==0){ //ĞÂÔö
+if($id==0){ //æ–°å¢
 $data['addtime']=time();
 $this->MsdjDB->get_insert('video',$data);
 }else{
@@ -281,29 +281,29 @@ if($data['yid']==0) $this->dt($id);
 if($addtime=='ok') $data['addtime']=time();
 $this->MsdjDB->get_update('video',$id,$data);
 }
-admin_msg(L('plub_07'),site_url('video/admin/video'),'ok');  //²Ù×÷³É¹¦
+admin_msg(L('plub_07'),site_url('video/admin/video'),'ok');  //æ“ä½œæˆåŠŸ
 }
 
-//ÊÓÆµÉ¾³ı
+//è§†é¢‘åˆ é™¤
 public function del()
 {
 $yid = intval($this->input->get('yid'));
 $ids = $this->input->get_post('id');
 $ac = $this->input->get_post('ac');
-//»ØÊÕÕ¾
+//å›æ”¶ç«™
 if($ac=='hui'){
 $result=$this->db->query("SELECT id,pic,purl FROM ".MS_SqlPrefix."video where hid=1")->result();
 $this->load->library('msup');
 foreach ($result as $row) {
 if(!empty($row->pic)){
-$this->msup->del($row->pic,'video'); //É¾³ıÍ¼Æ¬
+$this->msup->del($row->pic,'video'); //åˆ é™¤å›¾ç‰‡
 }
 if(!empty($row->purl)){
-$this->msup->del($row->purl,'look'); //É¾³ıÊÓÆµ²¥·ÅÎÄ¼ş
+$this->msup->del($row->purl,'look'); //åˆ é™¤è§†é¢‘æ’­æ”¾æ–‡ä»¶
 }
 $this->MsdjDB->get_del('video',$row->id);
 }
-admin_msg(L('plub_08'),'javascript:history.back();','ok');  //²Ù×÷³É¹¦
+admin_msg(L('plub_08'),'javascript:history.back();','ok');  //æ“ä½œæˆåŠŸ
 }
 if(empty($ids)) admin_msg(L('plub_09'),'javascript:history.back();','no');
 if(is_array($ids)){
@@ -316,28 +316,28 @@ $result=$this->db->query("SELECT pic,purl FROM ".MS_SqlPrefix."video where id in
 $this->load->library('msup');
 foreach ($result as $row) {
 if(!empty($row->pic)){
-$this->msup->del($row->pic,'video'); //É¾³ıÍ¼Æ¬
+$this->msup->del($row->pic,'video'); //åˆ é™¤å›¾ç‰‡
 }
 if(!empty($row->purl)){
-$this->msup->del($row->purl,'look'); //É¾³ıÊÓÆµ²¥·ÅÎÄ¼ş
+$this->msup->del($row->purl,'look'); //åˆ é™¤è§†é¢‘æ’­æ”¾æ–‡ä»¶
 }
 }
 $this->MsdjDB->get_del('video',$ids);
-admin_msg(L('plub_10'),'javascript:history.back();','ok');  //²Ù×÷³É¹¦
+admin_msg(L('plub_10'),'javascript:history.back();','ok');  //æ“ä½œæˆåŠŸ
 }else{
-//¼õÈ¥½ğ±Ò¡¢¾­Ñé
+//å‡å»é‡‘å¸ã€ç»éªŒ
 if(is_array($ids)){
 foreach ($ids as $id) $this->dt($id,1);
 }else{
 $this->dt($ids,1);
 }
 $data['hid']=1;
-$this->MsdjDB->get_update('video',$ids,$data);//É¾³ı¶¯Ì¬
-admin_msg(L('plub_11'),'javascript:history.back();','ok');  //²Ù×÷³É¹¦
+$this->MsdjDB->get_update('video',$ids,$data);//åˆ é™¤åŠ¨æ€
+admin_msg(L('plub_11'),'javascript:history.back();','ok');  //æ“ä½œæˆåŠŸ
 }
 }
 
-//ÊÓÆµ»¹Ô­
+//è§†é¢‘è¿˜åŸ
 public function hy()
 {
 $ids = $this->input->get_post('id');
@@ -349,17 +349,17 @@ $idss=$ids;
 }
 $data['hid']=0;
 $this->MsdjDB->get_update('video',$ids,$data);
-admin_msg(L('plub_13'),'javascript:history.back();','ok');  //²Ù×÷³É¹¦
+admin_msg(L('plub_13'),'javascript:history.back();','ok');  //æ“ä½œæˆåŠŸ
 }
 
-//ÊÓÆµÅúÁ¿
+//è§†é¢‘æ‰¹é‡
 public function pledit()
 {
 $data['id'] = $this->input->get_post('id');
 $this->load->view('pl_edit.html',$data);
 }
 
-//ÅúÁ¿ĞŞ¸Ä²Ù×÷
+//æ‰¹é‡ä¿®æ”¹æ“ä½œ
 public function pl_save()
 {
 $xid=intval($this->input->post('xid'));
@@ -386,13 +386,13 @@ $rhits=intval($this->input->post('rhits'));
 
 if(empty($csid)) admin_msg(L('plub_14'),'javascript:history.back();','no');
 
-if($xid==1){  //°´ID²Ù×÷
+if($xid==1){  //æŒ‰IDæ“ä½œ
 if(empty($id)) admin_msg(L('plub_15'),'javascript:history.back();','no');
 foreach ($csid as $v) {
 if($v=="cid"){
 $this->db->query("update ".MS_SqlPrefix."video set cid=".$cid." where id in (".$id.")");
 }elseif($v=="yid"){
-//Ôö¼Ó½ğ±Ò¡¢¾­Ñé
+//å¢åŠ é‡‘å¸ã€ç»éªŒ
 if($yid==0){
 if(is_array($id)){
 foreach ($id as $ids) $this->dt($ids);
@@ -433,7 +433,7 @@ $this->db->query("update ".MS_SqlPrefix."video set singerid=".$singerid." where 
 if($hid==2){
 $this->MsdjDB->get_del('video',$id);
 }else{
-//É¾³ı½ğ±Ò¡¢¾­Ñé
+//åˆ é™¤é‡‘å¸ã€ç»éªŒ
 if(is_array($id)){
 foreach ($id as $ids) $this->dt($ids,1);
 }else{
@@ -443,7 +443,7 @@ $this->db->query("update ".MS_SqlPrefix."video set hid=".$hid." where id in (".$
 }
 }
 }
-}else{ //°´·ÖÀà²Ù×÷
+}else{ //æŒ‰åˆ†ç±»æ“ä½œ
 if(empty($cids)) admin_msg(L('plub_16'),'javascript:history.back();','no');
 foreach ($csid as $v) {
 if($v=="cid"){
@@ -490,16 +490,16 @@ $this->db->query("update ".MS_SqlPrefix."video set hid=".$hid." where cid in (".
 exit('<script type="text/javascript">
 parent.location.href=parent.location.href;
 parent.tip_cokes();
-</script>');  //²Ù×÷³É¹¦
+</script>');  //æ“ä½œæˆåŠŸ
 }
 
-//ÉóºËÊÓÆµÔö¼Ó»ı·Ö¡¢¾­Ñé¡¢Í¬Ê±¶¯Ì¬ÏÔÊ¾
+//å®¡æ ¸è§†é¢‘å¢åŠ ç§¯åˆ†ã€ç»éªŒã€åŒæ—¶åŠ¨æ€æ˜¾ç¤º
 public function dt($id,$sid=0)
 {
 $dt=$this->db->query("SELECT id,name,yid FROM ".MS_SqlPrefix."dt where link='".linkurl('play','id',$id,1,'video')."'")->row();
 if($dt){
 $uid=getzd('video','uid',$id);
-if($sid>0){ //É¾³ı
+if($sid>0){ //åˆ é™¤
 
 $str='';
 if(User_Jinyan_Del>0){
@@ -517,17 +517,17 @@ $str['cion']=$cion-User_Cion_Del;
 if($str!=''){
 $this->MsdjDB->get_update('user',$uid,$str);
 }
-//·¢ËÍÊÓÆµÉ¾³ıÍ¨Öª
+//å‘é€è§†é¢‘åˆ é™¤é€šçŸ¥
 $add['uida']=$uid;
 $add['uidb']=0;
-$add['name']='ÊÓÆµ±»É¾³ı';
-$add['neir']='ÄúµÄÊÓÆµ¡¶'.$dt->name.'¡·±»É¾³ı£¬ÏµÍ³Í¬Ê±¿Û³ıÄú'.User_Cion_Del.'¸ö½ğ±Ò£¬'.User_Jinyan_Del.'¸ö¾­Ñé';
+$add['name']='è§†é¢‘è¢«åˆ é™¤';
+$add['neir']='æ‚¨çš„è§†é¢‘ã€Š'.$dt->name.'ã€‹è¢«åˆ é™¤ï¼Œç³»ç»ŸåŒæ—¶æ‰£é™¤æ‚¨'.User_Cion_Del.'ä¸ªé‡‘å¸ï¼Œ'.User_Jinyan_Del.'ä¸ªç»éªŒ';
 $add['addtime']=time();
 $this->MsdjDB->get_insert('msg',$add);
-//É¾³ı¶¯Ì¬
+//åˆ é™¤åŠ¨æ€
 $this->MsdjDB->get_del('dt',$dt->id);
 
-}elseif($dt->yid==1){ //ÉóºË
+}elseif($dt->yid==1){ //å®¡æ ¸
 
 $addhits=getzd('user','addhits',$uid);
 $str='';
@@ -536,7 +536,7 @@ $this->db->query("update ".MS_SqlPrefix."user set cion=cion+".User_Cion_Add.",ji
 $str.=L('plub_99');
 }
 $this->db->query("update ".MS_SqlPrefix."dt set yid=0,addtime='".time()."' where id=".$dt->id."");
-//·¢ËÍÊÓÆµÉóºËÍ¨Öª
+//å‘é€è§†é¢‘å®¡æ ¸é€šçŸ¥
 $add['uida']=$uid;
 $add['uidb']=0;
 $add['name']=L('plub_100');

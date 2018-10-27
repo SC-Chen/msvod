@@ -1,21 +1,21 @@
 <?php
-define('MS_Alipay',1);  //Ö§¸¶±¦¿ª¹Ø  
-define('MS_Alipay_JK',2);  //Ö§¸¶±¦½Ó¿Ú,1ÎªË«¹¦ÄÜ½Ó¿Ú£¬2Îª¼°Ê±µ¹ÕË£¬3ÎªÊÖ¶¯½Ó¿Ú
-define('MS_Alipay_Name','MSVOD V6');  //Ö§¸¶±¦ÕÊºÅ  
-define('MS_Alipay_ID','990294');  //ºÏ×÷ÕßID  
-define('MS_Alipay_Key','14816880201740');  //°²È«ÑéÐ§ÂëKEY  
-define('MS_Tenpay',1);  //Î¢ÐÅÖ§¸¶¿ª¹Ø  
-define('MS_Tenpay_ID','emsvod');  //Î¢ÐÅÖ§¸¶ID  
-define('MS_Tenpay_Key','/attachment/look/201611/23/yHZVxfvVHNAndaRoqJX5.png');  //°²È«ÑéÐ§ÂëKEY  
-define('MS_Wypay',1);  //ÍøÒø¿ª¹Ø  
-define('MS_Wypay_ID','1000000000');  //ÍøÒøID  
-define('MS_Wypay_Key','000000000000000');  //°²È«ÑéÐ§ÂëKEY  
-define('MS_Kqpay',0);  //¿ìÇ®  
-define('MS_Kqpay_ID','1000000000');  //¿ìÇ®ID  
-define('MS_Kqpay_Key','000000000000000');  //°²È«ÑéÐ§ÂëKEY
-define('MS_Ybpay',0);  //Ò×±¦Ö§¸¶  
-define('MS_Ybpay_ID','1000000000');  //Ò×±¦ID  
-define('MS_Ybpay_Key','000000000000000');  //°²È«ÑéÐ§ÂëKEY 
-define('MS_Mspay',0);  //¹Ù·½Ö§¸¶  
-define('MS_Mspay_ID','');  //¹Ù·½ID  
-define('MS_Mspay_Key','');  //°²È«ÑéÐ§ÂëKEY
+define('MS_Alipay',1);  //æ”¯ä»˜å®å¼€å…³  
+define('MS_Alipay_JK',2);  //æ”¯ä»˜å®æŽ¥å£,1ä¸ºåŒåŠŸèƒ½æŽ¥å£ï¼Œ2ä¸ºåŠæ—¶å€’è´¦ï¼Œ3ä¸ºæ‰‹åŠ¨æŽ¥å£
+define('MS_Alipay_Name','MSVOD V6');  //æ”¯ä»˜å®å¸å·  
+define('MS_Alipay_ID','990294');  //åˆä½œè€…ID  
+define('MS_Alipay_Key','14816880201740');  //å®‰å…¨éªŒæ•ˆç KEY  
+define('MS_Tenpay',1);  //å¾®ä¿¡æ”¯ä»˜å¼€å…³  
+define('MS_Tenpay_ID','emsvod');  //å¾®ä¿¡æ”¯ä»˜ID  
+define('MS_Tenpay_Key','/attachment/look/201611/23/yHZVxfvVHNAndaRoqJX5.png');  //å®‰å…¨éªŒæ•ˆç KEY  
+define('MS_Wypay',1);  //ç½‘é“¶å¼€å…³  
+define('MS_Wypay_ID','1000000000');  //ç½‘é“¶ID  
+define('MS_Wypay_Key','000000000000000');  //å®‰å…¨éªŒæ•ˆç KEY  
+define('MS_Kqpay',0);  //å¿«é’±  
+define('MS_Kqpay_ID','1000000000');  //å¿«é’±ID  
+define('MS_Kqpay_Key','000000000000000');  //å®‰å…¨éªŒæ•ˆç KEY
+define('MS_Ybpay',0);  //æ˜“å®æ”¯ä»˜  
+define('MS_Ybpay_ID','1000000000');  //æ˜“å®ID  
+define('MS_Ybpay_Key','000000000000000');  //å®‰å…¨éªŒæ•ˆç KEY 
+define('MS_Mspay',0);  //å®˜æ–¹æ”¯ä»˜  
+define('MS_Mspay_ID','');  //å®˜æ–¹ID  
+define('MS_Mspay_Key','');  //å®‰å…¨éªŒæ•ˆç KEY

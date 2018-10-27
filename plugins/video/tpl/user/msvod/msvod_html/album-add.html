@@ -18,30 +18,30 @@
 					<div class="uMain_content">
 						<div class="main_nav width">
 							<ul style="width: 785px;">
-								<li><span><a href="[user:url userlink=album]">ÒÑÉóºËµÄ</a></span></li>
-								<li><span><a href="[user:url userlink=album,verify]">´ıÉóºËÖĞµÄ</a></span></li>
-								<li><span><a href="[user:url userlink=fav,album]">ÎÒÊÕ²ØµÄ</a></span></li>
-								<li class="right"><a class="" href="[user:url userlink=album,add]">ÖÆ×÷×¨Ìâ</a></li>
+								<li><span><a href="[user:url userlink=album]">å·²å®¡æ ¸çš„</a></span></li>
+								<li><span><a href="[user:url userlink=album,verify]">å¾…å®¡æ ¸ä¸­çš„</a></span></li>
+								<li><span><a href="[user:url userlink=fav,album]">æˆ‘æ”¶è—çš„</a></span></li>
+								<li class="right"><a class="" href="[user:url userlink=album,add]">åˆ¶ä½œä¸“é¢˜</a></li>
 							</ul>
 						</div>
 						<div class="minHeight500">
 							<form class="think-form" action="[user:albumsave]" method="post">
 							<div class="w160">
-							<p><img id="album_img" src="{msvod:indextempurl}images/album.gif" width="160" height="160"><a href="###" onClick="msvod_up('videotopic','pic','*.jpg;*.png;*.gif','albumup_pic');" class="a_btn">ÉÏ´«·âÃæ</a></p>
-							<input class="text" type="hidden" id="pic" name="pic" datatype="*" nullmsg="ÇëÉÏ´«Í¼Æ¬"/>&nbsp;
+							<p><img id="album_img" src="{msvod:indextempurl}images/album.gif" width="160" height="160"><a href="###" onClick="msvod_up('videotopic','pic','*.jpg;*.png;*.gif','albumup_pic');" class="a_btn">ä¸Šä¼ å°é¢</a></p>
+							<input class="text" type="hidden" id="pic" name="pic" datatype="*" nullmsg="è¯·ä¸Šä¼ å›¾ç‰‡"/>&nbsp;
                         	<span class="Validform_checktip" id="albumup_pic">&nbsp;&nbsp;</span>
 							</div>
-           				 <!-- ±íµ¥Ïî -->
+           				 <!-- è¡¨å•é¡¹ -->
             				<table class="bd">
                 				<tr>
-                    				<th>ËùÊô·ÖÀà</th>
+                    				<th>æ‰€å±åˆ†ç±»</th>
                     				<td>
 										<div class="sex">
 											<select class="select_normal" name="cid" style="width:140px;">
 											{msvod:class table="video_list" fid="0" sort="xid" order="asc"}
-												<option value="[class:id]">&nbsp;|¡ª[class:name]</option>
+												<option value="[class:id]">&nbsp;|â€”[class:name]</option>
                                                 {msvodtype:class table="video_list" fid="auto" sort="xid" order="asc"}
-												<option value="[class:id]">&nbsp;|&nbsp;&nbsp;&nbsp;|¡ª[class:name]</option>
+												<option value="[class:id]">&nbsp;|&nbsp;&nbsp;&nbsp;|â€”[class:name]</option>
                                                 {/msvodtype:class}
                                             {/msvod:class}
 											</select>
@@ -50,44 +50,44 @@
                     				</td>
                 				</tr>
                 				<tr>
-                    				<th>×¨ÌâÃû³Æ</th>
+                    				<th>ä¸“é¢˜åç§°</th>
                     				<td>
-                        				<input class="text" type="text" name="name" value="" datatype="*2-20" nullmsg="×¨ÌâÃû³Æ²»ÄÜÎª¿Õ" errormsg="Ãû³ÆÎª2-20¸ö×ÖÒÔÄÚ"/>
+                        				<input class="text" type="text" name="name" value="" datatype="*2-20" nullmsg="ä¸“é¢˜åç§°ä¸èƒ½ä¸ºç©º" errormsg="åç§°ä¸º2-20ä¸ªå­—ä»¥å†…"/>
                         				<span class="Validform_checktip"></span>
                     				</td>
                 				</tr>
                 				<tr>
-                    				<th>ÑİÔ±</th>
+                    				<th>æ¼”å‘˜</th>
                     				<td>
                         				<input class="text" type="text" name="singer" value=""/>
                     				</td>
                 				</tr>
                 				<tr>
-                    				<th>ÓïÑÔ</th>
+                    				<th>è¯­è¨€</th>
                     				<td>
                         				<input class="text" type="text" name="yuyan" style="width:140px;"/>&nbsp;&nbsp;
-										µØÇø&nbsp;<input class="text" type="text" name="diqu" style="width:140px;"/>
+										åœ°åŒº&nbsp;<input class="text" type="text" name="diqu" style="width:140px;"/>
                     				</td>
                 				</tr>
                 				<tr>
-                    				<th>Äê·İ</th>
+                    				<th>å¹´ä»½</th>
                     				<td>
                         				<input class="text" type="text" name="year" style="width:140px;"/>&nbsp;&nbsp;
-										¹«Ë¾&nbsp;<input class="text" type="text" name="fxgs" style="width:140px;"/>
+										å…¬å¸&nbsp;<input class="text" type="text" name="fxgs" style="width:140px;"/>
                     				</td>
                 				</tr>
                 				<tr>
-                    				<th>±êÇ©</th>
+                    				<th>æ ‡ç­¾</th>
                     				<td>
                         				<input class="text" type="text" id="tags" name="tags"/>&nbsp;
-										<input onClick="msvod_tags('tags');" class="button" type="button" name="button" value="¿ìËÙÑ¡Ôñ">
-                        				<span class="Validform_checktip">¶à¸ö¶ººÅ¸ô¿ª</span>
+										<input onClick="msvod_tags('tags');" class="button" type="button" name="button" value="å¿«é€Ÿé€‰æ‹©">
+                        				<span class="Validform_checktip">å¤šä¸ªé€—å·éš”å¼€</span>
                     				</td>
                 				</tr>
                 				<tr>
-                    				<th>½éÉÜ</th>
+                    				<th>ä»‹ç»</th>
                     				<td>
-                        				<textarea style="width:400px;height:120px;" name="neir" datatype="*" nullmsg="×¨Ìâ½éÉÜ²»ÄÜÎª¿Õ"></textarea>
+                        				<textarea style="width:400px;height:120px;" name="neir" datatype="*" nullmsg="ä¸“é¢˜ä»‹ç»ä¸èƒ½ä¸ºç©º"></textarea>
                         				<span class="Validform_checktip"></span>
                     				</td>
                 				</tr>
@@ -95,11 +95,11 @@
                     				<th>&nbsp;</th>
                     				<td>
 					    				<input type="hidden" name="token" value="[user:token]"/>
-                        				<input class="submit" type="submit" value="È·¶¨±£´æ" />
+                        				<input class="submit" type="submit" value="ç¡®å®šä¿å­˜" />
                     				</td>
                 				</tr>
             				</table>
-            				<!-- /±íµ¥Ïî -->
+            				<!-- /è¡¨å•é¡¹ -->
 							</div></form>
 						</div>
 					</div>

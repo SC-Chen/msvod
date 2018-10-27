@@ -17,35 +17,35 @@
 					<div class="uMain_content">
 						<div class="main_nav width">
 							<ul style="width: 785px;">
-								<li><span><a href="[user:url userlink=album]">ÒÑÉóºËµÄ</a></span></li>
-								<li class="on"><span><a href="[user:url userlink=album,verify]">´ıÉóºËÖĞµÄ</a></span></li>
-								<li><span><a href="[user:url userlink=fav,album]">ÎÒÊÕ²ØµÄ</a></span></li>
-								<li class="right"><a class="" href="[user:url userlink=album,add]">ÖÆ×÷×¨Ìâ</a></li>
+								<li><span><a href="[user:url userlink=album]">å·²å®¡æ ¸çš„</a></span></li>
+								<li class="on"><span><a href="[user:url userlink=album,verify]">å¾…å®¡æ ¸ä¸­çš„</a></span></li>
+								<li><span><a href="[user:url userlink=fav,album]">æˆ‘æ”¶è—çš„</a></span></li>
+								<li class="right"><a class="" href="[user:url userlink=album,add]">åˆ¶ä½œä¸“é¢˜</a></li>
 							</ul>
 						</div>
 						<div id="videolist" class="minHeight500">
 							<div class="private_topic_list">
-								<!--ÓĞÄÚÈİ-->
+								<!--æœ‰å†…å®¹-->
 								<div class="v_list">
 								{msvod:topic table="video_topic" uid="auto" pagesize="8" yid="1" sort="time" order="desc"}
                     			<div class="topic">
 									<span class="pics"><a href="[topic:url link=topic/show,id]" target="_blank" title="[topic:name]" class="v_pic"><img src="[topic:pic dir=videotopic]" art="[topic:name]"/></a></span>
 									<span class="info">
 										<p class="name"><a href="[topic:url link=topic/show,id]" target="_blank" title="[topic:name]">[topic:name]</a></p>
-										<p class="tags"><span class="user">ÑİÔ±£º{msvodphp}getzd('singer','name','[topic:singerid]');{/msvodphp}</span></p>
-										<p class="tags"><span class="user">Ê±¼ä£º[topic:addtime style=time]</span></p>
+										<p class="tags"><span class="user">æ¼”å‘˜ï¼š{msvodphp}getzd('singer','name','[topic:singerid]');{/msvodphp}</span></p>
+										<p class="tags"><span class="user">æ—¶é—´ï¼š[topic:addtime style=time]</span></p>
 									</span>
 		       					</div>
 								{/msvod:topic}
 								</div>
 							</div>
-							{if:{msvod:pagedata}==0}<div class="zanwu">ÔİÎŞÊı¾İ£¡</div>{end if}
+							{if:{msvod:pagedata}==0}<div class="zanwu">æš‚æ— æ•°æ®ï¼</div>{end if}
 							<div class="page" style="{if:{msvod:pagecout}<2}display:none;{end if}">
 								<div class="pages">
-									<em title="×ÜÊıÁ¿">{msvod:pagedata}</em>
-                                    <a href="{msvod:pagefirst}">Ê×Ò³</a>
+									<em title="æ€»æ•°é‡">{msvod:pagedata}</em>
+                                    <a href="{msvod:pagefirst}">é¦–é¡µ</a>
 									{msvod:pagenum len=8}
-                                    <a href="{msvod:pagelast}">Î²Ò³</a>
+                                    <a href="{msvod:pagelast}">å°¾é¡µ</a>
 								</div>
 							</div>
 						</div>

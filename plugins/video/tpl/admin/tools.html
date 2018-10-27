@@ -84,29 +84,29 @@ overflow: auto;
 <body>
 <div class="place">
 <span><?=L('place')?></span>
-<ul class="placeul"><li><a href="<?=site_url('opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('video/admin/tools')?>">Ëæ»úÅúÁ¿µã»÷</a></li></ul>
+<ul class="placeul"><li><a href="<?=site_url('opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('video/admin/tools')?>">éšæœºæ‰¹é‡ç‚¹å‡»</a></li></ul>
 </div>
 <div class="formbody">
 <div id="usual1" class="usual"> 
 <div class="itab">
 <ul> 
-<li><a href="<?=site_url('video/admin/tools')?>">Ëæ»úÅúÁ¿µã»÷</a></li>
+<li><a href="<?=site_url('video/admin/tools')?>">éšæœºæ‰¹é‡ç‚¹å‡»</a></li>
 </ul>
 </div> 
 <form action="<?=site_url('video/admin/tools/lists')?>" method="post" target="hits_msg" name="myform">
 <div id="tab1" class="tabson">
 <ul class="forminfo">
-<li><label>ÊÓÆµ²ÎÊý</label>
+<li><label>è§†é¢‘å‚æ•°</label>
 <div class="vocation">
 <select class="select2" name="cid">
 <?php
 $query = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."video_list where fid=0 order by xid asc"); 
-echo '<option value="0" selected>È«²¿</option>';
+echo '<option value="0" selected>å…¨éƒ¨</option>';
 foreach ($query->result() as $row) {
 echo '<option value="'.$row->id.'">&nbsp;'.$row->name.'</option>';
 $query2 = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."video_list where fid=".$row->id." order by xid asc"); 
 foreach ($query2->result() as $row2) {
-echo '<option value="'.$row2->id.'">&nbsp;&nbsp;&nbsp;&nbsp;|¡ª'.$row2->name.'</option>';
+echo '<option value="'.$row2->id.'">&nbsp;&nbsp;&nbsp;&nbsp;|â€”'.$row2->name.'</option>';
 }
 }
 ?>
@@ -114,55 +114,55 @@ echo '<option value="'.$row2->id.'">&nbsp;&nbsp;&nbsp;&nbsp;|¡ª'.$row2->name.'</
 </div>
 <div style="margin-left:10px;" class="vocation">
 <select class="select3" name="renqi">
-<option value="hits" selected>×ÜÈËÆø</option>
-<option value="shits">ÊÕ²ØÈËÆø</option>
-<option value="xhits">ÏÂÔØÈËÆø</option>
-<option value="yhits">ÔÂÈËÆø</option>
-<option value="zhits">ÖÜÈËÆø</option>
-<option value="rhits">ÈÕÈËÆø</option>
-<option value="dhits">µãÔÞ´ÎÊý</option>
-<!--<option value="chits">²ÈÈËÆø</option>-->
+<option value="hits" selected>æ€»äººæ°”</option>
+<option value="shits">æ”¶è—äººæ°”</option>
+<option value="xhits">ä¸‹è½½äººæ°”</option>
+<option value="yhits">æœˆäººæ°”</option>
+<option value="zhits">å‘¨äººæ°”</option>
+<option value="rhits">æ—¥äººæ°”</option>
+<option value="dhits">ç‚¹èµžæ¬¡æ•°</option>
+<!--<option value="chits">è¸©äººæ°”</option>-->
 </select>
 </div> 
 </li>
-<li><label>Ê±¼ä¶Î</label>
+<li><label>æ—¶é—´æ®µ</label>
 <div style="margin-left:0px;" class="vocation">
 <select class="select3" name="day">
-<option value="0" selected>²»ÏÞ</option>
-<option value="1">1ÌìÄÚ</option>
-<option value="2">2ÌìÄÚ</option>
-<option value="3">3ÌìÄÚ</option>
-<option value="4">4ÌìÄÚ</option>
-<option value="5">5ÌìÄÚ</option>
-<option value="6">6ÌìÄÚ</option>
-<option value="7">7ÌìÄÚ</option>
-<option value="8">8ÌìÄÚ</option>
-<option value="9">9ÌìÄÚ</option>
-<option value="10">10ÌìÄÚ</option>
-<option value="11">11ÌìÄÚ</option>
-<option value="12">12ÌìÄÚ</option>
-<option value="13">13ÌìÄÚ</option>
-<option value="14">14ÌìÄÚ</option>
-<option value="15">15ÌìÄÚ</option>
-<option value="16">16ÌìÄÚ</option>
-<option value="17">17ÌìÄÚ</option>
-<option value="18">18ÌìÄÚ</option>
-<option value="19">19ÌìÄÚ</option>
-<option value="20">20ÌìÄÚ</option>
-<option value="21">21ÌìÄÚ</option>
-<option value="22">22ÌìÄÚ</option>
-<option value="23">23ÌìÄÚ</option>
-<option value="24">24ÌìÄÚ</option>
-<option value="25">25ÌìÄÚ</option>
-<option value="26">26ÌìÄÚ</option>
-<option value="27">27ÌìÄÚ</option>
-<option value="28">28ÌìÄÚ</option>
-<option value="29">29ÌìÄÚ</option>
-<option value="30">30ÌìÄÚ</option>
+<option value="0" selected>ä¸é™</option>
+<option value="1">1å¤©å†…</option>
+<option value="2">2å¤©å†…</option>
+<option value="3">3å¤©å†…</option>
+<option value="4">4å¤©å†…</option>
+<option value="5">5å¤©å†…</option>
+<option value="6">6å¤©å†…</option>
+<option value="7">7å¤©å†…</option>
+<option value="8">8å¤©å†…</option>
+<option value="9">9å¤©å†…</option>
+<option value="10">10å¤©å†…</option>
+<option value="11">11å¤©å†…</option>
+<option value="12">12å¤©å†…</option>
+<option value="13">13å¤©å†…</option>
+<option value="14">14å¤©å†…</option>
+<option value="15">15å¤©å†…</option>
+<option value="16">16å¤©å†…</option>
+<option value="17">17å¤©å†…</option>
+<option value="18">18å¤©å†…</option>
+<option value="19">19å¤©å†…</option>
+<option value="20">20å¤©å†…</option>
+<option value="21">21å¤©å†…</option>
+<option value="22">22å¤©å†…</option>
+<option value="23">23å¤©å†…</option>
+<option value="24">24å¤©å†…</option>
+<option value="25">25å¤©å†…</option>
+<option value="26">26å¤©å†…</option>
+<option value="27">27å¤©å†…</option>
+<option value="28">28å¤©å†…</option>
+<option value="29">29å¤©å†…</option>
+<option value="30">30å¤©å†…</option>
 </select>
 </div> 
 </li>
-<li style="float:left; padding-bottom:-10px;"><label>ÈËÆøÊýÖµ</label>
+<li style="float:left; padding-bottom:-10px;"><label>äººæ°”æ•°å€¼</label>
 <div class="vocation">
 <table width="100%" border="0" cellpadding="3" cellspacing="3">
 <tr>
@@ -172,11 +172,11 @@ echo '<option value="'.$row2->id.'">&nbsp;&nbsp;&nbsp;&nbsp;|¡ª'.$row2->name.'</
 </table>
 </div>
 </li>
-<li><label>Ã¿Ò³ÌõÊý</label><input name="page"  id="page" type="text" class="dfinput" value="20"/></li>
+<li><label>æ¯é¡µæ¡æ•°</label><input name="page"  id="page" type="text" class="dfinput" value="20"/></li>
  
 </ul>
 <ul class="forminfo">
-<li><label>&nbsp;</label><input name="Submit" type="Submit" class="btn" value="È·¶¨²Ù×÷"/></li>
+<li><label>&nbsp;</label><input name="Submit" type="Submit" class="btn" value="ç¡®å®šæ“ä½œ"/></li>
 </ul>
 <ul class="forminfo">
 <table width="100%" border="0" cellpadding="3" cellspacing="3">

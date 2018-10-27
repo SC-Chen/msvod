@@ -44,34 +44,34 @@ $("#seo2").hide();
 <body>
 <div class="place">
 <span><?=L('place')?></span>
-<ul class="placeul"><li><a href="<?=site_url('opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('tu/admin/tu')?>"><?=($id==0)?'ĞÂÔö':'ĞŞ¸Ä';?>Í¼Æ¬</a></li></ul>
+<ul class="placeul"><li><a href="<?=site_url('opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('tu/admin/tu')?>"><?=($id==0)?'æ–°å¢':'ä¿®æ”¹';?>å›¾ç‰‡</a></li></ul>
 </div>
 <div class="formbody">
 <div id="usual1" class="usual"> 
 <div class="itab">
 <ul> 
-<li><a href="<?=site_url('tu/admin/tu')?>">Í¼Æ¬¹ÜÀí</a></li> 
-<li><a href="<?=site_url('tu/admin/tu')?>?yid=2">´ıÉóºËÍ¼Æ¬</a></li>  
-<li><a href="<?=site_url('tu/admin/tu')?>?yid=3">»ØÊÕÕ¾Í¼Æ¬</a></li> 
-<li><a href="#tab1" class="selected"><?=($id==0)?'ĞÂÔö':'ĞŞ¸Ä';?>Í¼Æ¬</a></li> 
+<li><a href="<?=site_url('tu/admin/tu')?>">å›¾ç‰‡ç®¡ç†</a></li> 
+<li><a href="<?=site_url('tu/admin/tu')?>?yid=2">å¾…å®¡æ ¸å›¾ç‰‡</a></li>  
+<li><a href="<?=site_url('tu/admin/tu')?>?yid=3">å›æ”¶ç«™å›¾ç‰‡</a></li> 
+<li><a href="#tab1" class="selected"><?=($id==0)?'æ–°å¢':'ä¿®æ”¹';?>å›¾ç‰‡</a></li> 
 </ul>
 </div> 
 <form action="<?=site_url('tu/admin/tu/save')?>" method="post">
 <div id="tab1" class="tabson">
 <ul class="forminfo">
-<li><label>Í¼Æ¬²ÎÊı</label>
+<li><label>å›¾ç‰‡å‚æ•°</label>
 <div class="vocation">
 <select class="select2" name="cid">
-<option value="0">ÇëÑ¡Ôñ·ÖÀà</option>
+<option value="0">è¯·é€‰æ‹©åˆ†ç±»</option>
 <?php
 $query = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."tu_list where fid=0 order by xid asc"); 
 foreach ($query->result() as $row) {
 $clas=($row->id==$cid)?' selected="selected"':'';
-echo '<option value="'.$row->id.'"'.$clas.'>&nbsp;|¡ª'.$row->name.'</option>';
+echo '<option value="'.$row->id.'"'.$clas.'>&nbsp;|â€”'.$row->name.'</option>';
 $query2 = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."tu_list where fid=".$row->id." order by xid asc"); 
 foreach ($query2->result() as $row2) {
 $clas2=($row2->id==$cid)?' selected="selected"':'';
-echo '<option value="'.$row2->id.'"'.$clas2.'>&nbsp;|&nbsp;&nbsp;&nbsp;|¡ª'.$row2->name.'</option>';
+echo '<option value="'.$row2->id.'"'.$clas2.'>&nbsp;|&nbsp;&nbsp;&nbsp;|â€”'.$row2->name.'</option>';
 }
 }
 ?>
@@ -79,7 +79,7 @@ echo '<option value="'.$row2->id.'"'.$clas2.'>&nbsp;|&nbsp;&nbsp;&nbsp;|¡ª'.$row
 </div>
 <!--<div style="margin-left:10px;" class="vocation">
 <select class="select2" name="tid">
-<option value="0">Í¼Æ¬×¨Ìâ</option>
+<option value="0">å›¾ç‰‡ä¸“é¢˜</option>
 <?php
 $query = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."tu_topic order by id asc"); 
 foreach ($query->result() as $row) {
@@ -91,44 +91,44 @@ echo '<option value="'.$row->id.'"'.$clas.'>'.$row->name.'</option>';
 </div>-->
 <div style="margin-left:10px;" class="vocation">
 <select class="select2" name="reco">
-<option value="0"<?php if($reco==0) echo ' selected';?>>Í¼Æ¬ÍÆ¼ö</option>
-<option value="1"<?php if($reco=='1') echo ' selected';?>>¡ï¡î¡î¡î¡î</option>
-<option value="2"<?php if($reco=='2') echo ' selected';?>>¡ï¡ï¡î¡î¡î</option>
-<option value="3"<?php if($reco=='3') echo ' selected';?>>¡ï¡ï¡ï¡î¡î</option>
-<option value="4"<?php if($reco=='4') echo ' selected';?>>¡ï¡ï¡ï¡ï¡î</option>
-<option value="5"<?php if($reco=='5') echo ' selected';?>>¡ï¡ï¡ï¡ï¡ï</option>
+<option value="0"<?php if($reco==0) echo ' selected';?>>å›¾ç‰‡æ¨è</option>
+<option value="1"<?php if($reco=='1') echo ' selected';?>>â˜…â˜†â˜†â˜†â˜†</option>
+<option value="2"<?php if($reco=='2') echo ' selected';?>>â˜…â˜…â˜†â˜†â˜†</option>
+<option value="3"<?php if($reco=='3') echo ' selected';?>>â˜…â˜…â˜…â˜†â˜†</option>
+<option value="4"<?php if($reco=='4') echo ' selected';?>>â˜…â˜…â˜…â˜…â˜†</option>
+<option value="5"<?php if($reco=='5') echo ' selected';?>>â˜…â˜…â˜…â˜…â˜…</option>
 </select>
 </div> 
 <div style="margin-left:10px;" class="vocation">
 <select class="select2" name="yid">
-<option value="0"<?php if($yid==0) echo ' selected';?>>ÏÔÊ¾</option>
-<option value="1"<?php if($yid==1) echo ' selected';?>>Òş²Ø</option>
+<option value="0"<?php if($yid==0) echo ' selected';?>>æ˜¾ç¤º</option>
+<option value="1"<?php if($yid==1) echo ' selected';?>>éšè—</option>
 </select>
 </div>
-&nbsp;&nbsp;&nbsp;<input class="box" name="addtime" type="checkbox" value="ok" checked="checked">&nbsp;¸üĞÂÊ±¼ä
+&nbsp;&nbsp;&nbsp;<input class="box" name="addtime" type="checkbox" value="ok" checked="checked">&nbsp;æ›´æ–°æ—¶é—´
 </li>
-<li><label>Í¼Æ¬±êÌâ</label><input id="name" name="name" type="text" class="dfinput" value="<?=$name?>" style="width:250px;"/>&nbsp;&nbsp;
-Ó¢ÎÄ±ğÃû&nbsp;&nbsp;<input name="bname" type="text" class="dfinput" value="<?=$bname?>" style="width:130px;"/>&nbsp;&nbsp;
-Ãû³ÆÑÕÉ«&nbsp;&nbsp;<input name="color" id="color" type="text" class="dfinput" value="<?=$color?>" style="width:65px;"/><img src="<?=Web_Path?>packs/admin/images/rect.gif" width="18" height="17" border=0 style="position:relative;left:-20px;margin-right:-20px;cursor:pointer;background-Color:#ff0000;" title="Ñ¡È¡ÑÕÉ«!" onClick="initcolor('color','imgs_color');" id="imgs_color" align="absmiddle" vspace="1">
+<li><label>å›¾ç‰‡æ ‡é¢˜</label><input id="name" name="name" type="text" class="dfinput" value="<?=$name?>" style="width:250px;"/>&nbsp;&nbsp;
+è‹±æ–‡åˆ«å&nbsp;&nbsp;<input name="bname" type="text" class="dfinput" value="<?=$bname?>" style="width:130px;"/>&nbsp;&nbsp;
+åç§°é¢œè‰²&nbsp;&nbsp;<input name="color" id="color" type="text" class="dfinput" value="<?=$color?>" style="width:65px;"/><img src="<?=Web_Path?>packs/admin/images/rect.gif" width="18" height="17" border=0 style="position:relative;left:-20px;margin-right:-20px;cursor:pointer;background-Color:#ff0000;" title="é€‰å–é¢œè‰²!" onClick="initcolor('color','imgs_color');" id="imgs_color" align="absmiddle" vspace="1">
 </li>
-<li><label>Í¼Æ¬Í¼Æ¬</label><input name="pic" id="pic" type="text" class="dfinput" value="<?=$pic?>" style="width:520px;"/>&nbsp;<input onclick="Popsboxif('ÉÏ´«Í¼Æ¬',550,450,'<?=site_url('upload/up')?>?dir=tu');" class="button" type="button" name="button" value="ÉÏ´«Í¼Æ¬">
-<li><label>Í¼Æ¬ÃèÊö</label><input name="info" type="text" class="dfinput" value="<?=$info?>" style="width:520px;"/>&nbsp;128¸ö×ÖÒÔÄÚ</li>
-<li><label>TAGS±êÇ©</label><input name="tags" type="text" class="dfinput" value="<?=$tags?>" style="width:520px;"/>&nbsp;¶à¸ö¶ººÅ¸ô¿ª</li>
-<!--<li><label>»ÃµÆÍ¼Æ¬</label><input name="pic2" id="pic2" type="text" class="dfinput" value="<?=$pic2?>" style="width:520px;"/>&nbsp;<input onclick="Popsboxif('ÉÏ´«Í¼Æ¬',550,450,'<?=site_url('upload/up')?>?dir=tu&fid=2');" class="button" type="button" name="button" value="ÉÏ´«Í¼Æ¬">
+<li><label>å›¾ç‰‡å›¾ç‰‡</label><input name="pic" id="pic" type="text" class="dfinput" value="<?=$pic?>" style="width:520px;"/>&nbsp;<input onclick="Popsboxif('ä¸Šä¼ å›¾ç‰‡',550,450,'<?=site_url('upload/up')?>?dir=tu');" class="button" type="button" name="button" value="ä¸Šä¼ å›¾ç‰‡">
+<li><label>å›¾ç‰‡æè¿°</label><input name="info" type="text" class="dfinput" value="<?=$info?>" style="width:520px;"/>&nbsp;128ä¸ªå­—ä»¥å†…</li>
+<li><label>TAGSæ ‡ç­¾</label><input name="tags" type="text" class="dfinput" value="<?=$tags?>" style="width:520px;"/>&nbsp;å¤šä¸ªé€—å·éš”å¼€</li>
+<!--<li><label>å¹»ç¯å›¾ç‰‡</label><input name="pic2" id="pic2" type="text" class="dfinput" value="<?=$pic2?>" style="width:520px;"/>&nbsp;<input onclick="Popsboxif('ä¸Šä¼ å›¾ç‰‡',550,450,'<?=site_url('upload/up')?>?dir=tu&fid=2');" class="button" type="button" name="button" value="ä¸Šä¼ å›¾ç‰‡">
 </li>-->
-<!--<li><label>Í¼Æ¬ÈËÆø</label>
-×Ü&nbsp;<input name="hits" type="text" class="dfinput" value="<?=$hits?>" style="width:65px;"/>&nbsp;&nbsp;
-ÔÂ&nbsp;<input name="yhits" type="text" class="dfinput" value="<?=$yhits?>" style="width:65px;"/>&nbsp;&nbsp;
-ÖÜ&nbsp;<input name="zhits" type="text" class="dfinput" value="<?=$zhits?>" style="width:65px;"/>&nbsp;&nbsp;
-ÈÕ&nbsp;<input name="rhits" type="text" class="dfinput" value="<?=$rhits?>" style="width:65px;"/>&nbsp;&nbsp;
-¶¥&nbsp;<input name="dhits" type="text" class="dfinput" value="<?=$dhits?>" style="width:65px;"/>&nbsp;&nbsp;
-²È&nbsp;<input name="chits" type="text" class="dfinput" value="<?=$chits?>" style="width:65px;"/>&nbsp;&nbsp;
+<!--<li><label>å›¾ç‰‡äººæ°”</label>
+æ€»&nbsp;<input name="hits" type="text" class="dfinput" value="<?=$hits?>" style="width:65px;"/>&nbsp;&nbsp;
+æœˆ&nbsp;<input name="yhits" type="text" class="dfinput" value="<?=$yhits?>" style="width:65px;"/>&nbsp;&nbsp;
+å‘¨&nbsp;<input name="zhits" type="text" class="dfinput" value="<?=$zhits?>" style="width:65px;"/>&nbsp;&nbsp;
+æ—¥&nbsp;<input name="rhits" type="text" class="dfinput" value="<?=$rhits?>" style="width:65px;"/>&nbsp;&nbsp;
+é¡¶&nbsp;<input name="dhits" type="text" class="dfinput" value="<?=$dhits?>" style="width:65px;"/>&nbsp;&nbsp;
+è¸©&nbsp;<input name="chits" type="text" class="dfinput" value="<?=$chits?>" style="width:65px;"/>&nbsp;&nbsp;
 </li>-->
-<li><label>ËùÊô»áÔ±</label>
+<li><label>æ‰€å±ä¼šå‘˜</label>
 <input style="float:left;width:125px;" name="user" type="text" class="dfinput" value="<?=getzd('user','name',$uid)?>"/>
 <div class="vocation" style="margin-left:10px;">
 <select class="select2" name="vip">
-<option value="0">»áÔ±È¨ÏŞ</option>
+<option value="0">ä¼šå‘˜æƒé™</option>
 <?php
 $query = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."userzu order by id asc"); 
 foreach ($query->result() as $row) {
@@ -140,7 +140,7 @@ echo '<option value="'.$row->id.'"'.$clas.'>'.$row->name.'</option>';
 </div>&nbsp;&nbsp;
 <!--<div class="vocation" style="margin-left:10px;">
 <select class="select2" name="level">
-<option value="0">»áÔ±µÈ¼¶È¨ÏŞ</option>
+<option value="0">ä¼šå‘˜ç­‰çº§æƒé™</option>
 <?php
 $query = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."userlevel order by id asc"); 
 foreach ($query->result() as $row) {
@@ -150,22 +150,22 @@ echo '<option value="'.$row->id.'"'.$clas.'>'.$row->name.'</option>';
 ?>
 </select>
 </div>&nbsp;&nbsp;-->
-ÔÄ¶ÁËùĞè½ğ±Ò&nbsp;&nbsp;<input name="cion" type="text" class="dfinput" value="<?=$cion?>" style="width:65px;"/>
+é˜…è¯»æ‰€éœ€é‡‘å¸&nbsp;&nbsp;<input name="cion" type="text" class="dfinput" value="<?=$cion?>" style="width:65px;"/>
 </li>
-<li><label>Ä¬ÈÏÄ£°å</label><input id="skins" name="skins" type="text" class="dfinput" value="<?=$skins?>" style="width:250px;"/>&nbsp;&nbsp;Ä¬ÈÏÄ£°å£¬²»ÌîĞ´ÔòÎªÄ¬ÈÏshow.html
+<li><label>é»˜è®¤æ¨¡æ¿</label><input id="skins" name="skins" type="text" class="dfinput" value="<?=$skins?>" style="width:250px;"/>&nbsp;&nbsp;é»˜è®¤æ¨¡æ¿ï¼Œä¸å¡«å†™åˆ™ä¸ºé»˜è®¤show.html
 </li>
-<li><label>Í¼Æ¬ÄÚÈİ</label><textarea style="width:760px;height:300px" class="textinput" name="content" id="content"><?=$content?></textarea><script type="text/javascript">AdminEditor('content');</script></li>
-<li id="seo1" onclick="seo();" style='cursor:pointer;height:30px;line-height:30px;'><img src='<?=base_url()?>packs/admin/images/btn_add.gif' align='absmiddle'/>&nbsp;&nbsp;<b><font color='#666'>µã»÷Õ¹¿ªSEOÉèÖÃ</font></b></li>
-<li id="seo2" onclick="seo();" style='display:none;cursor:pointer;height:30px;line-height:30px;'><img src='<?=base_url()?>packs/admin/images/btn_dec.gif' align='absmiddle'/>&nbsp;&nbsp;<b><font color='#666'>µã»÷¹Ø±ÕSEOÉèÖÃ</font></b></li>
+<li><label>å›¾ç‰‡å†…å®¹</label><textarea style="width:760px;height:300px" class="textinput" name="content" id="content"><?=$content?></textarea><script type="text/javascript">AdminEditor('content');</script></li>
+<li id="seo1" onclick="seo();" style='cursor:pointer;height:30px;line-height:30px;'><img src='<?=base_url()?>packs/admin/images/btn_add.gif' align='absmiddle'/>&nbsp;&nbsp;<b><font color='#666'>ç‚¹å‡»å±•å¼€SEOè®¾ç½®</font></b></li>
+<li id="seo2" onclick="seo();" style='display:none;cursor:pointer;height:30px;line-height:30px;'><img src='<?=base_url()?>packs/admin/images/btn_dec.gif' align='absmiddle'/>&nbsp;&nbsp;<b><font color='#666'>ç‚¹å‡»å…³é—­SEOè®¾ç½®</font></b></li>
 </ul>
 <ul class="forminfo" style="display:none"; id="seo">
-<li><label>SEO±êÌâ</label><input name="title" type="text" class="dfinput" value="<?=$title?>" style="width:520px;"/></li>
-<li><label>SEO¹Ø¼ü´Ê</label><input name="keywords" type="text" class="dfinput" value="<?=$keywords?>" style="width:520px;"/></li>
-<li><label>SEO½éÉÜ</label><input name="description" type="text" class="dfinput" value="<?=$description?>" style="width:520px;"/></li>
+<li><label>SEOæ ‡é¢˜</label><input name="title" type="text" class="dfinput" value="<?=$title?>" style="width:520px;"/></li>
+<li><label>SEOå…³é”®è¯</label><input name="keywords" type="text" class="dfinput" value="<?=$keywords?>" style="width:520px;"/></li>
+<li><label>SEOä»‹ç»</label><input name="description" type="text" class="dfinput" value="<?=$description?>" style="width:520px;"/></li>
 </ul>
 <ul class="forminfo">
 <input name="id" type="hidden" value="<?=$id?>">
-<li><label>&nbsp;</label><input name="Submit" type="Submit" class="btn" value="È·¶¨²Ù×÷"/></li>
+<li><label>&nbsp;</label><input name="Submit" type="Submit" class="btn" value="ç¡®å®šæ“ä½œ"/></li>
 </ul>
 </div> 
 </form>

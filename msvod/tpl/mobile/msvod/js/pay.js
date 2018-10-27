@@ -1,4 +1,4 @@
-﻿// JavaScript Document
+锘?/ JavaScript Document
 function setCookie(name, value, day) {
     var exp = new Date();
     exp.setTime(exp.getTime() + day * 24 * 60 * 60 * 1000);

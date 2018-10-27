@@ -27,7 +27,7 @@
 .null_box b.null_icon{ display:block; width:76px; height:69px; margin:0 auto; background:url(../images/al_space.png) no-repeat; margin-bottom:20px;}
 .null_box p{text-align:center; font-size:14px; color:#999;}
 
-/* 创建 */
+/* 鍒涘缓 */
 .new_album{background:#fff; width:524px; position:fixed; top:15%; left:50%; margin-left:-262px; z-index:11001; _top:expression(documentElement.scrollTop+100); _position:absolute; _bottom:auto;}
 .new_album .pop_tit{height:35px; background:#70c304; line-height:35px; padding-left:20px; color:#fff; font-size:14px; font-weight:bold;}
 .new_album .pop_tit a.a_btn{width:35px; height:35px;}
@@ -53,7 +53,7 @@
 .new_album dl.c_ft dd.w482 a.a_btn:link,.new_album dl.c_ft dd.w482 a.a_btn:visited{width:100px; height:40px; height:40px; line-height:40px; color:#fff; text-align:center; background:#1b9cff; display:block; margin:0 auto; font-size:14px; font-weight:bold;}
 .new_album dl.c_wap dd.w482 a.a_btn:hover,.new_album dl.c_ft dd.w482 a.a_btn:hover{background:#009dee; text-decoration:none;}
 
-/* 添加视频 */
+/* 娣诲姞瑙嗛 */
 .add_song{top:15%; _top:expression(documentElement.scrollTop+100);}
 .add_song .add_con{border:#70c304 solid 3px; zoom:1; border-top:none;}
 p.add_type{padding:10px 20px; zoom:1;}
@@ -76,7 +76,7 @@ p.add_type a.a_btn_sel:link,p.add_type a.a_btn_sel:visited{background:#299dff; b
 .add_song .add_con .act_box a.a_btn:link,.add_song .add_con .act_box a.a_btn:visited{width:100px; height:40px; height:40px; line-height:40px; color:#fff; text-align:center; background:#1b9cff; font-size:14px; font-weight:bold;}
 .add_song .add_con .act_box a.a_btn:hover{background:#009dee; text-decoration:none;}
 
-/* 专题详细 */
+/* 涓撻璇︾粏 */
 .al_contents{background:#fafafa; margin-top:30px; zoom:1; overflow:hidden;}
 .al_contents .al_cover{padding:20px;}
 dl.al_cover dt{width:160px; height:160px;}

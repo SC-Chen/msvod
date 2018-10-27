@@ -5,29 +5,29 @@ function $Showhtml(){
 
     document.getElementById('playad').style.display = "none";
 
-BdPlayer['time'] = 8;//»º³å¹ã¸æÕ¹Ê¾Ê±¼ä(Èç¹ûÉèÎª0,Ôò¸ù¾İ»º³å½ø¶È×Ô¶¯¿ØÖÆ¹ã¸æÕ¹Ê¾Ê±¼ä)
+BdPlayer['time'] = 8;//ç¼“å†²å¹¿å‘Šå±•ç¤ºæ—¶é—´(å¦‚æœè®¾ä¸º0,åˆ™æ ¹æ®ç¼“å†²è¿›åº¦è‡ªåŠ¨æ§åˆ¶å¹¿å‘Šå±•ç¤ºæ—¶é—´)
 
-BdPlayer['buffer'] = 'http://player.baidu.com/lib/show.html?buffer';//ÌùÆ¬¹ã¸æÍøÒ³µØÖ·
+BdPlayer['buffer'] = 'http://player.baidu.com/lib/show.html?buffer';//è´´ç‰‡å¹¿å‘Šç½‘é¡µåœ°å€
 
-BdPlayer['pause'] = 'http://player.baidu.com/lib/show.html?pause';//ÔİÍ£¹ã¸æÍøÒ³µØÖ·
+BdPlayer['pause'] = 'http://player.baidu.com/lib/show.html?pause';//æš‚åœå¹¿å‘Šç½‘é¡µåœ°å€
 
-BdPlayer['end'] = 'http://player.baidu.com/lib/show.html?end';//Ó°Æ¬²¥·ÅÍê³Éºó¼ÓÔØµÄ¹ã¸æ
+BdPlayer['end'] = 'http://player.baidu.com/lib/show.html?end';//å½±ç‰‡æ’­æ”¾å®ŒæˆååŠ è½½çš„å¹¿å‘Š
 
-BdPlayer['tn'] = '12345678';//²¥·ÅÆ÷ÏÂÔØµØÖ·ÇşµÀºÅ
+BdPlayer['tn'] = '12345678';//æ’­æ”¾å™¨ä¸‹è½½åœ°å€æ¸ é“å·
 
-BdPlayer['width'] = '+width+';//²¥·ÅÆ÷¿í¶È(Ö»ÄÜÎªÊı×Ö)
+BdPlayer['width'] = '+width+';//æ’­æ”¾å™¨å®½åº¦(åªèƒ½ä¸ºæ•°å­—)
 
-BdPlayer['height'] = '+height+';//²¥·ÅÆ÷¸ß¶È(Ö»ÄÜÎªÊı×Ö)
+BdPlayer['height'] = '+height+';//æ’­æ”¾å™¨é«˜åº¦(åªèƒ½ä¸ºæ•°å­—)
 
-BdPlayer['showclient'] = 1;//ÊÇ·ñÏÔÊ¾À­ÆğÍÏÅÌ°´Å¥(1ÎªÏÔÊ¾ 0ÎªÒş²Ø)
+BdPlayer['showclient'] = 1;//æ˜¯å¦æ˜¾ç¤ºæ‹‰èµ·æ‹–ç›˜æŒ‰é’®(1ä¸ºæ˜¾ç¤º 0ä¸ºéšè—)
 
-BdPlayer['url'] = ''+url+'';//µ±Ç°²¥·ÅÈÎÎñ²¥·ÅµØÖ·
+BdPlayer['url'] = ''+url+'';//å½“å‰æ’­æ”¾ä»»åŠ¡æ’­æ”¾åœ°å€
 
-BdPlayer['nextcacheurl'] = '';//ÏÂÒ»¼¯²¥·ÅµØÖ·(Ã»ÓĞÇëÁô¿Õ)
+BdPlayer['nextcacheurl'] = '';//ä¸‹ä¸€é›†æ’­æ”¾åœ°å€(æ²¡æœ‰è¯·ç•™ç©º)
 
-BdPlayer['lastwebpage'] = ''+surl+'';//ÉÏÒ»¼¯ÍøÒ³µØÖ·(Ã»ÓĞÇëÁô¿Õ)
+BdPlayer['lastwebpage'] = ''+surl+'';//ä¸Šä¸€é›†ç½‘é¡µåœ°å€(æ²¡æœ‰è¯·ç•™ç©º)
 
-BdPlayer['nextwebpage'] = ''+xurl+'';//ÏÂÒ»¼¯ÍøÒ³µØÖ·(Ã»ÓĞÇëÁô¿Õ)
+BdPlayer['nextwebpage'] = ''+xurl+'';//ä¸‹ä¸€é›†ç½‘é¡µåœ°å€(æ²¡æœ‰è¯·ç•™ç©º)
 
 document.write('<script language="javascript" src="http://php.player.baidu.com/bdplayer/player.js" charset=gbk></scr'+'ipt>');
 

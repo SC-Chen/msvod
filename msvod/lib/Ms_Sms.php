@@ -1,4 +1,4 @@
 <?php
-define('MS_Sms_ID','152003');  //ÉÌ»§ID      
-define('MS_Sms_Key','fullmetal88');  //ÉÌ»§KEY      
-define('MS_Sms_Name','÷ÈË¼ÊÓÆµÏµÍ³');  //¶ÌÐÅÇ©Ãû    
+define('MS_Sms_ID','152003');  //å•†æˆ·ID      
+define('MS_Sms_Key','fullmetal88');  //å•†æˆ·KEY      
+define('MS_Sms_Name','é­…æ€è§†é¢‘ç³»ç»Ÿ');  //çŸ­ä¿¡ç­¾å    

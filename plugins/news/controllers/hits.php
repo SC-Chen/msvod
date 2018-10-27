@@ -11,42 +11,42 @@ class Hits extends msvod_Controller {
 	function __construct(){
 		  parent::__construct();
           $this->load->library('user_agent');
-          if(!$this->agent->is_referral()) show_error('Äú·ÃÎÊµÄÒ³Ãæ²»´æÔÚ~!',404,Web_Name.'ÌáÐÑÄú');
-	      //¹Ø±ÕÊý¾Ý¿â»º´æ
+          if(!$this->agent->is_referral()) show_error('æ‚¨è®¿é—®çš„é¡µé¢ä¸å­˜åœ¨~!',404,Web_Name.'æé†’æ‚¨');
+	      //å…³é—­æ•°æ®åº“ç¼“å­˜
           $this->db->cache_off();
 	}
 
-    //Ôö¼Ó²¥·ÅÈËÆø
+    //å¢žåŠ æ’­æ”¾äººæ°”
 	public function ids()
 	{
            $id = intval($this->uri->segment(3));   //ID			
-           $op = $this->uri->segment(4);   //·½Ê½
+           $op = $this->uri->segment(4);   //æ–¹å¼
 		   $zd=($op=='topic')?'news_topic':'news';
 		   $row=$this->MsdjDB->get_row($zd,'rhits,zhits,yhits,hits',$id);
 		   if(!$row){
 			   exit();
 		   }
-           //Ôö¼ÓÈËÆø
+           //å¢žåŠ äººæ°”
 	       $updata['rhits']=$row->rhits+1;
 	       $updata['zhits']=$row->zhits+1;
 	       $updata['yhits']=$row->yhits+1;
 	       $updata['hits']=$row->hits+1;
            $this->MsdjDB->get_update($zd,$id,$updata);
-		  //Çå¿ÕÔÂÈËÆø
+		  //æ¸…ç©ºæœˆäººæ°”
           $month=@file_get_contents(APPPATH."config/month.txt");
 		  if($month!=date('m')){
 			    $this->db->query("update ".MS_SqlPrefix."news set yhits=0");
 			    $this->db->query("update ".MS_SqlPrefix."news_topic set yhits=0");
                 write_file(APPPATH."config/month.txt",date('m'));
 		  }
-		  //Çå¿ÕÖÜÈËÆø
+		  //æ¸…ç©ºå‘¨äººæ°”
 		  $week=@file_get_contents(APPPATH."config/week.txt");
 		  if($week!=date('W',time())){
 			    $this->db->query("update ".MS_SqlPrefix."news set zhits=0");
 			    $this->db->query("update ".MS_SqlPrefix."news_topic set zhits=0");
                 write_file(APPPATH."config/week.txt",date('W',time()));
 		  }
-		  //Çå¿ÕÈÕÈËÆø
+		  //æ¸…ç©ºæ—¥äººæ°”
 		  $day=@file_get_contents(APPPATH."config/day.txt");
 		  if($day!=date('d')){
 			    $this->db->query("update ".MS_SqlPrefix."news set rhits=0");
@@ -55,10 +55,10 @@ class Hits extends msvod_Controller {
 		  }
 	}
 
-    //¶¯Ì¬¼ÓÔØÈËÆø
+    //åŠ¨æ€åŠ è½½äººæ°”
 	public function dt()
 	{
-           $op = $this->uri->segment(3);   //ÀàÐÍ
+           $op = $this->uri->segment(3);   //ç±»åž‹
            $id = intval($this->uri->segment(4));   //ID
            $type = $this->uri->segment(5);   //ID
 		   $zd=($type=='topic')?'news_topic':'news';

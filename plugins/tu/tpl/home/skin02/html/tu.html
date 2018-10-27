@@ -16,17 +16,17 @@
 {msvod:indexhead}     
 <div class="k_content s_content no_flush_content">
      <div class="main_tit">
-           <h2 class="main_tit_album" style="width:260px;">{if:{msvod:uid}==[user:id]}ÎÒ{else}TA{end if}µÄĞ¡Ëµ</h2>
+           <h2 class="main_tit_album" style="width:260px;">{if:{msvod:uid}==[user:id]}æˆ‘{else}TA{end if}çš„å°è¯´</h2>
            {if:{msvod:uid}==[user:id]}
 			<div class="k_main_tit_btn show_owner_panel">
-                    <a href="{msvodphp}spacelink('tu,add','tu');{/msvodphp}" class="f_green lt space_add_album"><b></b>·ÖÏíĞ¡Ëµ</a>
+                    <a href="{msvodphp}spacelink('tu,add','tu');{/msvodphp}" class="f_green lt space_add_album"><b></b>åˆ†äº«å°è¯´</a>
             </div>
 		  {end if}
      </div>
      <div class="yc_song" style="margin-top:20px;">
 	        <div class="dj_lists">
                 <h2 class="dj_title c_wap">
-                    <a href="[user:url ulink=video]" class="lt a_btn f16 {if:{msvod:fid}==0}song_coll coll_pull{else}list_coll{end if} noFlush_load_link">È«²¿Ğ¡Ëµ</a>
+                    <a href="[user:url ulink=video]" class="lt a_btn f16 {if:{msvod:fid}==0}song_coll coll_pull{else}list_coll{end if} noFlush_load_link">å…¨éƒ¨å°è¯´</a>
 					{msvod:class table="tu_list" loop="8" fid="0" order="asc"}
                     <a href="[user:url ulink=tu]/[class:id]" class="lt a_btn f16 {if:{msvod:fid}==[class:id]}song_coll coll_pull{else}list_coll{end if} noFlush_load_link">[class:name]</a>
 					{/msvod:class}
@@ -35,20 +35,20 @@
             <div class="tu_list"{if:{msvod:pagedata}==0} style="display:none;"{end if}>
                 <ul>
 				{msvod:tu table="tu" field="id,reco,name,addtime" pagesize="30" uid="auto"}
-                <li id="song-1" did="[tu:id]"><strong class="lt list_name"><a target="_blank" href="[tu:url link=show,id]" title="[tu:name]">[tu:name len=20]</a>{if:[tu:reco]>2}<b class="icon_rec" title="ÍÆ¼ö"></b>{end if}</strong><span class="tips_gray">[tu:addtime style=Y-m-d]</span></li>
+                <li id="song-1" did="[tu:id]"><strong class="lt list_name"><a target="_blank" href="[tu:url link=show,id]" title="[tu:name]">[tu:name len=20]</a>{if:[tu:reco]>2}<b class="icon_rec" title="æ¨è"></b>{end if}</strong><span class="tips_gray">[tu:addtime style=Y-m-d]</span></li>
 				{/msvod:tu}
                 </ul>
             </div>
-			{if:{msvod:pagedata}==0}<div class="null_box show_visitor_panel" style=""><b class="null_icon"></b><p>ÔİÎŞĞ¡Ëµ</p></div>{end if}
+			{if:{msvod:pagedata}==0}<div class="null_box show_visitor_panel" style=""><b class="null_icon"></b><p>æš‚æ— å°è¯´</p></div>{end if}
      </div>
 	 <div style="float:left;width:960px;margin:0 auto;">
 	    <div class="msg_page f14 tc fa_g6 g6 mt20 msg_page_green" style="display:{if:{msvod:pagecout}==1}none{end if};">
 			<span class="msg_page_list">
-				<a href="{msvod:pageup}" class="commentsPrevPage">ÉÏÒ»Ò³</a>
+				<a href="{msvod:pageup}" class="commentsPrevPage">ä¸Šä¸€é¡µ</a>
 				{msvod:pagenum len=10}
-				<a href="{msvod:pagedown}" class="commentsNextPage">ÏÂÒ»Ò³</a>
+				<a href="{msvod:pagedown}" class="commentsNextPage">ä¸‹ä¸€é¡µ</a>
 			</span>
-			<span class="msg_page_jump ml10"> µ½<input type="text" id="home_page" class="tc commentsJumpPageTxt" size="4" maxlength="4">Ò³<a href="javascript:window.location.href='[user:url ulink=tu]/{msvod:fid}/'+$('#home_page').val();" class="tdn commentsJumpPageBtn">È· ¶¨</a></span>
+			<span class="msg_page_jump ml10"> åˆ°<input type="text" id="home_page" class="tc commentsJumpPageTxt" size="4" maxlength="4">é¡µ<a href="javascript:window.location.href='[user:url ulink=tu]/{msvod:fid}/'+$('#home_page').val();" class="tdn commentsJumpPageBtn">ç¡® å®š</a></span>
 	    </div>
      </div>
 </div>

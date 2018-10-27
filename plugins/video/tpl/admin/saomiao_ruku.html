@@ -59,10 +59,10 @@ function ruku(){
 <?php
 $query = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."video_list where fid=0 order by xid asc"); 
 foreach ($query->result() as $row) {
-			echo '<option value="'.$row->id.'">&nbsp;|¡ª'.$row->name.'</option>';
+			echo '<option value="'.$row->id.'">&nbsp;|â€”'.$row->name.'</option>';
             $query2 = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."video_list where fid=".$row->id." order by xid asc"); 
             foreach ($query2->result() as $row2) {
-			    echo '<option value="'.$row2->id.'">&nbsp;|&nbsp;&nbsp;&nbsp;|¡ª'.$row2->name.'</option>';
+			    echo '<option value="'.$row2->id.'">&nbsp;|&nbsp;&nbsp;&nbsp;|â€”'.$row2->name.'</option>';
 			}
 }
 ?>
@@ -93,11 +93,11 @@ foreach ($query->result() as $row) {
                        <div style="margin-left:10px;" class="vocation">
                               <select class="select2" name="reco">
                                  <option value="0"><?=L('tpl_22')?></option>
-	                             <option value="1">¡ï¡î¡î¡î¡î</option>
-	                             <option value="2">¡ï¡ï¡î¡î¡î</option>
-	                             <option value="3">¡ï¡ï¡ï¡î¡î</option>
-	                             <option value="4">¡ï¡ï¡ï¡ï¡î</option>
-	                             <option value="5">¡ï¡ï¡ï¡ï¡ï</option>
+	                             <option value="1">â˜…â˜†â˜†â˜†â˜†</option>
+	                             <option value="2">â˜…â˜…â˜†â˜†â˜†</option>
+	                             <option value="3">â˜…â˜…â˜…â˜†â˜†</option>
+	                             <option value="4">â˜…â˜…â˜…â˜…â˜†</option>
+	                             <option value="5">â˜…â˜…â˜…â˜…â˜…</option>
                               </select>
                        </div> 
                        <div style="margin-left:10px;" class="vocation">

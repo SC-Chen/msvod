@@ -1,13 +1,13 @@
 <?php
-define('MS_Sk_Sj','60');  //ÊÔ¿´Ê±¼äÏÞÖÆ
-define('MS_Sk_Ts','');  //µ¯³öÌáÊ¾Ê±¼ä
-define('MS_Sk_Info','½õÉÐÖÐ¹úÔ´ÂëÂÛÌ³£ºÓÎ¿ÍÒÔ¼°ÆÕÍ¨ÓÃ»§ÊÔ¿´20Ãë£¬¼ÓÈëVIPÎÞÏÞÖÆÅ¶~!!£¡');  //µ¯³öÌáÊ¾ÄÚÈÝ
-define('MS_Ad_Tzurl','');  //µ½Ê±Ìø×ªÁ´½Ó
-define('MS_Ad_Time','6');  //Ç°ÖÃ¹ã¸æÊ±¼ä
-define('MS_Ad_Qzad','/msvod/tpl/skins/msvod/images/ad_3.png');  //Ç°ÖÃ¹ã¸æÉèÖÃ
-define('MS_Ad_Ztad','/attachment/look/201611/04/kcJzomFPiR9mMA3HOlq2.png');  //ÔÝÍ£¹ã¸æÉèÖÃ
-define('MS_Ad_Qzurl','http://%62%62%73%2E%35%32%6A%73%63%6E%2E%63%6F%6D/');  //Ç°ÖÃ¹ã¸æÁ´½Ó
-define('MS_Ad_Zturl','http://%62%62%73%2E%35%32%6A%73%63%6E%2E%63%6F%6D/');  //ÔÝÍ£¹ã¸æÁ´½Ó
-define('MS_Ad_Tg','2');  //ÓÎ¿ÍÒÔ¼°ÆÕÍ¨ÓÃ»§Ìø¹ý¹ã¸æ
-define('MS_Ad_Gb','2');  //¹Ø±Õ²¥·ÅÆ÷ËùÓÐ¹ã¸æ
-define('MS_Yd_Zm','video.yesetai.com');  // ÉèÖÃÔÆ¶ËÓëºóÌ¨ÉÏ´«ÊÓÆµ¶Ô½ÓµØÖ·£¬Ã»ÓÐÊÚÈ¨ÔÆ¶ËµÄ²»ÓÃÌî
+define('MS_Sk_Sj','60');  //è¯•çœ‹æ—¶é—´é™åˆ¶
+define('MS_Sk_Ts','');  //å¼¹å‡ºæç¤ºæ—¶é—´
+define('MS_Sk_Info','é”¦å°šä¸­å›½æºç è®ºå›ï¼šæ¸¸å®¢ä»¥åŠæ™®é€šç”¨æˆ·è¯•çœ‹20ç§’ï¼ŒåŠ å…¥VIPæ— é™åˆ¶å“¦~!!ï¼');  //å¼¹å‡ºæç¤ºå†…å®¹
+define('MS_Ad_Tzurl','');  //åˆ°æ—¶è·³è½¬é“¾æŽ¥
+define('MS_Ad_Time','6');  //å‰ç½®å¹¿å‘Šæ—¶é—´
+define('MS_Ad_Qzad','/msvod/tpl/skins/msvod/images/ad_3.png');  //å‰ç½®å¹¿å‘Šè®¾ç½®
+define('MS_Ad_Ztad','/attachment/look/201611/04/kcJzomFPiR9mMA3HOlq2.png');  //æš‚åœå¹¿å‘Šè®¾ç½®
+define('MS_Ad_Qzurl','http://%62%62%73%2E%35%32%6A%73%63%6E%2E%63%6F%6D/');  //å‰ç½®å¹¿å‘Šé“¾æŽ¥
+define('MS_Ad_Zturl','http://%62%62%73%2E%35%32%6A%73%63%6E%2E%63%6F%6D/');  //æš‚åœå¹¿å‘Šé“¾æŽ¥
+define('MS_Ad_Tg','2');  //æ¸¸å®¢ä»¥åŠæ™®é€šç”¨æˆ·è·³è¿‡å¹¿å‘Š
+define('MS_Ad_Gb','2');  //å…³é—­æ’­æ”¾å™¨æ‰€æœ‰å¹¿å‘Š
+define('MS_Yd_Zm','video.yesetai.com');  // è®¾ç½®äº‘ç«¯ä¸ŽåŽå°ä¸Šä¼ è§†é¢‘å¯¹æŽ¥åœ°å€ï¼Œæ²¡æœ‰æŽˆæƒäº‘ç«¯çš„ä¸ç”¨å¡«

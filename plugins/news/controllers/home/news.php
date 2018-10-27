@@ -16,15 +16,15 @@ class News extends msvod_Controller {
 	public function index()
 	{
             $cid = (int)$this->uri->segment(4);   //CID
-            $page = (int)$this->uri->segment(5);   //Ò³Êı
-			//Ä£°å
+            $page = (int)$this->uri->segment(5);   //é¡µæ•°
+			//æ¨¡æ¿
 			$tpl='news.html';
-			//µ±Ç°»áÔ±
+			//å½“å‰ä¼šå‘˜
 			$uid=get_home_uid();
 		    $row=$this->MsdjDB->get_row_arr('user','*',$uid);
 			if(empty($row['nichen'])) $row['nichen']=$row['name'];
-			//×°ÔØÄ£°å
-			$title=$row['nichen'].'µÄĞ¡Ëµ';
+			//è£…è½½æ¨¡æ¿
+			$title=$row['nichen'].'çš„å°è¯´';
 			$ids['uid']=$row['id'];
 			$ids['uida']=$row['id'];
             $sql=($cid==0)?"":"SELECT {field} FROM ".MS_SqlPrefix."news where cid in (".getChild($cid).")";

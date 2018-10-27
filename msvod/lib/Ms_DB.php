@@ -6,53 +6,53 @@
  * @Dtime:2013-04-27
  */
 
-//·şÎñÆ÷IP Ò»°ãÎªlocalhost»òÕß127.0.0.1
+//æœåŠ¡å™¨IP ä¸€èˆ¬ä¸ºlocalhostæˆ–è€…127.0.0.1
 define('MS_Sqlserver', '127.0.0.1');
 
-//Êı¾İ¿âÃû³Æ
+//æ•°æ®åº“åç§°
 define('MS_Sqlname', 'msvod');
 
-//Êı¾İ¿â±íÇ°×º
+//æ•°æ®åº“è¡¨å‰ç¼€
 define('MS_SqlPrefix', 'ms_');
 
-//Êı¾İ¿âÓÃ»§Ãû
+//æ•°æ®åº“ç”¨æˆ·å
 define('MS_Sqluid', 'root');
 
-//Êı¾İ¿âÃÜÂë
+//æ•°æ®åº“å¯†ç 
 define('MS_Sqlpwd', '');
 
-//Êı¾İ¿â·½Ê½
+//æ•°æ®åº“æ–¹å¼
 define('MS_Dbdriver', 'mysqli');
 
-//MysqlÊı¾İ¿â±àÂë
+//Mysqlæ•°æ®åº“ç¼–ç 
 define('MS_Sqlcharset', 'gbk');
 
-//Êı¾İ¿â»º´ç¿ª¹Ø
+//æ•°æ®åº“ç¼“å¯¸å¼€å…³
 define('MS_Cache_On', FALSE);
 
-//Êı¾İ¿â»º´çÄ¿Â¼
+//æ•°æ®åº“ç¼“å¯¸ç›®å½•
 define('MS_Cache_Dir', 'sql');
 
-//Êı¾İ¿â»º´çÊ±¼ä
+//æ•°æ®åº“ç¼“å¯¸æ—¶é—´
 define('MS_Cache_Time', 7200);
 
-//encryption_keyÃÜÔ¿
+//encryption_keyå¯†é’¥
 define('MS_Encryption_Key', 'msvod_P8NJGgsYLj');
 
-//ºóÌ¨¿ÚÁî¿¨×Ü¿ª¹Ø,1Îª¿ª£¬0Îª¹Ø±Õ
+//åå°å£ä»¤å¡æ€»å¼€å…³,1ä¸ºå¼€ï¼Œ0ä¸ºå…³é—­
 define('MS_Safe_Card', 1);
 
-//session´æ´¢·½Ê½£¬1ÎªÎÄ¼ş´æ´¢£¬2ÎªMysqlÊı¾İ¿â
+//sessionå­˜å‚¨æ–¹å¼ï¼Œ1ä¸ºæ–‡ä»¶å­˜å‚¨ï¼Œ2ä¸ºMysqlæ•°æ®åº“
 define('MS_Session_Is', 2);
 
-//session´æ´¢Ê±¼ä
+//sessionå­˜å‚¨æ—¶é—´
 define('MS_Session_Time', 3600);
 
-//Cookie Ç°×º£¬Í¬Ò»ÓòÃûÏÂ°²×°¶àÌ×ÏµÍ³Ê±£¬ÇëĞŞ¸ÄCookieÇ°×º
+//Cookie å‰ç¼€ï¼ŒåŒä¸€åŸŸåä¸‹å®‰è£…å¤šå¥—ç³»ç»Ÿæ—¶ï¼Œè¯·ä¿®æ”¹Cookieå‰ç¼€
 define('MS_Cookie_Prefix', 'msvod_');
 
-//Cookie_Domain ×÷ÓÃÓò,Ê¹ÓÃ¶à¸ö¶ş¼¶ÓòÃûÊ±¿ÉÒÔÆôÓÃ£¬¸ñÊ½Èç .msvod.cc
+//Cookie_Domain ä½œç”¨åŸŸ,ä½¿ç”¨å¤šä¸ªäºŒçº§åŸŸåæ—¶å¯ä»¥å¯ç”¨ï¼Œæ ¼å¼å¦‚ .msvod.cc
 define('MS_Cookie_Domain', '');
 
-//Cookie ÉúÃüÖÜÆÚ£¬0 ±íÊ¾Ëæä¯ÀÀÆ÷½ø³Ì
+//Cookie ç”Ÿå‘½å‘¨æœŸï¼Œ0 è¡¨ç¤ºéšæµè§ˆå™¨è¿›ç¨‹
 define('MS_Cookie_Ttl', 0);

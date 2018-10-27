@@ -1,13 +1,13 @@
 <?php
-define('UP_Mode',1);      //»áÔ±ÉÏ´«¸½¼þ·½Ê½  1Õ¾ÄÚ£¬2FTP£¬3ÆßÅ££¬4¿ìÅÌ£¬5°¢ÀïÔÆ£¬..... 
-define('UP_Size',900480);      //ÉÏ´«Ö§³ÖµÄ×î´óMB 
-define('UP_Type','mp3|mp4|jpg|gif|png|txt|zip|rar|php|zip|asp');  //ÉÏ´«Ö§³ÖµÄ¸ñÊ½ 
-define('UP_Url','');  //±¾µØ·ÃÎÊµØÖ· 
-define('UP_Pan','');  //±¾µØ´æ´¢Â·¾¶ 
-define('FTP_Url','http://demo.msvod.cc/');      //Ô¶³ÌFTPÁ¬½ÓµØÖ·     
-define('FTP_Server','127.0.0.1');      //Ô¶³ÌFTP·þÎñÆ÷IP    
-define('FTP_Dir','');      //Ô¶³ÌFTPÄ¿Â¼    
-define('FTP_Port','21');      //Ô¶³ÌFTP¶Ë¿Ú    
-define('FTP_Name','111');      //Ô¶³ÌFTPÕÊºÅ    
-define('FTP_Pass','111');      //Ô¶³ÌFTPÃÜÂë    
-define('FTP_Ive',TRUE);      //ÊÇ·ñÊ¹ÓÃ±»¶¯Ä£Ê½   
+define('UP_Mode',1);      //ä¼šå‘˜ä¸Šä¼ é™„ä»¶æ–¹å¼  1ç«™å†…ï¼Œ2FTPï¼Œ3ä¸ƒç‰›ï¼Œ4å¿«ç›˜ï¼Œ5é˜¿é‡Œäº‘ï¼Œ..... 
+define('UP_Size',900480);      //ä¸Šä¼ æ”¯æŒçš„æœ€å¤§MB 
+define('UP_Type','mp3|mp4|jpg|gif|png|txt|zip|rar|php|zip|asp');  //ä¸Šä¼ æ”¯æŒçš„æ ¼å¼ 
+define('UP_Url','');  //æœ¬åœ°è®¿é—®åœ°å€ 
+define('UP_Pan','');  //æœ¬åœ°å­˜å‚¨è·¯å¾„ 
+define('FTP_Url','http://demo.msvod.cc/');      //è¿œç¨‹FTPè¿žæŽ¥åœ°å€     
+define('FTP_Server','127.0.0.1');      //è¿œç¨‹FTPæœåŠ¡å™¨IP    
+define('FTP_Dir','');      //è¿œç¨‹FTPç›®å½•    
+define('FTP_Port','21');      //è¿œç¨‹FTPç«¯å£    
+define('FTP_Name','111');      //è¿œç¨‹FTPå¸å·    
+define('FTP_Pass','111');      //è¿œç¨‹FTPå¯†ç     
+define('FTP_Ive',TRUE);      //æ˜¯å¦ä½¿ç”¨è¢«åŠ¨æ¨¡å¼   

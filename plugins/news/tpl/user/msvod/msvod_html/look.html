@@ -23,17 +23,17 @@ ShowCdQuantity();
 <div class="mainct">
 <div class="sctop">
 <ul>
-<div style="float:left; height:42px; margin-right:5px;"><a href="[user:url userlink=news,add]" class="btn btn-small btn-danger " style="border-radius:0px;">��ҪͶ��С˵</a></div>
+<div style="float:left; height:42px; margin-right:5px;"><a href="[user:url userlink=news,add]" class="btn btn-small btn-danger " style="border-radius:0px;">我要投稿小说</a></div>
 <div style="float:left; line-height:32px; text-indent:32px;" class="alertico">
-<span style="color:#0066CC">Ͷ��С˵����վ�������ͨ���㽫�õ�<font color="red" size=4> {msvod:addcion} </font>��ҽ�������ҿ����������ѱ�վ��Ƶ/С˵/ͼƬ�ۿ��Լ��Ķ�������������ΪVIPŶ~��</span></div>
+<span style="color:#0066CC">投稿小说到本站并且审核通过你将得到<font color="red" size=4> {msvod:addcion} </font>金币奖励，金币可以用于消费本站视频/小说/图片观看以及阅读，还可以升级为VIP哦~！</span></div>
 </ul>
 </div>
 <br>
 <table width="450" border="0">
 <tbody><tr>
-<td class="fouces_menuoff"><a href="[user:url userlink=news]">�ҷ�����</a></td>
-<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=news,verify]">����е�</a></td>
-<td class="fouces_menuon" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=look]">���Ķ���</a></td>
+<td class="fouces_menuoff"><a href="[user:url userlink=news]">我发布的</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=news,verify]">审核中的</a></td>
+<td class="fouces_menuon" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=look]">我阅读的</a></td>
 </td>
 </tr>
 </tbody>
@@ -42,12 +42,12 @@ ShowCdQuantity();
 <table width="100%" border="0" cellspacing="2" cellpadding="2"  class="table borderx3">
 <form class="think-form" action="[user:groupsave]" method="post">
 <tr>
-<th height="30" colspan="2" class="fbold">���Ķ���--(����ֻ��ʾ�����շ�С˵�Ķ���¼)</th>
+<th height="30" colspan="2" class="fbold">我阅读的--(这里只显示的是收费小说阅读记录)</th>
 <tr>
 <td height="35">
 <div class="main_nav2">
 <ul>
-<li{if:[news:cid]==0} class="current"{end if}><a href="[user:url userlink=news]">ȫ������</a></li>
+<li{if:[news:cid]==0} class="current"{end if}><a href="[user:url userlink=news]">全部类型</a></li>
 {msvod:class table="news_list" loop="10" order="asc"}
 <li{if:[news:cid]==[class:id]} class="current"{end if}><a href="[user:url userlink=news,index]/[class:id]">[class:name]</a></li>
 {/msvod:class}
@@ -55,11 +55,11 @@ ShowCdQuantity();
 </div>
 <table width="100%" border="0">
 <tr>
-<td width="150" height="40" align="center" style="line-height:30px;"><strong>���</strong></td>
-<td width="650" height="40" align="left" style="line-height:40px;"><strong>С˵����</strong></td>
-<td height="40" align="center" style="line-height:40px;"><strong>����</strong></td>
-<td height="40" align="center" style="line-height:40px;"><strong>����</strong></td>
-<td height="40" align="center" style="line-height:40px;"><strong>ʱ��</strong></td>
+<td width="150" height="40" align="center" style="line-height:30px;"><strong>序号</strong></td>
+<td width="650" height="40" align="left" style="line-height:40px;"><strong>小说名称</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>分类</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>人气</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>时间</strong></td>
 </tr>
 {msvod:news table="news_look" pagesize="20" uid="auto" sort="time" order="desc"}
 <tr class="{if:[pay:i]%2==1}re{end if}">
@@ -76,13 +76,13 @@ ShowCdQuantity();
 <table width="100%" border="0" style="border-top: 1px solid #ddd;line-height:50px;">
 <tr>
 <td height="50" align="center">
-{if:{msvod:pagedata}==0}<div class="zanwu">�������ݣ�</div>{end if}
+{if:{msvod:pagedata}==0}<div class="zanwu">暂无数据！</div>{end if}
 <div class="page" style="{if:{msvod:pagecout}<0}display:none;{end if}">
 <div class="pages">
-<em title="������">{msvod:pagedata}</em>
-<a href="{msvod:pagefirst}">��ҳ</a>
+<em title="总数量">{msvod:pagedata}</em>
+<a href="{msvod:pagefirst}">首页</a>
 {msvod:pagenum len=8}
-<a href="{msvod:pagelast}">βҳ</a>
+<a href="{msvod:pagelast}">尾页</a>
 </div>
 </div>
 </td>

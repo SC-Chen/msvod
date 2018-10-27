@@ -54,10 +54,10 @@ $("#usual1 ul").idTabs();
 <input class="box" name="User_Logo" type="radio" value="0"<?php if(User_Logo==0) echo ' checked="checked"';?>>&nbsp;<?=L('close')?>&nbsp;&nbsp;&nbsp;&nbsp;
 <b>*</b><?=L('tpl_123')?>
 </li>
-<li><label>ÊÓÆµÉÏ´«·½Ê½</label>
-<input class="box" name="User_Sc" type="radio" value="0"<?php if(User_Sc==0) echo ' checked="checked"';?>>&nbsp;Õ¾ÄÚ&nbsp;&nbsp;&nbsp;&nbsp;
-<input class="box" name="User_Sc" type="radio" value="1"<?php if(User_Sc==1) echo ' checked="checked"';?>>&nbsp;ÔÆ¶Ë&nbsp;&nbsp;&nbsp;&nbsp;
-<b>*</b>Ñ¡ÔñÇ°Ì¨»áÔ±ÉÏ´«ÊÓÆµ·½Ê½£¬Ã»ÓĞÊÚÈ¨ÔÆ¶ËµÄÑ¡ÔñÕ¾ÄÚÉÏ´«
+<li><label>è§†é¢‘ä¸Šä¼ æ–¹å¼</label>
+<input class="box" name="User_Sc" type="radio" value="0"<?php if(User_Sc==0) echo ' checked="checked"';?>>&nbsp;ç«™å†…&nbsp;&nbsp;&nbsp;&nbsp;
+<input class="box" name="User_Sc" type="radio" value="1"<?php if(User_Sc==1) echo ' checked="checked"';?>>&nbsp;äº‘ç«¯&nbsp;&nbsp;&nbsp;&nbsp;
+<b>*</b>é€‰æ‹©å‰å°ä¼šå‘˜ä¸Šä¼ è§†é¢‘æ–¹å¼ï¼Œæ²¡æœ‰æˆæƒäº‘ç«¯çš„é€‰æ‹©ç«™å†…ä¸Šä¼ 
 </li>
 <!--<li><label><?=L('tpl_124')?></label><input onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" name="User_RmbToCion" type="text" class="dfinput" value="<?=User_RmbToCion?>" style="width:145px;"/><b>*</b><?=L('tpl_125')?></li>-->
 <!--<li><label><?=L('tpl_126')?></label><input name="User_Ym" type="text" class="dfinput" value="<?=User_Ym?>" style="width:245px;"/><b>*</b><?=L('tpl_127')?></li>-->
@@ -120,7 +120,7 @@ $("#usual1 ul").idTabs();
 </li>
 <li><label><?=L('tpl_163')?></label><!--+&nbsp;<input onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" name="User_Jinyan_Share" type="text" class="dfinput" value="<?=User_Jinyan_Share?>" style="width:65px;"/>&nbsp;<?=L('tpl_155')?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
 +&nbsp;<input onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" name="User_Cion_Share" type="text" class="dfinput" value="<?=User_Cion_Share?>" style="width:65px;"/>&nbsp;<?=L('tpl_156')?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<?=L('tpl_164')?>&nbsp;<input onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" name="User_Nums_Share" type="text" class="dfinput" value="<?=User_Nums_Share?>" style="width:65px;"/>&nbsp;´Î
+<?=L('tpl_164')?>&nbsp;<input onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" name="User_Nums_Share" type="text" class="dfinput" value="<?=User_Nums_Share?>" style="width:65px;"/>&nbsp;æ¬¡
 </li>
 <li><label><?=L('tpl_165')?></label><!--+&nbsp;<input onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" name="User_Jinyan_Add" type="text" class="dfinput" value="<?=User_Jinyan_Add?>" style="width:65px;"/>&nbsp;<?=L('tpl_155')?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
 +&nbsp;<input onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" name="User_Cion_Add" type="text" class="dfinput" value="<?=User_Cion_Add?>" style="width:65px;"/>&nbsp;<?=L('tpl_156')?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -129,12 +129,12 @@ $("#usual1 ul").idTabs();
 <li><label><?=L('tpl_166')?></label><!---&nbsp;&nbsp;<input onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" name="User_Jinyan_Del" type="text" class="dfinput" value="<?=User_Jinyan_Del?>" style="width:65px;"/>&nbsp;<?=L('tpl_155')?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
 -&nbsp;&nbsp;<input onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" name="User_Cion_Del" type="text" class="dfinput" value="<?=User_Cion_Del?>" style="width:65px;"/>&nbsp;<?=L('tpl_156')?>
 </li>
-<li><label>Ò»¼¶´úÀíÌá³É</label>
-+&nbsp;<input name="User_Cion_tichengy" type="text" class="dfinput" value="<?=User_Cion_tichengy?>" style="width:65px;"/>&nbsp;<?=L('tpl_156')?>£¨°´°Ù·Ö±È  ×î´óÎª100×îĞ¡0£©&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-¶ş¼¶´úÀíÌá³É
-+&nbsp;<input name="User_Cion_tichenge" type="text" class="dfinput" value="<?=User_Cion_tichenge?>" style="width:65px;"/>&nbsp;<?=L('tpl_156')?>£¨°´°Ù·Ö±È  ×î´óÎª100×îĞ¡0£©&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Èı¼¶´úÀíÌá³É
-+&nbsp;<input name="User_Cion_tichengs" type="text" class="dfinput" value="<?=User_Cion_tichengs?>" style="width:65px;"/>&nbsp;<?=L('tpl_156')?>£¨°´°Ù·Ö±È  ×î´óÎª100×îĞ¡0£©&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<li><label>ä¸€çº§ä»£ç†ææˆ</label>
++&nbsp;<input name="User_Cion_tichengy" type="text" class="dfinput" value="<?=User_Cion_tichengy?>" style="width:65px;"/>&nbsp;<?=L('tpl_156')?>ï¼ˆæŒ‰ç™¾åˆ†æ¯”  æœ€å¤§ä¸º100æœ€å°0ï¼‰&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+äºŒçº§ä»£ç†ææˆ
++&nbsp;<input name="User_Cion_tichenge" type="text" class="dfinput" value="<?=User_Cion_tichenge?>" style="width:65px;"/>&nbsp;<?=L('tpl_156')?>ï¼ˆæŒ‰ç™¾åˆ†æ¯”  æœ€å¤§ä¸º100æœ€å°0ï¼‰&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ä¸‰çº§ä»£ç†ææˆ
++&nbsp;<input name="User_Cion_tichengs" type="text" class="dfinput" value="<?=User_Cion_tichengs?>" style="width:65px;"/>&nbsp;<?=L('tpl_156')?>ï¼ˆæŒ‰ç™¾åˆ†æ¯”  æœ€å¤§ä¸º100æœ€å°0ï¼‰&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </li>
 </ul>
 </div> 

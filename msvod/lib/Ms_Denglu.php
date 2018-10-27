@@ -1,28 +1,28 @@
 <?php
-define('MS_Appmode',0);  //µÚÈý·½µÇÂ¼·½Ê½£¬0Îª¶ÀÁ¢£¬1Îª¹Ù·½ 
-define('MS_Appid','');  //¹Ù·½Appid 
-define('MS_Appkey','');  //¹Ù·½Appkey 
+define('MS_Appmode',0);  //ç¬¬ä¸‰æ–¹ç™»å½•æ–¹å¼ï¼Œ0ä¸ºç‹¬ç«‹ï¼Œ1ä¸ºå®˜æ–¹ 
+define('MS_Appid','');  //å®˜æ–¹Appid 
+define('MS_Appkey','');  //å®˜æ–¹Appkey 
 
-define('MS_Qqmode',0);  //QQµÇÂ½¿ª¹Ø 
-define('MS_Qqid','123');  //QQµÇÂ½id 
-define('MS_Qqkey','123');  //QQµÇÂ½key 
+define('MS_Qqmode',0);  //QQç™»é™†å¼€å…³ 
+define('MS_Qqid','123');  //QQç™»é™†id 
+define('MS_Qqkey','123');  //QQç™»é™†key 
 
-define('MS_Wbmode',0);  //Î¢²©µÇÂ½¿ª¹Ø  
-define('MS_Wbid','');   //Î¢²©µÇÂ½id  
-define('MS_Wbkey','');  //Î¢²©µÇÂ½key  
+define('MS_Wbmode',0);  //å¾®åšç™»é™†å¼€å…³  
+define('MS_Wbid','');   //å¾®åšç™»é™†id  
+define('MS_Wbkey','');  //å¾®åšç™»é™†key  
 
-define('MS_Bdmode',0);  //°Ù¶ÈµÇÂ½¿ª¹Ø  
-define('MS_Bdid','');   //°Ù¶ÈµÇÂ½id  
-define('MS_Bdkey','');  //°Ù¶ÈµÇÂ½key  
+define('MS_Bdmode',0);  //ç™¾åº¦ç™»é™†å¼€å…³  
+define('MS_Bdid','');   //ç™¾åº¦ç™»é™†id  
+define('MS_Bdkey','');  //ç™¾åº¦ç™»é™†key  
 
-define('MS_Rrmode',0);  //ÈËÈËµÇÂ½¿ª¹Ø  
-define('MS_Rrid','');   //ÈËÈËµÇÂ½id  
-define('MS_Rrkey','');  //ÈËÈËµÇÂ½key  
+define('MS_Rrmode',0);  //äººäººç™»é™†å¼€å…³  
+define('MS_Rrid','');   //äººäººç™»é™†id  
+define('MS_Rrkey','');  //äººäººç™»é™†key  
 
-define('MS_Kxmode',0);  //¿ªÐÄµÇÂ½¿ª¹Ø  
-define('MS_Kxid','');   //¿ªÐÄµÇÂ½id  
-define('MS_Kxkey','');  //¿ªÐÄµÇÂ½key  
+define('MS_Kxmode',0);  //å¼€å¿ƒç™»é™†å¼€å…³  
+define('MS_Kxid','');   //å¼€å¿ƒç™»é™†id  
+define('MS_Kxkey','');  //å¼€å¿ƒç™»é™†key  
 
-define('MS_Dbmode',0);  //¶¹°êµÇÂ½¿ª¹Ø  
-define('MS_Dbid','');   //¶¹°êµÇÂ½id  
-define('MS_Dbkey','');  //¶¹°êµÇÂ½key 
+define('MS_Dbmode',0);  //è±†ç“£ç™»é™†å¼€å…³  
+define('MS_Dbid','');   //è±†ç“£ç™»é™†id  
+define('MS_Dbkey','');  //è±†ç“£ç™»é™†key 

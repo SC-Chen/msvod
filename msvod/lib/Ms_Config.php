@@ -1,46 +1,46 @@
 <?php
 define('Msvod_IP', '12.12.12.12');
-define('Web_Name', 'Msvodv4'); //Õ¾µãÃû³Æ
-#define('Web_Url','www.meicms.me'); //Õ¾µãÓòÃû
-define('Web_Logo', '/attachment/look/201704/29/KAmXrJbv1dJHehJUPZ6f.png'); //PCÕ¾µãLOGO
-define('Wap_Logo', '/attachment/look/201704/29/A06vBVQml4PZPiAngAeq.png'); //ÊÖ»úÕ¾µãLOGO
-#define('User_Logo', '/attachment/look/201704/29/0mhhkVnglPFZJxcZxELh.png'); //»áÔ±ÖÐÐÄLOGO
-define('Web_Path', '/'); //Õ¾µãÂ·¾¶
-define('Admin_Code', 'admin888'); //ºóÌ¨ÑéÖ¤Âë
-define('Web_Off', 1); //ÍøÕ¾¿ª¹Ø
-define('Web_Onneir', 'ÍøÕ¾Éý¼¶ÖÐ...'); //ÍøÕ¾¹Ø±ÕÄÚÈÝ
-define('Web_Mode',1); //ÍøÕ¾ÔËÐÐÄ£Ê½
-define('Html_Index', 'index.html'); //Ö÷Ò³¾²Ì¬URL
-define('Html_StopTime', 2); //Éú³É¼ä¸ôÃëÊý
-define('Html_PageNum', 20); //Ã¿Ò³Éú³ÉÊýÁ¿
-define('Web_Icp', '¾©ICP±¸06000000ºÅ'); //ÍøÕ¾ICP
-define('Admin_QQ', ''); //Õ¾³¤QQ
-define('Admin_Tel', '1300000000'); //Õ¾³¤µç»°
-define('Admin_Mail', '@qq.com'); //Õ¾³¤EMAIL
-define('Web_Key', 'ÃÀÅ®|ÐÔ¸Ð|90ºó|×ÔÅÄ|ÍµÅÄ|ÈÕº«'); //ÈÈÃÅËÑË÷
-define('Web_Count', 'Í³¼Æ´úÂë'); //Í³¼Æ´úÂë
-define('Web_Title', 'Msvod÷ÈË¼ÊÓÆµ_×¨ÒµÊÓÆµÏµÍ³³ÌÐò'); //SEO-±êÌâ
-define('Web_Keywords', 'Msvod÷ÈË¼µçÓ°,Msvod,Msvod.v6'); //SEO-Keywords
-define('Web_Description', 'Msvod_÷ÈË¼ÊÓÆµ'); //SEO-description
-define('Web_Notice', 'ÍøÕ¾¹«¸æ'); //ÍøÕ¾¹«¸æ
-define('Pl_Modes', 1); //ÆÀÂÛ·½Ê½
-define('Pl_Youke', 1); //ÓÎ¿ÍÊÇ·ñ¿ÉÒÔÆÀÂÛ
-define('Pl_Num', 10); //ÆÀÂÛÃ¿Ò³ÌõÊý
-define('Pl_Yy_Name', '1'); //ÓÑÑÔÕËºÅ
-define('Pl_Ds_Name', '2'); //¶àËµÕËºÅ
-define('Pl_Cy_Id', 'cyrXlzjtl'); //³©ÑÔAPP_Id
-define('Pl_Str', 'ËýÂè,ËüÂè,ËûÂè,ÄãÂè,È¥ËÀ,¼úÈË'); //ÆÀÂÛ¹ýÂË×Ö·û
-define('Cache_Is', 0); //»º´æ¿ª¹Ø
-define('Cache_Time', 1); //»º´æÊ±¼ä
+define('Web_Name', 'Msvodv4'); //ç«™ç‚¹åç§°
+#define('Web_Url','www.meicms.me'); //ç«™ç‚¹åŸŸå
+define('Web_Logo', '/attachment/look/201704/29/KAmXrJbv1dJHehJUPZ6f.png'); //PCç«™ç‚¹LOGO
+define('Wap_Logo', '/attachment/look/201704/29/A06vBVQml4PZPiAngAeq.png'); //æ‰‹æœºç«™ç‚¹LOGO
+#define('User_Logo', '/attachment/look/201704/29/0mhhkVnglPFZJxcZxELh.png'); //ä¼šå‘˜ä¸­å¿ƒLOGO
+define('Web_Path', '/'); //ç«™ç‚¹è·¯å¾„
+define('Admin_Code', 'admin888'); //åŽå°éªŒè¯ç 
+define('Web_Off', 1); //ç½‘ç«™å¼€å…³
+define('Web_Onneir', 'ç½‘ç«™å‡çº§ä¸­...'); //ç½‘ç«™å…³é—­å†…å®¹
+define('Web_Mode',1); //ç½‘ç«™è¿è¡Œæ¨¡å¼
+define('Html_Index', 'index.html'); //ä¸»é¡µé™æ€URL
+define('Html_StopTime', 2); //ç”Ÿæˆé—´éš”ç§’æ•°
+define('Html_PageNum', 20); //æ¯é¡µç”Ÿæˆæ•°é‡
+define('Web_Icp', 'äº¬ICPå¤‡06000000å·'); //ç½‘ç«™ICP
+define('Admin_QQ', ''); //ç«™é•¿QQ
+define('Admin_Tel', '1300000000'); //ç«™é•¿ç”µè¯
+define('Admin_Mail', '@qq.com'); //ç«™é•¿EMAIL
+define('Web_Key', 'ç¾Žå¥³|æ€§æ„Ÿ|90åŽ|è‡ªæ‹|å·æ‹|æ—¥éŸ©'); //çƒ­é—¨æœç´¢
+define('Web_Count', 'ç»Ÿè®¡ä»£ç '); //ç»Ÿè®¡ä»£ç 
+define('Web_Title', 'Msvodé­…æ€è§†é¢‘_ä¸“ä¸šè§†é¢‘ç³»ç»Ÿç¨‹åº'); //SEO-æ ‡é¢˜
+define('Web_Keywords', 'Msvodé­…æ€ç”µå½±,Msvod,Msvod.v6'); //SEO-Keywords
+define('Web_Description', 'Msvod_é­…æ€è§†é¢‘'); //SEO-description
+define('Web_Notice', 'ç½‘ç«™å…¬å‘Š'); //ç½‘ç«™å…¬å‘Š
+define('Pl_Modes', 1); //è¯„è®ºæ–¹å¼
+define('Pl_Youke', 1); //æ¸¸å®¢æ˜¯å¦å¯ä»¥è¯„è®º
+define('Pl_Num', 10); //è¯„è®ºæ¯é¡µæ¡æ•°
+define('Pl_Yy_Name', '1'); //å‹è¨€è´¦å·
+define('Pl_Ds_Name', '2'); //å¤šè¯´è´¦å·
+define('Pl_Cy_Id', 'cyrXlzjtl'); //ç•…è¨€APP_Id
+define('Pl_Str', 'å¥¹å¦ˆ,å®ƒå¦ˆ,ä»–å¦ˆ,ä½ å¦ˆ,åŽ»æ­»,è´±äºº'); //è¯„è®ºè¿‡æ»¤å­—ç¬¦
+define('Cache_Is', 0); //ç¼“å­˜å¼€å…³
+define('Cache_Time', 1); //ç¼“å­˜æ—¶é—´
 define('MS_Play_w', 445);
 define('MS_Play_h', 64);
 define('MS_Play_sw', 600);
 define('MS_Play_sh', 450);
-define('MS_Play_AdloadTime', 10); //µçÓ°²¥·ÅÇ°¹ã¸æÊ±¼ä
-define('MS_Language', 'zh_cn'); //ÍøÕ¾ÓïÑÔ,englishÓ¢ÎÄ£¬zh_cnÖÐÎÄ
-define('MS_Play_yk', '0'); //ÊÔ¿´
-define('Mobile_Is', 1); //ÊÖ»úÃÅ»§ÊÇ·ñ¿ªÆô
-define('Mobile_Url', 'meisewang.vip'); //ÊÖ»úÃÅ»§ÓòÃû
-define('Mobile_Win', 1); //µçÄÔÊÇ·ñ¿ÉÒÔ·ÃÎÊÊÖ»úÒ³Ãæ
-define('Mobile_Skins', 'msvod/msvod_html/'); //ÊÖ»úÃÅ»§Ä£°åÂ·¾¶
-define('Web_Skins', 'msvod/msvod_html/'); //Ä¬ÈÏÖ÷Ò³Ä£°åÂ·¾¶
+define('MS_Play_AdloadTime', 10); //ç”µå½±æ’­æ”¾å‰å¹¿å‘Šæ—¶é—´
+define('MS_Language', 'zh_cn'); //ç½‘ç«™è¯­è¨€,englishè‹±æ–‡ï¼Œzh_cnä¸­æ–‡
+define('MS_Play_yk', '0'); //è¯•çœ‹
+define('Mobile_Is', 1); //æ‰‹æœºé—¨æˆ·æ˜¯å¦å¼€å¯
+define('Mobile_Url', 'meisewang.vip'); //æ‰‹æœºé—¨æˆ·åŸŸå
+define('Mobile_Win', 1); //ç”µè„‘æ˜¯å¦å¯ä»¥è®¿é—®æ‰‹æœºé¡µé¢
+define('Mobile_Skins', 'msvod/msvod_html/'); //æ‰‹æœºé—¨æˆ·æ¨¡æ¿è·¯å¾„
+define('Web_Skins', 'msvod/msvod_html/'); //é»˜è®¤ä¸»é¡µæ¨¡æ¿è·¯å¾„

@@ -13,20 +13,20 @@ $this->load->helper('video');
 $this->load->model('MsdjAdmin');
 $this->MsdjAdmin->Admin_Login();
 $this->load->model('MsdjTpl');
-//ÅĞ¶ÏÔËĞĞÄ£Ê½
+//åˆ¤æ–­è¿è¡Œæ¨¡å¼
 if(config('Web_Mode')!=3){
 admin_msg(L('plub_17'),'javascript:history.back();','no');
 }
 $this->huri=config('Html_Uri');
 }
 
-//Ê×Ò³Éú³É
+//é¦–é¡µç”Ÿæˆ
 public function index()
 {
 if($this->huri['index']['check']==0){
 admin_msg(L('plub_18'),'javascript:history.back();','no');
 }
-//»ñÈ¡¾²Ì¬Â·¾¶
+//è·å–é™æ€è·¯å¾„
 $uri=config('Html_Uri');
 $index_url=adminhtml($uri['index']['url']);
 $this->load->get_templates('video',2);
@@ -35,31 +35,31 @@ write_file(FCPATH.$index_url,$Mark_Text);
 admin_msg(L('plub_19').'<a target="_blank" href="'.Web_Path.$index_url.'"><font color="red">'.L('plub_20').'</font></a>','###');
 }
 
-//×¨ÌâÒ³
+//ä¸“é¢˜é¡µ
 public function topic()
 {
 $this->load->view('html_topic.html');
 }
 
-//×¨ÌâÁĞ±íÒ³Éú³É²Ù×÷
+//ä¸“é¢˜åˆ—è¡¨é¡µç”Ÿæˆæ“ä½œ
 public function topic_save()
 {
 if($this->huri['topic/lists']['check']==0){
 admin_msg(L('plub_21'),'javascript:history.back();','no');
 }
-$start= intval($this->input->get('start')); //µ±Ç°Ò³Éú³É±àºÅ
-$pagesize= intval($this->input->get('pagesize')); //Ã¿Ò³¶àÉÙÌõ
-$pagejs= intval($this->input->get('pagejs')); //×ÜÒ³Êı
-$datacount= intval($this->input->get('datacount')); //Êı¾İ×ÜÊı
-$page= intval($this->input->get('page')); //µ±Ç°Ò³
-$nums= intval($this->input->get('nums')); //·ÖÀàÒÑÍê³ÉÊıÁ¿
-$numx= intval($this->input->get('numx')); //ÅÅĞò·½Ê½ÒÑÍê³ÉÊıÁ¿
-$cid = $this->input->get_post('cid',true); //ĞèÒªÉú³ÉµÄ·ÖÀàID
-$fid = $this->input->get_post('fid',true); //ĞèÒªÉú³ÉµÄÅÅĞò·½Ê½
+$start= intval($this->input->get('start')); //å½“å‰é¡µç”Ÿæˆç¼–å·
+$pagesize= intval($this->input->get('pagesize')); //æ¯é¡µå¤šå°‘æ¡
+$pagejs= intval($this->input->get('pagejs')); //æ€»é¡µæ•°
+$datacount= intval($this->input->get('datacount')); //æ•°æ®æ€»æ•°
+$page= intval($this->input->get('page')); //å½“å‰é¡µ
+$nums= intval($this->input->get('nums')); //åˆ†ç±»å·²å®Œæˆæ•°é‡
+$numx= intval($this->input->get('numx')); //æ’åºæ–¹å¼å·²å®Œæˆæ•°é‡
+$cid = $this->input->get_post('cid',true); //éœ€è¦ç”Ÿæˆçš„åˆ†ç±»ID
+$fid = $this->input->get_post('fid',true); //éœ€è¦ç”Ÿæˆçš„æ’åºæ–¹å¼
 if($start==0) $start=1;
 if(empty($fid)) $fid='id';
 
-//½«Êı×é×ª»»³É×Ö·û
+//å°†æ•°ç»„è½¬æ¢æˆå­—ç¬¦
 if(is_array($cid)){
 $cid=implode(',', $cid);
 }
@@ -68,28 +68,28 @@ $fid=implode(',', $fid);
 }
 
 
-//¹«ÖÚURI
+//å…¬ä¼—URI
 $uri='?cid='.$cid.'&fid='.$fid.'&pagesize='.$pagesize.'&pagejs='.$pagejs.'&datacount='.$datacount;
 
-//·Ö¸î·ÖÀàID
+//åˆ†å‰²åˆ†ç±»ID
 $arr = explode(',',$cid);
 $len = count($arr);
-//·Ö¸îÅÅĞò·½Ê½
+//åˆ†å‰²æ’åºæ–¹å¼
 $arr2 = explode(',',$fid);
 $len2 = count($arr2);
 
-//È«²¿Éú³ÉÍê±Ï
+//å…¨éƒ¨ç”Ÿæˆå®Œæ¯•
 if($nums>=$len){
 admin_msg(L('plub_22'),site_url('video/admin/html/topic'));
 }
 
-$id=$arr[$nums]; //µ±Ç°·ÖÀàID
-$type=$arr2[$numx]; //µ±Ç°ÅÅĞò
+$id=$arr[$nums]; //å½“å‰åˆ†ç±»ID
+$type=$arr2[$numx]; //å½“å‰æ’åº
 
-//ÖØĞÂ¶¨ÒåÄ£°åÂ·¾¶
+//é‡æ–°å®šä¹‰æ¨¡æ¿è·¯å¾„
 $this->load->get_templates('video',2);
 
-//»ñÈ¡·ÖÒ³ĞÅÏ¢
+//è·å–åˆ†é¡µä¿¡æ¯
 if($datacount==0){
 $template=$this->load->view('topic.html','',true);
 $pagesize=10;
@@ -125,9 +125,9 @@ $pagejs=$page;
 
 for($i=$start;$i<=$pagejs;$i++){
 
-//»ñÈ¡¾²Ì¬Â·¾¶
+//è·å–é™æ€è·¯å¾„
 $Htmllinks=$Htmllink=LinkUrl('topic/lists',$type,$id,$i,'video',$row['name']);
-//×ª»»³ÉÉú³ÉÂ·¾¶
+//è½¬æ¢æˆç”Ÿæˆè·¯å¾„
 $Htmllink=adminhtml($Htmllinks,'video');
 $Mark_Text=$this->MsdjTpl->plub_list($row,$id,$type,$i,$id,true,'topic.html','topic/lists','',L('plub_34'),L('plub_34'));
 $Mark_Text=str_replace("[topic:link]",LinkUrl('topic/lists','id',$id,$i,'video'),$Mark_Text);
@@ -147,7 +147,7 @@ break;
 }
 }
 
-if($pagego==2){ //²Ù×÷ÏµÍ³ÉèÖÃÃ¿Ò³ÊıÁ¿£¬·Ö¶àÒ³Éú³É
+if($pagego==2){ //æ“ä½œç³»ç»Ÿè®¾ç½®æ¯é¡µæ•°é‡ï¼Œåˆ†å¤šé¡µç”Ÿæˆ
 $url=site_url('video/admin/html/topic_save').$uri.'&nums='.$nums.'&numx='.$numx.'&start='.($i+1);
 exit("</br>&nbsp;&nbsp;<b>".vsprintf(L('plub_27'),array(Html_StopTime))."&nbsp;>>>>&nbsp;&nbsp;<a target='_blank' href='".$url."'>".L('plub_28')."</a></b><script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
 }else{  
@@ -155,36 +155,36 @@ $url=site_url('video/admin/html/topic_save').$uri.'&nums='.($nums+1);
 $str="&nbsp;&nbsp;<b>".vsprintf(L('plub_27'),array(Html_StopTime))."&nbsp;>>>>&nbsp;&nbsp;<a target='_blank' href='".$url."'>".L('plub_28')."</a></b>";
 }
 
-//ÅĞ¶ÏÉú³ÉÍê±Ï
-if(($numx+1)>=$len2){ //È«²¿Íê³É
+//åˆ¤æ–­ç”Ÿæˆå®Œæ¯•
+if(($numx+1)>=$len2){ //å…¨éƒ¨å®Œæˆ
 $url=site_url('video/admin/html/topic_save').$uri.'&nums='.($nums+1);
 $str="&nbsp;&nbsp;<b><font color=#0000ff>".L('plub_29')."</font>&nbsp;>>>>&nbsp;&nbsp;<a href='".site_url('video/admin/html/topic_save').$uri.'&nums='.($nums+1)."'>".L('plub_28')."</a></b>";
-}else{ //µ±Ç°ÅÅĞò·½Ê½Íê³É
+}else{ //å½“å‰æ’åºæ–¹å¼å®Œæˆ
 $url=site_url('video/admin/html/topic_save').$uri.'&nums='.$nums.'&numx='.($numx+1);
 $str='&nbsp;&nbsp;<b>'.vsprintf(L('plub_30'),array($this->gettype($type))).'&nbsp;>>>>&nbsp;&nbsp;<a href="'.site_url('video/admin/html/topic_save').$uri.'&nums='.$nums.'&numx='.($numx+1).'">'.L('plub_28').'</a></b>';
 }
 echo("</br>".$str."<script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
 }
 
-//×¨ÌâÄÚÈİÒ³Éú³É²Ù×÷
+//ä¸“é¢˜å†…å®¹é¡µç”Ÿæˆæ“ä½œ
 public function topicshow_save()
 {
 if($this->huri['topic/show']['check']==0){
 admin_msg(L('plub_31'),'javascript:history.back();','no');
 }
-$tid = $this->input->get_post('tid',true); //ĞèÒªÉú³ÉµÄ×¨ÌâID
-$ksid= intval($this->input->get_post('ksid')); //¿ªÊ¼ID
-$jsid= intval($this->input->get_post('jsid')); //½áÊøID
-$kstime= $this->input->get_post('kstime',true); //¿ªÊ¼ÈÕÆÚ
-$jstime= $this->input->get_post('jstime',true); //½áÊøÈÕÆÚ
-$pagesize= intval($this->input->get('pagesize')); //Ã¿Ò³¶àÉÙÌõ
-$pagejs= intval($this->input->get('pagejs')); //×ÜÒ³Êı
-$datacount= intval($this->input->get('datacount')); //Êı¾İ×ÜÊı
-$page= intval($this->input->get('page')); //µ±Ç°Ò³
+$tid = $this->input->get_post('tid',true); //éœ€è¦ç”Ÿæˆçš„ä¸“é¢˜ID
+$ksid= intval($this->input->get_post('ksid')); //å¼€å§‹ID
+$jsid= intval($this->input->get_post('jsid')); //ç»“æŸID
+$kstime= $this->input->get_post('kstime',true); //å¼€å§‹æ—¥æœŸ
+$jstime= $this->input->get_post('jstime',true); //ç»“æŸæ—¥æœŸ
+$pagesize= intval($this->input->get('pagesize')); //æ¯é¡µå¤šå°‘æ¡
+$pagejs= intval($this->input->get('pagejs')); //æ€»é¡µæ•°
+$datacount= intval($this->input->get('datacount')); //æ•°æ®æ€»æ•°
+$page= intval($this->input->get('page')); //å½“å‰é¡µ
 if($page==0) $page=1;
 $str='';
 
-//½«Êı×é×ª»»³É×Ö·û
+//å°†æ•°ç»„è½¬æ¢æˆå­—ç¬¦
 if(is_array($tid)){
 $tid=implode(',', $tid);
 }
@@ -214,16 +214,16 @@ if($datacount<$pagesize){
 $pagesize=$datacount;
 }
 
-//È«²¿Éú³ÉÍê±Ï
+//å…¨éƒ¨ç”Ÿæˆå®Œæ¯•
 if($datacount==0 || $page>$pagejs){
 admin_msg(L('plub_32'),site_url('video/admin/html/topic'));
 }
 
 
-//¹«ÖÚURI
+//å…¬ä¼—URI
 $uri='?tid='.$tid.'&ksid='.$ksid.'&jsid='.$jsid.'&kstime='.$kstime.'&jstime='.$jstime.'&pagesize='.$pagesize.'&pagejs='.$pagejs.'&datacount='.$datacount;
 
-//ÖØĞÂ¶¨ÒåÄ£°åÂ·¾¶
+//é‡æ–°å®šä¹‰æ¨¡æ¿è·¯å¾„
 $this->load->get_templates('video',2);
 
 echo '<LINK href="'.base_url().'packs/admin/css/style.css" type="text/css" rel="stylesheet"><br>';
@@ -236,32 +236,32 @@ $query = $this->db->query($sql_string);
 foreach ($query->result_array() as $row) {
 
 $id=$row['id'];
-//»ñÈ¡¾²Ì¬Â·¾¶
+//è·å–é™æ€è·¯å¾„
 $Htmllinks=LinkUrl('topic','show',$id,1,'video',$row['name']);
-//×ª»»³ÉÉú³ÉÂ·¾¶
+//è½¬æ¢æˆç”Ÿæˆè·¯å¾„
 $Htmllink=adminhtml($Htmllinks,'video');
-//´İ»Ù¶¯Ì¬ÈËÆø×Ö¶ÎÊı×é
+//æ‘§æ¯åŠ¨æ€äººæ°”å­—æ®µæ•°ç»„
 unset($row['hits']);
 unset($row['yhits']);
 unset($row['zhits']);
 unset($row['rhits']);
 
-//×°ÔØÄ£°å²¢Êä³ö
+//è£…è½½æ¨¡æ¿å¹¶è¾“å‡º
 $ids['tid']=$id;
 $ids['uid']=$row['uid'];
 $ids['singerid']=$row['singerid'];
 $Mark_Text=$this->MsdjTpl->plub_show('topic',$row,$ids,true,'topic-show.html',$row['name'].'-'.L('plub_34'),$row['name']);
-//ÆÀÂÛ
+//è¯„è®º
 $Mark_Text=str_replace("[topic:pl]",get_pl('video',$id,1),$Mark_Text);
-//¶¯Ì¬ÈËÆø
+//åŠ¨æ€äººæ°”
 $Mark_Text=str_replace("[topic:hits]","<script src='".hitslink('hits/dt/hits/'.$id.'/topic','video')."'></script>",$Mark_Text);
 $Mark_Text=str_replace("[topic:yhits]","<script src='".hitslink('hits/dt/yhits/'.$id.'/topic','video')."'></script>",$Mark_Text);
 $Mark_Text=str_replace("[topic:zhits]","<script src='".hitslink('hits/dt/zhits/'.$id.'/topic','video')."'></script>",$Mark_Text);
 $Mark_Text=str_replace("[topic:rhits]","<script src='".hitslink('hits/dt/rhits/'.$id.'/topic','video')."'></script>",$Mark_Text);
-//Ôö¼ÓÈËÆø
+//å¢åŠ äººæ°”
 $Mark_Text=hits_js($Mark_Text,hitslink('hits/ids/'.$id.'/topic','video'));
 
-//Éú³É
+//ç”Ÿæˆ
 write_file(FCPATH.$Htmllink,$Mark_Text);
 echo "&nbsp;<font style=font-size:10pt;>".L('plub_35')."<font color=red>".$row['name']."</font>".L('plub_36')."<a href=".$Htmllinks." target=_blank>".$Htmllinks."</a></font><br/>";
 ob_flush();flush();
@@ -273,34 +273,34 @@ $str="&nbsp;&nbsp;<b>".vsprintf(L('plub_27'),array(Html_StopTime))."&nbsp;>>>>&n
 echo("</br>".$str."<script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
 }
 
-//ÁĞ±íÒ³
+//åˆ—è¡¨é¡µ
 public function type()
 {
 $this->load->view('html_type.html');
 }
 
-//ÁĞ±íÒ³Éú³É²Ù×÷
+//åˆ—è¡¨é¡µç”Ÿæˆæ“ä½œ
 public function type_save()
 {
 if($this->huri['lists']['check']==0){
 admin_msg(L('plub_37'),'javascript:history.back();','no');
 }
-$ac  = $this->input->get_post('ac',true); //·½Ê½
-$cid = $this->input->get_post('cid',true); //ĞèÒªÉú³ÉµÄ·ÖÀàID
-$fid = $this->input->get_post('fid',true); //ĞèÒªÉú³ÉµÄÅÅĞò·½Ê½
-$nums= intval($this->input->get('nums')); //·ÖÀàÒÑÍê³ÉÊıÁ¿
-$numx= intval($this->input->get('numx')); //ÅÅĞò·½Ê½ÒÑÍê³ÉÊıÁ¿
-$start= intval($this->input->get('start')); //µ±Ç°Ò³Éú³É±àºÅ
-$pagesize= intval($this->input->get('pagesize')); //Ã¿Ò³¶àÉÙÌõ
-$pagejs= intval($this->input->get('pagejs')); //×ÜÒ³Êı
-$datacount= intval($this->input->get('datacount')); //Êı¾İ×ÜÊı
-$page= intval($this->input->get('page')); //µ±Ç°Ò³
+$ac  = $this->input->get_post('ac',true); //æ–¹å¼
+$cid = $this->input->get_post('cid',true); //éœ€è¦ç”Ÿæˆçš„åˆ†ç±»ID
+$fid = $this->input->get_post('fid',true); //éœ€è¦ç”Ÿæˆçš„æ’åºæ–¹å¼
+$nums= intval($this->input->get('nums')); //åˆ†ç±»å·²å®Œæˆæ•°é‡
+$numx= intval($this->input->get('numx')); //æ’åºæ–¹å¼å·²å®Œæˆæ•°é‡
+$start= intval($this->input->get('start')); //å½“å‰é¡µç”Ÿæˆç¼–å·
+$pagesize= intval($this->input->get('pagesize')); //æ¯é¡µå¤šå°‘æ¡
+$pagejs= intval($this->input->get('pagejs')); //æ€»é¡µæ•°
+$datacount= intval($this->input->get('datacount')); //æ•°æ®æ€»æ•°
+$page= intval($this->input->get('page')); //å½“å‰é¡µ
 if($start==0) $start=1;
 if(empty($fid)){
 $fid=($ac=='all')?'id,video,reco,hits,yhits,zhits,rhits,xhits,shits,dhits,chits,phits':'id';
 }
 
-//Éú³ÉÈ«²¿·ÖÀà»ñÈ¡È«²¿·ÖÀàID
+//ç”Ÿæˆå…¨éƒ¨åˆ†ç±»è·å–å…¨éƒ¨åˆ†ç±»ID
 if($ac=='all' && $nums==0){
 $cid=array();
 $query = $this->db->query("SELECT id FROM ".MS_SqlPrefix."video_list where yid=0 order by xid asc"); 
@@ -308,43 +308,43 @@ foreach ($query->result() as $rowc) {
 $cid[]=$rowc->id;
 }
 }
-//½«Êı×é×ª»»³É×Ö·û
+//å°†æ•°ç»„è½¬æ¢æˆå­—ç¬¦
 if(is_array($cid)){
 $cid=implode(',', $cid);
 }
 if(is_array($fid)){
 $fid=implode(',', $fid);
 }
-//Ã»ÓĞÑ¡Ôñ·ÖÀà
+//æ²¡æœ‰é€‰æ‹©åˆ†ç±»
 if(empty($cid)){
 admin_msg(L('plub_38'),site_url('video/admin/html/type'));
 }
 
-//¹«ÖÚURI
+//å…¬ä¼—URI
 $uri='?ac='.$ac.'&cid='.$cid.'&fid='.$fid.'&pagesize='.$pagesize.'&pagejs='.$pagejs.'&datacount='.$datacount;
 
-//·Ö¸î·ÖÀàID
+//åˆ†å‰²åˆ†ç±»ID
 $arr = explode(',',$cid);
 $len = count($arr);
-//·Ö¸îÅÅĞò·½Ê½
+//åˆ†å‰²æ’åºæ–¹å¼
 $arr2 = explode(',',$fid);
 $len2 = count($arr2);
 
-//È«²¿Éú³ÉÍê±Ï
+//å…¨éƒ¨ç”Ÿæˆå®Œæ¯•
 if($nums>=$len){
 admin_msg(L('plub_39'),site_url('video/admin/html/type'));
 }
 
-$id=$arr[$nums]; //µ±Ç°·ÖÀàID
-$type=$arr2[$numx]; //µ±Ç°ÅÅĞò
+$id=$arr[$nums]; //å½“å‰åˆ†ç±»ID
+$type=$arr2[$numx]; //å½“å‰æ’åº
 
-//ÖØĞÂ¶¨ÒåÄ£°åÂ·¾¶
+//é‡æ–°å®šä¹‰æ¨¡æ¿è·¯å¾„
 $this->load->get_templates('video',2);
 
-//»ñÈ¡·ÖÀàĞÅÏ¢
+//è·å–åˆ†ç±»ä¿¡æ¯
 $row=$this->MsdjDB->get_row_arr('video_list','*',$id);
 $template=!empty($row['skins'])?$row['skins']:'list.html';
-$ids=getChild($id); //»ñÈ¡×Ó·ÖÀà
+$ids=getChild($id); //è·å–å­åˆ†ç±»
 
 if($datacount==0){
 $template=$this->load->view($template,'',true);
@@ -371,9 +371,9 @@ $pagejs=$page;
 
 for($i=$start;$i<=$pagejs;$i++){
 
-//»ñÈ¡¾²Ì¬Â·¾¶
+//è·å–é™æ€è·¯å¾„
 $Htmllinks=LinkUrl('lists',$type,$id,$i,'video',$row['bname']);
-//×ª»»³ÉÉú³ÉÂ·¾¶
+//è½¬æ¢æˆç”Ÿæˆè·¯å¾„
 $Htmllink=adminhtml($Htmllinks,'video');
 $skins=empty($row['skins'])?'list.html':$row['skins'];
 $Mark_Text=$this->MsdjTpl->plub_list($row,$id,$type,$i,$ids,true,$skins,'lists','video',$row['name'],$row['name']);
@@ -388,7 +388,7 @@ break;
 }
 }
 
-if($pagego==2){ //²Ù×÷ÏµÍ³ÉèÖÃÃ¿Ò³ÊıÁ¿£¬·Ö¶àÒ³Éú³É
+if($pagego==2){ //æ“ä½œç³»ç»Ÿè®¾ç½®æ¯é¡µæ•°é‡ï¼Œåˆ†å¤šé¡µç”Ÿæˆ
 $url=site_url('video/admin/html/type_save').$uri.'&nums='.$nums.'&numx='.$numx.'&start='.($i+1);
 exit("</br>&nbsp;&nbsp;<b>".vsprintf(L('plub_27'),array(Html_StopTime)).L('plub_65')."&nbsp;>>>>&nbsp;&nbsp;<a target='_blank' href='".$url."'>".L('plub_28')."</a></b><script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
 }else{  
@@ -396,45 +396,45 @@ $url=site_url('video/admin/html/type_save').$uri.'&nums='.($nums+1);
 $str="&nbsp;&nbsp;<b>".vsprintf(L('plub_27'),array(Html_StopTime))."&nbsp;>>>>&nbsp;&nbsp;<a target='_blank' href='".$url."'>".L('plub_28')."</a></b>";
 }
 
-//ÅĞ¶ÏÉú³ÉÍê±Ï
-if(($numx+1)>=$len2){ //È«²¿Íê³É
+//åˆ¤æ–­ç”Ÿæˆå®Œæ¯•
+if(($numx+1)>=$len2){ //å…¨éƒ¨å®Œæˆ
 $url=site_url('video/admin/html/type_save').$uri.'&nums='.($nums+1);
 $str="&nbsp;&nbsp;<b><font color=#0000ff>".L('plub_29')."</font>&nbsp;>>>>&nbsp;&nbsp;<a href='".site_url('video/admin/html/type_save').$uri.'&nums='.($nums+1)."'>".L('plub_28')."</a></b>";
-}else{ //µ±Ç°ÅÅĞò·½Ê½Íê³É
+}else{ //å½“å‰æ’åºæ–¹å¼å®Œæˆ
 $url=site_url('video/admin/html/type_save').$uri.'&nums='.$nums.'&numx='.($numx+1);
 $str='&nbsp;&nbsp;<b>'.vsprintf(L('plub_30'),array($this->gettype($type))).'&nbsp;>>>>&nbsp;&nbsp;<a href="'.site_url('video/admin/html/type_save').$uri.'&nums='.$nums.'&numx='.($numx+1).'">'.L('plub_28').'</a></b>';
 }
 echo("</br>".$str."<script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
 }
 
-//²¥·ÅÒ³
+//æ’­æ”¾é¡µ
 public function play()
 {
 $this->load->view('html_play.html');
 }
 
-//²¥·ÅÒ³Éú³É²Ù×÷
+//æ’­æ”¾é¡µç”Ÿæˆæ“ä½œ
 public function play_save()
 {
 if($this->huri['play']['check']==0){
 admin_msg(L('plub_41'),'javascript:history.back();','no');
 }
-$day = intval($this->input->get_post('day',true)); //×î½ü¼¸Ìì
-$ids = $this->input->get_post('ids',true); //ĞèÒªÉú³ÉµÄÊı¾İID
-$cid = $this->input->get_post('cid',true); //ĞèÒªÉú³ÉµÄ·ÖÀàID
-$newid= intval($this->input->get_post('newid')); //×îĞÂ¸öÊı
-$ksid= intval($this->input->get_post('ksid')); //¿ªÊ¼ID
-$jsid= intval($this->input->get_post('jsid')); //½áÊøID
-$kstime= $this->input->get_post('kstime',true); //¿ªÊ¼ÈÕÆÚ
-$jstime= $this->input->get_post('jstime',true); //½áÊøÈÕÆÚ
-$pagesize= intval($this->input->get('pagesize')); //Ã¿Ò³¶àÉÙÌõ
-$pagejs= intval($this->input->get('pagejs')); //×ÜÒ³Êı
-$datacount= intval($this->input->get('datacount')); //Êı¾İ×ÜÊı
-$page= intval($this->input->get('page')); //µ±Ç°Ò³
+$day = intval($this->input->get_post('day',true)); //æœ€è¿‘å‡ å¤©
+$ids = $this->input->get_post('ids',true); //éœ€è¦ç”Ÿæˆçš„æ•°æ®ID
+$cid = $this->input->get_post('cid',true); //éœ€è¦ç”Ÿæˆçš„åˆ†ç±»ID
+$newid= intval($this->input->get_post('newid')); //æœ€æ–°ä¸ªæ•°
+$ksid= intval($this->input->get_post('ksid')); //å¼€å§‹ID
+$jsid= intval($this->input->get_post('jsid')); //ç»“æŸID
+$kstime= $this->input->get_post('kstime',true); //å¼€å§‹æ—¥æœŸ
+$jstime= $this->input->get_post('jstime',true); //ç»“æŸæ—¥æœŸ
+$pagesize= intval($this->input->get('pagesize')); //æ¯é¡µå¤šå°‘æ¡
+$pagejs= intval($this->input->get('pagejs')); //æ€»é¡µæ•°
+$datacount= intval($this->input->get('datacount')); //æ•°æ®æ€»æ•°
+$page= intval($this->input->get('page')); //å½“å‰é¡µ
 if($page==0) $page=1;
 $str='';
 
-//½«Êı×é×ª»»³É×Ö·û
+//å°†æ•°ç»„è½¬æ¢æˆå­—ç¬¦
 if(is_array($cid)){
 $cid=implode(',', $cid);
 }
@@ -478,16 +478,16 @@ if($datacount<$pagesize){
 $pagesize=$datacount;
 }
 
-//È«²¿Éú³ÉÍê±Ï
+//å…¨éƒ¨ç”Ÿæˆå®Œæ¯•
 if($page>$pagejs){
 admin_msg(L('plub_42'),site_url('video/admin/html/play'));
 }
 
 
-//¹«ÖÚURI
+//å…¬ä¼—URI
 $uri='?day='.$day.'&cid='.$cid.'&ids='.$ids.'&newid='.$newid.'&ksid='.$ksid.'&jsid='.$jsid.'&kstime='.$kstime.'&jstime='.$jstime.'&pagesize='.$pagesize.'&pagejs='.$pagejs.'&datacount='.$datacount;
 
-//ÖØĞÂ¶¨ÒåÄ£°åÂ·¾¶
+//é‡æ–°å®šä¹‰æ¨¡æ¿è·¯å¾„
 $this->load->get_templates('video',2);
 
 echo '<LINK href="'.base_url().'packs/admin/css/style.css" type="text/css" rel="stylesheet"><br>';
@@ -497,20 +497,20 @@ $sql_string="select * from ".MS_SqlPrefix."video where yid=0 and hid=0 ".$str." 
 $sql_string.=' limit '. $pagesize*($page-1) .','. $pagesize;
 $query = $this->db->query($sql_string);
 
-//»ñÈ¡²¥·ÅÒ³ÊÇ·ñĞèÒªÉú³É
+//è·å–æ’­æ”¾é¡µæ˜¯å¦éœ€è¦ç”Ÿæˆ
 $html=config('Html_Uri','video');
 
 foreach ($query->result_array() as $row) {
 
 
 $id=$row['id'];
-//»ñÈ¡¾²Ì¬Â·¾¶
+//è·å–é™æ€è·¯å¾„
 $Htmllinks=LinkUrl('play','id',$row['id'],0,'video',$row['name']);
-//×ª»»³ÉÉú³ÉÂ·¾¶
+//è½¬æ¢æˆç”Ÿæˆè·¯å¾„
 $Htmllink=adminhtml($Htmllinks,'video');
 
-//´İ»Ù²¿·ÖĞèÒª³¬¼¶Á´½Ó×Ö¶ÎÊı×é
-$rows=$row; //ÏÈ±£´æÊı×é±£ÁôÏÂÃæÊ¹ÓÃ
+//æ‘§æ¯éƒ¨åˆ†éœ€è¦è¶…çº§é“¾æ¥å­—æ®µæ•°ç»„
+$rows=$row; //å…ˆä¿å­˜æ•°ç»„ä¿ç•™ä¸‹é¢ä½¿ç”¨
 unset($row['tags']);
 unset($row['hits']);
 unset($row['yhits']);
@@ -520,22 +520,22 @@ unset($row['dhits']);
 unset($row['chits']);
 unset($row['shits']);
 unset($row['xhits']);
-//»ñÈ¡µ±Ç°·ÖÀàÏÂ¶ş¼¶·ÖÀàID
+//è·å–å½“å‰åˆ†ç±»ä¸‹äºŒçº§åˆ†ç±»ID
 $arr['cid']=getChild($row['cid']);
 $arr['uid']=$row['uid'];
 $arr['did']=$row['id'];
 $arr['singerid']=$row['singerid'];
 $arr['tags']=$rows['tags'];
-//×°ÔØÄ£°å²¢Êä³ö
+//è£…è½½æ¨¡æ¿å¹¶è¾“å‡º
 $skins=empty($row['skins'])?'play.html':$row['skins'];
 $Mark_Text=$this->MsdjTpl->plub_show('video',$row,$arr,TRUE,$skins,$row['name'],$row['name']);
-//ÆÀÂÛ
+//è¯„è®º
 $Mark_Text=str_replace("[video:pl]",get_pl('video',$id),$Mark_Text);
-//·ÖÀàµØÖ·¡¢Ãû³Æ
+//åˆ†ç±»åœ°å€ã€åç§°
 $Mark_Text=str_replace("[video:link]",LinkUrl('play','id',$row['id'],1,'video'),$Mark_Text);
 $Mark_Text=str_replace("[video:classlink]",LinkUrl('lists','id',$row['cid'],1,'video'),$Mark_Text);
 $Mark_Text=str_replace("[video:classname]",$this->MsdjDB->getzd('video_list','name',$row['cid']),$Mark_Text);
-//×¨Ìâ
+//ä¸“é¢˜
 if($row['tid']==0){
 $Mark_Text=str_replace("[video:topiclink]","###",$Mark_Text);
 $Mark_Text=str_replace("[video:topicname]",L('plub_44'),$Mark_Text);
@@ -543,7 +543,7 @@ $Mark_Text=str_replace("[video:topicname]",L('plub_44'),$Mark_Text);
 $Mark_Text=str_replace("[video:topiclink]",LinkUrl('topic','show',$row['tid'],1,'video'),$Mark_Text);
 $Mark_Text=str_replace("[video:topicname]",$this->MsdjDB->getzd('video_topic','name',$row['tid']),$Mark_Text);
 }
-//»ñÈ¡ÉÏÏÂÇú
+//è·å–ä¸Šä¸‹æ›²
 preg_match_all('/[video:slink]/',$Mark_Text,$arr);
 if(!empty($arr[0]) && !empty($arr[0][0])){
 $rowd=$this->db->query("Select id,cid,name from ".MS_SqlPrefix."video where yid=0 and hid=0 and id<".$id." order by id desc limit 1")->row();
@@ -572,9 +572,9 @@ $Mark_Text=str_replace("[video:xid]",0,$Mark_Text);
 }
 }
 unset($arr);
-//±êÇ©¼Ó³¬¼¶Á¬½Ó
+//æ ‡ç­¾åŠ è¶…çº§è¿æ¥
 $Mark_Text=str_replace("[video:tags]",SearchLink($rows['tags']),$Mark_Text);
-//¶¯Ì¬ÈËÆø
+//åŠ¨æ€äººæ°”
 $Mark_Text=str_replace("[video:hits]","<script src='".hitslink('hits/dt/hits/'.$id,'video')."'></script>",$Mark_Text);
 $Mark_Text=str_replace("[video:yhits]","<script src='".hitslink('hits/dt/yhits/'.$id,'video')."'></script>",$Mark_Text);
 $Mark_Text=str_replace("[video:zhits]","<script src='".hitslink('hits/dt/zhits/'.$id,'video')."'></script>",$Mark_Text);
@@ -583,7 +583,7 @@ $Mark_Text=str_replace("[video:dhits]","<script src='".hitslink('hits/dt/dhits/'
 $Mark_Text=str_replace("[video:chits]","<script src='".hitslink('hits/dt/chits/'.$id,'video')."'></script>",$Mark_Text);
 $Mark_Text=str_replace("[video:shits]","<script src='".hitslink('hits/dt/shits/'.$id,'video')."'></script>",$Mark_Text);
 $Mark_Text=str_replace("[video:xhits]","<script src='".hitslink('hits/dt/xhits/'.$id,'video')."'></script>",$Mark_Text);
-//ÊÓÆµÍêÕûÊÔ¿´µØÖ·
+//è§†é¢‘å®Œæ•´è¯•çœ‹åœ°å€
 preg_match_all('/[video:qurl]/',$Mark_Text,$arr);
 if(!empty($arr[0]) && !empty($arr[0][0])){
 $purl=$row['purl'];
@@ -597,7 +597,7 @@ $purl=annexlink($purl);
 $Mark_Text=str_replace("[video:qurl]",$purl,$Mark_Text);
 }
 unset($arr);
-//cmpÒôÆµ²¥·ÅÆ÷
+//cmpéŸ³é¢‘æ’­æ”¾å™¨
 $player="<script type='text/javascript'>
 var mp3_w='".MS_Play_w."';
 var mp3_h='".MS_Play_h."';
@@ -607,7 +607,7 @@ var mp3_t='".Web_Path."';
 mp3_play();
 </script>";
 $Mark_Text=str_replace("[video:player]",$player,$Mark_Text);
-//jpÒôÆµ²¥·ÅÆ÷
+//jpéŸ³é¢‘æ’­æ”¾å™¨
 $jplayer="<script type='text/javascript'>
 var mp3_i='".$id."';
 var mp3_p='".hitslink('play','video')."';
@@ -617,9 +617,9 @@ var mp3_l='".LinkUrl('down','lrc',$row['id'],1,'video')."';
 mp3_jplayer();
 </script>";
 $Mark_Text=str_replace("[video:jplayer]",$jplayer,$Mark_Text);
-//Ôö¼ÓÈËÆø
+//å¢åŠ äººæ°”
 $Mark_Text=hits_js($Mark_Text,hitslink('hits/ids/'.$id,'video'));
-//Éú³É
+//ç”Ÿæˆ
 write_file(FCPATH.$Htmllink,$Mark_Text);
 echo "&nbsp;<font style=font-size:10pt;>".L('plub_46')."<font color=red>".$row['name']."</font>".L('plub_36')."<a href=".$Htmllinks." target=_blank>".$Htmllinks."</a></font><br/>";
 ob_flush();flush();
@@ -634,34 +634,34 @@ $str="&nbsp;&nbsp;<b>".vsprintf(L('plub_27'),array(Html_StopTime))."&nbsp;>>>>&n
 echo("</br>".$str."<script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
 }
 
-//ÏÂÔØÒ³
+//ä¸‹è½½é¡µ
 public function down()
 {
 $this->load->view('html_down.html');
 }
 
-//ÏÂÔØÒ³Éú³É²Ù×÷
+//ä¸‹è½½é¡µç”Ÿæˆæ“ä½œ
 public function down_save()
 {
 if($this->huri['down']['check']==0){
 admin_msg(L('plub_47'),'javascript:history.back();','no');
 }
-$day = intval($this->input->get_post('day',true)); //×î½ü¼¸Ìì
-$ids = $this->input->get_post('ids',true); //ĞèÒªÉú³ÉµÄÊı¾İID
-$cid = $this->input->get_post('cid',true); //ĞèÒªÉú³ÉµÄ·ÖÀàID
-$newid= intval($this->input->get_post('newid')); //×îĞÂ¸öÊı
-$ksid= intval($this->input->get_post('ksid')); //¿ªÊ¼ID
-$jsid= intval($this->input->get_post('jsid')); //½áÊøID
-$kstime= $this->input->get_post('kstime',true); //¿ªÊ¼ÈÕÆÚ
-$jstime= $this->input->get_post('jstime',true); //½áÊøÈÕÆÚ
-$pagesize= intval($this->input->get('pagesize')); //Ã¿Ò³¶àÉÙÌõ
-$pagejs= intval($this->input->get('pagejs')); //×ÜÒ³Êı
-$datacount= intval($this->input->get('datacount')); //Êı¾İ×ÜÊı
-$page= intval($this->input->get('page')); //µ±Ç°Ò³
+$day = intval($this->input->get_post('day',true)); //æœ€è¿‘å‡ å¤©
+$ids = $this->input->get_post('ids',true); //éœ€è¦ç”Ÿæˆçš„æ•°æ®ID
+$cid = $this->input->get_post('cid',true); //éœ€è¦ç”Ÿæˆçš„åˆ†ç±»ID
+$newid= intval($this->input->get_post('newid')); //æœ€æ–°ä¸ªæ•°
+$ksid= intval($this->input->get_post('ksid')); //å¼€å§‹ID
+$jsid= intval($this->input->get_post('jsid')); //ç»“æŸID
+$kstime= $this->input->get_post('kstime',true); //å¼€å§‹æ—¥æœŸ
+$jstime= $this->input->get_post('jstime',true); //ç»“æŸæ—¥æœŸ
+$pagesize= intval($this->input->get('pagesize')); //æ¯é¡µå¤šå°‘æ¡
+$pagejs= intval($this->input->get('pagejs')); //æ€»é¡µæ•°
+$datacount= intval($this->input->get('datacount')); //æ•°æ®æ€»æ•°
+$page= intval($this->input->get('page')); //å½“å‰é¡µ
 if($page==0) $page=1;
 $str='';
 
-//½«Êı×é×ª»»³É×Ö·û
+//å°†æ•°ç»„è½¬æ¢æˆå­—ç¬¦
 if(is_array($cid)){
 $cid=implode(',', $cid);
 }
@@ -705,15 +705,15 @@ if($datacount<$pagesize){
 $pagesize=$datacount;
 }
 
-//È«²¿Éú³ÉÍê±Ï
+//å…¨éƒ¨ç”Ÿæˆå®Œæ¯•
 if($page>$pagejs){
 admin_msg(L('plub_48'),site_url('video/admin/html/down'));
 }
 
-//¹«ÖÚURI
+//å…¬ä¼—URI
 $uri='?day='.$day.'&cid='.$cid.'&ids='.$ids.'&newid='.$newid.'&ksid='.$ksid.'&jsid='.$jsid.'&kstime='.$kstime.'&jstime='.$jstime.'&pagesize='.$pagesize.'&pagejs='.$pagejs.'&datacount='.$datacount;
 
-//ÖØĞÂ¶¨ÒåÄ£°åÂ·¾¶
+//é‡æ–°å®šä¹‰æ¨¡æ¿è·¯å¾„
 $this->load->get_templates('video',2);
 
 echo '<LINK href="'.base_url().'packs/admin/css/style.css" type="text/css" rel="stylesheet"><br>';
@@ -723,19 +723,19 @@ $sql_string="select * from ".MS_SqlPrefix."video where yid=0 and hid=0 ".$str." 
 $sql_string.=' limit '. $pagesize*($page-1) .','. $pagesize;
 $query = $this->db->query($sql_string);
 
-//»ñÈ¡ÏÂÔØÒ³ÊÇ·ñĞèÒªÉú³É
+//è·å–ä¸‹è½½é¡µæ˜¯å¦éœ€è¦ç”Ÿæˆ
 $html=config('Html_Uri','video');
 
 foreach ($query->result_array() as $row) {
 
 $id=$row['id'];
-//»ñÈ¡¾²Ì¬Â·¾¶
+//è·å–é™æ€è·¯å¾„
 $Htmllinks=LinkUrl('down','id',$row['id'],0,'video',$row['name']);
-//×ª»»³ÉÉú³ÉÂ·¾¶
+//è½¬æ¢æˆç”Ÿæˆè·¯å¾„
 $Htmllink=adminhtml($Htmllinks,'video');
 
-//´İ»Ù²¿·ÖĞèÒª³¬¼¶Á´½Ó×Ö¶ÎÊı×é
-$rows=$row; //ÏÈ±£´æÊı×é±£ÁôÏÂÃæÊ¹ÓÃ
+//æ‘§æ¯éƒ¨åˆ†éœ€è¦è¶…çº§é“¾æ¥å­—æ®µæ•°ç»„
+$rows=$row; //å…ˆä¿å­˜æ•°ç»„ä¿ç•™ä¸‹é¢ä½¿ç”¨
 unset($row['tags']);
 unset($row['hits']);
 unset($row['yhits']);
@@ -745,29 +745,29 @@ unset($row['dhits']);
 unset($row['chits']);
 unset($row['shits']);
 unset($row['xhits']);
-//»ñÈ¡µ±Ç°·ÖÀàÏÂ¶ş¼¶·ÖÀàID
+//è·å–å½“å‰åˆ†ç±»ä¸‹äºŒçº§åˆ†ç±»ID
 $arr['cid']=getChild($row['cid']);
 $arr['uid']=$row['uid'];
 $arr['did']=$row['id'];
 $arr['singerid']=$row['singerid'];
 $arr['tags']=$rows['tags'];
-//×°ÔØÄ£°å²¢Êä³ö
+//è£…è½½æ¨¡æ¿å¹¶è¾“å‡º
 $Mark_Text=$this->MsdjTpl->plub_show('video',$row,$arr,TRUE,'down.html',$row['name'],$row['name']);
-//ÆÀÂÛ
+//è¯„è®º
 $Mark_Text=str_replace("[video:pl]",get_pl('video',$id),$Mark_Text);
-//·ÖÀàµØÖ·¡¢Ãû³Æ
+//åˆ†ç±»åœ°å€ã€åç§°
 $Mark_Text=str_replace("[video:link]",LinkUrl('play','id',$row['id'],1,'video'),$Mark_Text);
 $Mark_Text=str_replace("[video:classlink]",LinkUrl('lists','id',$row['cid'],1,'video'),$Mark_Text);
 $Mark_Text=str_replace("[video:classname]",$this->MsdjDB->getzd('video_list','name',$row['cid']),$Mark_Text);
-//×¨Ìâ
+//ä¸“é¢˜
 if($row['tid']==0){
 $Mark_Text=str_replace("[video:topiclink]","###",$Mark_Text);
-$Mark_Text=str_replace("[video:topicname]","Î´¼ÓÈë",$Mark_Text);
+$Mark_Text=str_replace("[video:topicname]","æœªåŠ å…¥",$Mark_Text);
 }else{
 $Mark_Text=str_replace("[video:topiclink]",LinkUrl('topic','show',$row['tid'],1,'video'),$Mark_Text);
 $Mark_Text=str_replace("[video:topicname]",$this->MsdjDB->getzd('video_topic','name',$row['tid']),$Mark_Text);
 }
-//»ñÈ¡ÉÏÏÂÇú
+//è·å–ä¸Šä¸‹æ›²
 preg_match_all('/[video:slink]/',$Mark_Text,$arr);
 if(!empty($arr[0]) && !empty($arr[0][0])){
 $rowd=$this->db->query("Select id,cid,name from ".MS_SqlPrefix."video where yid=0 and hid=0 and id<".$id." order by id desc limit 1")->row();
@@ -796,9 +796,9 @@ $Mark_Text=str_replace("[video:xid]",0,$Mark_Text);
 }
 }
 unset($arr);
-//±êÇ©¼Ó³¬¼¶Á¬½Ó
+//æ ‡ç­¾åŠ è¶…çº§è¿æ¥
 $Mark_Text=str_replace("[video:tags]",SearchLink($rows['tags']),$Mark_Text);
-//¶¯Ì¬ÈËÆø
+//åŠ¨æ€äººæ°”
 $Mark_Text=str_replace("[video:hits]","<script src='".hitslink('hits/dt/hits/'.$id,'video')."'></script>",$Mark_Text);
 $Mark_Text=str_replace("[video:yhits]","<script src='".hitslink('hits/dt/yhits/'.$id,'video')."'></script>",$Mark_Text);
 $Mark_Text=str_replace("[video:zhits]","<script src='".hitslink('hits/dt/zhits/'.$id,'video')."'></script>",$Mark_Text);
@@ -807,7 +807,7 @@ $Mark_Text=str_replace("[video:dhits]","<script src='".hitslink('hits/dt/dhits/'
 $Mark_Text=str_replace("[video:chits]","<script src='".hitslink('hits/dt/chits/'.$id,'video')."'></script>",$Mark_Text);
 $Mark_Text=str_replace("[video:shits]","<script src='".hitslink('hits/dt/shits/'.$id,'video')."'></script>",$Mark_Text);
 $Mark_Text=str_replace("[video:xhits]","<script src='".hitslink('hits/dt/xhits/'.$id,'video')."'></script>",$Mark_Text);
-//ÊÓÆµÍêÕûÊÔ¿´¡¢ÏÂÔØµØÖ·
+//è§†é¢‘å®Œæ•´è¯•çœ‹ã€ä¸‹è½½åœ°å€
 preg_match_all('/[video:qurl]/',$Mark_Text,$arr);
 if(!empty($arr[0]) && !empty($arr[0][0])){
 $purl=$row['purl'];
@@ -825,7 +825,7 @@ $Mark_Text=str_replace("[video:qurl]",$purl,$Mark_Text);
 $Mark_Text=str_replace("[video:qxurl]",$durl,$Mark_Text);
 }
 unset($arr);
-//Éú³É
+//ç”Ÿæˆ
 write_file(FCPATH.$Htmllink,$Mark_Text);
 echo "&nbsp;<font style=font-size:10pt;>".L('plub_50')."<font color=red>".$row['name']."</font>".L('plub_36')."<a href=".$Htmllinks." target=_blank>".$Htmllinks."</a></font><br/>";
 ob_flush();flush();
@@ -841,10 +841,10 @@ $str="&nbsp;&nbsp;<b>".vsprintf(L('plub_27'),array(Html_StopTime))."&nbsp;>>>>&n
 echo("</br>".$str."<script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
 }
 
-//ÆäËûÒ³
+//å…¶ä»–é¡µ
 public function opt()
 {
-//»ñÈ¡×Ô¶¨ÒåÄ£°å
+//è·å–è‡ªå®šä¹‰æ¨¡æ¿
 $Skins_Dir=config('Skins_Dir','video');
 $this->load->helper('directory');
 $path=FCPATH.'plugins/video/tpl/skins/'.$Skins_Dir;
@@ -863,13 +863,13 @@ $data['skins_skins'] = $skinsdirs;
 $this->load->view('html_opt.html',$data);
 }
 
-//ÆäËûÒ³Éú³É²Ù×÷
+//å…¶ä»–é¡µç”Ÿæˆæ“ä½œ
 public function opt_save()
 {
 
-$path = $this->input->post('path',true); //·½Ê½
+$path = $this->input->post('path',true); //æ–¹å¼
 
-//ÖØĞÂ¶¨ÒåÄ£°åÂ·¾¶
+//é‡æ–°å®šä¹‰æ¨¡æ¿è·¯å¾„
 $this->load->get_templates('video',2);
 
 echo '<LINK href="'.base_url().'packs/admin/css/style.css" type="text/css" rel="stylesheet"><br>';
@@ -883,7 +883,7 @@ $Mark_Text=$this->MsdjTpl->opt($t,true);
 
 $Htmllink=Web_Path.'opt/'.$t.'_video.html';
 
-//Éú³É
+//ç”Ÿæˆ
 write_file(FCPATH.$Htmllink,$Mark_Text);
 echo "&nbsp;<font style=font-size:10pt;>".L('plub_51')."<font color=red>".$Htmllink."</font>".L('plub_36')."<a href=".$Htmllink." target=_blank>".$Htmllink."</a></font><br/>";
 ob_flush();flush();
@@ -894,7 +894,7 @@ $url=site_url('video/admin/html/opt');
 echo("</br><b>&nbsp;".L('plub_52')."</b><script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
 }
 
-//»ñÈ¡ÅÅĞòÃû³Æ
+//è·å–æ’åºåç§°
 public function gettype($fid){
 $str="ID";
 switch($fid){

@@ -6,13 +6,13 @@
           <div class="new_comment_info"><a title="[pl:user zd=nichen]" target="_blank" href="[pl:url ulink=index]" class="show_userCard_link">[pl:user zd=nichen]</a><em></em></div>
           <div class="new_comment_text">[pl:content]</div>
           <div class="new_comment_from"><span>[pl:addtime style=time]</span><em class="new_comment_btn">
-		  {if:[pl:uid]=={msvod:uid}}<a href="###" onclick="msvod_pldel('[pl:id]');" class="new_comment_del" title="É¾³ı"><b>É¾³ı</b></a>{end if}
-		  <a href="###" onclick="msvod_hf('[pl:id]');" class="new_comment_return"><b></b><m style="padding-top:15px;">»Ø¸´</a></em></div>
-		  <div class="new_comment_reply" id="msvod_hf_[pl:id]" style="display:none;"><textarea rows="3" cols="50"  id="msvod_pl_hf_[pl:id]">»Ø¸´@[pl:user]@:</textarea><input type="button"  onclick="msvod_plhf('[pl:id]','»Ø¸´@[pl:user]@:');" value="»Ø¸´"></div>
+		  {if:[pl:uid]=={msvod:uid}}<a href="###" onclick="msvod_pldel('[pl:id]');" class="new_comment_del" title="åˆ é™¤"><b>åˆ é™¤</b></a>{end if}
+		  <a href="###" onclick="msvod_hf('[pl:id]');" class="new_comment_return"><b></b><m style="padding-top:15px;">å›å¤</a></em></div>
+		  <div class="new_comment_reply" id="msvod_hf_[pl:id]" style="display:none;"><textarea rows="3" cols="50"  id="msvod_pl_hf_[pl:id]">å›å¤@[pl:user]@:</textarea><input type="button"  onclick="msvod_plhf('[pl:id]','å›å¤@[pl:user]@:');" value="å›å¤"></div>
           {msvodtype:pl table="pl" fid="auto" sort="id" order="desc"}
           <div class="new_hf">
  		      <div class="text"><a target="_blank" href="[pl:url ulink=index]"><img src="[pl:user zd=logo]" width="30" height="30" alt="[pl:user zd=nichen]">&nbsp;&nbsp;<strong>[pl:user zd=nichen]</strong></a>&nbsp;<font color=#333>[pl:content]&nbsp;&nbsp;&nbsp;&nbsp;<font color=#666>[pl:addtime style=time]</font>
-			  {if:[pl:uid]=={msvod:uid}}<a class="del" href="###" onclick="msvod_pldel('[pl:id]');"><b>É¾³ı</b></a>{end if}
+			  {if:[pl:uid]=={msvod:uid}}<a class="del" href="###" onclick="msvod_pldel('[pl:id]');"><b>åˆ é™¤</b></a>{end if}
 			  </div>
  	      </div>
           {/msvodtype:pl}
@@ -22,29 +22,29 @@
 
 <div class="new_page">
 <span class="new_page_rt" style="display:{if:{msvod:pagecout}==1}none{end if};">
-          <a href="{msvod:pagefirst}">Ê×Ò³</a>
-          <a href="{msvod:pageup}">ÉÏÒ»Ò³</a>
+          <a href="{msvod:pagefirst}">é¦–é¡µ</a>
+          <a href="{msvod:pageup}">ä¸Šä¸€é¡µ</a>
           {msvod:pagenum len=8}
-          <a href="{msvod:pagedown}">ÏÂÒ»Ò³</a>
-          <a href="{msvod:pagelast}">Î²Ò³</a>
-   <span class="new_page_total">¹²ÓĞ<em>{msvod:pagedata}</em>ÌõÆÀÂÛ</span>
+          <a href="{msvod:pagedown}">ä¸‹ä¸€é¡µ</a>
+          <a href="{msvod:pagelast}">å°¾é¡µ</a>
+   <span class="new_page_total">å…±æœ‰<em>{msvod:pagedata}</em>æ¡è¯„è®º</span>
 </span>
 </div>
 </div>
 <div class="new_message">
    <div class="new_msg_tips_bg"<?php if(Pl_Youke==1 || !empty($_SESSION['msvod__id'])) echo ' style="display:none;"';?>>
-   <div class="new_msg_tips">ĞèµÇÂ¼ÒÔºó²ÅÄÜ·¢±í£¬<a href="{msvod:loginlink}" target="_blank">Á¢¼´µÇÂ¼</a>&nbsp;|&nbsp;<a href="{msvod:reglink}" target="_blank">×¢²á</a></div>
+   <div class="new_msg_tips">éœ€ç™»å½•ä»¥åæ‰èƒ½å‘è¡¨ï¼Œ<a href="{msvod:loginlink}" target="_blank">ç«‹å³ç™»å½•</a>&nbsp;|&nbsp;<a href="{msvod:reglink}" target="_blank">æ³¨å†Œ</a></div>
 </div>
 <div class="new_msg_hd">
-       <div class="new_msg_tit"><h2>ÎÒÒªÆÀÂÛ</h2></div>
-       <div class="new_msg_face_btn"><a class="icon_biaoqing" href="###" onclick="faces();" id="faces" title="²åÈë±íÇé">²åÈë±íÇé</a></div>
+       <div class="new_msg_tit"><h2>æˆ‘è¦è¯„è®º</h2></div>
+       <div class="new_msg_face_btn"><a class="icon_biaoqing" href="###" onclick="faces();" id="faces" title="æ’å…¥è¡¨æƒ…">æ’å…¥è¡¨æƒ…</a></div>
 </div>
 <div class="new_face_all" id="msvod_faces" style="display:none;">[pl:faces]</div>
 <input type='hidden' id='pl_token' value='[pl:token]'/>
 <div class="new_msg_val"><textarea style="width:98%;" name="msvod_pl_content" id="msvod_pl_content"></textarea>
 </div>
 <div class="new_msg_do">
-        <span class="new_msg_button"><input class="new_msg_btn" type="button" onclick="msvod_pladd()" value="·¢±íÆÀÂÛ"></span>
+        <span class="new_msg_button"><input class="new_msg_btn" type="button" onclick="msvod_pladd()" value="å‘è¡¨è¯„è®º"></span>
 </div>
 </div>
 <script type='text/javascript'>
@@ -60,10 +60,10 @@ function faces(){
      var none=$('#msvod_faces').css('display');
 	 if(none=='none'){
          $('#msvod_faces').show();
-		 $('#faces').text('¹Ø±Õ±íÇé');
+		 $('#faces').text('å…³é—­è¡¨æƒ…');
 	 }else{
          $('#msvod_faces').hide();
-		 $('#faces').text('´ò¿ª±íÇé');
+		 $('#faces').text('æ‰“å¼€è¡¨æƒ…');
 	 }
 }
 </script>

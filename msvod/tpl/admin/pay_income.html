@@ -73,13 +73,13 @@
 <?php
 if(empty($income)) echo '<tr><td align="center" height="50" colspan="9">'.L('tpl_19').'</td></tr>';
 foreach ($income as $row) {
-//类型
+//绫诲瀷
 if($row->sid==0){
 $lx='<font color=#0000ff>'.L('tpl_35').'</font>';
 }else{
 $lx='<font color=red>'.L('tpl_36').'</font>';
 }
-//会员
+//浼氬憳
 $rowu=$this->db->query("SELECT name FROM ".MS_SqlPrefix."user where id=".$row->uid."")->row();
 $uname=($rowu)?$rowu->name:L('tpl_20').$row->uid;
 echo '

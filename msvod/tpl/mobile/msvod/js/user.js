@@ -1,5 +1,5 @@
 $(document).ready(function(){
-//·µ»ØÉÏÒ»Ò³
+//è¿”å›žä¸Šä¸€é¡µ
 $("#pageback").click( function () { 
 history.back();
 });

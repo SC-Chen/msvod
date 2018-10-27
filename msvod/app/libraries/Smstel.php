@@ -7,37 +7,37 @@
 */
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 /**
-* ÊÖ»ú¶ÌĞÅÀà
+* æ‰‹æœºçŸ­ä¿¡ç±»
 */
 class Smstel {
 function __construct ()
 {
-$this->appid   = MS_Sms_ID;  //ÉÌ»§ID
-$this->appkey  = MS_Sms_Key;  //ÉÌ»§KEY
+$this->appid   = MS_Sms_ID;  //å•†æˆ·ID
+$this->appkey  = MS_Sms_Key;  //å•†æˆ·KEY
 $this->curl    = 'http://http.yunsms.cn/mm/';
 }
-//·¢ËÍ
+//å‘é€
 function add($tel,$neir){
 $get='index?uid='.$this->appid;
 $get.='&key='.$this->appkey;
 $get.='&tel='.trim($tel);
-$get.='&neir='.$neir.'¡¾'.MS_Sms_Name.'¡¿';
+$get.='&neir='.$neir.'ã€'.MS_Sms_Name.'ã€‘';
 $url=$this->curl.$get;
 $msg=htmlall($url);
 $msg=$this->error($msg);
 return $msg;
 }
-//·¢ËÍ×¢²áÑéÖ¤Âë
+//å‘é€æ³¨å†ŒéªŒè¯ç 
 function seadd($tel){
 $tel_time=$_SESSION['tel_time'];
 if($tel_time && $tel_time+60>time()){
-return 'addok'; //·¢ËÍÊ±¼äÃ»ÓĞ¹ı60Ãë
+return 'addok'; //å‘é€æ—¶é—´æ²¡æœ‰è¿‡60ç§’
 }
 $code=random_string('nozero',4);
 $_SESSION['tel_code']=$code;
 $_SESSION['tel_time']=time();		   
-$neir='»¶Ó­×¢²á'.Web_Name.'£¬ÄúµÄÑéÖ¤ÂëÊÇ'.$code.'£¬Çë¾¡¿ìÍê³ÉÑéÖ¤¡£(Èç·Ç±¾ÈË²Ù×÷£¬¿É²»ÓèÀí»á)¡¾'.MS_Sms_Name.'¡¿';
-//¼´Ê±·¢ËÍ
+$neir='æ¬¢è¿æ³¨å†Œ'.Web_Name.'ï¼Œæ‚¨çš„éªŒè¯ç æ˜¯'.$code.'ï¼Œè¯·å°½å¿«å®ŒæˆéªŒè¯ã€‚(å¦‚éæœ¬äººæ“ä½œï¼Œå¯ä¸äºˆç†ä¼š)ã€'.MS_Sms_Name.'ã€‘';
+//å³æ—¶å‘é€
 $res = $this->sendSMS($this->appid,$this->appkey,trim($tel),$neir);
 if(trim($res)==100){
 $data=1;
@@ -46,7 +46,7 @@ $data=trim($this->ererr($res));
 }
 return $data;
 }
-//²éÑ¯Óà¶î
+//æŸ¥è¯¢ä½™é¢
 function balance(){
 $get='?uid='.$this->appid;
 $get.='&pwd='.strtolower(md5($this->appkey));
@@ -63,41 +63,41 @@ function ererr($id){
 if($id==100){
 $d='1';
 }elseif($id==101){
-$d='ÑéÖ¤Ê§°Ü£¨ÕÊºÅÃÜÂë´íÎó£©';
+$d='éªŒè¯å¤±è´¥ï¼ˆå¸å·å¯†ç é”™è¯¯ï¼‰';
 }elseif($id==102){
-$d='¶ÌĞÅ²»×ã';
+$d='çŸ­ä¿¡ä¸è¶³';
 }elseif($id==103){
-$d='²Ù×÷Ê§°Ü';
+$d='æ“ä½œå¤±è´¥';
 }elseif($id==104){
-$d='·Ç·¨×Ö·û';
+$d='éæ³•å­—ç¬¦';
 }elseif($id==105){
-$d='ÄÚÈİ¹ı¶à';
+$d='å†…å®¹è¿‡å¤š';
 }elseif($id==106){
-$d='ºÅÂë¹ı¶à';
+$d='å·ç è¿‡å¤š';
 }elseif($id==107){
-$d='ÆµÂÊ¹ı¿ì';
+$d='é¢‘ç‡è¿‡å¿«';
 }elseif($id==108){
-$d='ºÅÂëÄÚÈİÎª¿Õ';
+$d='å·ç å†…å®¹ä¸ºç©º';
 }elseif($id==109){
-$d='ÕÊºÅÒì³£';
+$d='å¸å·å¼‚å¸¸';
 }elseif($id==110){
-$d='½ûÖ¹Æµ·±µ¥Ìõ·¢ËÍ';
+$d='ç¦æ­¢é¢‘ç¹å•æ¡å‘é€';
 }elseif($id==111){
-$d='ÕÊºÅÔİÍ£·¢ËÍ';
+$d='å¸å·æš‚åœå‘é€';
 }elseif($id==112){
-$d='ºÅÂë´íÎó';
+$d='å·ç é”™è¯¯';
 }elseif($id==113){
-$d='¶¨Ê±Ê±¼ä¸ñÊ½²»ÕıÈ·';
+$d='å®šæ—¶æ—¶é—´æ ¼å¼ä¸æ­£ç¡®';
 }elseif($id==114){
-$d='ÕÊºÅÁÙÊ±Ëø¶¨£¬10·ÖÖÓºó×Ô¶¯½âËø';
+$d='å¸å·ä¸´æ—¶é”å®šï¼Œ10åˆ†é’Ÿåè‡ªåŠ¨è§£é”';
 }elseif($id==115){
-$d='Á¬½ÓÊ§°Ü';
+$d='è¿æ¥å¤±è´¥';
 }elseif($id==116){
-$d='½ûÖ¹½Ó¿Ú·¢ËÍ';
+$d='ç¦æ­¢æ¥å£å‘é€';
 }elseif($id==117){
-$d='°ó¶¨IP´íÎó';
+$d='ç»‘å®šIPé”™è¯¯';
 }elseif($id==120){
-$d='ÏµÍ³Éı¼¶';
+$d='ç³»ç»Ÿå‡çº§';
 }
 return $d;
 }
@@ -106,14 +106,14 @@ function sendSMS($uid,$pwd,$mobile,$content,$time='',$mid='')
 $http = 'http://http.yunsms.cn/tx/';
 $data = array
 (
-'uid'=>$uid,					//Êı×ÖÓÃ»§Ãû
-'pwd'=>strtolower(md5($pwd)),	//MD5Î»32ÃÜÂë
-'mobile'=>$mobile,				//ºÅÂë
-'content'=>$content,			//ÄÚÈİ Èç¹û¶Ô·½ÊÇutf-8±àÂë£¬ÔòĞè×ªÂëiconv('gbk','utf-8',$content); Èç¹ûÊÇgbkÔòÎŞĞè×ªÂë
-'time'=>$time,		//¶¨Ê±·¢ËÍ
-'mid'=>$mid						//×ÓÀ©Õ¹ºÅ
+'uid'=>$uid,					//æ•°å­—ç”¨æˆ·å
+'pwd'=>strtolower(md5($pwd)),	//MD5ä½32å¯†ç 
+'mobile'=>$mobile,				//å·ç 
+'content'=>$content,			//å†…å®¹ å¦‚æœå¯¹æ–¹æ˜¯utf-8ç¼–ç ï¼Œåˆ™éœ€è½¬ç iconv('gbk','utf-8',$content); å¦‚æœæ˜¯gbkåˆ™æ— éœ€è½¬ç 
+'time'=>$time,		//å®šæ—¶å‘é€
+'mid'=>$mid						//å­æ‰©å±•å·
 );
-$re= $this->postSMS($http,$data);			//POST·½Ê½Ìá½»
+$re= $this->postSMS($http,$data);			//POSTæ–¹å¼æäº¤
 return $re;
 }
 function postSMS($url,$data='')
@@ -125,7 +125,7 @@ $port = $row['port'] ? $row['port']:80;
 $file = $row['path'];
 while (list($k,$v) = each($data)) 
 {
-$post .= rawurlencode($k)."=".rawurlencode($v)."&";	//×ªURL±ê×¼Âë
+$post .= rawurlencode($k)."=".rawurlencode($v)."&";	//è½¬URLæ ‡å‡†ç 
 }
 $post = substr( $post , 0 , -1 );
 $len = strlen($post);
@@ -150,7 +150,7 @@ unset($receive[0]);
 return implode("",$receive);
 }
 }
-//´íÎóÌáÊ¾
+//é”™è¯¯æç¤º
 function error($msg){
 if(empty($msg)){
 return L('curl_err');

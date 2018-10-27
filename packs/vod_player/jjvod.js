@@ -44,7 +44,7 @@ function PlayerIe(){
 }
 
 function vodstatus(){
-    if(document.getElementById('jjvodPlayer').PlayState==12){//²¥·ÅÍê³É½øÈëÏÂÒ»¼¯
+    if(document.getElementById('jjvodPlayer').PlayState==12){//æ’­æ”¾å®Œæˆè¿›å…¥ä¸‹ä¸€é›†
 	if(xurl!=''){
 		top.location.href=xurl;
 	}

@@ -1,66 +1,66 @@
 <?php
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 return array(
-//ºóÌ¨²Ëµ¥²¿·Ö	
+//åå°èœå•éƒ¨åˆ†	
 'admin' => array(
 array(
-'name' => 'Ğ¡Ëµ¹ÜÀí',
+'name' => 'å°è¯´ç®¡ç†',
 'menu' => array(
 array(
-'name' => 'Ğ¡Ëµ¹ÜÀí',
+'name' => 'å°è¯´ç®¡ç†',
 'link' => 'admin/news'
 ),
 array(
-'name' => 'Ğ¡Ëµ·ÖÀà',
+'name' => 'å°è¯´åˆ†ç±»',
 'link' => 'admin/lists'
 ),
 //array(
-//'name' => 'Ğ¡Ëµ×¨Ìâ',
+//'name' => 'å°è¯´ä¸“é¢˜',
 //'link' => 'admin/topic'
 //),
 array(
-'name' => 'ÔÄ¶Á¼ÇÂ¼',
+'name' => 'é˜…è¯»è®°å½•',
 'link' => 'admin/look'
 ),
 ),
 ),
 array(
-'name' => '¾²Ì¬Éú³É',
+'name' => 'é™æ€ç”Ÿæˆ',
 'menu' => array(
 //array(
-//'name' => 'Éú³É°æ¿éÊ×Ò³',
+//'name' => 'ç”Ÿæˆç‰ˆå—é¦–é¡µ',
 //'link' => 'admin/html/index'
 //),
 array(
-'name' => 'Éú³É·ÖÀàÒ³',
+'name' => 'ç”Ÿæˆåˆ†ç±»é¡µ',
 'link' => 'admin/html/type'
 ),
 array(
-'name' => 'Éú³ÉÄÚÈİÒ³',
+'name' => 'ç”Ÿæˆå†…å®¹é¡µ',
 'link' => 'admin/html/show'
 ),
 //array(
-//'name' => 'Éú³É×¨ÌâÒ³',
+//'name' => 'ç”Ÿæˆä¸“é¢˜é¡µ',
 //'link' => 'admin/html/topic'
 //),
 array(
-'name' => 'Éú³É×Ô¶¨ÒåÒ³',
+'name' => 'ç”Ÿæˆè‡ªå®šä¹‰é¡µ',
 'link' => 'admin/html/opt'
 ),
 ),
 )
 ),
-//»áÔ±ÖĞĞÄ²Ëµ¥²¿·Ö
+//ä¼šå‘˜ä¸­å¿ƒèœå•éƒ¨åˆ†
 'user' => array(
 array(
-'name' => 'Ğ¡Ëµ¹ÜÀí',
+'name' => 'å°è¯´ç®¡ç†',
 'menu' => array(
 array(
-'name' => 'ÎÒµÄĞ¡Ëµ',
+'name' => 'æˆ‘çš„å°è¯´',
 'link' => 'user/news',
 ),
 array(
-'name' => '·¢±íĞ¡Ëµ',
+'name' => 'å‘è¡¨å°è¯´',
 'link' => 'user/news/add',
 )
 )

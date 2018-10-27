@@ -1,13 +1,13 @@
 <?php
 /* *
- * ÀàÃû£ºAlipaySubmit
- * ¹¦ÄÜ£ºÖ§¸¶±¦¸÷½Ó¿ÚÇëÇóÌá½»Àà
- * ÏêÏ¸£º¹¹ÔìÖ§¸¶±¦¸÷½Ó¿Ú±íµ¥HTMLÎÄ±¾£¬»ñÈ¡Ô¶³ÌHTTPÊı¾İ
- * °æ±¾£º3.3
- * ÈÕÆÚ£º2012-07-23
- * ËµÃ÷£º
- * ÒÔÏÂ´úÂëÖ»ÊÇÎªÁË·½±ãÉÌ»§²âÊÔ¶øÌá¹©µÄÑùÀı´úÂë£¬ÉÌ»§¿ÉÒÔ¸ù¾İ×Ô¼ºÍøÕ¾µÄĞèÒª£¬°´ÕÕ¼¼ÊõÎÄµµ±àĞ´,²¢·ÇÒ»¶¨ÒªÊ¹ÓÃ¸Ã´úÂë¡£
- * ¸Ã´úÂë½ö¹©Ñ§Ï°ºÍÑĞ¾¿Ö§¸¶±¦½Ó¿ÚÊ¹ÓÃ£¬Ö»ÊÇÌá¹©Ò»¸ö²Î¿¼¡£
+ * ç±»åï¼šAlipaySubmit
+ * åŠŸèƒ½ï¼šæ”¯ä»˜å®å„æ¥å£è¯·æ±‚æäº¤ç±»
+ * è¯¦ç»†ï¼šæ„é€ æ”¯ä»˜å®å„æ¥å£è¡¨å•HTMLæ–‡æœ¬ï¼Œè·å–è¿œç¨‹HTTPæ•°æ®
+ * ç‰ˆæœ¬ï¼š3.3
+ * æ—¥æœŸï¼š2012-07-23
+ * è¯´æ˜ï¼š
+ * ä»¥ä¸‹ä»£ç åªæ˜¯ä¸ºäº†æ–¹ä¾¿å•†æˆ·æµ‹è¯•è€Œæä¾›çš„æ ·ä¾‹ä»£ç ï¼Œå•†æˆ·å¯ä»¥æ ¹æ®è‡ªå·±ç½‘ç«™çš„éœ€è¦ï¼ŒæŒ‰ç…§æŠ€æœ¯æ–‡æ¡£ç¼–å†™,å¹¶éä¸€å®šè¦ä½¿ç”¨è¯¥ä»£ç ã€‚
+ * è¯¥ä»£ç ä»…ä¾›å­¦ä¹ å’Œç ”ç©¶æ”¯ä»˜å®æ¥å£ä½¿ç”¨ï¼Œåªæ˜¯æä¾›ä¸€ä¸ªå‚è€ƒã€‚
  */
 require_once("alipay_core.function.php");
 require_once("alipay_md5.function.php");
@@ -16,7 +16,7 @@ class AlipaySubmit {
 
 	var $alipay_config;
 	/**
-	 *Ö§¸¶±¦Íø¹ØµØÖ·£¨ĞÂ£©
+	 *æ”¯ä»˜å®ç½‘å…³åœ°å€ï¼ˆæ–°ï¼‰
 	 */
 	var $alipay_gateway_new = '/ldpay/syspay.php?';
 
@@ -28,12 +28,12 @@ class AlipaySubmit {
     }
 	
 	/**
-	 * Éú³ÉÇ©Ãû½á¹û
-	 * @param $para_sort ÒÑÅÅĞòÒªÇ©ÃûµÄÊı×é
-	 * return Ç©Ãû½á¹û×Ö·û´®
+	 * ç”Ÿæˆç­¾åç»“æœ
+	 * @param $para_sort å·²æ’åºè¦ç­¾åçš„æ•°ç»„
+	 * return ç­¾åç»“æœå­—ç¬¦ä¸²
 	 */
 	function buildRequestMysign($para_sort) {
-		//°ÑÊı×éËùÓĞÔªËØ£¬°´ÕÕ¡°²ÎÊı=²ÎÊıÖµ¡±µÄÄ£Ê½ÓÃ¡°&¡±×Ö·ûÆ´½Ó³É×Ö·û´®
+		//æŠŠæ•°ç»„æ‰€æœ‰å…ƒç´ ï¼ŒæŒ‰ç…§â€œå‚æ•°=å‚æ•°å€¼â€çš„æ¨¡å¼ç”¨â€œ&â€å­—ç¬¦æ‹¼æ¥æˆå­—ç¬¦ä¸²
 		$prestr = createLinkstring($para_sort);
 		
 		$mysign = "";
@@ -49,21 +49,21 @@ class AlipaySubmit {
 	}
 
 	/**
-     * Éú³ÉÒªÇëÇó¸øÖ§¸¶±¦µÄ²ÎÊıÊı×é
-     * @param $para_temp ÇëÇóÇ°µÄ²ÎÊıÊı×é
-     * @return ÒªÇëÇóµÄ²ÎÊıÊı×é
+     * ç”Ÿæˆè¦è¯·æ±‚ç»™æ”¯ä»˜å®çš„å‚æ•°æ•°ç»„
+     * @param $para_temp è¯·æ±‚å‰çš„å‚æ•°æ•°ç»„
+     * @return è¦è¯·æ±‚çš„å‚æ•°æ•°ç»„
      */
 	function buildRequestPara($para_temp) {
-		//³ıÈ¥´ıÇ©Ãû²ÎÊıÊı×éÖĞµÄ¿ÕÖµºÍÇ©Ãû²ÎÊı
+		//é™¤å»å¾…ç­¾åå‚æ•°æ•°ç»„ä¸­çš„ç©ºå€¼å’Œç­¾åå‚æ•°
 		$para_filter = paraFilter($para_temp);
 
-		//¶Ô´ıÇ©Ãû²ÎÊıÊı×éÅÅĞò
+		//å¯¹å¾…ç­¾åå‚æ•°æ•°ç»„æ’åº
 		$para_sort = argSort($para_filter);
 
-		//Éú³ÉÇ©Ãû½á¹û
+		//ç”Ÿæˆç­¾åç»“æœ
 		$mysign = $this->buildRequestMysign($para_sort);
 		
-		//Ç©Ãû½á¹ûÓëÇ©Ãû·½Ê½¼ÓÈëÇëÇóÌá½»²ÎÊı×éÖĞ
+		//ç­¾åç»“æœä¸ç­¾åæ–¹å¼åŠ å…¥è¯·æ±‚æäº¤å‚æ•°ç»„ä¸­
 		$para_sort['sign'] = $mysign;
 		$para_sort['sign_type'] = strtoupper(trim($this->alipay_config['sign_type']));
 		
@@ -71,29 +71,29 @@ class AlipaySubmit {
 	}
 
 	/**
-     * Éú³ÉÒªÇëÇó¸øÖ§¸¶±¦µÄ²ÎÊıÊı×é
-     * @param $para_temp ÇëÇóÇ°µÄ²ÎÊıÊı×é
-     * @return ÒªÇëÇóµÄ²ÎÊıÊı×é×Ö·û´®
+     * ç”Ÿæˆè¦è¯·æ±‚ç»™æ”¯ä»˜å®çš„å‚æ•°æ•°ç»„
+     * @param $para_temp è¯·æ±‚å‰çš„å‚æ•°æ•°ç»„
+     * @return è¦è¯·æ±‚çš„å‚æ•°æ•°ç»„å­—ç¬¦ä¸²
      */
 	function buildRequestParaToString($para_temp) {
-		//´ıÇëÇó²ÎÊıÊı×é
+		//å¾…è¯·æ±‚å‚æ•°æ•°ç»„
 		$para = $this->buildRequestPara($para_temp);
 		
-		//°Ñ²ÎÊı×éÖĞËùÓĞÔªËØ£¬°´ÕÕ¡°²ÎÊı=²ÎÊıÖµ¡±µÄÄ£Ê½ÓÃ¡°&¡±×Ö·ûÆ´½Ó³É×Ö·û´®£¬²¢¶Ô×Ö·û´®×öurlencode±àÂë
+		//æŠŠå‚æ•°ç»„ä¸­æ‰€æœ‰å…ƒç´ ï¼ŒæŒ‰ç…§â€œå‚æ•°=å‚æ•°å€¼â€çš„æ¨¡å¼ç”¨â€œ&â€å­—ç¬¦æ‹¼æ¥æˆå­—ç¬¦ä¸²ï¼Œå¹¶å¯¹å­—ç¬¦ä¸²åšurlencodeç¼–ç 
 		$request_data = createLinkstringUrlencode($para);
 		
 		return $request_data;
 	}
 	
     /**
-     * ½¨Á¢ÇëÇó£¬ÒÔ±íµ¥HTMLĞÎÊ½¹¹Ôì£¨Ä¬ÈÏ£©
-     * @param $para_temp ÇëÇó²ÎÊıÊı×é
-     * @param $method Ìá½»·½Ê½¡£Á½¸öÖµ¿ÉÑ¡£ºpost¡¢get
-     * @param $button_name È·ÈÏ°´Å¥ÏÔÊ¾ÎÄ×Ö
-     * @return Ìá½»±íµ¥HTMLÎÄ±¾
+     * å»ºç«‹è¯·æ±‚ï¼Œä»¥è¡¨å•HTMLå½¢å¼æ„é€ ï¼ˆé»˜è®¤ï¼‰
+     * @param $para_temp è¯·æ±‚å‚æ•°æ•°ç»„
+     * @param $method æäº¤æ–¹å¼ã€‚ä¸¤ä¸ªå€¼å¯é€‰ï¼špostã€get
+     * @param $button_name ç¡®è®¤æŒ‰é’®æ˜¾ç¤ºæ–‡å­—
+     * @return æäº¤è¡¨å•HTMLæ–‡æœ¬
      */
 	function buildRequestForm($para_temp, $method, $button_name) {
-		//´ıÇëÇó²ÎÊıÊı×é
+		//å¾…è¯·æ±‚å‚æ•°æ•°ç»„
 		$para = $this->buildRequestPara($para_temp);
 		
 		$sHtml = "<form id='alipaysubmit' name='alipaysubmit' action='".$this->alipay_gateway_new."_input_charset=".trim(strtolower($this->alipay_config['input_charset']))."' method='".$method."'>";
@@ -101,7 +101,7 @@ class AlipaySubmit {
             $sHtml.= "<input type='hidden' name='".$key."' value='".$val."'/>";
         }
 
-		//submit°´Å¥¿Ø¼şÇë²»Òªº¬ÓĞnameÊôĞÔ
+		//submitæŒ‰é’®æ§ä»¶è¯·ä¸è¦å«æœ‰nameå±æ€§
         $sHtml = $sHtml."<input type='submit' value='".$button_name."'></form>";
 		
 		$sHtml = $sHtml."<script>document.forms['alipaysubmit'].submit();</script>";
@@ -110,45 +110,45 @@ class AlipaySubmit {
 	}
 	
 	/**
-     * ½¨Á¢ÇëÇó£¬ÒÔÄ£ÄâÔ¶³ÌHTTPµÄPOSTÇëÇó·½Ê½¹¹Ôì²¢»ñÈ¡Ö§¸¶±¦µÄ´¦Àí½á¹û
-     * @param $para_temp ÇëÇó²ÎÊıÊı×é
-     * @return Ö§¸¶±¦´¦Àí½á¹û
+     * å»ºç«‹è¯·æ±‚ï¼Œä»¥æ¨¡æ‹Ÿè¿œç¨‹HTTPçš„POSTè¯·æ±‚æ–¹å¼æ„é€ å¹¶è·å–æ”¯ä»˜å®çš„å¤„ç†ç»“æœ
+     * @param $para_temp è¯·æ±‚å‚æ•°æ•°ç»„
+     * @return æ”¯ä»˜å®å¤„ç†ç»“æœ
      */
 	function buildRequestHttp($para_temp) {
 		$sResult = '';
 		
-		//´ıÇëÇó²ÎÊıÊı×é×Ö·û´®
+		//å¾…è¯·æ±‚å‚æ•°æ•°ç»„å­—ç¬¦ä¸²
 		$request_data = $this->buildRequestPara($para_temp);
 
-		//Ô¶³Ì»ñÈ¡Êı¾İ
+		//è¿œç¨‹è·å–æ•°æ®
 		$sResult = getHttpResponsePOST($this->alipay_gateway_new, $this->alipay_config['cacert'],$request_data,trim(strtolower($this->alipay_config['input_charset'])));
 
 		return $sResult;
 	}
 	
 	/**
-     * ½¨Á¢ÇëÇó£¬ÒÔÄ£ÄâÔ¶³ÌHTTPµÄPOSTÇëÇó·½Ê½¹¹Ôì²¢»ñÈ¡Ö§¸¶±¦µÄ´¦Àí½á¹û£¬´øÎÄ¼şÉÏ´«¹¦ÄÜ
-     * @param $para_temp ÇëÇó²ÎÊıÊı×é
-     * @param $file_para_name ÎÄ¼şÀàĞÍµÄ²ÎÊıÃû
-     * @param $file_name ÎÄ¼şÍêÕû¾ø¶ÔÂ·¾¶
-     * @return Ö§¸¶±¦·µ»Ø´¦Àí½á¹û
+     * å»ºç«‹è¯·æ±‚ï¼Œä»¥æ¨¡æ‹Ÿè¿œç¨‹HTTPçš„POSTè¯·æ±‚æ–¹å¼æ„é€ å¹¶è·å–æ”¯ä»˜å®çš„å¤„ç†ç»“æœï¼Œå¸¦æ–‡ä»¶ä¸Šä¼ åŠŸèƒ½
+     * @param $para_temp è¯·æ±‚å‚æ•°æ•°ç»„
+     * @param $file_para_name æ–‡ä»¶ç±»å‹çš„å‚æ•°å
+     * @param $file_name æ–‡ä»¶å®Œæ•´ç»å¯¹è·¯å¾„
+     * @return æ”¯ä»˜å®è¿”å›å¤„ç†ç»“æœ
      */
 	function buildRequestHttpInFile($para_temp, $file_para_name, $file_name) {
 		
-		//´ıÇëÇó²ÎÊıÊı×é
+		//å¾…è¯·æ±‚å‚æ•°æ•°ç»„
 		$para = $this->buildRequestPara($para_temp);
 		$para[$file_para_name] = "@".$file_name;
 		
-		//Ô¶³Ì»ñÈ¡Êı¾İ
+		//è¿œç¨‹è·å–æ•°æ®
 		$sResult = getHttpResponsePOST($this->alipay_gateway_new, $this->alipay_config['cacert'],$para,trim(strtolower($this->alipay_config['input_charset'])));
 
 		return $sResult;
 	}
 	
 	/**
-     * ÓÃÓÚ·ÀµöÓã£¬µ÷ÓÃ½Ó¿Úquery_timestampÀ´»ñÈ¡Ê±¼ä´ÁµÄ´¦Àíº¯Êı
-	 * ×¢Òâ£º¸Ã¹¦ÄÜPHP5»·¾³¼°ÒÔÉÏÖ§³Ö£¬Òò´Ë±ØĞë·şÎñÆ÷¡¢±¾µØµçÄÔÖĞ×°ÓĞÖ§³ÖDOMDocument¡¢SSLµÄPHPÅäÖÃ»·¾³¡£½¨Òé±¾µØµ÷ÊÔÊ±Ê¹ÓÃPHP¿ª·¢Èí¼ş
-     * return Ê±¼ä´Á×Ö·û´®
+     * ç”¨äºé˜²é’“é±¼ï¼Œè°ƒç”¨æ¥å£query_timestampæ¥è·å–æ—¶é—´æˆ³çš„å¤„ç†å‡½æ•°
+	 * æ³¨æ„ï¼šè¯¥åŠŸèƒ½PHP5ç¯å¢ƒåŠä»¥ä¸Šæ”¯æŒï¼Œå› æ­¤å¿…é¡»æœåŠ¡å™¨ã€æœ¬åœ°ç”µè„‘ä¸­è£…æœ‰æ”¯æŒDOMDocumentã€SSLçš„PHPé…ç½®ç¯å¢ƒã€‚å»ºè®®æœ¬åœ°è°ƒè¯•æ—¶ä½¿ç”¨PHPå¼€å‘è½¯ä»¶
+     * return æ—¶é—´æˆ³å­—ç¬¦ä¸²
 	 */
 	function query_timestamp() {
 		$url = $this->alipay_gateway_new."service=query_timestamp&partner=".trim(strtolower($this->alipay_config['partner']))."&_input_charset=".trim(strtolower($this->alipay_config['input_charset']));

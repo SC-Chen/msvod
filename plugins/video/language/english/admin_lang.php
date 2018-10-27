@@ -106,9 +106,9 @@ $lang['plub_98']  =  "Is sorry, FTP links failure~!";
 
 $lang['plub_99']  =  "Is at the same time that you increase".User_Cion_Add."Gold coin, ".User_Jinyan_Add."Experience is worth, ";
 $lang['plub_100']  =  "The song examines a notice";
-$lang['plub_101']  =  "Congratulate you, your song ¡¶ %the s ¡·have already examined to pass, % the s appreciate your support~~";
+$lang['plub_101']  =  "Congratulate you, your song ã€Š %the s ã€‹have already examined to pass, % the s appreciate your support~~";
 $lang['plub_102']  =  "The album examines a notice";
-$lang['plub_103']  =  "Congratulate you, your album ¡¶ %the s ¡·have already examined to pass, % the s appreciate your support~~";
+$lang['plub_103']  =  "Congratulate you, your album ã€Š %the s ã€‹have already examined to pass, % the s appreciate your support~~";
 
 
 //See diagram

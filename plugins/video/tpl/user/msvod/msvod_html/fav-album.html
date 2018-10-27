@@ -17,43 +17,43 @@
 					<div class="uMain_content">
 						<div class="main_nav width">
 							<ul style="width: 785px;">
-								<li><span><a href="[user:url userlink=video]">ÎÒ·ÖÏíµÄ</a></span></li>
-								<li><span><a href="[user:url userlink=video,verify]">ÉóºËÖĞµÄ</a></span></li>
-								<li class="on"><span><a href="[user:url userlink=fav]">ÎÒÊÕ²ØµÄ</a></span></li>
-								<li><span><a href="[user:url userlink=down]">ÎÒÏÂÔØµÄ</a></span></li>
-								<li class="right"><a class="" href="[user:url userlink=video,add]">ÉÏ´«ÊÓÆµ</a></li>
+								<li><span><a href="[user:url userlink=video]">æˆ‘åˆ†äº«çš„</a></span></li>
+								<li><span><a href="[user:url userlink=video,verify]">å®¡æ ¸ä¸­çš„</a></span></li>
+								<li class="on"><span><a href="[user:url userlink=fav]">æˆ‘æ”¶è—çš„</a></span></li>
+								<li><span><a href="[user:url userlink=down]">æˆ‘ä¸‹è½½çš„</a></span></li>
+								<li class="right"><a class="" href="[user:url userlink=video,add]">ä¸Šä¼ è§†é¢‘</a></li>
 							</ul>
 						</div>
 						<div class="main_nav2">
 							<ul>
-							    <li><a href="[user:url userlink=fav]">ÊÕ²ØµÄÊÓÆµ</a></li>
-							    <li class="current"><a href="[user:url userlink=fav,album]">ÊÕ²ØµÄ×¨Ìâ</a></li>
+							    <li><a href="[user:url userlink=fav]">æ”¶è—çš„è§†é¢‘</a></li>
+							    <li class="current"><a href="[user:url userlink=fav,album]">æ”¶è—çš„ä¸“é¢˜</a></li>
 							</ul>
 						</div>
 						<div id="videolist" class="minHeight500">
 							<div class="private_topic_list">
-								<!--ÓĞÄÚÈİ-->
+								<!--æœ‰å†…å®¹-->
 								<div class="v_list">
 								{msvod:topic table="video_fav" pagesize="8" uid="auto" sort="time" order="desc"}
                     			<div class="topic">
 									<span class="pics"><a href="[topic:url zdy=video,did,topic/show]" target="_blank" title="[topic:name]" class="v_pic"><img src="{msvodphp}piclink('topic',getzd('video_topic','pic','[topic:did]'));{/msvodphp}" art="[topic:name]"/></a></span>
 									<span class="info">
 										<p class="name"><a href="[topic:url zdy=video,did,topic/show]" target="_blank" title="[topic:name]">[topic:name]</a></p>
-										<p class="tags"><span class="user">ÑİÔ±£º{msvodphp}getzd('singer','name',getzd('video_topic','singerid','[topic:did]'));{/msvodphp}</span></p>
-										<p class="tags"><span class="user">Ê±¼ä£º[topic:addtime style=time]</span></p>
-										<p class="tags"><span class="user"><a onClick="fav.del('[user:url userlink=fav,del]/[topic:id]/2');" href="javascript:;" title="É¾³ıÊÕ²Ø">É¾³ı</a></span></p>
+										<p class="tags"><span class="user">æ¼”å‘˜ï¼š{msvodphp}getzd('singer','name',getzd('video_topic','singerid','[topic:did]'));{/msvodphp}</span></p>
+										<p class="tags"><span class="user">æ—¶é—´ï¼š[topic:addtime style=time]</span></p>
+										<p class="tags"><span class="user"><a onClick="fav.del('[user:url userlink=fav,del]/[topic:id]/2');" href="javascript:;" title="åˆ é™¤æ”¶è—">åˆ é™¤</a></span></p>
 									</span>
 		       					</div>
 								{/msvod:topic}
 								</div>
 							</div>
-							{if:{msvod:pagedata}==0}<div class="zanwu">ÔİÎŞÊı¾İ£¡</div>{end if}
+							{if:{msvod:pagedata}==0}<div class="zanwu">æš‚æ— æ•°æ®ï¼</div>{end if}
 							<div class="page" style="{if:{msvod:pagecout}<2}display:none;{end if}">
 								<div class="pages">
-									<em title="×ÜÊıÁ¿">{msvod:pagedata}</em>
-                                    <a href="{msvod:pagefirst}">Ê×Ò³</a>
+									<em title="æ€»æ•°é‡">{msvod:pagedata}</em>
+                                    <a href="{msvod:pagefirst}">é¦–é¡µ</a>
 									{msvod:pagenum len=8}
-                                    <a href="{msvod:pagelast}">Î²Ò³</a>
+                                    <a href="{msvod:pagelast}">å°¾é¡µ</a>
 								</div>
 							</div>
 						</div>

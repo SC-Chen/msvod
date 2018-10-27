@@ -1,5 +1,5 @@
 <?php
-define('MS_Qn_Bk',''); //¿Õ¼äÃû³Æ 
+define('MS_Qn_Bk',''); //ç©ºé—´åç§° 
 define('MS_Qn_Ak',''); //AK   
 define('MS_Qn_Sk',''); //SK  
-define('MS_Qn_Url',''); //×Ô¶¨ÒåÓòÃû 
+define('MS_Qn_Url',''); //è‡ªå®šä¹‰åŸŸå 

@@ -1,5 +1,5 @@
 --
--- Êı¾İ¿â: 'msvod_v6'
+-- æ•°æ®åº“: 'msvod_v6'
 --
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
@@ -8,67 +8,67 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `{Prefix}admin` (
   `id` smallint(5) NOT NULL auto_increment,
-  `adminname` varchar(64) default '' COMMENT 'ÕËºÅ',
-  `adminpass` varchar(64) default '' COMMENT 'ÃÜÂë',
-  `admincode` varchar(6) default '' COMMENT 'ÃÜÔ¿',
-  `logip` varchar(128) default '' COMMENT '×îºóµÇÂ¼IP',
-  `lognums` int(10) default '0' COMMENT 'µÇÂ¼´ÎÊı',
-  `logtime` int(10) default '0' COMMENT '×îºóµÇÂ¼Ê±¼ä',
-  `card` varchar(255) default '' COMMENT '¿ÚÁî¿¨',
-  `sid` smallint(3) unsigned default '0' COMMENT '½ÇÉ«id',
+  `adminname` varchar(64) default '' COMMENT 'è´¦å·',
+  `adminpass` varchar(64) default '' COMMENT 'å¯†ç ',
+  `admincode` varchar(6) default '' COMMENT 'å¯†é’¥',
+  `logip` varchar(128) default '' COMMENT 'æœ€åç™»å½•IP',
+  `lognums` int(10) default '0' COMMENT 'ç™»å½•æ¬¡æ•°',
+  `logtime` int(10) default '0' COMMENT 'æœ€åç™»å½•æ—¶é—´',
+  `card` varchar(255) default '' COMMENT 'å£ä»¤å¡',
+  `sid` smallint(3) unsigned default '0' COMMENT 'è§’è‰²id',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='¹ÜÀíÔ±±í';
+) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='ç®¡ç†å‘˜è¡¨';
 
 --msvod_adminzu<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}adminzu` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `name` varchar(64) default '' COMMENT '½ÇÉ«Ãû³Æ',
-  `sys` text COMMENT 'Ä¬ÈÏÈ¨ÏŞ',
-  `app` text COMMENT '°å¿éÈ¨ÏŞ',
+  `name` varchar(64) default '' COMMENT 'è§’è‰²åç§°',
+  `sys` text COMMENT 'é»˜è®¤æƒé™',
+  `app` text COMMENT 'æ¿å—æƒé™',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='¹ÜÀíÔ±½ÇÉ«±í';
+) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='ç®¡ç†å‘˜è§’è‰²è¡¨';
 
 
 --msvod_admin_log<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}admin_log` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `uid` smallint(5) unsigned default '0' COMMENT 'ÓÃ»§ID',
-  `loginip` varchar(50) default '' COMMENT 'µÇÂ¼IP',
-  `logintime` int(10) unsigned default '0' COMMENT 'µÇÂ¼Ê±¼ä',
-  `useragent` varchar(255) default '' COMMENT '¿Í»§¶ËĞÅÏ¢',
+  `uid` smallint(5) unsigned default '0' COMMENT 'ç”¨æˆ·ID',
+  `loginip` varchar(50) default '' COMMENT 'ç™»å½•IP',
+  `logintime` int(10) unsigned default '0' COMMENT 'ç™»å½•æ—¶é—´',
+  `useragent` varchar(255) default '' COMMENT 'å®¢æˆ·ç«¯ä¿¡æ¯',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='¹ÜÀíÔ±µÇÂ¼±í';
+) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='ç®¡ç†å‘˜ç™»å½•è¡¨';
 
 
 --msvod_ads<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}ads` (
   `id` int(11) NOT NULL auto_increment,
-  `name` varchar(64) default '' COMMENT '±êÇ©±êÊ¾',
-  `js` varchar(100) default '' COMMENT 'JSÂ·¾¶',
-  `html` text COMMENT '±êÇ©´úÂë',
-  `neir` varchar(200) default '' COMMENT '±êÇ©½éÉÜ',
-  `addtime` int(11) default '0' COMMENT 'Ôö¼ÓÊ±¼ä',
+  `name` varchar(64) default '' COMMENT 'æ ‡ç­¾æ ‡ç¤º',
+  `js` varchar(100) default '' COMMENT 'JSè·¯å¾„',
+  `html` text COMMENT 'æ ‡ç­¾ä»£ç ',
+  `neir` varchar(200) default '' COMMENT 'æ ‡ç­¾ä»‹ç»',
+  `addtime` int(11) default '0' COMMENT 'å¢åŠ æ—¶é—´',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='×Ô¶¨ÒåJS±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='è‡ªå®šä¹‰JSè¡¨';
 
 
 --msvod_blog<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}blog` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `uid` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `hits` int(10) unsigned default '0' COMMENT 'ä¯ÀÀ´ÎÊı',
-  `phits` int(10) unsigned default '0' COMMENT 'ÆÀÂÛ´ÎÊı',
-  `neir` text COMMENT 'ËµËµÄÚÈİ',
-  `addtime` int(10) unsigned default '0' COMMENT '·¢±íÊ±¼ä',
+  `uid` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `hits` int(10) unsigned default '0' COMMENT 'æµè§ˆæ¬¡æ•°',
+  `phits` int(10) unsigned default '0' COMMENT 'è¯„è®ºæ¬¡æ•°',
+  `neir` text COMMENT 'è¯´è¯´å†…å®¹',
+  `addtime` int(10) unsigned default '0' COMMENT 'å‘è¡¨æ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`),
   KEY `pjits` (`phits`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='»áÔ±ËµËµ±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='ä¼šå‘˜è¯´è¯´è¡¨';
 
 
 --msvod_caiji<msvod>--
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}caiji` (
   `strth` text,
   `addtime` int(10) unsigned default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='²É¼¯¹æÔò±í';
+) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='é‡‡é›†è§„åˆ™è¡¨';
 
 
 
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}cjannex` (
   PRIMARY KEY  (`id`),
   KEY `cid` (`cid`),
   KEY `fid` (`fid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='²É¼¯ĞÂÔö¹æÔò±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='é‡‡é›†æ–°å¢è§„åˆ™è¡¨';
 
 
 --msvod_cjdata<msvod>--
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}cjdata` (
   `addtime` int(10) unsigned default '0',
   PRIMARY KEY  (`id`),
   KEY `zid` (`zid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='²É¼¯Êı¾İ±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='é‡‡é›†æ•°æ®è¡¨';
 
 
 
@@ -151,233 +151,233 @@ CREATE TABLE IF NOT EXISTS `{Prefix}cjlist` (
   `zid` tinyint(1) default '0',
   PRIMARY KEY  (`id`),
   KEY `zid` (`zid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='²É¼¯Õ¾µã±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='é‡‡é›†ç«™ç‚¹è¡¨';
 
 
 --msvod_dt<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}dt` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `uid` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `dir` varchar(64) default '' COMMENT '°æ¿é±êÊ¾',
-  `yid` tinyint(1) default '0' COMMENT 'ÊÇ·ñÏÔÊ¾',
-  `title` varchar(255) default '' COMMENT 'ÀàĞÍ±êÌâ',
-  `did` int(10) unsigned default '0' COMMENT 'Êı¾İID',
-  `name` varchar(255) default '' COMMENT 'Êı¾İ±êÌâ',
-  `link` varchar(255) default '' COMMENT 'Êı¾İÁ´½Ó',
-  `addtime` int(10) unsigned default '0' COMMENT 'Ôö¼ÓÊ±¼ä',
+  `uid` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `dir` varchar(64) default '' COMMENT 'ç‰ˆå—æ ‡ç¤º',
+  `yid` tinyint(1) default '0' COMMENT 'æ˜¯å¦æ˜¾ç¤º',
+  `title` varchar(255) default '' COMMENT 'ç±»å‹æ ‡é¢˜',
+  `did` int(10) unsigned default '0' COMMENT 'æ•°æ®ID',
+  `name` varchar(255) default '' COMMENT 'æ•°æ®æ ‡é¢˜',
+  `link` varchar(255) default '' COMMENT 'æ•°æ®é“¾æ¥',
+  `addtime` int(10) unsigned default '0' COMMENT 'å¢åŠ æ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`),
   KEY `yid` (`yid`),
   KEY `did` (`did`),
   KEY `dt_dir_id` (`dir`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='»áÔ±¶¯Ì¬±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='ä¼šå‘˜åŠ¨æ€è¡¨';
 
 
 --msvod_fans<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}fans` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `uida` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `uidb` int(10) unsigned default '0' COMMENT '·ÛË¿ID',
-  `addtime` int(10) unsigned default '0' COMMENT 'Ê±¼ä',
+  `uida` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `uidb` int(10) unsigned default '0' COMMENT 'ç²‰ä¸ID',
+  `addtime` int(10) unsigned default '0' COMMENT 'æ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `fans_uida_id` (`uida`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='·ÛË¿±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='ç²‰ä¸è¡¨';
 
 
 --msvod_friend<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}friend` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `uida` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `uidb` int(10) unsigned default '0' COMMENT 'ºÃÓÑID',
-  `addtime` int(10) unsigned default '0' COMMENT 'Ê±¼ä',
+  `uida` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `uidb` int(10) unsigned default '0' COMMENT 'å¥½å‹ID',
+  `addtime` int(10) unsigned default '0' COMMENT 'æ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `friend_uida_id` (`uida`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='ºÃÓÑ±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='å¥½å‹è¡¨';
 
 
 --msvod_funco<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}funco` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `uida` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `uidb` int(10) unsigned default '0' COMMENT '·ÃÎÊÕßID',
-  `addtime` int(10) unsigned default '0' COMMENT 'Ê±¼ä',
+  `uida` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `uidb` int(10) unsigned default '0' COMMENT 'è®¿é—®è€…ID',
+  `addtime` int(10) unsigned default '0' COMMENT 'æ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `funco_uida_id` (`uida`,`id`),
   KEY `funco_uidb_id` (`uidb`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='·Ã¿Í±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='è®¿å®¢è¡¨';
 
 
 --msvod_gbook<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}gbook` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `cid` tinyint(1) default '0' COMMENT 'ÀàĞÍID',
-  `fid` int(10) unsigned default '0' COMMENT 'ÉÏ¼¶ID',
-  `uida` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `uidb` int(10) unsigned default '0' COMMENT 'ÁôÑÔÕßID',
-  `neir` text COMMENT 'ÄÚÈİ',
+  `cid` tinyint(1) default '0' COMMENT 'ç±»å‹ID',
+  `fid` int(10) unsigned default '0' COMMENT 'ä¸Šçº§ID',
+  `uida` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `uidb` int(10) unsigned default '0' COMMENT 'ç•™è¨€è€…ID',
+  `neir` text COMMENT 'å†…å®¹',
   `ip` varchar(20) default '' COMMENT 'IP',
-  `addtime` int(10) unsigned default '0' COMMENT 'Ê±¼ä',
+  `addtime` int(10) unsigned default '0' COMMENT 'æ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `fid` (`fid`),
   KEY `cid` (`cid`),
   KEY `gbook_uida_id` (`uida`,`id`),
   KEY `gbook_uidb_id` (`uidb`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='ÁôÑÔ±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='ç•™è¨€è¡¨';
 
 
 --msvod_label<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}label` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
-  `name` varchar(64) default '' COMMENT 'Î¨Ò»±êÊ¾',
-  `selflable` text COMMENT '±êÇ©ÄÚÈİ',
-  `neir` varchar(128) default '' COMMENT '±êÇ©½éÉÜ',
-  `addtime` int(10) unsigned default '0' COMMENT 'Ê±¼ä',
+  `name` varchar(64) default '' COMMENT 'å”¯ä¸€æ ‡ç¤º',
+  `selflable` text COMMENT 'æ ‡ç­¾å†…å®¹',
+  `neir` varchar(128) default '' COMMENT 'æ ‡ç­¾ä»‹ç»',
+  `addtime` int(10) unsigned default '0' COMMENT 'æ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='¾²Ì¬±êÇ©±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='é™æ€æ ‡ç­¾è¡¨';
 
 
 --msvod_link<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}link` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
-  `name` varchar(64) default '' COMMENT 'Ãû³Æ',
-  `url` varchar(255) default '' COMMENT 'µØÖ·',
+  `name` varchar(64) default '' COMMENT 'åç§°',
+  `url` varchar(255) default '' COMMENT 'åœ°å€',
   `pic` varchar(255) default '' COMMENT 'LOGO',
-  `cid` tinyint(1) default '1' COMMENT 'ÀàĞÍ',
-  `sid` tinyint(1) default '1' COMMENT 'Ö÷Ò³ÊÇ·ñÏÔÊ¾',
-  `xid` smallint(5) default '0' COMMENT 'ÅÅĞòºÅ',
+  `cid` tinyint(1) default '1' COMMENT 'ç±»å‹',
+  `sid` tinyint(1) default '1' COMMENT 'ä¸»é¡µæ˜¯å¦æ˜¾ç¤º',
+  `xid` smallint(5) default '0' COMMENT 'æ’åºå·',
   PRIMARY KEY  (`id`),
   KEY `cid` (`cid`),
   KEY `sid` (`sid`),
   KEY `xid` (`xid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='ÓÑÇéÁ´½Ó±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='å‹æƒ…é“¾æ¥è¡¨';
 
 
 --msvod_income<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}income` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `dir` varchar(64) default '' COMMENT 'ËùÊô°å¿é',
-  `title` varchar(255) default '' COMMENT 'ÊÕÈëÄÚÈİ',
-  `sid` tinyint(1) default '0' COMMENT '·ÖÀàID',
-  `uid` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `nums` int(10) unsigned default '0' COMMENT 'ÊıÁ¿',
+  `dir` varchar(64) default '' COMMENT 'æ‰€å±æ¿å—',
+  `title` varchar(255) default '' COMMENT 'æ”¶å…¥å†…å®¹',
+  `sid` tinyint(1) default '0' COMMENT 'åˆ†ç±»ID',
+  `uid` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `nums` int(10) unsigned default '0' COMMENT 'æ•°é‡',
   `ip` varchar(15) default '' COMMENT 'IP',
-  `addtime` int(10) unsigned default '0' COMMENT 'Ê±¼ä',
+  `addtime` int(10) unsigned default '0' COMMENT 'æ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `sid` (`sid`),
   KEY `uid` (`uid`),
   KEY `dir` (`dir`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='ÊÕÈë¼ÇÂ¼±í';
+) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='æ”¶å…¥è®°å½•è¡¨';
 
 
 --msvod_page<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}page` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
-  `sid` tinyint(1) default '0' COMMENT 'ÔËĞĞ·½Ê½',
-  `name` varchar(64) default '' COMMENT 'Î¨Ò»±êÊ¾',
-  `neir` varchar(128) default '' COMMENT 'Ò³Ãæ½éÉÜ',
-  `url` varchar(100) default '' COMMENT 'Ò³ÃæÂ·¾¶',
-  `html` text COMMENT 'Ò³Ãæ±»Èİ',
-  `addtime` int(10) unsigned default '0' COMMENT 'Ê±¼ä',
+  `sid` tinyint(1) default '0' COMMENT 'è¿è¡Œæ–¹å¼',
+  `name` varchar(64) default '' COMMENT 'å”¯ä¸€æ ‡ç¤º',
+  `neir` varchar(128) default '' COMMENT 'é¡µé¢ä»‹ç»',
+  `url` varchar(100) default '' COMMENT 'é¡µé¢è·¯å¾„',
+  `html` text COMMENT 'é¡µé¢è¢«å®¹',
+  `addtime` int(10) unsigned default '0' COMMENT 'æ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `sid` (`sid`),
   KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='×Ô¶¨ÒåÒ³Ãæ±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='è‡ªå®šä¹‰é¡µé¢è¡¨';
 
 
 --msvod_pay<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}pay` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `dingdan` varchar(64) default '' COMMENT '¶©µ¥',
-  `type` varchar(30) default '' COMMENT 'Ö§¸¶·½Ê½',
-  `uid` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `rmb` decimal(10,2) default '0' COMMENT '½ğ¶î',
-  `pid` tinyint(1) default '0' COMMENT '×´Ì¬',
+  `dingdan` varchar(64) default '' COMMENT 'è®¢å•',
+  `type` varchar(30) default '' COMMENT 'æ”¯ä»˜æ–¹å¼',
+  `uid` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `rmb` decimal(10,2) default '0' COMMENT 'é‡‘é¢',
+  `pid` tinyint(1) default '0' COMMENT 'çŠ¶æ€',
   `ip` varchar(15) default '' COMMENT 'IP',
-  `addtime` int(10) unsigned default '0' COMMENT 'Ê±¼ä',
+  `addtime` int(10) unsigned default '0' COMMENT 'æ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`),
   KEY `pid` (`pid`),
   KEY `dingdan` (`dingdan`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='Ö§¸¶¼ÇÂ¼±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='æ”¯ä»˜è®°å½•è¡¨';
 
 
 --msvod_paycard<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}paycard` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `card` varchar(20) default '' COMMENT '¿¨ºÅ',
-  `pass` varchar(10) default '' COMMENT '¿¨ÃÜ',
-  `uid` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `rmb` decimal(10,2) default '0' COMMENT '½ğ¶î',
-  `usertime` int(10) unsigned default '0' COMMENT 'Ê¹ÓÃÊ±¼ä',
-  `addtime` int(10) unsigned default '0' COMMENT 'Éú³ÉÊ±¼ä',
+  `card` varchar(20) default '' COMMENT 'å¡å·',
+  `pass` varchar(10) default '' COMMENT 'å¡å¯†',
+  `uid` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `rmb` decimal(10,2) default '0' COMMENT 'é‡‘é¢',
+  `usertime` int(10) unsigned default '0' COMMENT 'ä½¿ç”¨æ—¶é—´',
+  `addtime` int(10) unsigned default '0' COMMENT 'ç”Ÿæˆæ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='³äÖµ¿¨±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='å……å€¼å¡è¡¨';
 
 
 --msvod_plugins<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}plugins` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
-  `name` varchar(100) default '' COMMENT '°å¿éÃû³Æ',
-  `author` varchar(20) default '' COMMENT '×÷Õß',
-  `dir` varchar(30) default '' COMMENT 'Ä¿Â¼',
-  `version` varchar(10) default '' COMMENT '°æ±¾ºÅ',
-  `description` varchar(200) default '' COMMENT '½éÉÜ',
-  `sid` tinyint(1) default '0' COMMENT 'ÀàĞÍ',
+  `name` varchar(100) default '' COMMENT 'æ¿å—åç§°',
+  `author` varchar(20) default '' COMMENT 'ä½œè€…',
+  `dir` varchar(30) default '' COMMENT 'ç›®å½•',
+  `version` varchar(10) default '' COMMENT 'ç‰ˆæœ¬å·',
+  `description` varchar(200) default '' COMMENT 'ä»‹ç»',
+  `sid` tinyint(1) default '0' COMMENT 'ç±»å‹',
   `ak` text COMMENT 'ak',
   PRIMARY KEY  (`id`),
   KEY `dir` (`dir`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='°å¿é±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='æ¿å—è¡¨';
 
 
 --cs_pl<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}pl` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `user` varchar(64) default '' COMMENT '»áÔ±Ãû³Æ',
-  `uid` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `content` text COMMENT 'ÆÀÂÛÄÚÈİ',
-  `ip` varchar(18) default '' COMMENT 'ÆÀÂÛIP',
-  `did` int(10) unsigned default '0' COMMENT 'Êı¾İID',
-  `dir` varchar(64) default '' COMMENT 'ËùÊô°å¿é',
-  `cid` tinyint(2) default '0' COMMENT '°å¿é·ÖÖ§ID',
-  `fid` int(10) unsigned default '0' COMMENT 'ÉÏ¼¶ID',
-  `addtime` int(10) unsigned default '0' COMMENT 'Ê±¼ä',
+  `user` varchar(64) default '' COMMENT 'ä¼šå‘˜åç§°',
+  `uid` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `content` text COMMENT 'è¯„è®ºå†…å®¹',
+  `ip` varchar(18) default '' COMMENT 'è¯„è®ºIP',
+  `did` int(10) unsigned default '0' COMMENT 'æ•°æ®ID',
+  `dir` varchar(64) default '' COMMENT 'æ‰€å±æ¿å—',
+  `cid` tinyint(2) default '0' COMMENT 'æ¿å—åˆ†æ”¯ID',
+  `fid` int(10) unsigned default '0' COMMENT 'ä¸Šçº§ID',
+  `addtime` int(10) unsigned default '0' COMMENT 'æ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `cid` (`cid`),
   KEY `uid` (`uid`),
   KEY `did` (`did`),
   KEY `fid` (`fid`),
   KEY `pl_dir_did_id` (`dir`,`did`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='ÆÀÂÛ±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='è¯„è®ºè¡¨';
 
 
 --msvod_session<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}session` (
   `sessionid` varchar(40) NOT NULL DEFAULT '0',
-  `uid` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `plub` varchar(18) default '' COMMENT '·ÖÀàID',
-  `data` text COMMENT 'sessionÊı¾İ',
+  `uid` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `plub` varchar(18) default '' COMMENT 'åˆ†ç±»ID',
+  `data` text COMMENT 'sessionæ•°æ®',
   `ip` varchar(15) default '' COMMENT 'IP',
-  `addtime` int(10) unsigned default '0' COMMENT 'Ê±¼ä',
+  `addtime` int(10) unsigned default '0' COMMENT 'æ—¶é—´',
   PRIMARY KEY  (`sessionid`),
   KEY `uid` (`uid`),
   KEY `addtime` (`addtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='sessionÊı¾İ±í';
+) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='sessionæ•°æ®è¡¨';
 
 
 
@@ -385,80 +385,80 @@ CREATE TABLE IF NOT EXISTS `{Prefix}session` (
 
 CREATE TABLE IF NOT EXISTS `{Prefix}spend` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `dir` varchar(64) default '' COMMENT 'ËùÊô°å¿é',
-  `title` varchar(255) default '' COMMENT 'Ïû·ÑÄÚÈİ',
-  `sid` tinyint(1) default '0' COMMENT '·ÖÀàID',
-  `uid` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `nums` int(10) unsigned default '0' COMMENT 'ÊıÁ¿',
+  `dir` varchar(64) default '' COMMENT 'æ‰€å±æ¿å—',
+  `title` varchar(255) default '' COMMENT 'æ¶ˆè´¹å†…å®¹',
+  `sid` tinyint(1) default '0' COMMENT 'åˆ†ç±»ID',
+  `uid` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `nums` int(10) unsigned default '0' COMMENT 'æ•°é‡',
   `ip` varchar(15) default '' COMMENT 'IP',
-  `addtime` int(10) unsigned default '0' COMMENT 'Ê±¼ä',
+  `addtime` int(10) unsigned default '0' COMMENT 'æ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`),
   KEY `sid` (`sid`),
   KEY `dir` (`dir`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='Ïû·Ñ¼ÇÂ¼±í';
+) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='æ¶ˆè´¹è®°å½•è¡¨';
 
 
 --msvod_tags<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}tags` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
-  `name` varchar(30) default '' COMMENT 'Ãû³Æ',
-  `fid` int(8) unsigned default '0' COMMENT '·ÖÀàID',
-  `xid` int(3) unsigned default '0' COMMENT 'ÅÅĞòID',
-  `hits` int(10) unsigned default '0' COMMENT 'ÈËÆø',
+  `name` varchar(30) default '' COMMENT 'åç§°',
+  `fid` int(8) unsigned default '0' COMMENT 'åˆ†ç±»ID',
+  `xid` int(3) unsigned default '0' COMMENT 'æ’åºID',
+  `hits` int(10) unsigned default '0' COMMENT 'äººæ°”',
   PRIMARY KEY  (`id`),
   KEY `fid` (`fid`),
   KEY `xid` (`xid`),
   KEY `hits` (`hits`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='È«Õ¾TAGS±êÇ©±í';
+) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='å…¨ç«™TAGSæ ‡ç­¾è¡¨';
 
 
 --msvod_user<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}user` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `name` varchar(20) default '' COMMENT 'ÕËºÅ',
+  `name` varchar(20) default '' COMMENT 'è´¦å·',
   `uid` bigint(20) default '0' COMMENT 'UCID',
-  `tid` tinyint(1) default '0' COMMENT 'ÊÇ·ñÍÆ¼ö',
-  `sid` tinyint(1) default '0' COMMENT 'ÊÇ·ñËø¶¨',
-  `yid` tinyint(1) default '0' COMMENT 'ÊÇ·ñ¼¤»î',
-  `zid` int(6) unsigned default '1' COMMENT '»áÔ±×éID',
-  `rzid` tinyint(1) default '0' COMMENT 'ÊÇ·ñÈÏÖ¤',
-  `pass` varchar(32) default '' COMMENT 'ÃÜÂë',
-  `code` varchar(6) default '' COMMENT 'ÃÜÔ¿',
-  `logip` varchar(20) default '' COMMENT 'µÇÂ¼IP',
-  `lognum` smallint(5) unsigned default '0' COMMENT 'µÇÂ¼´ÎÊı',
-  `logtime` int(10) unsigned default '0' COMMENT 'µÇÂ¼Ê±¼ä',
-  `addtime` int(10) unsigned default '0' COMMENT '×¢²áÊ±¼ä',
-  `zutime` int(10) unsigned default '0' COMMENT '»áÔ±×éµ½ÆÚÊ±¼ä',
+  `tid` tinyint(1) default '0' COMMENT 'æ˜¯å¦æ¨è',
+  `sid` tinyint(1) default '0' COMMENT 'æ˜¯å¦é”å®š',
+  `yid` tinyint(1) default '0' COMMENT 'æ˜¯å¦æ¿€æ´»',
+  `zid` int(6) unsigned default '1' COMMENT 'ä¼šå‘˜ç»„ID',
+  `rzid` tinyint(1) default '0' COMMENT 'æ˜¯å¦è®¤è¯',
+  `pass` varchar(32) default '' COMMENT 'å¯†ç ',
+  `code` varchar(6) default '' COMMENT 'å¯†é’¥',
+  `logip` varchar(20) default '' COMMENT 'ç™»å½•IP',
+  `lognum` smallint(5) unsigned default '0' COMMENT 'ç™»å½•æ¬¡æ•°',
+  `logtime` int(10) unsigned default '0' COMMENT 'ç™»å½•æ—¶é—´',
+  `addtime` int(10) unsigned default '0' COMMENT 'æ³¨å†Œæ—¶é—´',
+  `zutime` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ç»„åˆ°æœŸæ—¶é—´',
   `qq` varchar(50) default '' COMMENT 'QQ',
-  `tel` varchar(15) default '' COMMENT 'µç»°',
-  `sex` tinyint(1) default '0' COMMENT 'ĞÔ±ğ',
-  `city` varchar(30) default '' COMMENT 'µØÇø',
-  `email` varchar(50) default '' COMMENT 'ÓÊÏä',
-  `logo` varchar(255) default '' COMMENT 'Í·Ïñ',
-  `nichen` varchar(50) default '' COMMENT 'êÇ³Æ',
-  `cion` int(10) unsigned default '0' COMMENT '½ğ±Ò',
-  `rmb` decimal(10,2) default '0' COMMENT '½ğÇ®',
-  `vip` tinyint(1) unsigned default '0' COMMENT 'ÊÇ·ñVIP',
-  `viptime` int(10) unsigned default '0' COMMENT 'VIPµ½ÆÚÊ±¼ä',
-  `qianm` varchar(255) default '' COMMENT 'Ç©Ãû',
-  `zx` tinyint(1) default '0' COMMENT 'ÔÚÏß×´Ì¬',
-  `logms` int(10) unsigned default '0' COMMENT '×îºó²Ù×÷Ê±¼ä',
-  `qdts` smallint(5) unsigned default '0' COMMENT 'Ç©µ½ÌìÊı',
-  `qdtime` int(10) unsigned default '0' COMMENT 'Ç©µ½Ê±¼ä',
-  `level` int(6) unsigned default '0' COMMENT 'µÈ¼¶',
-  `jinyan` int(10) unsigned default '0' COMMENT '¾­Ñé',
-  `hits` int(10) unsigned default '0' COMMENT '¿Õ¼äÈËÆø',
-  `yhits` int(10) unsigned default '0' COMMENT '¿Õ¼äÔÂÈËÆø',
-  `zhits` int(10) unsigned default '0' COMMENT '¿Õ¼äÖÜÈËÆø',
-  `rhits` int(10) unsigned default '0' COMMENT '¿Õ¼äÈÕÈËÆø',
-  `zanhits` int(10) unsigned default '0' COMMENT '±»ÔŞÈËÆø',
-  `addhits` int(10) unsigned default '0' COMMENT '·¢±íÊı¾İ´ÎÊı',
-  `regip` varchar(20) default '' COMMENT '×¢²áIP',
-  `skins` varchar(128) default '' COMMENT 'Ä£°åÂ·¾¶',
-  `bgpic` varchar(255) default '' COMMENT 'Ö÷Ò³±³¾°',
+  `tel` varchar(15) default '' COMMENT 'ç”µè¯',
+  `sex` tinyint(1) default '0' COMMENT 'æ€§åˆ«',
+  `city` varchar(30) default '' COMMENT 'åœ°åŒº',
+  `email` varchar(50) default '' COMMENT 'é‚®ç®±',
+  `logo` varchar(255) default '' COMMENT 'å¤´åƒ',
+  `nichen` varchar(50) default '' COMMENT 'æ˜µç§°',
+  `cion` int(10) unsigned default '0' COMMENT 'é‡‘å¸',
+  `rmb` decimal(10,2) default '0' COMMENT 'é‡‘é’±',
+  `vip` tinyint(1) unsigned default '0' COMMENT 'æ˜¯å¦VIP',
+  `viptime` int(10) unsigned default '0' COMMENT 'VIPåˆ°æœŸæ—¶é—´',
+  `qianm` varchar(255) default '' COMMENT 'ç­¾å',
+  `zx` tinyint(1) default '0' COMMENT 'åœ¨çº¿çŠ¶æ€',
+  `logms` int(10) unsigned default '0' COMMENT 'æœ€åæ“ä½œæ—¶é—´',
+  `qdts` smallint(5) unsigned default '0' COMMENT 'ç­¾åˆ°å¤©æ•°',
+  `qdtime` int(10) unsigned default '0' COMMENT 'ç­¾åˆ°æ—¶é—´',
+  `level` int(6) unsigned default '0' COMMENT 'ç­‰çº§',
+  `jinyan` int(10) unsigned default '0' COMMENT 'ç»éªŒ',
+  `hits` int(10) unsigned default '0' COMMENT 'ç©ºé—´äººæ°”',
+  `yhits` int(10) unsigned default '0' COMMENT 'ç©ºé—´æœˆäººæ°”',
+  `zhits` int(10) unsigned default '0' COMMENT 'ç©ºé—´å‘¨äººæ°”',
+  `rhits` int(10) unsigned default '0' COMMENT 'ç©ºé—´æ—¥äººæ°”',
+  `zanhits` int(10) unsigned default '0' COMMENT 'è¢«èµäººæ°”',
+  `addhits` int(10) unsigned default '0' COMMENT 'å‘è¡¨æ•°æ®æ¬¡æ•°',
+  `regip` varchar(20) default '' COMMENT 'æ³¨å†ŒIP',
+  `skins` varchar(128) default '' COMMENT 'æ¨¡æ¿è·¯å¾„',
+  `bgpic` varchar(255) default '' COMMENT 'ä¸»é¡µèƒŒæ™¯',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`),
   KEY `tid` (`tid`),
@@ -473,121 +473,121 @@ CREATE TABLE IF NOT EXISTS `{Prefix}user` (
   KEY `rhits` (`rhits`),
   KEY `addhits` (`addhits`),
   KEY `user_yid_id` (`yid`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='»áÔ±±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='ä¼šå‘˜è¡¨';
 
 
 --msvod_user_log<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}user_log` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `uid` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `loginip` varchar(50) default '' COMMENT 'µÇÂ¼IP',
-  `logintime` int(10) unsigned default '0' COMMENT 'µÇÂ¼Ê±¼ä',
-  `useragent` varchar(255) default '' COMMENT '¿Í»§¶ËĞÅÏ¢',
+  `uid` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `loginip` varchar(50) default '' COMMENT 'ç™»å½•IP',
+  `logintime` int(10) unsigned default '0' COMMENT 'ç™»å½•æ—¶é—´',
+  `useragent` varchar(255) default '' COMMENT 'å®¢æˆ·ç«¯ä¿¡æ¯',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='»áÔ±µÇÂ¼±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='ä¼šå‘˜ç™»å½•è¡¨';
 
 
 --msvod_userzu<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}userzu` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
-  `name` varchar(100) default '' COMMENT 'Ãû³Æ',
-  `xid` smallint(5) default '0' COMMENT 'ÅÅĞòID',
-  `color` varchar(10) default '' COMMENT 'Ãû³ÆÑÕÉ«',
-  `pic` varchar(255) default '' COMMENT '×éÍ¼±ê',
-  `info` varchar(255) default '' COMMENT '½éÉÜ',
-  `cion_y`  int(10) unsigned default '0' COMMENT '°üÄê½ğ±Ò',
-  `cion_m`  int(10) unsigned default '0' COMMENT '°üÔÂ½ğ±Ò',
-  `cion_d`  int(10) unsigned default '0' COMMENT '°üÌì½ğ±Ò',
-  `fid` tinyint(1) default '0' COMMENT 'ÉÏ´«¸½¼şÈ¨ÏŞ',
-  `aid` tinyint(1) default '0' COMMENT '·¢±íÊı¾İÈ¨ÏŞ',
-  `sid` tinyint(1) default '0' COMMENT '·¢±íÊı¾İÉóºË',
-  `vid` tinyint(1) default '0' COMMENT '×ÔÖúÉı¼¶È¨ÏŞ',
-  `mid` tinyint(1) default '0' COMMENT '·¢ËÍË½ĞÅÈ¨ÏŞ',
-  `did` tinyint(1) default '0' COMMENT 'ÏÂÔØÃâ·ÑÈ¨ÏŞ',
+  `name` varchar(100) default '' COMMENT 'åç§°',
+  `xid` smallint(5) default '0' COMMENT 'æ’åºID',
+  `color` varchar(10) default '' COMMENT 'åç§°é¢œè‰²',
+  `pic` varchar(255) default '' COMMENT 'ç»„å›¾æ ‡',
+  `info` varchar(255) default '' COMMENT 'ä»‹ç»',
+  `cion_y`  int(10) unsigned default '0' COMMENT 'åŒ…å¹´é‡‘å¸',
+  `cion_m`  int(10) unsigned default '0' COMMENT 'åŒ…æœˆé‡‘å¸',
+  `cion_d`  int(10) unsigned default '0' COMMENT 'åŒ…å¤©é‡‘å¸',
+  `fid` tinyint(1) default '0' COMMENT 'ä¸Šä¼ é™„ä»¶æƒé™',
+  `aid` tinyint(1) default '0' COMMENT 'å‘è¡¨æ•°æ®æƒé™',
+  `sid` tinyint(1) default '0' COMMENT 'å‘è¡¨æ•°æ®å®¡æ ¸',
+  `vid` tinyint(1) default '0' COMMENT 'è‡ªåŠ©å‡çº§æƒé™',
+  `mid` tinyint(1) default '0' COMMENT 'å‘é€ç§ä¿¡æƒé™',
+  `did` tinyint(1) default '0' COMMENT 'ä¸‹è½½å…è´¹æƒé™',
   PRIMARY KEY  (`id`),
   KEY `xid` (`xid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='»áÔ±×é±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='ä¼šå‘˜ç»„è¡¨';
 
 
 --msvod_userlevel<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}userlevel` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
-  `xid` smallint(5) default '0' COMMENT 'ÅÅĞòID',
-  `name` varchar(100) default '' COMMENT 'Ãû³Æ',
-  `stars` smallint(3) default '0' COMMENT 'ĞÇĞÇÊıÁ¿',
-  `jinyan` int(10) unsigned default '0' COMMENT 'ËùĞè¾­Ñé',
+  `xid` smallint(5) default '0' COMMENT 'æ’åºID',
+  `name` varchar(100) default '' COMMENT 'åç§°',
+  `stars` smallint(3) default '0' COMMENT 'æ˜Ÿæ˜Ÿæ•°é‡',
+  `jinyan` int(10) unsigned default '0' COMMENT 'æ‰€éœ€ç»éªŒ',
   PRIMARY KEY  (`id`),
   KEY `xid` (`xid`),
   KEY `stars` (`stars`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='»áÔ±µÈ¼¶±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='ä¼šå‘˜ç­‰çº§è¡¨';
 
 
 --msvod_useroauth<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}useroauth` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `cid` tinyint(2) default '0' COMMENT 'ÀàĞÍID',
-  `uid` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `csid` int(10) unsigned default '0' COMMENT 'msvod¹Ù·½·µ»ØID',
-  `nickname` varchar(255) default '' COMMENT 'ÊÚÈ¨·µ»ØêÇ³Æ',
-  `avatar` varchar(255) default '' COMMENT 'ÊÚÈ¨·µ»ØÍ·ÏñµØÖ·',
-  `oid` varchar(255) default '' COMMENT 'ÊÚÈ¨·µ»ØID',
-  `access_token` varchar(255) default '' COMMENT 'ÊÚÈ¨token',
-  `refresh_token` varchar(255) default '' COMMENT 'ÊÚÈ¨Ë¢ĞÂtoken',
-  `expire_at` int(10) unsigned default '0' COMMENT 'ÊÚÈ¨µ½ÆÚÊ±¼ä',
+  `cid` tinyint(2) default '0' COMMENT 'ç±»å‹ID',
+  `uid` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `csid` int(10) unsigned default '0' COMMENT 'msvodå®˜æ–¹è¿”å›ID',
+  `nickname` varchar(255) default '' COMMENT 'æˆæƒè¿”å›æ˜µç§°',
+  `avatar` varchar(255) default '' COMMENT 'æˆæƒè¿”å›å¤´åƒåœ°å€',
+  `oid` varchar(255) default '' COMMENT 'æˆæƒè¿”å›ID',
+  `access_token` varchar(255) default '' COMMENT 'æˆæƒtoken',
+  `refresh_token` varchar(255) default '' COMMENT 'æˆæƒåˆ·æ–°token',
+  `expire_at` int(10) unsigned default '0' COMMENT 'æˆæƒåˆ°æœŸæ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`),
   KEY `csid` (`csid`),
   KEY `cid` (`cid`),
   KEY `oid` (`oid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='»áÔ±OAuth2ÊÚÈ¨±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='ä¼šå‘˜OAuth2æˆæƒè¡¨';
 
 
 --msvod_msg<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}msg` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `did` tinyint(1) default '0' COMMENT 'ÊÇ·ñÒÑ¶Á',
-  `name` varchar(255) default '' COMMENT '±êÌâ',
-  `neir` text COMMENT 'ÄÚÈİ',
-  `uida` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `uidb` int(10) unsigned default '0' COMMENT '·¢ËÍÕßID',
-  `addtime` int(10) unsigned default '0' COMMENT 'Ê±¼ä',
+  `did` tinyint(1) default '0' COMMENT 'æ˜¯å¦å·²è¯»',
+  `name` varchar(255) default '' COMMENT 'æ ‡é¢˜',
+  `neir` text COMMENT 'å†…å®¹',
+  `uida` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `uidb` int(10) unsigned default '0' COMMENT 'å‘é€è€…ID',
+  `addtime` int(10) unsigned default '0' COMMENT 'æ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `did` (`did`),
   KEY `msg_uida_id` (`uida`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='»áÔ±ÏûÏ¢±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='ä¼šå‘˜æ¶ˆæ¯è¡¨';
 
 
 --msvod_web_pay<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}web_pay` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `mid` int(10) unsigned default '0' COMMENT 'Ä£°åÎ¨Ò»ID',
-  `name` varchar(255) default '' COMMENT 'Ä£°å±êÌâ',
-  `uid` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `cion` int(10) unsigned default '0' COMMENT '¿Û³ı½ğ±Ò',
-  `addtime` int(10) unsigned default '0' COMMENT 'Ê±¼ä',
+  `mid` int(10) unsigned default '0' COMMENT 'æ¨¡æ¿å”¯ä¸€ID',
+  `name` varchar(255) default '' COMMENT 'æ¨¡æ¿æ ‡é¢˜',
+  `uid` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `cion` int(10) unsigned default '0' COMMENT 'æ‰£é™¤é‡‘å¸',
+  `addtime` int(10) unsigned default '0' COMMENT 'æ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `mid` (`mid`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='Ä£°åÊ¹ÓÃ¼ÇÂ¼±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='æ¨¡æ¿ä½¿ç”¨è®°å½•è¡¨';
 
 
 --msvod_share<msvod>--
 
 CREATE TABLE IF NOT EXISTS `{Prefix}share` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `ip` varchar(20) default '' COMMENT '·ÃÎÊIP',
-  `agent` varchar(255) default '' COMMENT '·ÃÎÊ¿Í»§¶Ë',
-  `uid` int(10) unsigned default '0' COMMENT '»áÔ±ID',
-  `cion` int(10) unsigned default '0' COMMENT 'ÔùËÍ½ğ±Ò',
-  `jinyan` int(10) unsigned default '0' COMMENT 'ÔùËÍ¾­Ñé',
-  `addtime` int(10) unsigned default '0' COMMENT '·ÃÎÊÊ±¼ä',
+  `ip` varchar(20) default '' COMMENT 'è®¿é—®IP',
+  `agent` varchar(255) default '' COMMENT 'è®¿é—®å®¢æˆ·ç«¯',
+  `uid` int(10) unsigned default '0' COMMENT 'ä¼šå‘˜ID',
+  `cion` int(10) unsigned default '0' COMMENT 'èµ é€é‡‘å¸',
+  `jinyan` int(10) unsigned default '0' COMMENT 'èµ é€ç»éªŒ',
+  `addtime` int(10) unsigned default '0' COMMENT 'è®¿é—®æ—¶é—´',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='Ğû´«¼ÇÂ¼±í';
+) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='å®£ä¼ è®°å½•è¡¨';

@@ -2130,7 +2130,7 @@ input::-ms-clear {
 }
 
 .book_intro .btn_op .tip:before {
-	content: "ËÍ200ÔÄ¶Á±Ò";
+	content: "é€200é˜…è¯»å¸";
 	display: inline-block;
 	border: 1px solid #debd64;
 	background-color: #3C3C3C1cc;
@@ -3907,12 +3907,12 @@ input::-ms-clear {
 }
 
 
-/* É¸Ñ¡Æ÷ */
+/* ç­›é€‰å™¨ */
 .yk-filter{margin-top:20px;}
 .yk-filter .yk-filter-panel .item{zoom:1;overflow:hidden;position:relative;height:30px;padding:0 0 0 47px;margin-bottom:4px;}
 .yk-filter .yk-filter-panel .item label,
 .yk-filter .yk-filter-panel .item a,
-.yk-filter .yk-filter-panel .item span{display:block;white-space:nowrap;line-height:26px;font-size:14px;font-family:"Microsoft YaHei","Î¢ÈíÑÅºÚ",helvetica,arial,verdana,tahoma,sans-serif;}
+.yk-filter .yk-filter-panel .item span{display:block;white-space:nowrap;line-height:26px;font-size:14px;font-family:"Microsoft YaHei","å¾®è½¯é›…é»‘",helvetica,arial,verdana,tahoma,sans-serif;}
 .yk-filter .yk-filter-panel .item label{position:absolute;top:0;left:0;width:47px;color:#fff;}
 .yk-filter .yk-filter-panel .item ul{*zoom:1;*display:inline;*font-size:0;}
 .yk-filter .yk-filter-panel .item ul:before,
@@ -3924,7 +3924,7 @@ input::-ms-clear {
 .yk-filter .yk-filter-panel .item .current a,
 .yk-filter .yk-filter-panel .item .current span{cursor:default;background:#06a7e1;color:#fff;}
 .yk-filter .yk-filter-panel .item-moreshow{padding-right:145px;}
-.yk-filter .yk-filter-panel .item-moreshow .btn-handle{cursor:pointer;position:absolute;top:50%;right:0;height:26px;padding-right:25px;margin-top:-13px;line-height:26px;font-size:14px;color:#555;font-family:"Microsoft YaHei","Î¢ÈíÑÅºÚ",helvetica,arial,verdana,tahoma,sans-serif;}
+.yk-filter .yk-filter-panel .item-moreshow .btn-handle{cursor:pointer;position:absolute;top:50%;right:0;height:26px;padding-right:25px;margin-top:-13px;line-height:26px;font-size:14px;color:#555;font-family:"Microsoft YaHei","å¾®è½¯é›…é»‘",helvetica,arial,verdana,tahoma,sans-serif;}
 .yk-filter .yk-filter-panel .item-moreshow .btn-handle .caret{position:absolute;top:11px;right:10px;overflow:hidden;width:0;height:0;line-height:0;font-size:0;vertical-align:middle;border-width:5px;border-style:solid;border-color:#555 #fff #fff #fff;}
 .yk-filter .yk-filter-handle{position:relative;top:-5px;height:18px;border-top:1px solid #bbb;}
 .yk-filter .yk-filter-handle .btn-handle{cursor:pointer;position:absolute;left:50%;top:0;margin-left:-28px;width:57px;height:18px;background:url(/v/img/bth_handle.png) no-repeat 0 0;}

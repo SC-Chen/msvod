@@ -1,15 +1,15 @@
 //#################################################
 var BASE_URL = "";
-var chunkSize = 10 * 1024 * 1024; //·Ö¿é´óĞ¡
+var chunkSize = 10 * 1024 * 1024; //åˆ†å—å¤§å°
 var userInfo = {
 userId: "the_user",
 md5: "",
 uniqueFileName: ""
-}; //ÓÃ»§»á»°ĞÅÏ¢
+}; //ç”¨æˆ·ä¼šè¯ä¿¡æ¯
 
 var _cache = {};
 //#################################################
-var uniqueFileName = null; //ÎÄ¼şÎ¨Ò»±êÊ¶·û
+var uniqueFileName = null; //æ–‡ä»¶å”¯ä¸€æ ‡è¯†ç¬¦
 var md5Mark = null;
 var uploader;
 jQuery(function() {
@@ -27,7 +27,7 @@ $("#" + file.id).attr("data-time", new Date().getTime());
 (new WebUploader.Uploader()).md5File(file, 0, 10 * 1024 * 1024).progress(function(percentage) {				
 console.log(percentage);
 }).then(function(val) {
-console.log("×ÜºÄÊ±: " + ((new Date().getTime()) - start) / 1000);
+console.log("æ€»è€—æ—¶: " + ((new Date().getTime()) - start) / 1000);
 md5Mark = val;
 userInfo.md5 = val;
 $.ajax({
@@ -40,13 +40,13 @@ name : file.name.replace("." + file.ext, "")
 },
 cache: false,
 timeout: 1000,
-//todo ³¬Ê±µÄ»°£¬Ö»ÄÜÈÏÎª¸ÃÎÄ¼ş²»ÔøÉÏ´«¹ı
+//todo è¶…æ—¶çš„è¯ï¼Œåªèƒ½è®¤ä¸ºè¯¥æ–‡ä»¶ä¸æ›¾ä¸Šä¼ è¿‡
 dataType: "json"
 }).then(function(data, textStatus, jqXHR) {
-if (data.ifExist) { //Èô´æÔÚ£¬Õâ·µ»ØÊ§°Ü¸øWebUploader£¬±íÃ÷¸ÃÎÄ¼ş²»ĞèÒªÉÏ´«
+if (data.ifExist) { //è‹¥å­˜åœ¨ï¼Œè¿™è¿”å›å¤±è´¥ç»™WebUploaderï¼Œè¡¨æ˜è¯¥æ–‡ä»¶ä¸éœ€è¦ä¸Šä¼ 
 //task.reject();
 $(".progressBarInProgress").css("width", "100%");
-$(".percent_str").html("Ãë´«³É¹¦");
+$(".percent_str").html("ç§’ä¼ æˆåŠŸ");
 //alert(JSON.stringify(data));
 $("#name").val(data.title);
 $("#sc").val(data.duration);
@@ -60,16 +60,16 @@ task.resolve();
 uploader.skipFile(file);
 } else {
 task.resolve();
-//ÄÃµ½ÉÏ´«ÎÄ¼şµÄÎ¨Ò»Ãû³Æ£¬ÓÃÓÚ¶ÏµãĞø´«
+//æ‹¿åˆ°ä¸Šä¼ æ–‡ä»¶çš„å”¯ä¸€åç§°ï¼Œç”¨äºæ–­ç‚¹ç»­ä¼ 
 uniqueFileName = md5('' + userInfo.userId + file.name + file.type + file.lastModifiedDate + file.size);
 _cache[file.name] = uniqueFileName;
 
 userInfo.uniqueFileName = uniqueFileName;
 }
 },
-function(jqXHR, textStatus, errorThrown) { //ÈÎºÎĞÎÊ½µÄÑéÖ¤Ê§°Ü£¬¶¼´¥·¢ÖØĞÂÉÏ´«
+function(jqXHR, textStatus, errorThrown) { //ä»»ä½•å½¢å¼çš„éªŒè¯å¤±è´¥ï¼Œéƒ½è§¦å‘é‡æ–°ä¸Šä¼ 
 task.resolve();
-//ÄÃµ½ÉÏ´«ÎÄ¼şµÄÎ¨Ò»Ãû³Æ£¬ÓÃÓÚ¶ÏµãĞø´«
+//æ‹¿åˆ°ä¸Šä¼ æ–‡ä»¶çš„å”¯ä¸€åç§°ï¼Œç”¨äºæ–­ç‚¹ç»­ä¼ 
 uniqueFileName = md5('' + userInfo.userId + file.name + file.type + file.lastModifiedDate + file.size);
 userInfo.uniqueFileName = uniqueFileName;
 });
@@ -77,7 +77,7 @@ userInfo.uniqueFileName = uniqueFileName;
 return $.when(task);
 },
 beforeSend: function(block) {
-//·ÖÆ¬ÑéÖ¤ÊÇ·ñÒÑ´«¹ı£¬ÓÃÓÚ¶ÏµãĞø´«
+//åˆ†ç‰‡éªŒè¯æ˜¯å¦å·²ä¼ è¿‡ï¼Œç”¨äºæ–­ç‚¹ç»­ä¼ 
 
 var task = new $.Deferred();
 $.ajax({
@@ -91,16 +91,16 @@ size: block.end - block.start
 },
 cache: false,
 timeout: 1000,
-//todo ³¬Ê±µÄ»°£¬Ö»ÄÜÈÏÎª¸Ã·ÖÆ¬Î´ÉÏ´«¹ı
+//todo è¶…æ—¶çš„è¯ï¼Œåªèƒ½è®¤ä¸ºè¯¥åˆ†ç‰‡æœªä¸Šä¼ è¿‡
 dataType: "json"
 }).then(function(data, textStatus, jqXHR) {
-if (data.ifExist) { //Èô´æÔÚ£¬·µ»ØÊ§°Ü¸øWebUploader£¬±íÃ÷¸Ã·Ö¿é²»ĞèÒªÉÏ´«
+if (data.ifExist) { //è‹¥å­˜åœ¨ï¼Œè¿”å›å¤±è´¥ç»™WebUploaderï¼Œè¡¨æ˜è¯¥åˆ†å—ä¸éœ€è¦ä¸Šä¼ 
 task.reject();
 } else {
 task.resolve();
 }
 },
-function(jqXHR, textStatus, errorThrown) { //ÈÎºÎĞÎÊ½µÄÑéÖ¤Ê§°Ü£¬¶¼´¥·¢ÖØĞÂÉÏ´«
+function(jqXHR, textStatus, errorThrown) { //ä»»ä½•å½¢å¼çš„éªŒè¯å¤±è´¥ï¼Œéƒ½è§¦å‘é‡æ–°ä¸Šä¼ 
 task.resolve();
 });
 return $.when(task);
@@ -112,7 +112,7 @@ var chunksTotal = 0;
 chunksTotal = Math.ceil(file.size / chunkSize)
 //console.log("chunksTotal : " + chunksTotal);
 if ( chunksTotal >= 1) {
-//ºÏ²¢ÇëÇó
+//åˆå¹¶è¯·æ±‚
 var task = new $.Deferred();
 $.ajax({
 type: "POST",
@@ -128,7 +128,7 @@ md5: md5Mark
 cache: false,
 dataType: "json"
 }).then(function(data, textStatus, jqXHR) {
-//todo ¼ì²éÏìÓ¦ÊÇ·ñÕı³£
+//todo æ£€æŸ¥å“åº”æ˜¯å¦æ­£å¸¸
 task.resolve();
 file.path = data.path;
 UploadComlate(file);
@@ -163,11 +163,11 @@ dnd: "#chosevideo",
 paste: document.body,
 auto: true,
 resize: false,
-// ²»Ñ¹Ëõimage
+// ä¸å‹ç¼©image
 swf: BASE_URL + '/e/extend/upload/js/Uploader.swf',
-// swfÎÄ¼şÂ·¾¶
+// swfæ–‡ä»¶è·¯å¾„
 server: ServerUrl,
-// ÎÄ¼ş½ÓÊÕ·şÎñ¶Ë¡£
+// æ–‡ä»¶æ¥æ”¶æœåŠ¡ç«¯ã€‚
 pick: {
 id: '#chosevideo',
 },
@@ -180,16 +180,16 @@ duplicate: false,
 chunked: true,
 chunkSize: chunkSize,
 threads : 1,
-multiple : false, //¶àÎÄ¼şÑ¡Ôñ
+multiple : false, //å¤šæ–‡ä»¶é€‰æ‹©
 formData: function() {
 return $.extend(true, {},
 userInfo);
 }
 });
-// µ±ÓĞÎÄ¼şÌí¼Ó½øÀ´µÄÊ±ºò
+// å½“æœ‰æ–‡ä»¶æ·»åŠ è¿›æ¥çš„æ—¶å€™
 uploader.on('fileQueued',
 function(file) {
-console.log("ÓĞÎÄ¼şÌí¼Ó½øÀ´ÁË" + file.name + "," + file.id + file.size);
+console.log("æœ‰æ–‡ä»¶æ·»åŠ è¿›æ¥äº†" + file.name + "," + file.id + file.size);
 var file_size_M = roundNumber(((file.size / 1024) / 1024), 1);
 var html = "";
 html += "<div style=\"height:100px;\" id=\"" + file.id + "\" data-size=\"" + file.size + "\" data-time=\"" + new Date().getTime() + "\">";
@@ -198,21 +198,21 @@ html += "        <div class=\"progressContainer green\">";
 html += "            <div class='jindu'><div class=\"progressBarInProgress\" style=\"width: 0.01%;\"></div></div>";
 html += "            <div class=\"progressBarStatus\"><ul>";
 html += "                <li class='first'><b><font color=\"red\" class=\"uploaded_size\"></font></b>MB/" + file_size_M + "MB</li>";
-html += "                <li>ÉÏ´«ËÙ¶È:<b><font color=\"red\" class=\"uploaded_speed\">0</font></b>KB/Ãë</li>";
-html += "                <li><span class=\"time_name\">Ê£ÓàÊ±¼ä</span>:<b><font color=\"red\" class=\"time_left\"></font></b></li>";
-html += "                <li class='last'><span class=\"percent_str\">×Ü½ø¶È:<b><font color=\"red\" class=\"percent_num\"></font></b></span></li>";
+html += "                <li>ä¸Šä¼ é€Ÿåº¦:<b><font color=\"red\" class=\"uploaded_speed\">0</font></b>KB/ç§’</li>";
+html += "                <li><span class=\"time_name\">å‰©ä½™æ—¶é—´</span>:<b><font color=\"red\" class=\"time_left\"></font></b></li>";
+html += "                <li class='last'><span class=\"percent_str\">æ€»è¿›åº¦:<b><font color=\"red\" class=\"percent_num\"></font></b></span></li>";
 html += "            </ul></div>";
 html += "        </div>";
 html += "    </div>";
 html += "</div>";
 $list.append(html);
 });
-// ÎÄ¼şÉÏ´«¹ı³ÌÖĞ´´½¨½ø¶ÈÌõÊµÊ±ÏÔÊ¾¡£
+// æ–‡ä»¶ä¸Šä¼ è¿‡ç¨‹ä¸­åˆ›å»ºè¿›åº¦æ¡å®æ—¶æ˜¾ç¤ºã€‚
 uploader.on('uploadProgress',
 function(file, percentage) {
-console.log("ÎÄ¼şÉÏ´«½ø¶È£º" + file.id + "," + percentage);
+console.log("æ–‡ä»¶ä¸Šä¼ è¿›åº¦ï¼š" + file.id + "," + percentage);
 var $li = $('#' + file.id);
-//$li.find('p.state').text('ÉÏ´«ÖĞ');
+//$li.find('p.state').text('ä¸Šä¼ ä¸­');
 $li.find('.progressBarInProgress').css('width', percentage * 100 + '%');
 $li.find('.percent_num').html((percentage * 100).toFixed(2) + '%');
 var total_size = parseFloat($li.attr("data-size"));
@@ -228,53 +228,53 @@ var tempTime = roundNumber(((((total_size - uploaded_size) / uploaded_speed) / 6
 var time_left = "";
 if (tempTime != "Infinity") {
 if (tempTime > 0) {
-time_left = minsec("m", tempTime) + "·Ö:" + minsec("s", tempTime) + 'Ãë';
+time_left = minsec("m", tempTime) + "åˆ†:" + minsec("s", tempTime) + 'ç§’';
 } else {
-time_left = "ÇëµÈ´ı...";
+time_left = "è¯·ç­‰å¾…...";
 }
 } else {
-time_left = "ÇëµÈ´ı...";
+time_left = "è¯·ç­‰å¾…...";
 }
 $li.find('.time_left').html(time_left);
 });
-//ÎÄ¼şÉÏ´«´íÎó
+//æ–‡ä»¶ä¸Šä¼ é”™è¯¯
 uploader.on('uploadError',
 function(file) {
-console.log("Error£¡" + file.id);
+console.log("Errorï¼" + file.id);
 if (state != 'stoped' && state != 'finished') {
-//jError("ÉÏ´«´íÎó£¬¿ÉÄÜÊÇÍøÂçÔ­Òò£¬ÇëÉÔºóÖØÊÔ",{HorizontalPosition : 'center',VerticalPosition:'center'});
-alert(file.name + " ÉÏ´«´íÎó£¬¿ÉÄÜÊÇÍøÂçÔ­Òò£¬ÇëÉÔºóÖØÊÔ");
+//jError("ä¸Šä¼ é”™è¯¯ï¼Œå¯èƒ½æ˜¯ç½‘ç»œåŸå› ï¼Œè¯·ç¨åé‡è¯•",{HorizontalPosition : 'center',VerticalPosition:'center'});
+alert(file.name + " ä¸Šä¼ é”™è¯¯ï¼Œå¯èƒ½æ˜¯ç½‘ç»œåŸå› ï¼Œè¯·ç¨åé‡è¯•");
 }
 });
-//ÎÄ¼şÉÏ´«³É¹¦
+//æ–‡ä»¶ä¸Šä¼ æˆåŠŸ
 uploader.on('uploadSuccess',
 function(file) {
-console.log("Done£¡" + file.id);
+console.log("Doneï¼" + file.id);
 var $li = $('#' + file.id);
 var currentTime = new Date().getTime();
 var start_time = parseInt($li.attr("data-time"));
 var used_time = (Math.ceil(currentTime - start_time) / 1000);
-var used_time_str = minsec("m", used_time) + "·Ö:" + minsec("s", used_time) + 'Ãë';
-$li.find('.time_name').html("×ÜÓÃÊ±");
+var used_time_str = minsec("m", used_time) + "åˆ†:" + minsec("s", used_time) + 'ç§’';
+$li.find('.time_name').html("æ€»ç”¨æ—¶");
 $li.find('.time_left').html(used_time_str);
-$li.find('.percent_str').html("ÉÏ´«Íê³É£¬ÇëÌá½»");
+$li.find('.percent_str').html("ä¸Šä¼ å®Œæˆï¼Œè¯·æäº¤");
 $li.find('.cancle').hide();
 });
 uploader.on('uploadComplete',
 function(file) {
-console.log("Complete£¡" + file.id);
+console.log("Completeï¼" + file.id);
 });
 uploader.on('all',function(type) {
 console.log(type);
 if (type === 'startUpload') {
 state = 'started';
-console.log("¿ªÊ¼ÉÏ´«ÁË~");
+console.log("å¼€å§‹ä¸Šä¼ äº†~");
 } else if (type === 'stopUpload') {
 state = 'stoped';
-console.log("¿ªÊ¼ÔİÍ£ÁË~");
+console.log("å¼€å§‹æš‚åœäº†~");
 } else if (type === 'uploadFinished') {
 state = 'finished';
-console.log("¿ªÊ¼½áÊøÁË~");
+console.log("å¼€å§‹ç»“æŸäº†~");
 }
 });
 });

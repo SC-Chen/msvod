@@ -2,12 +2,12 @@
 if (!defined('MSVODPATH')) exit('No permission resources');
 
 return array(
-         'mid' => '2',                                  //��ƽ̨ID�������߿������գ�
-         'dir' => 'skin03',                            //ģ��Ψһ��ʾ��ģ��Ŀ¼����
-         'path' => 'skin03/html/',               //ģ�尲װĿ¼
-         'name' => '�ں�ɫģ��',                      //ģ������
-         'author' => 'msvod',                           //ģ������
-         'version' => 'v1.0',                           //ģ��汾
-         'description' => "��˼Msvod�ٷ� www.msvod.cc" //ģ���Ȩ/����
+         'mid' => '2',                                  //云平台ID（开发者可以留空）
+         'dir' => 'skin03',                            //模板唯一标示（模板目录名）
+         'path' => 'skin03/html/',               //模板安装目录
+         'name' => '黑红色模板',                      //模板名称
+         'author' => 'msvod',                           //模板作者
+         'version' => 'v1.0',                           //模板版本
+         'description' => "魅思Msvod官方 www.msvod.cc" //模板版权/介绍
      );
 

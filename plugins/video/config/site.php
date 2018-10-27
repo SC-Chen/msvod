@@ -15,25 +15,25 @@ return array (
   array (
     'lists' => 
     array (
-      'title' => 'ÁÐ±íÒ³¹æÔò',
+      'title' => 'åˆ—è¡¨é¡µè§„åˆ™',
       'uri' => 'lists/index/{sort}/{id}/{page}',
       'url' => 'list-{sort}-{id}-{page}.html',
     ),
     'play' => 
     array (
-      'title' => 'VIP²¥·ÅÒ³¹æÔò',
+      'title' => 'VIPæ’­æ”¾é¡µè§„åˆ™',
       'uri' => 'play/index/id/{id}',
       'url' => 'play-{id}.html',
     ),
     'skvod' => 
     array (
-      'title' => 'ÊÔ¿´²¥·ÅÒ³¹æÔò',
+      'title' => 'è¯•çœ‹æ’­æ”¾é¡µè§„åˆ™',
       'uri' => 'skvod/index/id/{id}',
       'url' => 'skvod-{id}.html',
     ),
     'down' => 
     array (
-      'title' => 'ÏÂÔØÒ³¹æÔò',
+      'title' => 'ä¸‹è½½é¡µè§„åˆ™',
       'uri' => 'down/index/id/{id}',
       'url' => 'down-{id}.html',
     ),
@@ -42,27 +42,27 @@ return array (
   array (
     'lists' => 
     array (
-      'title' => 'ÁÐ±íÒ³¹æÔò',
+      'title' => 'åˆ—è¡¨é¡µè§„åˆ™',
       'url' => 'look/list-{sort}-{id}-{page}.html',
       'check' => '1',
     ),
     'play' => 
     array (
-      'title' => '²¥·ÅÒ³¹æÔò',
+      'title' => 'æ’­æ”¾é¡µè§„åˆ™',
       'url' => 'look/play/{id}.html',
       'check' => '1',
     ),
     'down' => 
     array (
-      'title' => 'ÏÂÔØÒ³¹æÔò',
+      'title' => 'ä¸‹è½½é¡µè§„åˆ™',
       'url' => 'look/down/{id}.html',
       'check' => '1',
     ),
   ),
   'Seo' => 
   array (
-    'title' => 'ÊÓÆµ',
-    'keywords' => 'ÊÓÆµ',
-    'description' => 'ÊÓÆµ',
+    'title' => 'è§†é¢‘',
+    'keywords' => 'è§†é¢‘',
+    'description' => 'è§†é¢‘',
   ),
 );?>

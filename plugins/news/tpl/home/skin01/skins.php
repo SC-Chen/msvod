@@ -2,5 +2,5 @@
 if (!defined('MSVODPATH')) exit('No permission resources');
 
 return array(
-        'news.html' => 'С˵ģ��'
+        'news.html' => '小说模板'
 );

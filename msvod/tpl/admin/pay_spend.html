@@ -33,7 +33,7 @@
 <li>
 <div class="vocation">
 <select class="select3" name="dir">
-<option value=""<?php if($dir=='') echo ' selected';?>>ËùÊô°å¿é</option>
+<option value=""<?php if($dir=='') echo ' selected';?>>æ‰€å±žæ¿å—</option>
 <?php
 $query = $this->db->query("SELECT name,dir FROM ".MS_SqlPrefix."plugins order by id asc"); 
 foreach ($query->result() as $row) {
@@ -47,24 +47,24 @@ echo '<option value="'.$row->dir.'"'.$clas.'>'.$row->name.'</option>';
 <li><label>
 <div class="vocation">
 <select class="select3" name="zd">
-<option value="name"<?php if($zd=='name') echo ' selected';?>>ÓÃ»§Ãû</option>
-<option value="id"<?php if($zd=='id') echo ' selected';?>>»áÔ±ID</option>
+<option value="name"<?php if($zd=='name') echo ' selected';?>>ç”¨æˆ·å</option>
+<option value="id"<?php if($zd=='id') echo ' selected';?>>ä¼šå‘˜ID</option>
 </select>
 </div>
 </label><input style="width:100px;" name="key" value="<?=$key?>" type="text" class="scinput" />
 </li>
-<li><label>Ïû·ÑÊ±¼ä</label>
+<li><label>æ¶ˆè´¹æ—¶é—´</label>
 <input style="width:90px;" name="kstime" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" type="text" value="<?=$kstime?>" class="date scinput" /> - <input style="width:90px;" name="jstime" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="<?=$jstime?>" type="text" class="date scinput" /></li>
 <li>
 <div class="vocation">
 <select class="select3" name="sid">
-<option value="0"<?php if($sid==0) echo ' selected';?>>Ïû·ÑÀàÐÍ</option>
-<option value="1"<?php if($sid==1) echo ' selected';?>>½ð±Ò</option>
-<option value="2"<?php if($sid==2) echo ' selected';?>>ÈËÃñ±Ò</option>
+<option value="0"<?php if($sid==0) echo ' selected';?>>æ¶ˆè´¹ç±»åž‹</option>
+<option value="1"<?php if($sid==1) echo ' selected';?>>é‡‘å¸</option>
+<option value="2"<?php if($sid==2) echo ' selected';?>>äººæ°‘å¸</option>
 </select>
 </div>
 </li>
-<li><label>&nbsp;</label><input name="so" type="submit" class="scbtn" value="²éÑ¯"/></li>
+<li><label>&nbsp;</label><input name="so" type="submit" class="scbtn" value="æŸ¥è¯¢"/></li>
 </ul>
 </form>
 <form action="<?=site_url('admin/pay/spend_del')?>" method="post" id="myform" name="myform">
@@ -87,13 +87,13 @@ echo '<option value="'.$row->dir.'"'.$clas.'>'.$row->name.'</option>';
 <?php
 if(empty($spend)) echo '<tr><td align="center" height="50" colspan="9">'.L('tpl_19').'</td></tr>';
 foreach ($spend as $row) {
-//ÀàÐÍ
+//ç±»åž‹
 if($row->sid==0){
 $lx='<font color=#0000ff>'.L('tpl_35').'</font>';
 }else{
 $lx='<font color=red>'.L('tpl_36').'</font>';
 }
-//»áÔ±
+//ä¼šå‘˜
 $rowu=$this->db->query("SELECT name FROM ".MS_SqlPrefix."user where id=".$row->uid."")->row();
 $uname=($rowu)?$rowu->name:L('tpl_20').$row->uid;
 echo '

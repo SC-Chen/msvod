@@ -26,18 +26,18 @@ ShowCdQuantity();
 <div class="mainct">
 <div class="sctop">
 <ul>
-<div style="float:left; height:42px; margin-right:5px;"><a href="[user:url userlink=tu,add]" class="btn btn-small btn-danger " style="border-radius:0px;">��Ҫ����ͼƬ</a></div>
+<div style="float:left; height:42px; margin-right:5px;"><a href="[user:url userlink=tu,add]" class="btn btn-small btn-danger " style="border-radius:0px;">我要发布图片</a></div>
 <div style="float:left; line-height:32px; text-indent:32px;" class="alertico">
-<span style="color:#0066CC">����ͼƬ����վ�������ͨ���㽫�õ�<font color="red" size=4> {msvod:addcion} </font>��ҽ�������ҿ����������ѱ�վͼƬ�ۿ�������������ΪVIPŶ~��</span></div>
+<span style="color:#0066CC">发布图片到本站并且审核通过你将得到<font color="red" size=4> {msvod:addcion} </font>金币奖励，金币可以用于消费本站图片观看，还可以升级为VIP哦~！</span></div>
 </ul>
 </div>
 <br>
 <table width="450" border="0">
 <tbody>
 <tr>
-<td class="fouces_menuoff"><a href="[user:url userlink=tu]">�ҷ�����</a></td>
-<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=tu,verify]">����е�</a></td>
-<td class="fouces_menuon" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=look]">��������</a></td>
+<td class="fouces_menuoff"><a href="[user:url userlink=tu]">我发布的</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=tu,verify]">审核中的</a></td>
+<td class="fouces_menuon" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=look]">我游览的</a></td>
 </td>
 </tr>
 </tbody>
@@ -45,12 +45,12 @@ ShowCdQuantity();
 <br>
 <table width="100%" border="0" cellspacing="1" cellpadding="1"  class="table borderx3" >
 <tr>
-<th height="30" colspan="1" class="fbold">����������ͼƬ--(����ֻ��ʾ�����շ�С˵�Ķ���¼)</th>
+<th height="30" colspan="1" class="fbold">我游览过的图片--(这里只显示的是收费小说阅读记录)</th>
 <tr>
 <td height="35">
 <div class="main_nav2" style="margin-bottom:20px">
 <ul>
-<li{if:[tu:cid]==0} class="current"{end if}><a href="[user:url userlink=tu]">ȫ������</a></li>
+<li{if:[tu:cid]==0} class="current"{end if}><a href="[user:url userlink=tu]">全部类型</a></li>
 {msvod:class table="tu_list" fid="1" loop="10" order="asc"}
 <li{if:[tu:cid]==[class:id]} class="current"{end if}><a href="[user:url userlink=tu,index]/[class:id]">[class:name]</a></li>
 {/msvod:class}
@@ -66,13 +66,13 @@ ShowCdQuantity();
 </li>
 </ul>
 {/msvod:tu}
-{if:{msvod:pagedata}==0}<div class="zanwu">�������ݣ�</div>{end if}
+{if:{msvod:pagedata}==0}<div class="zanwu">暂无数据！</div>{end if}
 <div class="page" style="{if:{msvod:pagecout}<2}disshow:none;{end if}">
 <div class="pages">
-<em title="������">{msvod:pagedata}</em>
-<a href="{msvod:pagefirst}">��ҳ</a>
+<em title="总数量">{msvod:pagedata}</em>
+<a href="{msvod:pagefirst}">首页</a>
 {msvod:pagenum len=8}
-<a href="{msvod:pagelast}">βҳ</a>
+<a href="{msvod:pagelast}">尾页</a>
 </div>
 </div>
 <div>

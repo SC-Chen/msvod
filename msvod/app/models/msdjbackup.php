@@ -14,7 +14,7 @@ class MsdjBackup extends CI_Model {
 		parent::__construct();
 	}
 
-	//µ¼³öÊı¾İ±í½á¹¹
+	//å¯¼å‡ºæ•°æ®è¡¨ç»“æ„
 	function repair($table) {
 		$output = "";
 		$query = $this->db->query("SHOW CREATE TABLE `" . $this->db->database . '`.`' . $table . '`');
@@ -28,16 +28,16 @@ class MsdjBackup extends CI_Model {
 		return $output;
 	}
 
-	//±¸·İÊı¾İ±í½á¹¹
+	//å¤‡ä»½æ•°æ®è¡¨ç»“æ„
 	function backup($tables) {
 		$output = "";
 		$newline = "\r\n";
 
 		$bkfile = "./attachment/backup/msvod_v4_" . date('Ymd');
 		if (is_dir($bkfile)) {
-			deldir($bkfile); //Èç¹û½ñÌìµÄ±¸·İ´æÔÚÔòÏÈÉ¾³ıÔ­±¸·İ
+			deldir($bkfile); //å¦‚æœä»Šå¤©çš„å¤‡ä»½å­˜åœ¨åˆ™å…ˆåˆ é™¤åŸå¤‡ä»½
 		}
-		$bkfile .= "/tables_" . substr(md5(time() . mt_rand(1000, 5000)), 0, 16) . ".sql"; //Ãû³Æ
+		$bkfile .= "/tables_" . substr(md5(time() . mt_rand(1000, 5000)), 0, 16) . ".sql"; //åç§°
 		$tables = $this->db->list_tables();
 		foreach ((array) $tables as $table) {
 			if (strpos($table, MS_SqlPrefix) !== FALSE) {
@@ -56,7 +56,7 @@ class MsdjBackup extends CI_Model {
 				}
 			}
 		}
-		//Ğ´ÎÄ¼ş
+		//å†™æ–‡ä»¶
 		if (!write_file($bkfile, $output)) {
 			return FALSE;
 		} else {
@@ -64,7 +64,7 @@ class MsdjBackup extends CI_Model {
 		}
 	}
 
-	//±¸·İÊı¾İÄÚÈİ
+	//å¤‡ä»½æ•°æ®å†…å®¹
 	function bkdata($size = '1024') {
 		$output = '';
 		$newline = "\r\n";
@@ -107,8 +107,8 @@ class MsdjBackup extends CI_Model {
 					$val_str = preg_replace("/, $/", "", $val_str);
 					$output .= 'INSERT INTO ' . $table . ' (' . $field_str . ') VALUES (' . $val_str . ');' . $newline;
 					if (strlen($output) > ($size * 1024)) {
-						$bkfile = "./attachment/backup/msvod_v4_" . date('Ymd') . "/datas_" . substr(md5(time() . mt_rand(1000, 5000)), 0, 16) . ".sql"; //Ãû³Æ
-						//Ğ´ÎÄ¼ş
+						$bkfile = "./attachment/backup/msvod_v4_" . date('Ymd') . "/datas_" . substr(md5(time() . mt_rand(1000, 5000)), 0, 16) . ".sql"; //åç§°
+						//å†™æ–‡ä»¶
 						write_file($bkfile, $output);
 						$output = "";
 					}
@@ -118,13 +118,13 @@ class MsdjBackup extends CI_Model {
 		}
 		if (!empty($output)) {
 			$bkfile = "./attachment/backup/msvod_v4_" . date('Ymd') . "/datas_" . substr(md5(time() . mt_rand(1000, 5000)), 0, 16) . ".sql";
-			//Ğ´ÎÄ¼ş
+			//å†™æ–‡ä»¶
 			write_file($bkfile, $output);
 		}
 		return TRUE;
 	}
 
-	//»¹Ô­Êı¾İ
+	//è¿˜åŸæ•°æ®
 	function restore($name) {
 		$this->load->helper('file');
 		$conn = @mysqli_connect(MS_Sqlserver, MS_Sqluid, MS_Sqlpwd);
@@ -135,7 +135,7 @@ class MsdjBackup extends CI_Model {
 		foreach ($strs as $value) {
 			if (!is_dir($path . $value['name'])) {
 				$fullpath = $path . $value['name'];
-				//»¹Ô­±í½á¹¹
+				//è¿˜åŸè¡¨ç»“æ„
 				if (substr($value['name'], 0, 7) == "tables_") {
 					$tabel_stru = file_get_contents($fullpath);
 					$tabelarr = explode(";", $tabel_stru);
@@ -144,12 +144,12 @@ class MsdjBackup extends CI_Model {
 					}
 				}
 				if (substr($value['name'], 0, 6) == "datas_") {
-					//Êı¾İÁĞ±í
+					//æ•°æ®åˆ—è¡¨
 					$filearr[] = $fullpath;
 				}
 			}
 		}
-		//¿ªÊ¼»¹Ô­Êı¾İ
+		//å¼€å§‹è¿˜åŸæ•°æ®
 		for ($i = 0; $i < count($filearr); $i++) {
 			$tabel_datas = file_get_contents(trim($filearr[$i]));
 			$dataarr = explode("\n", $tabel_datas);

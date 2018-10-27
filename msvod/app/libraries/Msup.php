@@ -9,50 +9,50 @@
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * ÉÏ´«²Ù×÷Àà
+ * ä¸Šä¼ æ“ä½œç±»
  */
 class Msup {
 
     public function __construct ()
 	{
-		error_reporting(0); //¹Ø±Õ´íÎó
-		set_time_limit(0); //³¬Ê±Ê±¼ä
+		error_reporting(0); //å…³é—­é”™è¯¯
+		set_time_limit(0); //è¶…æ—¶æ—¶é—´
 		require_once MSVOD.'lib/Ms_Qiniu.php';
 		require_once MSVOD.'lib/Ms_Kpan.php';
 	    require_once MSVOD.'lib/Ms_Oss.php';
 	    require_once MSVOD.'lib/Ms_Upyun.php';
 	}
 
-    //ÉÏ´«·½Ê½
+    //ä¸Šä¼ æ–¹å¼
 	public function init(){
         $str = array(
 			'1'=>array(
-			      'name'=>'±¾µØ¿Õ¼ä',
+			      'name'=>'æœ¬åœ°ç©ºé—´',
 			      'type'=>'web',
 			      'file'=>''
 		     ),
 			'2'=>array(
-			      'name'=>'Ô¶³ÌFTP',
+			      'name'=>'è¿œç¨‹FTP',
 			      'type'=>'ftp',
 			      'file'=>''
 		     ),
 			'3'=>array(
-			      'name'=>'ÆßÅ£ÍøÅÌ',
+			      'name'=>'ä¸ƒç‰›ç½‘ç›˜',
 			      'type'=>'qiniu',
 			      'file'=>'Ms_Qiniu.php'
 		     ),
 			'4'=>array(
-			      'name'=>'½ğÉ½¿ìÅÌ',
+			      'name'=>'é‡‘å±±å¿«ç›˜',
 			      'type'=>'kdisk',
 			      'file'=>'Ms_Kpan.php'
 		     ),
 			'5'=>array(
-			      'name'=>'°¢ÀïÔÆ´æ´¢',
+			      'name'=>'é˜¿é‡Œäº‘å­˜å‚¨',
 			      'type'=>'oss',
 			      'file'=>'Ms_Oss.php'
 		     ),
 			'6'=>array(
-			      'name'=>'ÓÖÅÄÔÆ',
+			      'name'=>'åˆæ‹äº‘',
 			      'type'=>'upyun',
 			      'file'=>'Ms_Upyun.php'
 		     )
@@ -60,12 +60,12 @@ class Msup {
 		return $str;
     }
 
-    //ÅĞ¶ÏÉÏ´«·½Ê½
+    //åˆ¤æ–­ä¸Šä¼ æ–¹å¼
 	public function up($file_path,$file_name=''){
 		if(empty($file_path)) return false;
         $types=$this->init();
 		if(UP_Mode>1){
-			  $mode=$types[UP_Mode]['type']; //·½·¨
+			  $mode=$types[UP_Mode]['type']; //æ–¹æ³•
               $res=$this->$mode($file_path,$file_name);
 			  return $res;
         }else{
@@ -73,20 +73,20 @@ class Msup {
 		}
     }
 
-	//»ñÈ¡ÏÂÔØµØÖ·
+	//è·å–ä¸‹è½½åœ°å€
 	public function down($ids){
-        if($ids==3){  //ÆßÅ£ÍøÅÌ
+        if($ids==3){  //ä¸ƒç‰›ç½‘ç›˜
 			$linkurl=MS_Qn_Url;
 			if($linkurl!=''){
                 if(substr($linkurl,0,7)!='http://') $linkurl="http://".$linkurl;
 			}else{
                 $linkurl="http://".MS_Qn_Bk.".qiniudn.com";
 			}
-        }elseif($ids==4){  //¿ìÅÌ
+        }elseif($ids==4){  //å¿«ç›˜
               $linkurl="http://".Web_Url.Web_Path."packs/uploads/kdisk/acc.php?filename=";
-        }elseif($ids==5){  //°¢ÀïÔÆ
+        }elseif($ids==5){  //é˜¿é‡Œäº‘
               $linkurl="http://".MS_Os_Bk.".oss-cn-hangzhou.aliyuncs.com";
-        }elseif($ids==6){  //ÓÖÅÄÔÆ
+        }elseif($ids==6){  //åˆæ‹äº‘
               $linkurl="http://".Web_Url.Web_Path."packs/uploads/upyun/down.php";
 		}else{
               $linkurl="";
@@ -94,7 +94,7 @@ class Msup {
         return $linkurl;
 	}
 
-	//ĞŞ¸ÄÅäÖÃÎÄ¼ş
+	//ä¿®æ”¹é…ç½®æ–‡ä»¶
 	public function edit($id){
         $str = $this->init();
 		$files = $str[$id]['file'];
@@ -102,23 +102,23 @@ class Msup {
         if($id<3 || empty($files)) return false;
         $ci = &get_instance();
 
-		//ÆßÅ£´æ´¢
+		//ä¸ƒç‰›å­˜å‚¨
 		if($id==3){ 
 		    $MS_Qn_Bk = $ci->input->post('MS_Qn_Bk', TRUE);
 		    $MS_Qn_Ak = $ci->input->post('MS_Qn_Ak', TRUE);
 		    $MS_Qn_Sk = $ci->input->post('MS_Qn_Sk', TRUE);
 		    $MS_Qn_Url = $ci->input->post('MS_Qn_Url', TRUE);
 		    if (empty($MS_Qn_Bk)||empty($MS_Qn_Ak)||empty($MS_Qn_Sk)){
-			    admin_msg('ÆßÅ£¿Õ¼äÃû³Æ¡¢AccessKey¡¢SecretKey¶¼²»ÄÜÎª¿Õ','javascript:history.back();','no');
+			    admin_msg('ä¸ƒç‰›ç©ºé—´åç§°ã€AccessKeyã€SecretKeyéƒ½ä¸èƒ½ä¸ºç©º','javascript:history.back();','no');
 		    }
 	        $strs="<?php"."\r\n";
-	        $strs.="define('MS_Qn_Bk','".$MS_Qn_Bk."'); //¿Õ¼äÃû³Æ \r\n";
+	        $strs.="define('MS_Qn_Bk','".$MS_Qn_Bk."'); //ç©ºé—´åç§° \r\n";
 	        $strs.="define('MS_Qn_Ak','".$MS_Qn_Ak."'); //AK   \r\n";
 	        $strs.="define('MS_Qn_Sk','".$MS_Qn_Sk."'); //SK  \r\n";
-	        $strs.="define('MS_Qn_Url','".$MS_Qn_Url."'); //ÆßÅ£ÏÂÔØµØÖ·  ";
+	        $strs.="define('MS_Qn_Url','".$MS_Qn_Url."'); //ä¸ƒç‰›ä¸‹è½½åœ°å€  ";
 		}
 
-        //¿ìÅÌ´æ´¢
+        //å¿«ç›˜å­˜å‚¨
 		if($id==4){
 		    $MS_Kp_Ck = $ci->input->post('MS_Kp_Ck', TRUE);
 		    $MS_Kp_Cs = $ci->input->post('MS_Kp_Cs', TRUE);
@@ -126,7 +126,7 @@ class Msup {
 		    $MS_Kp_Acc_Key = $ci->input->post('MS_Kp_Acc_Key', TRUE);
 
 		    if (empty($MS_Kp_Ck) || empty($MS_Kp_Cs)){
-			      admin_msg('¿ìÅÌÓ¦ÓÃÄ¿Â¼¡¢consumer_key¡¢consumer_secret¶¼²»ÄÜÎª¿Õ','javascript:history.back();','no');
+			      admin_msg('å¿«ç›˜åº”ç”¨ç›®å½•ã€consumer_keyã€consumer_secretéƒ½ä¸èƒ½ä¸ºç©º','javascript:history.back();','no');
 		    }
 
 	        $strs="<?php"."\r\n";
@@ -136,13 +136,13 @@ class Msup {
 	        $strs.="define('MS_Kp_Acc_Key','".$MS_Kp_Acc_Key."'); //AK  ";
 		}
 
-        //°¢ÀïÔÆ´æ´¢
+        //é˜¿é‡Œäº‘å­˜å‚¨
 	    if($id==5){
 		    $MS_Os_Bk = $ci->input->post('MS_Os_Bk', TRUE);
 		    $MS_Os_Ai = $ci->input->post('MS_Os_Ai', TRUE);
 		    $MS_Os_Ak = $ci->input->post('MS_Os_Ak', TRUE);
 		    if (empty($MS_Os_Bk)||empty($MS_Os_Ai)||empty($MS_Os_Ak)){
-			      admin_msg('BUCKET¡¢ACCESS_ID¡¢ACCESS_KEY¶¼²»ÄÜÎª¿Õ','javascript:history.back();','no');
+			      admin_msg('BUCKETã€ACCESS_IDã€ACCESS_KEYéƒ½ä¸èƒ½ä¸ºç©º','javascript:history.back();','no');
 		    }
 	        $strs="<?php"."\r\n";
 	        $strs.="define('MS_Os_Bk','".$MS_Os_Bk."'); //BK  \r\n";
@@ -150,40 +150,40 @@ class Msup {
 	        $strs.="define('MS_Os_Ak','".$MS_Os_Ak."'); //AK  ";
 		}
 
-        //ÓÖÅÄÔÆ´æ´¢
+        //åˆæ‹äº‘å­˜å‚¨
 	    if($id==6){
 		    $MS_Upy_Name = $ci->input->post('MS_Upy_Name', TRUE);
 		    $MS_Upy_Pwd = $ci->input->post('MS_Upy_Pwd', TRUE);
 		    $MS_Upy_Bucket = $ci->input->post('MS_Upy_Bucket', TRUE);
 		    if (empty($MS_Upy_Name)||empty($MS_Upy_Pwd)||empty($MS_Upy_Bucket)){
-			      admin_msg('ÊÚÈ¨ÕËºÅ¡¢ÊÚÈ¨ÃÜÂë¡¢¿Õ¼äÃû¶¼²»ÄÜÎª¿Õ','javascript:history.back();','no');
+			      admin_msg('æˆæƒè´¦å·ã€æˆæƒå¯†ç ã€ç©ºé—´åéƒ½ä¸èƒ½ä¸ºç©º','javascript:history.back();','no');
 		    }
 			if($MS_Upy_Pwd==substr(MS_Upy_Pwd,0,3).'******'){
                   $MS_Upy_Pwd=MS_Upy_Pwd;
 			}
 	        $strs="<?php"."\r\n";
-	        $strs.="define('MS_Upy_Name','".$MS_Upy_Name."'); //ÓÖÅÄÔÆÊÚÈ¨ÕËºÅ  \r\n";
-	        $strs.="define('MS_Upy_Pwd','".$MS_Upy_Pwd."'); //ÓÖÅÄÔÆÊÚÈ¨ÃÜÂë   \r\n";
-	        $strs.="define('MS_Upy_Bucket','".$MS_Upy_Bucket."'); //ÓÖÅÄÔÆ¿Õ¼äÃû ";
+	        $strs.="define('MS_Upy_Name','".$MS_Upy_Name."'); //åˆæ‹äº‘æˆæƒè´¦å·  \r\n";
+	        $strs.="define('MS_Upy_Pwd','".$MS_Upy_Pwd."'); //åˆæ‹äº‘æˆæƒå¯†ç    \r\n";
+	        $strs.="define('MS_Upy_Bucket','".$MS_Upy_Bucket."'); //åˆæ‹äº‘ç©ºé—´å ";
 		}
 
-		//ĞŞ¸ÄÅäÖÃÎÄ¼ş
+		//ä¿®æ”¹é…ç½®æ–‡ä»¶
         write_file(MSVOD.'lib/'.$files, $strs);
 		return true;
 	}
 
-    //ÅĞ¶ÏÉ¾³ı·½Ê½
+    //åˆ¤æ–­åˆ é™¤æ–¹å¼
 	public function del($file_path,$dir=''){
 		if(empty($file_path)) return false;
 		if(UP_Mode==2){ //FTP
               return $this->ftpdel($file_path);
-		}elseif(UP_Mode==3){ //ÆßÅ£
+		}elseif(UP_Mode==3){ //ä¸ƒç‰›
               return $this->qiniudel($file_path);
-		}elseif(UP_Mode==4){ //¿ìÅÌ
+		}elseif(UP_Mode==4){ //å¿«ç›˜
               return $this->kdiskdel($file_path);
-		}elseif(UP_Mode==5){ //°¢ÀïÔÆ
+		}elseif(UP_Mode==5){ //é˜¿é‡Œäº‘
               return $this->ossdel($file_path);
-		}elseif(UP_Mode==6){ //ÓÖÅÄÔÆ
+		}elseif(UP_Mode==6){ //åˆæ‹äº‘
               return $this->upyundel($file_path);
         }else{
 			  if(substr($file_path,0,7)=='http://'){
@@ -200,7 +200,7 @@ class Msup {
 		}
     }
 
-    //FTPÉÏ´«
+    //FTPä¸Šä¼ 
 	public function ftp($file_path,$file_name){
 		$ci = &get_instance();
 		$ci->load->library('ftp');
@@ -211,7 +211,7 @@ class Msup {
 				'hostname' => FTP_Server,
 				'username' => FTP_Name,
 				'password' => FTP_Pass,
-		))) { // Á¬½Óftp³É¹¦
+		))) { // è¿æ¥ftpæˆåŠŸ
 				$Dirs=FTP_Dir;
 				if(substr($Dirs,-1)=='/') $Dirs=substr($Dirs,0,-1);
 				$dir = $Dirs.'/'.date('Ymd').'/';
@@ -227,7 +227,7 @@ class Msup {
 		return false;
     }
 
-    //É¾³ıÔ¶³ÌFTPÎÄ¼ş
+    //åˆ é™¤è¿œç¨‹FTPæ–‡ä»¶
     public function ftpdel($file_path){
 		$ci = &get_instance();
 		$ci->load->library('ftp');
@@ -239,21 +239,21 @@ class Msup {
 				'hostname' => FTP_Server,
 				'username' => FTP_Name,
 				'password' => FTP_Pass,
-		))) { // Á¬½Óftp³É¹¦
+		))) { // è¿æ¥ftpæˆåŠŸ
 				$Dirs=FTP_Dir;
 				if(substr($Dirs,-1)=='/') $Dirs=substr($Dirs,0,-1);
 				$path = $Dirs.'/'.$file_path;
 				$res=$ci->ftp->delete_file(".".$path);
 				$ci->ftp->close();
-                if (!$res) {  //Ê§°Ü
+                if (!$res) {  //å¤±è´¥
                     return FALSE;
-                } else {  //³É¹¦
+                } else {  //æˆåŠŸ
                     return TRUE;
                 }
 		}
     }
 
-    //ÆßÅ£ÉÏ´«
+    //ä¸ƒç‰›ä¸Šä¼ 
 	public function qiniu($file_path,$file_name){
 		require_once MSVODPATH.'uploads/qiniu/io.php';
 		require_once MSVODPATH.'uploads/qiniu/rs.php';
@@ -273,7 +273,7 @@ class Msup {
 		}
     }
 
-    //É¾³ıÆßÅ£ÎÄ¼ş
+    //åˆ é™¤ä¸ƒç‰›æ–‡ä»¶
     public function qiniudel($file_path){
 		require_once MSVODPATH.'uploads/qiniu/io.php';
 		require_once MSVODPATH.'uploads/qiniu/rs.php';
@@ -281,14 +281,14 @@ class Msup {
         $client = new Qiniu_MacHttpClient(null);
 		if(substr($file_path,0,1)=='/') $file_path=substr($file_path,1);
         $err = Qiniu_RS_Delete($client, MS_Qn_Bk, $file_path);
-        if ($err !== null) {  //Ê§°Ü
+        if ($err !== null) {  //å¤±è´¥
             return FALSE;
-        } else {  //³É¹¦
+        } else {  //æˆåŠŸ
             return TRUE;
         }
     }
 
-	//¿ìÅÌÉÏ´«
+	//å¿«ç›˜ä¸Šä¼ 
 	public function kdisk($file_path,$file_name){
 		require_once MSVODPATH.'uploads/kdisk/kuaipan.class.php';
         $access_token_arr['oauth_token']=MS_Kp_Acc;
@@ -310,7 +310,7 @@ class Msup {
                 'overwrite' => 'true',
                 'path' => date('Ymd').'/'.$file_name 
             );
-            // ´«ÈëuploadµÄ¾ø¶ÔµØÖ·
+            // ä¼ å…¥uploadçš„ç»å¯¹åœ°å€
             $ret = $kp->api ( sprintf ( '%s/1/fileops/upload_file', rtrim ( $upload ['url'], '/' ) ), '', $params, 'POST', $file_path ,$access_token_arr );
             if (false === $ret) {
    		        return false;
@@ -322,7 +322,7 @@ class Msup {
 		}
     }
 
-    //É¾³ı¿ìÅÌÎÄ¼ş
+    //åˆ é™¤å¿«ç›˜æ–‡ä»¶
     public function kdiskdel($file_path){
 		require_once MSVODPATH.'uploads/kdisk/kuaipan.class.php';
 		if(substr($file_path,0,1)=='/') $file_path=substr($file_path,1);
@@ -341,7 +341,7 @@ class Msup {
 		}
     }
 
-	//°¢ÀïÔÆÉÏ´«
+	//é˜¿é‡Œäº‘ä¸Šä¼ 
 	public function oss($file_path,$file_name){
 		require_once MSVODPATH.'uploads/oss/sdk.class.php';
         $obj = new ALIOSS();
@@ -360,7 +360,7 @@ class Msup {
 		}
     }
 
-    //É¾³ı°¢ÀïÔÆÎÄ¼ş
+    //åˆ é™¤é˜¿é‡Œäº‘æ–‡ä»¶
     public function ossdel($file_path){
 		require_once MSVODPATH.'uploads/oss/sdk.class.php';
 		if(substr($file_path,0,1)=='/') $file_path=substr($file_path,1);
@@ -373,7 +373,7 @@ class Msup {
 		}
     }
 
-	//ÓÖÅÄÔÆÉÏ´«
+	//åˆæ‹äº‘ä¸Šä¼ 
 	public function upyun($file_path,$file_name){
 		require_once MSVODPATH.'uploads/upyun/upyun.class.php';
         $upyun = new UpYun(MS_Upy_Bucket, MS_Upy_Name, MS_Upy_Pwd);
@@ -388,7 +388,7 @@ class Msup {
 		}
     }
 
-    //É¾³ıÓÖÅÄÔÆÎÄ¼ş
+    //åˆ é™¤åˆæ‹äº‘æ–‡ä»¶
     public function upyundel($file_path){
 		require_once MSVODPATH.'uploads/upyun/upyun.class.php';
         $upyun = new UpYun(MS_Upy_Bucket, MS_Upy_Name, MS_Upy_Pwd);

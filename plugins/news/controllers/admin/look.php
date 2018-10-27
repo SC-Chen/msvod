@@ -14,7 +14,7 @@ class Look extends msvod_Controller {
 	        $this->MsdjAdmin->Admin_Login();
 	}
 
-    //ÔÄ¶Á¼ÇÂ¼ÁĞ±í
+    //é˜…è¯»è®°å½•åˆ—è¡¨
 	public function index()
 	{
             $kstime = $this->input->get_post('kstime',true);
@@ -48,7 +48,7 @@ class Look extends msvod_Controller {
 
             $base_url = site_url('news/admin/look')."?key=".$key."&kstime=".$kstime."&jstime=".$jstime;
 	        $per_page = 15; 
-            $totalPages = ceil($total / $per_page); // ×ÜÒ³Êı
+            $totalPages = ceil($total / $per_page); // æ€»é¡µæ•°
 	        $data['nums'] = $total;
             if($total<$per_page){
                   $per_page=$total;
@@ -57,26 +57,26 @@ class Look extends msvod_Controller {
 	        $query = $this->db->query($sql_string);
 
 	        $data['look'] = $query->result();
-	        $data['pages'] = get_admin_page($base_url,$totalPages,$page,10); //»ñÈ¡·ÖÒ³Àà
+	        $data['pages'] = get_admin_page($base_url,$totalPages,$page,10); //è·å–åˆ†é¡µç±»
 
             $this->load->view('look.html',$data);
 	}
 
-    //¼ÇÂ¼É¾³ı
+    //è®°å½•åˆ é™¤
 	public function del()
 	{
             $ids = $this->input->get_post('id');
-			if(empty($ids)) admin_msg('ÇëÑ¡ÔñÒªÉ¾³ıµÄÊı¾İ~!','javascript:history.back();','no');
+			if(empty($ids)) admin_msg('è¯·é€‰æ‹©è¦åˆ é™¤çš„æ•°æ®~!','javascript:history.back();','no');
 			if(is_array($ids)){
 			     $idss=implode(',', $ids);
 			}else{
 			     $idss=$ids;
 			}
 			$this->MsdjDB->get_del('news_look',$ids);
-            admin_msg('¹§Ï²Äú£¬É¾³ı³É¹¦~!','javascript:history.back();','ok');  //²Ù×÷³É¹¦
+            admin_msg('æ­å–œæ‚¨ï¼Œåˆ é™¤æˆåŠŸ~!','javascript:history.back();','ok');  //æ“ä½œæˆåŠŸ
 	}
 
-    //¼ÇÂ¼ÅúÁ¿É¾³ı
+    //è®°å½•æ‰¹é‡åˆ é™¤
 	public function pldel()
 	{
             $id = intval($this->input->get('id'));
@@ -87,7 +87,7 @@ class Look extends msvod_Controller {
 			     $this->db->query("delete from ".MS_SqlPrefix."news_look");
 				 $this->db->query("TRUNCATE TABLE ".MS_SqlPrefix."news_look");
 			}
-            admin_msg('¹§Ï²Äú£¬É¾³ı³É¹¦~!','javascript:history.back();','ok');  //²Ù×÷³É¹¦
+            admin_msg('æ­å–œæ‚¨ï¼Œåˆ é™¤æˆåŠŸ~!','javascript:history.back();','ok');  //æ“ä½œæˆåŠŸ
 	}
 }
 

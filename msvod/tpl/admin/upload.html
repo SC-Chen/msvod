@@ -66,7 +66,7 @@ parent.$('#<?=$fhid.$fid?>').val(text+filename);
 }
 parent.tip_cokes();
 }else{
-if(msg=='no') msg='ÉÏ´«Ê§°Ü';
+if(msg=='no') msg='ä¸Šä¼ å¤±è´¥';
 alert(msg);
 location.reload();
 }
@@ -101,7 +101,7 @@ $('#tab_'+i).removeClass('on');
 <input type="button" id="btupload" value="<?=L('tpl_04')?>" onClick="swfu.startUpload();" />
 <div id="nameTip" class="onShow"><?=vsprintf(L('tpl_05'),array($nums,($size/1024)))?></div>
 <div class="bk3"></div>
-<div class="lh24"><?=L('tpl_06').str_replace(array(';', '*.'), array('¡¢', ''), $types)?></div>
+<div class="lh24"><?=L('tpl_06').str_replace(array(';', '*.'), array('ã€', ''), $types)?></div>
 </div> 	
 <div class="bk10"></div>
 <fieldset class="blue pad-10" id="swfupload">

@@ -16,16 +16,16 @@
 {msvod:head}     
 <div class="k_content no_flush_content">
      <div class="fans_nav c_wap show_visitor_panel"{if:[user:id]=={msvod:uid}} style="display:none;"{end if}>
-                <a href="[user:url ulink=friend]" class="lt f14 a_btn coll" >TAµÄ¹Ø×¢</a>
-				<a href="[user:url ulink=fans]" class="lt f14 a_btn" >TAµÄ·ÛË¿</a>
-				<a href="[user:url ulink=funco]" class="lt f14 a_btn" >TAµÄ·Ã¿Í</a>
-				<p class="f14">@[user:nichen]@¹Ø×¢ÁË&nbsp;{msvod:pagedata}&nbsp;ÈË</p>
+                <a href="[user:url ulink=friend]" class="lt f14 a_btn coll" >TAçš„å…³æ³¨</a>
+				<a href="[user:url ulink=fans]" class="lt f14 a_btn" >TAçš„ç²‰ä¸</a>
+				<a href="[user:url ulink=funco]" class="lt f14 a_btn" >TAçš„è®¿å®¢</a>
+				<p class="f14">@[user:nichen]@å…³æ³¨äº†&nbsp;{msvod:pagedata}&nbsp;äºº</p>
 	 </div>
      <div class="fans_nav c_wap show_owner_panel"{if:[user:id]!={msvod:uid}} style="display:none;"{end if}>
-            <a href="[user:url ulink=friend]" class="lt f14 a_btn coll" >ÎÒµÄ¹Ø×¢</a>
-			<a href="[user:url ulink=fans]" class="lt f14 a_btn" >ÎÒµÄ·ÛË¿</a>
-			<a href="[user:url ulink=funco]" class="lt f14 a_btn" >ÎÒµÄ·Ã¿Í</a>
-			<p class="f14">ÎÒ¹Ø×¢ÁË&nbsp;{msvod:pagedata}&nbsp;ÈË</p>
+            <a href="[user:url ulink=friend]" class="lt f14 a_btn coll" >æˆ‘çš„å…³æ³¨</a>
+			<a href="[user:url ulink=fans]" class="lt f14 a_btn" >æˆ‘çš„ç²‰ä¸</a>
+			<a href="[user:url ulink=funco]" class="lt f14 a_btn" >æˆ‘çš„è®¿å®¢</a>
+			<p class="f14">æˆ‘å…³æ³¨äº†&nbsp;{msvod:pagedata}&nbsp;äºº</p>
 	 </div>
      <div class="fans_items">
             <ul class="c_wap">
@@ -37,15 +37,15 @@
                                     <h2 class="c_wap">
                                         <a target="_blank" href="[friend:url ulink=index]" title="[friend:user zd=nichen]" class="show_userCard_link f14 lt">[friend:user zd=nichen]</a>
                                         <ul class="user_icon c_wap lt"></ul>
-                                        <a href="###" onClick="home.fansadd('[friend:uidb]',2);" uid="[friend:uidb]" class="rt f14 watch_btn gz[friend:uidb]"><i></i>¹Ø×¢</a>
+                                        <a href="###" onClick="home.fansadd('[friend:uidb]',2);" uid="[friend:uidb]" class="rt f14 watch_btn gz[friend:uidb]"><i></i>å…³æ³¨</a>
                                     </h2>
                                     <div class="c_wap f_rank">
-                                        <label>¹Ø×¢&nbsp;[friend:count zdy=friend,uida,uidb]</label>&nbsp;&nbsp;&nbsp;
-                                        <label>·ÛË¿&nbsp;[friend:count zdy=fans,uida,uidb]</label>&nbsp;&nbsp;&nbsp;
-                                        <label>ÈËÆø&nbsp;[friend:user zd=hits]</label>
+                                        <label>å…³æ³¨&nbsp;[friend:count zdy=friend,uida,uidb]</label>&nbsp;&nbsp;&nbsp;
+                                        <label>ç²‰ä¸&nbsp;[friend:count zdy=fans,uida,uidb]</label>&nbsp;&nbsp;&nbsp;
+                                        <label>äººæ°”&nbsp;[friend:user zd=hits]</label>
                                     </div>
                                     <p>
-                                        <span>¼ò½é£º</span>
+                                        <span>ç®€ä»‹ï¼š</span>
                                         [friend:user zd=qianm]
 									</p>
                                 </dd>
@@ -56,11 +56,11 @@
      </div>
 	 <div class="msg_page f14 tc fa_g6 g6 mt20 msg_page_green" style="display:{if:{msvod:pagecout}==1}none{end if};">
 			<span class="msg_page_list">
-				<a href="{msvod:pageup}" class="commentsPrevPage">ÉÏÒ»Ò³</a>
+				<a href="{msvod:pageup}" class="commentsPrevPage">ä¸Šä¸€é¡µ</a>
 				{msvod:pagenum len=6}
-				<a href="{msvod:pagedown}" class="commentsNextPage">ÏÂÒ»Ò³</a>
+				<a href="{msvod:pagedown}" class="commentsNextPage">ä¸‹ä¸€é¡µ</a>
 			</span>
-			<span class="msg_page_jump ml10"> µ½<input type="text" id="home_page" class="tc commentsJumpPageTxt" size="4" maxlength="4">Ò³<a href="javascript:window.location.href='[user:url ulink=fans]/'+$('#home_page').val();" class="tdn commentsJumpPageBtn">È· ¶¨</a></span>
+			<span class="msg_page_jump ml10"> åˆ°<input type="text" id="home_page" class="tc commentsJumpPageTxt" size="4" maxlength="4">é¡µ<a href="javascript:window.location.href='[user:url ulink=fans]/'+$('#home_page').val();" class="tdn commentsJumpPageBtn">ç¡® å®š</a></span>
 	 </div>
 </div>
 {msvod:bottom}

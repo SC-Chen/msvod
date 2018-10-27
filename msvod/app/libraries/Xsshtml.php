@@ -1,6 +1,6 @@
 <?php
 /**
- * PHP ¸»ÎÄ±¾XSS¹ýÂËÀà
+ * PHP å¯Œæ–‡æœ¬XSSè¿‡æ»¤ç±»
  *
  */
 if (!defined('BASEPATH')) exit('No direct script access allowed');
@@ -12,11 +12,11 @@ class Xsshtml {
 	private $m_AllowAttr = array('title', 'src', 'href', 'id', 'class', 'style', 'width', 'height', 'alt', 'target', 'align');
 	private $m_AllowTag = array('a', 'img', 'br', 'strong', 'b', 'code', 'pre', 'p', 'div', 'em', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'table', 'ul', 'ol', 'tr', 'th', 'td', 'hr', 'li', 'u');
 	/**
-     * ¹¹Ôìº¯Êý
+     * æž„é€ å‡½æ•°
      *
-     * @param string $html ´ý¹ýÂËµÄÎÄ±¾
-     * @param string $charset ÎÄ±¾±àÂë£¬Ä¬ÈÏutf-8
-     * @param array $AllowTag ÔÊÐíµÄ±êÇ©£¬Èç¹û²»Çå³þÇë±£³ÖÄ¬ÈÏ£¬Ä¬ÈÏÒÑº­¸Ç´ó²¿·Ö¹¦ÄÜ£¬²»ÒªÔö¼ÓÎ£ÏÕ±êÇ©
+     * @param string $html å¾…è¿‡æ»¤çš„æ–‡æœ¬
+     * @param string $charset æ–‡æœ¬ç¼–ç ï¼Œé»˜è®¤utf-8
+     * @param array $AllowTag å…è®¸çš„æ ‡ç­¾ï¼Œå¦‚æžœä¸æ¸…æ¥šè¯·ä¿æŒé»˜è®¤ï¼Œé»˜è®¤å·²æ¶µç›–å¤§éƒ¨åˆ†åŠŸèƒ½ï¼Œä¸è¦å¢žåŠ å±é™©æ ‡ç­¾
      */
 	public function __construct($params=array()){
 		$html = !empty($params['html']) ? $params['html'] : '';
@@ -35,7 +35,7 @@ class Xsshtml {
 	}
 
 	/**
-     * »ñµÃ¹ýÂËºóµÄÄÚÈÝ
+     * èŽ·å¾—è¿‡æ»¤åŽçš„å†…å®¹
      */
 	public function getHtml()
 	{

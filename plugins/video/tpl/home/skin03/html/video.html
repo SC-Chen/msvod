@@ -16,13 +16,13 @@
 {msvod:indexhead}     
 <div class="k_content s_content no_flush_content">
      <div class="fans_nav c_wap show_visitor_panel">
-                <a href="[user:url ulink=video]" class="lt f14 a_btn coll" >{if:{msvod:uid}==[user:id]}ÎÒ{else}TA{end if}µÄÊÓÆµ</a>
-				<a href="[user:url ulink=video,album]" class="lt f14 a_btn" >{if:{msvod:uid}==[user:id]}ÎÒ{else}TA{end if}µÄ×¨Ìâ</a>
+                <a href="[user:url ulink=video]" class="lt f14 a_btn coll" >{if:{msvod:uid}==[user:id]}æˆ‘{else}TA{end if}çš„è§†é¢‘</a>
+				<a href="[user:url ulink=video,album]" class="lt f14 a_btn" >{if:{msvod:uid}==[user:id]}æˆ‘{else}TA{end if}çš„ä¸“é¢˜</a>
 	 </div>
      <div class="yc_song" style="margin-top:20px;">
 	        <div class="dj_lists">
                 <h2 class="dj_title c_wap">
-                    <a href="[user:url ulink=video]" class="lt a_btn f16 {if:{msvod:fid}==0}song_coll coll_pull{else}list_coll{end if} noFlush_load_link">È«²¿ÊÓÆµ</a>
+                    <a href="[user:url ulink=video]" class="lt a_btn f16 {if:{msvod:fid}==0}song_coll coll_pull{else}list_coll{end if} noFlush_load_link">å…¨éƒ¨è§†é¢‘</a>
 					{msvod:class table="video_list" loop="8" fid="0" order="asc"}
                     <a href="[user:url ulink=video]/[class:id]" class="lt a_btn f16 {if:{msvod:fid}==[class:id]}song_coll coll_pull{else}list_coll{end if} noFlush_load_link">[class:name]</a>
 					{/msvod:class}
@@ -31,25 +31,25 @@
             <div class="song_list"{if:{msvod:pagedata}==0} style="display:none;"{end if}>
 			    <div class="dj_tool c_wap">
                     <span class="lt">
-                        <strong class="f14">È«²¿ÊÓÆµ</strong>&nbsp;&nbsp;({msvod:pagedata}Ê×)
+                        <strong class="f14">å…¨éƒ¨è§†é¢‘</strong>&nbsp;&nbsp;({msvod:pagedata}é¦–)
                     </span>
-                    <a href="javascript:playsong(1);" class="lt more PlayerWidget_play">²¥·ÅÈ«²¿</a>
+                    <a href="javascript:playsong(1);" class="lt more PlayerWidget_play">æ’­æ”¾å…¨éƒ¨</a>
                 </div>
                 <ul>
 				{msvod:video table="video" field="id,reco,name,hits,addtime" pagesize="15" uid="auto"}
-                <li id="song-1" did="[video:id]"><strong class="lt list_name"><a target="_blank" href="[video:url link=play,id]" title="[video:name]">[video:name]</a>{if:[video:reco]>2}<b class="icon_rec" title="ÍÆ¼ö"></b>{end if}</strong><span class="tips_gray">ÉÏ´«£º[video:addtime style=Y-m-d]</span><span id="song-fc-6322880" class="tips_gray">[video:hits]´Î²¥·Å</span><span class="list_action"><a target="_blank" href="[video:url link=play,id]" class="action_play PlayerWidget_play" title="²¥·Å">²¥·Å</a><a class="action_down" target="_blank" href="[video:url link=down,id]" title="ÏÂÔØÊÓÆµ">ÏÂÔØÊÓÆµ</a><a class="action_share song_share_link" href="###" data-link="[video:url link=play,id]" data-name="[video:name]" title="·ÖÏí">·ÖÏí</a><a class="action_fav fav[video:id]" href="javascript:home.favadd('[video:id]');" did="[video:id]" title="ÊÕ²Ø">ÊÕ²Ø</a></span></li>
+                <li id="song-1" did="[video:id]"><strong class="lt list_name"><a target="_blank" href="[video:url link=play,id]" title="[video:name]">[video:name]</a>{if:[video:reco]>2}<b class="icon_rec" title="æ¨è"></b>{end if}</strong><span class="tips_gray">ä¸Šä¼ ï¼š[video:addtime style=Y-m-d]</span><span id="song-fc-6322880" class="tips_gray">[video:hits]æ¬¡æ’­æ”¾</span><span class="list_action"><a target="_blank" href="[video:url link=play,id]" class="action_play PlayerWidget_play" title="æ’­æ”¾">æ’­æ”¾</a><a class="action_down" target="_blank" href="[video:url link=down,id]" title="ä¸‹è½½è§†é¢‘">ä¸‹è½½è§†é¢‘</a><a class="action_share song_share_link" href="###" data-link="[video:url link=play,id]" data-name="[video:name]" title="åˆ†äº«">åˆ†äº«</a><a class="action_fav fav[video:id]" href="javascript:home.favadd('[video:id]');" did="[video:id]" title="æ”¶è—">æ”¶è—</a></span></li>
 				{/msvod:video}
                 </ul>
             </div>
-			{if:{msvod:pagedata}==0}<div class="song_null_box show_owner_panel" style=""><dl><dt></dt><dd><p>ÄãÄ¿Ç°µÄÊÓÆµÊıÎª <span class="tips_yel">0</span> Ê×<br>ÉÏ´«ÊÓÆµ£¬ÎªÄã×¬È¡¸ü¶àÈËÆø°É£¡</p><div class="song_null_btn"><a href="{msvodphp}spacelink('video,add','video');{/msvodphp}">ÉÏ´«ÊÓÆµ</a></div></dd></dl></div>{end if}
+			{if:{msvod:pagedata}==0}<div class="song_null_box show_owner_panel" style=""><dl><dt></dt><dd><p>ä½ ç›®å‰çš„è§†é¢‘æ•°ä¸º <span class="tips_yel">0</span> é¦–<br>ä¸Šä¼ è§†é¢‘ï¼Œä¸ºä½ èµšå–æ›´å¤šäººæ°”å§ï¼</p><div class="song_null_btn"><a href="{msvodphp}spacelink('video,add','video');{/msvodphp}">ä¸Šä¼ è§†é¢‘</a></div></dd></dl></div>{end if}
      </div>
 	 <div class="msg_page f14 tc fa_g6 g6 mt20 msg_page_green" style="display:{if:{msvod:pagecout}==1}none{end if};">
 			<span class="msg_page_list">
-				<a href="{msvod:pageup}" class="commentsPrevPage">ÉÏÒ»Ò³</a>
+				<a href="{msvod:pageup}" class="commentsPrevPage">ä¸Šä¸€é¡µ</a>
 				{msvod:pagenum len=10}
-				<a href="{msvod:pagedown}" class="commentsNextPage">ÏÂÒ»Ò³</a>
+				<a href="{msvod:pagedown}" class="commentsNextPage">ä¸‹ä¸€é¡µ</a>
 			</span>
-			<span class="msg_page_jump ml10"> µ½<input type="text" id="home_page" class="tc commentsJumpPageTxt" size="4" maxlength="4">Ò³<a href="javascript:window.location.href='[user:url ulink=video]/{msvod:fid}/'+$('#home_page').val();" class="tdn commentsJumpPageBtn">È· ¶¨</a></span>
+			<span class="msg_page_jump ml10"> åˆ°<input type="text" id="home_page" class="tc commentsJumpPageTxt" size="4" maxlength="4">é¡µ<a href="javascript:window.location.href='[user:url ulink=video]/{msvod:fid}/'+$('#home_page').val();" class="tdn commentsJumpPageBtn">ç¡® å®š</a></span>
 	 </div>
 </div>
 {msvod:indexbottom}

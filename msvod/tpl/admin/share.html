@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>MSVODºóÌ¨¹ÜÀí</title>
+<title>MSVODåå°ç®¡ç†</title>
 <meta name="robots" content="noindex,nofollow">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link type="text/css" rel="stylesheet" href="<?=Web_Path?>packs/admin/css/style.css" />
@@ -54,7 +54,7 @@ foreach ($share as $row) {
         <tr>
         <td><input name="id[]" type="checkbox" value="'.$row->id.'" /></td>
         <td>'.$this->MsdjDB->getzd('user','name',$row->uid).'</td>
-        <td>'.L('tpl_13').$row->cion.'£¬'.L('tpl_14').$row->jinyan.'</td>
+        <td>'.L('tpl_13').$row->cion.'ï¼Œ'.L('tpl_14').$row->jinyan.'</td>
         <td>'.date('Y-m-d H:i:s',$row->addtime).'</td>
         <td>'.$row->ip.'</td>
         <td>'.$this->ip->address($row->ip).'</td>

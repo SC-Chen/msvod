@@ -60,30 +60,30 @@
 if(empty($gbook)) echo '<tr><td align="center" height="50" colspan="8">'.L('tpl_15').'</td></tr>';
 foreach ($gbook as $row) {
         $hf='';
-		if($row->cid==1){ //ÍøÕ¾ÁôÑÔ
-		     //»áÔ±
+		if($row->cid==1){ //ç½‘ç«™ç•™è¨€
+		     //ä¼šå‘˜
              $unamea=$namea=L('tpl_16');
              $unameb=$nameb=L('tpl_17');
 			 if($row->uidb>0){
                  $rowb=$this->db->query("SELECT name FROM ".MS_SqlPrefix."user where id=".$row->uidb."")->row();
-		         $unameb=$nameb=($rowb)?$rowb->name:L('tpl_18').'£¬UID£º'.$row->uidb;
+		         $unameb=$nameb=($rowb)?$rowb->name:L('tpl_18').'ï¼ŒUIDï¼š'.$row->uidb;
 			 }
 			 if($row->fid>0){
                  $unamea=$nameb;
                  $unameb=$namea;
-				 $hf='<font color=#0000ff>£¨'.L('tpl_19').' ID:'.$row->fid.' '.L('tpl_20').'£©</font>';
+				 $hf='<font color=#0000ff>ï¼ˆ'.L('tpl_19').' ID:'.$row->fid.' '.L('tpl_20').'ï¼‰</font>';
 			     $cmd='<a href="javascript:void(0);" onclick="Popsbox(\''.L('tpl_21').'\',505,245,\''.L('tpl_22').'\',\''.site_url('admin/gbook/del').'?id='.$row->id.'\');">===='.L('tpl_23').'====</a>';
 			 }else{
 			     $cmd='<a href="javascript:void(0);" onclick="Popsboxif(\''.L('tpl_24').'\',505,245,\''.site_url('admin/gbook/hf').'?id='.$row->id.'\');" style="color:#0000ff">'.L('tpl_24').'</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);" onclick="Popsbox(\''.L('tpl_21').'\',505,245,\''.L('tpl_22').'\',\''.site_url('admin/gbook/del').'?id='.$row->id.'\');">'.L('tpl_25').'</a>';
 			 }
 		}else{
-		     //»áÔ±A
+		     //ä¼šå‘˜A
              $rowa=$this->db->query("SELECT name FROM ".MS_SqlPrefix."user where id=".$row->uida."")->row();
-		     $unamea=($rowa)?$rowa->name:L('tpl_18').'£¬UID£º'.$row->uida;
-		     //»áÔ±B
+		     $unamea=($rowa)?$rowa->name:L('tpl_18').'ï¼ŒUIDï¼š'.$row->uida;
+		     //ä¼šå‘˜B
              $rowb=$this->db->query("SELECT name FROM ".MS_SqlPrefix."user where id=".$row->uidb."")->row();
-		     $unameb=($rowb)?$rowb->name:L('tpl_18').'£¬UID£º'.$row->uidb;
-			 $cmd='<a href="javascript:void(0);" onclick="Popsbox(\''.L('tpl_21').'\',505,245,\''.L('tpl_22').'\',\''.site_url('admin/gbook/del').'?id='.$row->id.'\');">====É¾³ýÁôÑÔ====</a>';
+		     $unameb=($rowb)?$rowb->name:L('tpl_18').'ï¼ŒUIDï¼š'.$row->uidb;
+			 $cmd='<a href="javascript:void(0);" onclick="Popsbox(\''.L('tpl_21').'\',505,245,\''.L('tpl_22').'\',\''.site_url('admin/gbook/del').'?id='.$row->id.'\');">====åˆ é™¤ç•™è¨€====</a>';
 		}
 		$lx=($row->cid==0)?'<a href="'.site_url('admin/gbook').'?op=user"><font color=#2222ff>'.L('tpl_03').'</font></a>':'<a href="'.site_url('admin/gbook').'?op=web"><font color=#ff3300>'.L('tpl_26').'</font></a>';
         echo '

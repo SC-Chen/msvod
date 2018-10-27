@@ -2,8 +2,8 @@
 if (!defined('MSVODPATH')) exit('No permission resources');
 
 return array(
-               'news.html' => 'าัษ๓บหะกหต',
-               'verify.html' => 'ดýษ๓บหะกหต',
-               'add.html' => 'ะยิ๖ะกหต',
-               'look.html' => 'ะกหติฤถมผวยผ',
+               'news.html' => 'ๅทฒๅฎกๆ ธๅฐ่ฏด',
+               'verify.html' => 'ๅพ…ๅฎกๆ ธๅฐ่ฏด',
+               'add.html' => 'ๆ–ฐๅขๅฐ่ฏด',
+               'look.html' => 'ๅฐ่ฏด้…่ฏป่ฎฐๅฝ•',
 );

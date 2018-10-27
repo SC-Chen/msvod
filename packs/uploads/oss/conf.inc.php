@@ -1,5 +1,5 @@
 <?php
-//¸öÈË²âÊÔ
+//ä¸ªäººæµ‹è¯•
 //ACCESS_ID
 define('OSS_ACCESS_ID', MS_Os_Ai);
 
@@ -10,19 +10,19 @@ define('OSS_ACCESS_KEY', MS_Os_Ak);
 define('BUCKET', MS_Os_Bk);
 
 
-//ÊÇ·ñ¼ÇÂ¼ÈÕÖ¾
+//æ˜¯å¦è®°å½•æ—¥å¿—
 define('ALI_LOG', FALSE);
 
-//×Ô¶¨ÒåÈÕÖ¾Â·¾¶£¬Èç¹ûÃ»ÓÐÉèÖÃ£¬ÔòÊ¹ÓÃÏµÍ³Ä¬ÈÏÂ·¾¶£¬ÔÚ./logs/
+//è‡ªå®šä¹‰æ—¥å¿—è·¯å¾„ï¼Œå¦‚æžœæ²¡æœ‰è®¾ç½®ï¼Œåˆ™ä½¿ç”¨ç³»ç»Ÿé»˜è®¤è·¯å¾„ï¼Œåœ¨./logs/
 //define('ALI_LOG_PATH','');
 
-//ÊÇ·ñÏÔÊ¾LOGÊä³ö
+//æ˜¯å¦æ˜¾ç¤ºLOGè¾“å‡º
 define('ALI_DISPLAY_LOG', FALSE);
 
-//ÓïÑÔ°æ±¾ÉèÖÃ
+//è¯­è¨€ç‰ˆæœ¬è®¾ç½®
 define('ALI_LANG', 'zh');
 
-//µÇÂ½ÃÜÂë
+//ç™»é™†å¯†ç 
 define('ADMIN_PASS', '2228');
 
 

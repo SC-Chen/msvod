@@ -2,13 +2,13 @@
 if (!defined('MSVODPATH')) exit('No permission resources');
 
 return array(
-'video.html' => 'ÒÑÉóºËÊÓÆµ',
-'verify.html' => '´ýÉóºËÊÓÆµ',
-'add.html' => 'ÐÂÔöÊÓÆµ',
-'down.html' => 'ÊÓÆµÏÂÔØ¼ÇÂ¼',
-'fav.html' => 'ÊÓÆµÊÕ²Ø¼ÇÂ¼',
-'fav-album.html' => '×¨ÌâÊÕ²Ø¼ÇÂ¼',
-'album.html' => 'ÒÑÉóºË×¨Ìâ',
-'album-add.html' => 'Ôö¼Ó×¨Ìâ',
-'album-verify.html' => '´ýÉóºË×¨Ìâ',
+'video.html' => 'å·²å®¡æ ¸è§†é¢‘',
+'verify.html' => 'å¾…å®¡æ ¸è§†é¢‘',
+'add.html' => 'æ–°å¢žè§†é¢‘',
+'down.html' => 'è§†é¢‘ä¸‹è½½è®°å½•',
+'fav.html' => 'è§†é¢‘æ”¶è—è®°å½•',
+'fav-album.html' => 'ä¸“é¢˜æ”¶è—è®°å½•',
+'album.html' => 'å·²å®¡æ ¸ä¸“é¢˜',
+'album-add.html' => 'å¢žåŠ ä¸“é¢˜',
+'album-verify.html' => 'å¾…å®¡æ ¸ä¸“é¢˜',
 );

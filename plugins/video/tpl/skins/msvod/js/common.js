@@ -1,4 +1,4 @@
-//Ê×Ò³×¨ÌâÇĞ»»
+//é¦–é¡µä¸“é¢˜åˆ‡æ¢
 var topic = {
 init: function(){
 $("#topic_1").hover(function(){
@@ -39,22 +39,22 @@ $('#moreContent').css('height','64px');
 
 }
 }
-//ÊÓÆµ²¥·Å
+//è§†é¢‘æ’­æ”¾
 var video = {
 play: function(){
-//·ÖÏí¿ª¹Ø
+//åˆ†äº«å¼€å…³
 $('#video_share').click(function(){
 $('#showbg').css({width:$(window).width(),height:document.body.scrollHeight});
 $('#showbg').show(); 
 $('.popup').show();     
 });
-//¹Ø±Õ·ÖÏí
+//å…³é—­åˆ†äº«
 $('.fancybox-close').click(function(){
 $('#showbg').css({width:0,height:0});
 $('#showbg').hide(); 
 $('.popup').hide();     
 });
-//·ÖÏí
+//åˆ†äº«
 $('.share li').click(function(){
 var title=$('#showbg').attr('data-title');
 var url=$('#showbg').attr('data-url');
@@ -63,7 +63,7 @@ video_share(ac,title,url);
 });
 }
 }
-//Ê×Ò³ÊÓÆµÈ«²¿²¥·Å
+//é¦–é¡µè§†é¢‘å…¨éƒ¨æ’­æ”¾
 function playsong(n){
 var v = [];
 var nums=$('.tab_div #song-'+n).length;
@@ -73,7 +73,7 @@ v.push(did);
 }
 window.open(msvod_path+'index.php/video/playsong?id=' + v.join(','), 'play');
 }
-//ÁĞ±íÊÓÆµÈ«²¿²¥·Å
+//åˆ—è¡¨è§†é¢‘å…¨éƒ¨æ’­æ”¾
 function playsongs(n){
 var v = [];
 var a=$("input[name='check']"); 
@@ -89,12 +89,12 @@ v.push(did);
 }
 }
 if (1 > v.length){ 
-do_alert('ÇëÑ¡ÔñÒª²¥·ÅµÄÊÓÆµ£¡');return; 
+do_alert('è¯·é€‰æ‹©è¦æ’­æ”¾çš„è§†é¢‘ï¼');return; 
 }else{
 window.open(msvod_path+'index.php/video/playsong?id=' + v.join(','), 'play');
 }
 }
-//È«Ñ¡¡¢·´Ñ¡
+//å…¨é€‰ã€åé€‰
 function checkAll(){
 var v = [];
 var a=$("input[name='check']"); 
@@ -102,48 +102,48 @@ for (var i = 0; i < a.length; i++) {
 if(a[i].checked==true){a[i].checked="";}else{ a[i].checked="checked";}
 }
 }
-//¶¥ÊÓÆµ 
+//é¡¶è§†é¢‘ 
 function video_ding(id){
 $.getJSON(msvod_path+"index.php/video/ajax/videoding/"+id+"?callback=?",function(data) {
 if(data){
 if(data['msg']=='ok'){
 $("#dhits").text(parseInt($("#dhits" ).text()) + 1);
-do_alert('¸ĞĞ»ÄúµÄÖ§³Ö!',2);
+do_alert('æ„Ÿè°¢æ‚¨çš„æ”¯æŒ!',2);
 }else{
 do_alert(data['msg']);
 }
 } else {
-do_alert('ÍøÂç¹ÊÕÏ£¬Á¬½ÓÊ§°Ü!');
+do_alert('ç½‘ç»œæ•…éšœï¼Œè¿æ¥å¤±è´¥!');
 }
 });
 }
-//ÊÕ²ØÊÓÆµ 
+//æ”¶è—è§†é¢‘ 
 function video_fav(id){
 $.getJSON(msvod_path+"index.php/video/ajax/videofav/"+id+"?callback=?",function(data) {
 if(data){
 if(data['msg']=='ok'){
 $("#shits").text(parseInt($("#shits" ).text()) + 1);
-do_alert('ÊÓÆµÊÕ²Ø³É¹¦!',2);
+do_alert('è§†é¢‘æ”¶è—æˆåŠŸ!',2);
 }else{
 do_alert(data['msg']);
 }
 } else {
-do_alert('ÍøÂç¹ÊÕÏ£¬Á¬½ÓÊ§°Ü!');
+do_alert('ç½‘ç»œæ•…éšœï¼Œè¿æ¥å¤±è´¥!');
 }
 });
 }
-//ÊÕ²Ø×¨Ìâ 
+//æ”¶è—ä¸“é¢˜ 
 function album_fav(id){
 $.getJSON(msvod_path+"index.php/video/ajax/albumfav/"+id+"?callback=?",function(data) {
 if(data){
 if(data['msg']=='ok'){
 $("#shits").text(parseInt($("#shits" ).text()) + 1);
-do_alert('×¨ÌâÊÕ²Ø³É¹¦!',2);
+do_alert('ä¸“é¢˜æ”¶è—æˆåŠŸ!',2);
 }else{
 do_alert(data['msg']);
 }
 } else {
-do_alert('ÍøÂç¹ÊÕÏ£¬Á¬½ÓÊ§°Ü!');
+do_alert('ç½‘ç»œæ•…éšœï¼Œè¿æ¥å¤±è´¥!');
 }
 });
 }
@@ -202,7 +202,7 @@ curC.className=""
 }
 }
 }
-//µ¯³ö·ÖÏí
+//å¼¹å‡ºåˆ†äº«
 function showSharelook(e, name, pic, link) {
 var show = $("#fsId").css("display");
 if (show == 'none') {
@@ -215,7 +215,7 @@ y += e.offsetTop;
 $("#fsId").css("top",((y - 30) - jQuery('#checkALL').scrollTop()) + 'px');
 $("#fsId").css("left",(x - 180) + 'px');
 $("#fsId").css("display" ,'block');
-var title = "¿´µ½ÕâÊ×¡¶" + name + "¡·£¬¾ÍÎŞ·¨µ­¶¨ÁË¡­¡­Ò»¶¨Òª×ª¸ø´ó¼ÒÒ»Æğ¿´Ò»¿´£¡(·ÖÏí×Ô@msvod)¡£µã»÷ÊÕ¿´£º";
+var title = "çœ‹åˆ°è¿™é¦–ã€Š" + name + "ã€‹ï¼Œå°±æ— æ³•æ·¡å®šäº†â€¦â€¦ä¸€å®šè¦è½¬ç»™å¤§å®¶ä¸€èµ·çœ‹ä¸€çœ‹ï¼(åˆ†äº«è‡ª@msvod)ã€‚ç‚¹å‡»æ”¶çœ‹ï¼š";
 try {
 var bdObj = $('.fenmiddle #bdshare');
 bdObj.attr("data", "{'comment':'" + title + "','text':'" + title + "','pic':'" + pic + "','url':'" + link + "'}");
@@ -225,20 +225,20 @@ if (show == 'block') {
 $("#fsId").css("display","none");
 }
 }
-//²¥·ÅÒ³·ÖÏí
+//æ’­æ”¾é¡µåˆ†äº«
 function video_share(ac,title,url) {
 if(ac=='share_qzone'){
-var url="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url="+encodeURI(url)+"&title="+encodeURI('·ÖÏíÒ»²¿ºÃ¿´µÄÊÓÆµ£¬--¡¶'+title+'¡·²¥·ÅµØÖ·£º');
+var url="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url="+encodeURI(url)+"&title="+encodeURI('åˆ†äº«ä¸€éƒ¨å¥½çœ‹çš„è§†é¢‘ï¼Œ--ã€Š'+title+'ã€‹æ’­æ”¾åœ°å€ï¼š');
 } else if(ac=='share_qwei'){
-var url="http://share.v.t.qq.com/index.php?c=share&a=index&appkey=&url="+encodeURI(url)+"&title="+encodeURI('·ÖÏíÒ»²¿ºÃ¿´µÄÊÓÆµ£¬--¡¶'+title+'¡·²¥·ÅµØÖ·£º')+"&site=";
+var url="http://share.v.t.qq.com/index.php?c=share&a=index&appkey=&url="+encodeURI(url)+"&title="+encodeURI('åˆ†äº«ä¸€éƒ¨å¥½çœ‹çš„è§†é¢‘ï¼Œ--ã€Š'+title+'ã€‹æ’­æ”¾åœ°å€ï¼š')+"&site=";
 } else if(ac=='share_weibo'){
-var url="http://service.weibo.com/share/share.php?appkey=&title="+encodeURI('·ÖÏíÒ»²¿ºÃ¿´µÄÊÓÆµ£¬--¡¶'+title+'¡·²¥·ÅµØÖ·£º')+"&url="+encodeURI(url);
+var url="http://service.weibo.com/share/share.php?appkey=&title="+encodeURI('åˆ†äº«ä¸€éƒ¨å¥½çœ‹çš„è§†é¢‘ï¼Œ--ã€Š'+title+'ã€‹æ’­æ”¾åœ°å€ï¼š')+"&url="+encodeURI(url);
 } else if(ac=='share_baidu'){
-var url="http://tieba.baidu.com/f/commit/share/openShareApi?url="+encodeURI(url)+"&title="+encodeURI('·ÖÏíÒ»²¿ºÃ¿´µÄÊÓÆµ£¬--¡¶'+title+'¡·²¥·ÅµØÖ·£º'+url)+"&desc="+encodeURI('·ÖÏíÒ»²¿ºÃ¿´µÄÊÓÆµ£¬--¡¶'+title+'¡·²¥·ÅµØÖ·£º'+url)+"&comment="+encodeURI('·ÖÏíÒ»²¿ºÃ¿´µÄÊÓÆµ£¬--¡¶'+title+'¡·²¥·ÅµØÖ·£º'+url);
+var url="http://tieba.baidu.com/f/commit/share/openShareApi?url="+encodeURI(url)+"&title="+encodeURI('åˆ†äº«ä¸€éƒ¨å¥½çœ‹çš„è§†é¢‘ï¼Œ--ã€Š'+title+'ã€‹æ’­æ”¾åœ°å€ï¼š'+url)+"&desc="+encodeURI('åˆ†äº«ä¸€éƒ¨å¥½çœ‹çš„è§†é¢‘ï¼Œ--ã€Š'+title+'ã€‹æ’­æ”¾åœ°å€ï¼š'+url)+"&comment="+encodeURI('åˆ†äº«ä¸€éƒ¨å¥½çœ‹çš„è§†é¢‘ï¼Œ--ã€Š'+title+'ã€‹æ’­æ”¾åœ°å€ï¼š'+url);
 } else if(ac=='share_renren'){
-var url="http://widget.renren.com/dialog/share?resourceUrl="+encodeURI(url)+"&title="+encodeURI(title)+"&description="+encodeURI('·ÖÏíÒ»²¿ºÃ¿´µÄÊÓÆµ£¬--¡¶'+title+'¡·²¥·ÅµØÖ·£º'+url)+"&srcUrl="+encodeURI(url);
+var url="http://widget.renren.com/dialog/share?resourceUrl="+encodeURI(url)+"&title="+encodeURI(title)+"&description="+encodeURI('åˆ†äº«ä¸€éƒ¨å¥½çœ‹çš„è§†é¢‘ï¼Œ--ã€Š'+title+'ã€‹æ’­æ”¾åœ°å€ï¼š'+url)+"&srcUrl="+encodeURI(url);
 } else if(ac=='share_kaixin'){
-var url="http://www.kaixin001.com/rest/records.php?url="+encodeURI(url)+"&style=11&content="+encodeURI('·ÖÏíÒ»²¿ºÃ¿´µÄÊÓÆµ£¬--¡¶'+title+'¡·²¥·ÅµØÖ·£º')+"&stime=&sig=";
+var url="http://www.kaixin001.com/rest/records.php?url="+encodeURI(url)+"&style=11&content="+encodeURI('åˆ†äº«ä¸€éƒ¨å¥½çœ‹çš„è§†é¢‘ï¼Œ--ã€Š'+title+'ã€‹æ’­æ”¾åœ°å€ï¼š')+"&stime=&sig=";
 };
 window.open(url,'share');
 }

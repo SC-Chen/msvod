@@ -1,33 +1,33 @@
 {msvod:pl table="pl" did="auto" fid="0" pagesize="5" sort="id" order="desc"}
 <div style="width:95%;height:auto;  margin:0 auto;margin-top:10px;border:solid 1px #666;" >
 <div style="width:100%; height:20px; line-height:20px; font-size:12px;background:#666">
-<div style="width:50%; float:left;color:#ccc;">&nbsp;<strong>[pl:user zd=nichen]</strong>&nbsp;&nbsp;&nbsp;&nbsp;À´×Ô£º[pl:ip style=city]</div>
-<div style="width:48%;float:left;text-align:right;color:#fff;font-size:12px;">[pl:addtime style=time]&nbsp;&nbsp;<span style="cursor:pointer;color:#f30" onclick="hf([pl:id]);">»Ø¸´</span></div>
+<div style="width:50%; float:left;color:#ccc;">&nbsp;<strong>[pl:user zd=nichen]</strong>&nbsp;&nbsp;&nbsp;&nbsp;æ¥è‡ªï¼š[pl:ip style=city]</div>
+<div style="width:48%;float:left;text-align:right;color:#fff;font-size:12px;">[pl:addtime style=time]&nbsp;&nbsp;<span style="cursor:pointer;color:#f30" onclick="hf([pl:id]);">å›å¤</span></div>
 </div>
 <div style="margin-left:5px;width:95%;margin:0 auto;font-size:12px;height:auto !important;height:30px;min-height:30px;">[pl:content]</div>
 <div id="msvod_hf_[pl:id]" style="display:none;margin-left:30px;width:95%; margin:0 auto; height:50px;font-size:12px; line-height:25px;">
 <input style="width:60%;margin-left:25px;height:25px;line-height:25px;float:left;background:#6D6D6D;border:0;" id="msvod_pl_hf_[pl:id]" value="">&nbsp;
-<input onclick="msvod_plhf([pl:id]);" type="button" id="button" style="height:25px;width:60px;cursor:pointer;background:#6D6D6D;border:0;" value="Ìá ½»">
+<input onclick="msvod_plhf([pl:id]);" type="button" id="button" style="height:25px;width:60px;cursor:pointer;background:#6D6D6D;border:0;" value="æ äº¤">
 </div>
 {msvodtype:pl table="pl" fid="auto" sort="id" order="desc"}
 <div style="margin-bottom:5px;margin-left:30px;width:85%;margin-top:10px;border-top:1px dotted #C8C8C8;">
-<div style="width:90%;color:#f90;height:auto !important;height:30px;min-height:30px;margin-top:5px;font-size:12px;">&nbsp;<strong>[pl:user zd=nichen]&nbsp;[pl:addtime style=time]&nbsp;»Ø¸´£º</strong>&nbsp;&nbsp;[pl:content]</div>
+<div style="width:90%;color:#f90;height:auto !important;height:30px;min-height:30px;margin-top:5px;font-size:12px;">&nbsp;<strong>[pl:user zd=nichen]&nbsp;[pl:addtime style=time]&nbsp;å›å¤ï¼š</strong>&nbsp;&nbsp;[pl:content]</div>
 </div>
 {/msvodtype:pl}
 </div>
 {/msvod:pl}
 <div class="pages">
-<a href="{msvod:pageup}" target="_self">ÉÏÒ»Ò³</a>
-<span class="page_num">µ±Ç°Ò³<em>{msvod:pagenow}/{msvod:pagecout}</em></span>
-<a href="{msvod:pagedown}" target="_self">ÏÂÒ»Ò³</a>
+<a href="{msvod:pageup}" target="_self">ä¸Šä¸€é¡µ</a>
+<span class="page_num">å½“å‰é¡µ<em>{msvod:pagenow}/{msvod:pagecout}</em></span>
+<a href="{msvod:pagedown}" target="_self">ä¸‹ä¸€é¡µ</a>
 </div>
 <style>
 .pages {width:95%;margin:0 auto;height:30px;line-height:30px;font-size:12px;text-align: center;}
 .pages a{margin-left:10px;margin-right:10px;}
 </style>
-<!-------------ÆÀÂÛ¿ò¿ªÊ¼----------------->
+<!-------------è¯„è®ºæ¡†å¼€å§‹----------------->
 <div style="float:left;width:95%;height:30px;margin-top:10px;padding-left:10px;line-height:30px;">
-<input id="faces" onclick="faces();" type="button" id="button" style="height:25px;background: #6D6D6D;width:60px;color:#fff;cursor:pointer;border:0;font-size:12px;" value="¿ªÆô±íÇé">
+<input id="faces" onclick="faces();" type="button" id="button" style="height:25px;background: #6D6D6D;width:60px;color:#fff;cursor:pointer;border:0;font-size:12px;" value="å¼€å¯è¡¨æƒ…">
 </div>
 <div style=" height:200px auto; width:100%;">
 <div id="msvod_faces" style="float:left;display:none;margin:10px;width:100%;">
@@ -39,7 +39,7 @@
 <input type='hidden' id='pl_token' value='[pl:token]'/>
 <textarea name="msvod_gbook_content" id="msvod_pl_content" style="width:95%;background:#6D6D6D;float:left;color:#fff;margin:10px;border:0;" rows="3"></textarea>
 </div>
-<div style="margin-top:5px;padding:10px;"><input onclick="msvod_pladd();" type="button" value="ÎÒÒªÆÀÂÛ" style="height:25px;background:#6D6D6D;width:60px;color:#fff;cursor:pointer;border:0;font-size:12px;" ></div>
+<div style="margin-top:5px;padding:10px;"><input onclick="msvod_pladd();" type="button" value="æˆ‘è¦è¯„è®º" style="height:25px;background:#6D6D6D;width:60px;color:#fff;cursor:pointer;border:0;font-size:12px;" ></div>
 </div>
 <script type='text/javascript'>
 function hf(_id){
@@ -54,10 +54,10 @@ function faces(){
 var none=$('#msvod_faces').css('display');
 if(none=='none'){
 $('#msvod_faces').show();
-$('#faces').val('¹Ø±Õ±íÇé');
+$('#faces').val('å…³é—­è¡¨æƒ…');
 }else{
 $('#msvod_faces').hide();
-$('#faces').val('´ò¿ª±íÇé');
+$('#faces').val('æ‰“å¼€è¡¨æƒ…');
 }
 }
 </script>

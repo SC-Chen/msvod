@@ -126,36 +126,36 @@ function shallowClearAndCopy(src, dst) {
  *
  *   Where:
  *
- *   - **`action`** – {string} – The name of action. This name becomes the name of the method on
+ *   - **`action`** 鈥?{string} 鈥?The name of action. This name becomes the name of the method on
  *     your resource object.
- *   - **`method`** – {string} – Case insensitive HTTP method (e.g. `GET`, `POST`, `PUT`,
+ *   - **`method`** 鈥?{string} 鈥?Case insensitive HTTP method (e.g. `GET`, `POST`, `PUT`,
  *     `DELETE`, `JSONP`, etc).
- *   - **`params`** – {Object=} – Optional set of pre-bound parameters for this action. If any of
+ *   - **`params`** 鈥?{Object=} 鈥?Optional set of pre-bound parameters for this action. If any of
  *     the parameter value is a function, it will be executed every time when a param value needs to
  *     be obtained for a request (unless the param was overridden).
- *   - **`url`** – {string} – action specific `url` override. The url templating is supported just
+ *   - **`url`** 鈥?{string} 鈥?action specific `url` override. The url templating is supported just
  *     like for the resource-level urls.
- *   - **`isArray`** – {boolean=} – If true then the returned object for this action is an array,
+ *   - **`isArray`** 鈥?{boolean=} 鈥?If true then the returned object for this action is an array,
  *     see `returns` section.
- *   - **`transformRequest`** –
- *     `{function(data, headersGetter)|Array.<function(data, headersGetter)>}` –
+ *   - **`transformRequest`** 鈥?
+ *     `{function(data, headersGetter)|Array.<function(data, headersGetter)>}` 鈥?
  *     transform function or an array of such functions. The transform function takes the http
  *     request body and headers and returns its transformed (typically serialized) version.
  *     By default, transformRequest will contain one function that checks if the request data is
  *     an object and serializes to using `angular.toJson`. To prevent this behavior, set
  *     `transformRequest` to an empty array: `transformRequest: []`
- *   - **`transformResponse`** –
- *     `{function(data, headersGetter)|Array.<function(data, headersGetter)>}` –
+ *   - **`transformResponse`** 鈥?
+ *     `{function(data, headersGetter)|Array.<function(data, headersGetter)>}` 鈥?
  *     transform function or an array of such functions. The transform function takes the http
  *     response body and headers and returns its transformed (typically deserialized) version.
  *     By default, transformResponse will contain one function that checks if the response looks like
  *     a JSON string and deserializes it using `angular.fromJson`. To prevent this behavior, set
  *     `transformResponse` to an empty array: `transformResponse: []`
- *   - **`cache`** – `{boolean|Cache}` – If true, a default $http cache will be used to cache the
+ *   - **`cache`** 鈥?`{boolean|Cache}` 鈥?If true, a default $http cache will be used to cache the
  *     GET request, otherwise if a cache instance built with
  *     {@link ng.$cacheFactory $cacheFactory}, this cache will be used for
  *     caching.
- *   - **`timeout`** – `{number|Promise}` – timeout in milliseconds, or {@link ng.$q promise} that
+ *   - **`timeout`** 鈥?`{number|Promise}` 鈥?timeout in milliseconds, or {@link ng.$q promise} that
  *     should abort the request when resolved.
  *   - **`withCredentials`** - `{boolean}` - whether to set the `withCredentials` flag on the
  *     XHR object. See
@@ -172,7 +172,7 @@ function shallowClearAndCopy(src, dst) {
  *
  *   Where:
  *
- *   - **`stripTrailingSlashes`** – {boolean} – If true then the trailing
+ *   - **`stripTrailingSlashes`** 鈥?{boolean} 鈥?If true then the trailing
  *   slashes from any calculated URL will be stripped. (Defaults to true.)
  *
  * @returns {Object} A resource "class" object with methods for the default set of resource actions

@@ -1,9 +1,9 @@
 {msvod:indexhead}
 <div class="mainNav mainNav3">
 <ul>
-<li class="current"><a href="[user:url ulink=video]">ÊÓÆµ</a></li>
-<li><a href="[user:url ulink=video,album]">×¨Ìâ</a></li>
-<li><a href="[user:url ulink=pic]">Í¼Æ¬</a></li>
+<li class="current"><a href="[user:url ulink=video]">è§†é¢‘</a></li>
+<li><a href="[user:url ulink=video,album]">ä¸“é¢˜</a></li>
+<li><a href="[user:url ulink=pic]">å›¾ç‰‡</a></li>
 </ul>
 </div>
 
@@ -11,12 +11,12 @@
 {msvod:video table="video" pagesize="20" field="id,name,shits" uid="auto"}
 	  <li>
           <span class="t-i"><img src="{msvod:indextempurl}images/icon1.png"></span>
-          <span class="t-t"><strong><a href="[video:url zdy=video,id,play,id]">[video:name]</a></strong><em>[video:shits]ÈËÊÕ²Ø</em></span>
+          <span class="t-t"><strong><a href="[video:url zdy=video,id,play,id]">[video:name]</a></strong><em>[video:shits]äººæ”¶è—</em></span>
           <span class="t-z"></span>
 	  </li>
 {/msvod:video}  
 </ul>
-<div class="mores">{if:{msvod:pagecout}<={msvod:pagenow}}Ã»ÓĞ¸ü¶àÁË...{else}<a href="{msvod:pagedown}">µã»÷¼ÓÔØ¸ü¶à..</a>{end if}</div>
+<div class="mores">{if:{msvod:pagecout}<={msvod:pagenow}}æ²¡æœ‰æ›´å¤šäº†...{else}<a href="{msvod:pagedown}">ç‚¹å‡»åŠ è½½æ›´å¤š..</a>{end if}</div>
 </div>
 
 </div>

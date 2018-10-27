@@ -53,7 +53,7 @@ class UpYun {
     const CONTENT_MD5        = 'Content-MD5';
     const CONTENT_SECRET     = 'Content-Secret';
 
-    // ËõÂÔÍ¼
+    // ç¼©ç•¥å›¾
     const X_GMKERL_THUMBNAIL = 'x-gmkerl-thumbnail';
     const X_GMKERL_TYPE      = 'x-gmkerl-type';
     const X_GMKERL_VALUE     = 'x-gmkerl-value';
@@ -84,15 +84,15 @@ class UpYun {
     protected $endpoint;
 
     /**
-     * @var string: UPYUN ÇëÇóÎ¨Ò»id, ³öÏÖ´íÎóÊ±, ¿ÉÒÔ½«¸Ãid±¨¸æ¸ø UPYUN,½øĞĞµ÷ÊÔ
+     * @var string: UPYUN è¯·æ±‚å”¯ä¸€id, å‡ºç°é”™è¯¯æ—¶, å¯ä»¥å°†è¯¥idæŠ¥å‘Šç»™ UPYUN,è¿›è¡Œè°ƒè¯•
      */
     private $x_request_id;
 
 	/**
-	* ³õÊ¼»¯ UpYun ´æ´¢½Ó¿Ú
-	* @param $bucketname ¿Õ¼äÃû³Æ
-	* @param $username ²Ù×÷Ô±Ãû³Æ
-	* @param $password ÃÜÂë
+	* åˆå§‹åŒ– UpYun å­˜å‚¨æ¥å£
+	* @param $bucketname ç©ºé—´åç§°
+	* @param $username æ“ä½œå‘˜åç§°
+	* @param $password å¯†ç 
     *
 	* @return object
 	*/
@@ -106,16 +106,16 @@ class UpYun {
 	}/*}}}*/
 
     /**
-     * »ñÈ¡µ±Ç°SDK°æ±¾ºÅ
+     * è·å–å½“å‰SDKç‰ˆæœ¬å·
      */
     public function version() {
         return self::VERSION;
     }
 
     /** 
-     * ´´½¨Ä¿Â¼
-     * @param $path Â·¾¶
-     * @param $auto_mkdir ÊÇ·ñ×Ô¶¯´´½¨¸¸¼¶Ä¿Â¼£¬×î¶à10²ã´Î
+     * åˆ›å»ºç›®å½•
+     * @param $path è·¯å¾„
+     * @param $auto_mkdir æ˜¯å¦è‡ªåŠ¨åˆ›å»ºçˆ¶çº§ç›®å½•ï¼Œæœ€å¤š10å±‚æ¬¡
      *
      * @return void
      */
@@ -126,8 +126,8 @@ class UpYun {
     }/*}}}*/
 
     /**
-     * É¾³ıÄ¿Â¼ºÍÎÄ¼ş
-     * @param string $path Â·¾¶
+     * åˆ é™¤ç›®å½•å’Œæ–‡ä»¶
+     * @param string $path è·¯å¾„
      *
      * @return boolean
      */
@@ -137,11 +137,11 @@ class UpYun {
 
 
     /**
-     * ÉÏ´«ÎÄ¼ş
-     * @param string $path ´æ´¢Â·¾¶
-     * @param mixed $file ĞèÒªÉÏ´«µÄÎÄ¼ş£¬¿ÉÒÔÊÇÎÄ¼şÁ÷»òÕßÎÄ¼şÄÚÈİ
-     * @param boolean $auto_mkdir ×Ô¶¯´´½¨Ä¿Â¼
-     * @param array $opts ¿ÉÑ¡²ÎÊı
+     * ä¸Šä¼ æ–‡ä»¶
+     * @param string $path å­˜å‚¨è·¯å¾„
+     * @param mixed $file éœ€è¦ä¸Šä¼ çš„æ–‡ä»¶ï¼Œå¯ä»¥æ˜¯æ–‡ä»¶æµæˆ–è€…æ–‡ä»¶å†…å®¹
+     * @param boolean $auto_mkdir è‡ªåŠ¨åˆ›å»ºç›®å½•
+     * @param array $opts å¯é€‰å‚æ•°
      */
     public function writeFile($path, $file, $auto_mkdir = False, $opts = NULL) {/*{{{*/
         if (is_null($opts)) $opts = array();
@@ -152,7 +152,7 @@ class UpYun {
             if (!is_null($this->_file_secret)) $opts[self::CONTENT_SECRET] = $this->_file_secret;
         }
 
-        // Èç¹ûÉèÖÃÁËËõÂÔ°æ±¾»òÕßËõÂÔÍ¼ÀàĞÍ£¬ÔòÌí¼ÓÄ¬ÈÏÑ¹ËõÖÊÁ¿ºÍÈñ»¯²ÎÊı
+        // å¦‚æœè®¾ç½®äº†ç¼©ç•¥ç‰ˆæœ¬æˆ–è€…ç¼©ç•¥å›¾ç±»å‹ï¼Œåˆ™æ·»åŠ é»˜è®¤å‹ç¼©è´¨é‡å’Œé”åŒ–å‚æ•°
         //if (isset($opts[self::X_GMKERL_THUMBNAIL]) || isset($opts[self::X_GMKERL_TYPE])) {
         //    if (!isset($opts[self::X_GMKERL_QUALITY])) $opts[self::X_GMKERL_QUALITY] = 95;
         //    if (!isset($opts[self::X_GMKERL_UNSHARP])) $opts[self::X_GMKERL_UNSHARP] = 'true';
@@ -166,8 +166,8 @@ class UpYun {
     }/*}}}*/
 
     /**
-     * ÏÂÔØÎÄ¼ş
-     * @param string $path ÎÄ¼şÂ·¾¶
+     * ä¸‹è½½æ–‡ä»¶
+     * @param string $path æ–‡ä»¶è·¯å¾„
      * @param mixed $file_handle
      *
      * @return mixed
@@ -177,9 +177,9 @@ class UpYun {
     }/*}}}*/
 
     /**
-     * »ñÈ¡Ä¿Â¼ÎÄ¼şÁĞ±í
+     * è·å–ç›®å½•æ–‡ä»¶åˆ—è¡¨
      *
-     * @param string $path ²éÑ¯Â·¾¶
+     * @param string $path æŸ¥è¯¢è·¯å¾„
      *
      * @return mixed
      */
@@ -210,7 +210,7 @@ class UpYun {
 
     /**
      * @deprecated
-     * @param string $path Ä¿Â¼Â·¾¶
+     * @param string $path ç›®å½•è·¯å¾„
      * @return mixed
      */
     public function getFolderUsage($path = '/') {/*{{{*/
@@ -219,9 +219,9 @@ class UpYun {
     }/*}}}*/
 
     /**
-     * »ñÈ¡ÎÄ¼ş¡¢Ä¿Â¼ĞÅÏ¢
+     * è·å–æ–‡ä»¶ã€ç›®å½•ä¿¡æ¯
      *
-     * @param string $path Â·¾¶
+     * @param string $path è·¯å¾„
      *
      * @return mixed
      */
@@ -232,9 +232,9 @@ class UpYun {
     }/*}}}*/
 
 	/**
-	* Á¬½ÓÇ©Ãû·½·¨
-	* @param $method ÇëÇó·½Ê½ {GET, POST, PUT, DELETE}
-	* return Ç©Ãû×Ö·û´®
+	* è¿æ¥ç­¾åæ–¹æ³•
+	* @param $method è¯·æ±‚æ–¹å¼ {GET, POST, PUT, DELETE}
+	* return ç­¾åå­—ç¬¦ä¸²
 	*/
 	private function sign($method, $uri, $date, $length){/*{{{*/
         //$uri = urlencode($uri);
@@ -243,11 +243,11 @@ class UpYun {
 	}/*}}}*/
 
     /**
-     * HTTP REQUEST ·â×°
-     * @param string $method HTTP REQUEST·½·¨£¬°üÀ¨PUT¡¢POST¡¢GET¡¢OPTIONS¡¢DELETE
-     * @param string $path ³ıBucketnameÖ®ÍâµÄÇëÇóÂ·¾¶£¬°üÀ¨get²ÎÊı
-     * @param array $headers ÇëÇóĞèÒªµÄÌØÊâHTTP HEADERS
-     * @param array $body ĞèÒªPOST·¢ËÍµÄÊı¾İ
+     * HTTP REQUEST å°è£…
+     * @param string $method HTTP REQUESTæ–¹æ³•ï¼ŒåŒ…æ‹¬PUTã€POSTã€GETã€OPTIONSã€DELETE
+     * @param string $path é™¤Bucketnameä¹‹å¤–çš„è¯·æ±‚è·¯å¾„ï¼ŒåŒ…æ‹¬getå‚æ•°
+     * @param array $headers è¯·æ±‚éœ€è¦çš„ç‰¹æ®ŠHTTP HEADERS
+     * @param array $body éœ€è¦POSTå‘é€çš„æ•°æ®
      *
      * @return mixed
      */
@@ -343,9 +343,9 @@ class UpYun {
     }/*}}}*/
 
     /**
-     * ´¦ÀíHTTP HEADERSÖĞ·µ»ØµÄ×Ô¶¨ÒåÊı¾İ
+     * å¤„ç†HTTP HEADERSä¸­è¿”å›çš„è‡ªå®šä¹‰æ•°æ®
      *
-     * @param string $text header×Ö·û´®
+     * @param string $text headerå­—ç¬¦ä¸²
      *
      * @return array
      */
@@ -363,7 +363,7 @@ class UpYun {
     }/*}}}*/
 
     /**
-     * »ñÈ¡·µ»ØµÄ´íÎóĞÅÏ¢
+     * è·å–è¿”å›çš„é”™è¯¯ä¿¡æ¯
      *
      * @param string $header_string
      *
@@ -385,9 +385,9 @@ class UpYun {
     }
 
     /**
-     * É¾³ıÄ¿Â¼
+     * åˆ é™¤ç›®å½•
      * @deprecated 
-     * @param $path Â·¾¶
+     * @param $path è·¯å¾„
      *
      * @return void
      */
@@ -396,10 +396,10 @@ class UpYun {
     }/*}}}*/
 
     /**
-     * É¾³ıÎÄ¼ş
+     * åˆ é™¤æ–‡ä»¶
      *
      * @deprecated 
-     * @param string $path ÒªÉ¾³ıµÄÎÄ¼şÂ·¾¶
+     * @param string $path è¦åˆ é™¤çš„æ–‡ä»¶è·¯å¾„
      *
      * @return boolean
      */
@@ -408,10 +408,10 @@ class UpYun {
     }/*}}}*/
 
     /**
-     * »ñÈ¡Ä¿Â¼ÎÄ¼şÁĞ±í
+     * è·å–ç›®å½•æ–‡ä»¶åˆ—è¡¨
      * @deprecated
      * 
-     * @param string $path Òª»ñÈ¡ÁĞ±íµÄÄ¿Â¼
+     * @param string $path è¦è·å–åˆ—è¡¨çš„ç›®å½•
      * 
      * @return array
      */
@@ -420,9 +420,9 @@ class UpYun {
     }/*}}}*/
 
     /**
-     * »ñÈ¡¿Õ¼äÊ¹ÓÃÇé¿ö
+     * è·å–ç©ºé—´ä½¿ç”¨æƒ…å†µ
      *
-     * @deprecated ÍÆ¼öÖ±½ÓÊ¹ÓÃ getFolderUsage('/')À´»ñÈ¡
+     * @deprecated æ¨èç›´æ¥ä½¿ç”¨ getFolderUsage('/')æ¥è·å–
      * @return mixed
      */
     public function getBucketUsage() {/*{{{*/
@@ -430,11 +430,11 @@ class UpYun {
     }/*}}}*/
 
 	/**
-	* »ñÈ¡ÎÄ¼şĞÅÏ¢
+	* è·å–æ–‡ä»¶ä¿¡æ¯
     *
     * #deprecated
-	* @param $file ÎÄ¼şÂ·¾¶£¨°üº¬ÎÄ¼şÃû£©
-	* return array('type'=> file | folder, 'size'=> file size, 'date'=> unix time) »ò null
+	* @param $file æ–‡ä»¶è·¯å¾„ï¼ˆåŒ…å«æ–‡ä»¶åï¼‰
+	* return array('type'=> file | folder, 'size'=> file size, 'date'=> unix time) æˆ– null
 	*/
 	//public function getFileInfo($file){/*{{{*/
     //    $result = $this->head($file);
@@ -443,10 +443,10 @@ class UpYun {
 	//}/*}}}*/
 
 	/**
-	* ÇĞ»» API ½Ó¿ÚµÄÓòÃû
+	* åˆ‡æ¢ API æ¥å£çš„åŸŸå
     *
     * @deprecated
-	* @param $domain {Ä¬È» v0.api.upyun.com ×Ô¶¯Ê¶±ğ, v1.api.upyun.com µçĞÅ, v2.api.upyun.com ÁªÍ¨, v3.api.upyun.com ÒÆ¶¯}
+	* @param $domain {é»˜ç„¶ v0.api.upyun.com è‡ªåŠ¨è¯†åˆ«, v1.api.upyun.com ç”µä¿¡, v2.api.upyun.com è”é€š, v3.api.upyun.com ç§»åŠ¨}
 	* return null;
 	*/
 	public function setApiDomain($domain){/*{{{*/
@@ -454,10 +454,10 @@ class UpYun {
 	}/*}}}*/
 
 	/**
-	* ÉèÖÃ´ıÉÏ´«ÎÄ¼şµÄ Content-MD5 Öµ£¨ÈçÓÖÅÄÔÆ·şÎñ¶ËÊÕµ½µÄÎÄ¼şMD5ÖµÓëÓÃ»§ÉèÖÃµÄ²»Ò»ÖÂ£¬½«»Ø±¨ 406 Not Acceptable ´íÎó£©
+	* è®¾ç½®å¾…ä¸Šä¼ æ–‡ä»¶çš„ Content-MD5 å€¼ï¼ˆå¦‚åˆæ‹äº‘æœåŠ¡ç«¯æ”¶åˆ°çš„æ–‡ä»¶MD5å€¼ä¸ç”¨æˆ·è®¾ç½®çš„ä¸ä¸€è‡´ï¼Œå°†å›æŠ¥ 406 Not Acceptable é”™è¯¯ï¼‰
     *
     * @deprecated
-	* @param $str £¨ÎÄ¼ş MD5 Ğ£ÑéÂë£©
+	* @param $str ï¼ˆæ–‡ä»¶ MD5 æ ¡éªŒç ï¼‰
 	* return null;
 	*/
 	public function setContentMD5($str){/*{{{*/
@@ -465,11 +465,11 @@ class UpYun {
 	}/*}}}*/
 
 	/**
-	* ÉèÖÃ´ıÉÏ´«ÎÄ¼şµÄ ·ÃÎÊÃÜÔ¿£¨×¢Òâ£º½öÖ§³ÖÍ¼Æ¬¿Õ£¡£¬ÉèÖÃÃÜÔ¿ºó£¬ÎŞ·¨¸ù¾İÔ­ÎÄ¼şURLÖ±½Ó·ÃÎÊ£¬Ğè´ø URL ºóÃæ¼ÓÉÏ £¨ËõÂÔÍ¼¼ä¸ô±êÖ¾·û+ÃÜÔ¿£© ½øĞĞ·ÃÎÊ£©
-	* ÈçËõÂÔÍ¼¼ä¸ô±êÖ¾·ûÎª ! £¬ÃÜÔ¿Îª bac£¬ÉÏ´«ÎÄ¼şÂ·¾¶Îª /folder/test.jpg £¬ÄÇÃ´¸ÃÍ¼Æ¬µÄ¶ÔÍâ·ÃÎÊµØÖ·Îª£º http://¿Õ¼äÓòÃû/folder/test.jpg!bac
+	* è®¾ç½®å¾…ä¸Šä¼ æ–‡ä»¶çš„ è®¿é—®å¯†é’¥ï¼ˆæ³¨æ„ï¼šä»…æ”¯æŒå›¾ç‰‡ç©ºï¼ï¼Œè®¾ç½®å¯†é’¥åï¼Œæ— æ³•æ ¹æ®åŸæ–‡ä»¶URLç›´æ¥è®¿é—®ï¼Œéœ€å¸¦ URL åé¢åŠ ä¸Š ï¼ˆç¼©ç•¥å›¾é—´éš”æ ‡å¿—ç¬¦+å¯†é’¥ï¼‰ è¿›è¡Œè®¿é—®ï¼‰
+	* å¦‚ç¼©ç•¥å›¾é—´éš”æ ‡å¿—ç¬¦ä¸º ! ï¼Œå¯†é’¥ä¸º bacï¼Œä¸Šä¼ æ–‡ä»¶è·¯å¾„ä¸º /folder/test.jpg ï¼Œé‚£ä¹ˆè¯¥å›¾ç‰‡çš„å¯¹å¤–è®¿é—®åœ°å€ä¸ºï¼š http://ç©ºé—´åŸŸå/folder/test.jpg!bac
     *
     * @deprecated
-	* @param $str £¨ÎÄ¼ş MD5 Ğ£ÑéÂë£©
+	* @param $str ï¼ˆæ–‡ä»¶ MD5 æ ¡éªŒç ï¼‰
 	* return null;
 	*/
 	public function setFileSecret($str){/*{{{*/
@@ -478,8 +478,8 @@ class UpYun {
 
 	/**
      * @deprecated
-	* »ñÈ¡ÉÏ´«ÎÄ¼şºóµÄĞÅÏ¢£¨½öÍ¼Æ¬¿Õ¼äÓĞ·µ»ØÊı¾İ£©
-	* @param $key ĞÅÏ¢×Ö¶ÎÃû£¨x-upyun-width¡¢x-upyun-height¡¢x-upyun-frames¡¢x-upyun-file-type£©
+	* è·å–ä¸Šä¼ æ–‡ä»¶åçš„ä¿¡æ¯ï¼ˆä»…å›¾ç‰‡ç©ºé—´æœ‰è¿”å›æ•°æ®ï¼‰
+	* @param $key ä¿¡æ¯å­—æ®µåï¼ˆx-upyun-widthã€x-upyun-heightã€x-upyun-framesã€x-upyun-file-typeï¼‰
 	* return value or NULL
 	*/
 	public function getWritedFileInfo($key){/*{{{*/

@@ -14,7 +14,7 @@ $this->load->model('MsdjAdmin');
 $this->MsdjAdmin->Admin_Login();
 }
 
-//ÊÓÆµ·ÖÀà
+//è§†é¢‘åˆ†ç±»
 public function index()
 {
 $sql_string = "SELECT * FROM ".MS_SqlPrefix."video_list where fid=0 order by xid asc";
@@ -23,13 +23,13 @@ $data['video_list'] = $query->result();
 $this->load->view('video_list.html',$data);
 }
 
-//ÏÔÊ¾¡¢Òş²Ø²Ù×÷
+//æ˜¾ç¤ºã€éšè—æ“ä½œ
 public function init()
 {
 $ac  = $this->input->get_post('ac',true);
 $id   = intval($this->input->get_post('id'));
 $sid  = intval($this->input->get_post('sid'));
-if($ac=='zt'){ //ÏÔÊ¾
+if($ac=='zt'){ //æ˜¾ç¤º
 $edit['yid']=$sid;
 $str=($sid==0)?'<a title="'.L('plub_67').'" href="javascript:get_cmd(\''.site_url('video/admin/lists/init').'?sid=1\',\'zt\','.$id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="'.L('plub_68').'" href="javascript:get_cmd(\''.site_url('video/admin/lists/init').'?sid=0\',\'zt\','.$id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
 }
@@ -37,7 +37,7 @@ $this->MsdjDB->get_update('video_list',$id,$edit);
 die($str);
 }
 
-//ÅúÁ¿ĞŞ¸Ä·ÖÀà
+//æ‰¹é‡ä¿®æ”¹åˆ†ç±»
 public function plsave()
 {
 $ids=$this->input->post('id', TRUE); 
@@ -51,10 +51,10 @@ $data['skins']=$this->input->post('skins_'.$id, TRUE);
 $data['xid']=intval($this->input->post('xid_'.$id, TRUE)); 
 $this->MsdjDB->get_update('video_list',$id,$data);
 }
-admin_msg(L('plub_70'),site_url('video/admin/lists'),'ok');  //²Ù×÷³É¹¦
+admin_msg(L('plub_70'),site_url('video/admin/lists'),'ok');  //æ“ä½œæˆåŠŸ
 }
 
-//ÅúÁ¿×ªÒÆ·ÖÀà
+//æ‰¹é‡è½¬ç§»åˆ†ç±»
 public function zhuan()
 {
 $ids = $this->input->get_post('id', TRUE);
@@ -67,10 +67,10 @@ admin_msg(L('plub_71'),'javascript:history.back();','no');
 }
 $ids=implode(',', $ids);
 $this->db->query("update ".MS_SqlPrefix."video set cid=".$cid." where cid in (".$ids.")");
-admin_msg(L('plub_70'),site_url('video/admin/lists'),'ok');  //²Ù×÷³É¹¦
+admin_msg(L('plub_70'),site_url('video/admin/lists'),'ok');  //æ“ä½œæˆåŠŸ
 }
 
-//·ÖÀàĞÂÔö¡¢ĞŞ¸Ä
+//åˆ†ç±»æ–°å¢ã€ä¿®æ”¹
 public function edit()
 {
 $id   = intval($this->input->get('id'));
@@ -88,7 +88,7 @@ $data['keywords']='';
 $data['description']='';
 }else{
 $row=$this->db->query("SELECT * FROM ".MS_SqlPrefix."video_list where id=".$id."")->row(); 
-if(!$row) admin_msg(L('plub_72'),'javascript:history.back();','no');  //¼ÇÂ¼²»´æÔÚ
+if(!$row) admin_msg(L('plub_72'),'javascript:history.back();','no');  //è®°å½•ä¸å­˜åœ¨
 
 $data['id']=$row->id;
 $data['fid']=$row->fid;
@@ -104,7 +104,7 @@ $data['description']=$row->description;
 $this->load->view('list_edit.html',$data);
 }
 
-//·ÖÀà±£´æ
+//åˆ†ç±»ä¿å­˜
 public function save()
 {
 $id   = intval($this->input->post('id'));
@@ -118,15 +118,15 @@ $data['title']=$this->input->post('title',true);
 $data['keywords']=$this->input->post('keywords',true);
 $data['description']=$this->input->post('description',true);
 
-if($id==0){ //ĞÂÔö
+if($id==0){ //æ–°å¢
 $this->MsdjDB->get_insert('video_list',$data);
 }else{
 $this->MsdjDB->get_update('video_list',$id,$data);
 }
-admin_msg(L('plub_70'),site_url('video/admin/lists'),'ok');  //²Ù×÷³É¹¦
+admin_msg(L('plub_70'),site_url('video/admin/lists'),'ok');  //æ“ä½œæˆåŠŸ
 }
 
-//·ÖÀàÉ¾³ı
+//åˆ†ç±»åˆ é™¤
 public function del()
 {
 $ids = $this->input->get_post('id');
@@ -138,7 +138,7 @@ $idss=$ids;
 }
 $this->MsdjDB->get_del('video_list',$ids,'fid');
 $this->MsdjDB->get_del('video_list',$ids);
-admin_msg(L('plub_74'),'javascript:history.back();','ok');  //²Ù×÷³É¹¦
+admin_msg(L('plub_74'),'javascript:history.back();','ok');  //æ“ä½œæˆåŠŸ
 }
 }
 

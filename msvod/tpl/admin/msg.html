@@ -50,7 +50,7 @@
 <?php
 if(empty($msg)) echo '<tr><td align="center" height="50" colspan="7">'.L('tpl_13').'</td></tr>';
 foreach ($msg as $row) {
-		//»áÔ±
+		//ä¼šå‘˜
 		$unamea=$unameb=L('tpl_14');
 		if($row->uida>0){
            $rowa=$this->db->query("SELECT name FROM ".MS_SqlPrefix."user where id=".$row->uida."")->row();

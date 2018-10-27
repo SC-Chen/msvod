@@ -1,66 +1,66 @@
 <?php
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 return array(
-//ºóÌ¨²Ëµ¥²¿·Ö	
+//åå°èœå•éƒ¨åˆ†	
 'admin' => array(
 array(
-'name' => 'Í¼Æ¬¹ÜÀí',
+'name' => 'å›¾ç‰‡ç®¡ç†',
 'menu' => array(
 array(
-'name' => 'Í¼Æ¬¹ÜÀí',
+'name' => 'å›¾ç‰‡ç®¡ç†',
 'link' => 'admin/tu'
 ),
 array(
-'name' => 'Í¼Æ¬·ÖÀà',
+'name' => 'å›¾ç‰‡åˆ†ç±»',
 'link' => 'admin/lists'
 ),
 //array(
-//'name' => 'Í¼Æ¬×¨Ìâ',
+//'name' => 'å›¾ç‰‡ä¸“é¢˜',
 //'link' => 'admin/topic'
 //),
 array(
-'name' => 'ÓÎÀÀ¼ÇÂ¼',
+'name' => 'æ¸¸è§ˆè®°å½•',
 'link' => 'admin/look'
 ),
 ),
 ),
 array(
-'name' => '¾²Ì¬Éú³É',
+'name' => 'é™æ€ç”Ÿæˆ',
 'menu' => array(
 //array(
-//'name' => 'Éú³É°æ¿éÊ×Ò³',
+//'name' => 'ç”Ÿæˆç‰ˆå—é¦–é¡µ',
 //'link' => 'admin/html/index'
 //),
 array(
-'name' => 'Éú³É·ÖÀàÒ³',
+'name' => 'ç”Ÿæˆåˆ†ç±»é¡µ',
 'link' => 'admin/html/type'
 ),
 array(
-'name' => 'Éú³ÉÄÚÈİÒ³',
+'name' => 'ç”Ÿæˆå†…å®¹é¡µ',
 'link' => 'admin/html/show'
 ),
 //array(
-//'name' => 'Éú³É×¨ÌâÒ³',
+//'name' => 'ç”Ÿæˆä¸“é¢˜é¡µ',
 //'link' => 'admin/html/topic'
 //),
 array(
-'name' => 'Éú³É×Ô¶¨ÒåÒ³',
+'name' => 'ç”Ÿæˆè‡ªå®šä¹‰é¡µ',
 'link' => 'admin/html/opt'
 ),
 ),
 )
 ),
-//»áÔ±ÖĞĞÄ²Ëµ¥²¿·Ö
+//ä¼šå‘˜ä¸­å¿ƒèœå•éƒ¨åˆ†
 'user' => array(
 array(
-'name' => 'Í¼Æ¬¹ÜÀí',
+'name' => 'å›¾ç‰‡ç®¡ç†',
 'menu' => array(
 array(
-'name' => 'ÎÒµÄÍ¼Æ¬',
+'name' => 'æˆ‘çš„å›¾ç‰‡',
 'link' => 'user/tu',
 ),
 array(
-'name' => '·¢±íÍ¼Æ¬',
+'name' => 'å‘è¡¨å›¾ç‰‡',
 'link' => 'user/tu/add',
 )
 )

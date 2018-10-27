@@ -42,7 +42,7 @@ if(!empty($filename)){
         echo nl2br ( var_export ( $kp->getError () ) );
         exit ();
      } else {
-        echo 'ÒÔÏÂĞÅÏ¢ÓĞĞ§Ê±¼äÎªÒ»Äê,ÇëÌîĞ´µ½ºóÌ¨ÅäÖÃ<br>';
+        echo 'ä»¥ä¸‹ä¿¡æ¯æœ‰æ•ˆæ—¶é—´ä¸ºä¸€å¹´,è¯·å¡«å†™åˆ°åå°é…ç½®<br>';
         echo 'access_token:   '.$access_token['oauth_token'].'<br>';
 		echo 'access_token_secret:   '.$access_token['oauth_token_secret'];
 		echo '<script>parent.att_acc(\''.$access_token['oauth_token'].'||'.$access_token['oauth_token_secret'].'\');</script>';

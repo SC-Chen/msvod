@@ -35,7 +35,7 @@ echo '<tr><td align="center" height="50" colspan="8">'.L('tpl_09').'</td></tr>';
 }else{
 for ($i=0; $i<count($msvod_update); $i++) {
 $update=date('Ymd',strtotime($msvod_update[$i]['date']));
-$v=(MS_Uptime==$update)?'<b><font color=#0000ff>£¨'.L('tpl_10').'£©</font></b>':'';
+$v=(MS_Uptime==$update)?'<b><font color=#0000ff>ï¼ˆ'.L('tpl_10').'ï¼‰</font></b>':'';
 $uplink=(MS_Uptime<$update)?'<a href="javascript:void(0);" onclick="Popsbox(\''.L('tpl_11').'\',505,245,\''.L('tpl_12').'\',\''.site_url('admin/upgrade/init').'?id='.$msvod_update[$i]['id'].'\');"><img src="'.Web_Path.'packs/admin/images/update.gif" /></a>':'--';
 $downlink=(MS_Uptime<$update)?'<a href="http://www.msvod.cc/down/xia/gbk/'.$msvod_update[$i]['id'].'.html"><img src="'.Web_Path.'packs/admin/images/save.png"/></a>':'--';
 echo '<tr><td>'.get_bm($msvod_update[$i]['name']).$v.'</td><td  align="center">'.$msvod_update[$i]['v'].'</td><td align="center">'.$msvod_update[$i]['date'].'</td><td  align="center">'.formatsize($msvod_update[$i]['size']).'</td><td align="center">'.$uplink.'</td><td align="center">'.$downlink.'</td><td align="center"><a href="http://www.msvod.cc/down/show/'.$msvod_update[$i]['id'].'.html" target="_blank" title="'.L('tpl_13').'"><img src="'.Web_Path.'packs/admin/images/view.png"/></a></td><td></td></tr>';

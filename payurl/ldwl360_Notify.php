@@ -3,32 +3,32 @@ include_once "config.php";
 include_once "../msvod/lib/Ms_User.php";
 if ($mysqli_conn) {
 	mysqli_select_db($mysqli_conn, $mysqli_database);
-	mysqli_query($mysqli_conn, "SET NAMES 'GBK'"); //Ïû³ıÂÒÂë
+	mysqli_query($mysqli_conn, "SET NAMES 'GBK'"); //æ¶ˆé™¤ä¹±ç 
 	//-----------------------------------------------------------------
 	//-----------------------------------------------------------------
-	//¿ªÊ¼½ÓÊÕ²ÎÊı (Çë×¢ÒâÇø·Ö´óĞ¡Ğ´)
+	//å¼€å§‹æ¥æ”¶å‚æ•° (è¯·æ³¨æ„åŒºåˆ†å¤§å°å†™)
 	//-----------------------------------------------------------------
-	$payNO = isset($_REQUEST["PayNO"]) ? $_REQUEST["PayNO"] : ""; //Ö§¸¶±¦µÄ¶©µ¥ºÅÂë
-	$Money2 = isset($_REQUEST["PayJe"]) ? $_REQUEST["PayJe"] : 0; //¸¶¿î½ğ¶î
+	$payNO = isset($_REQUEST["PayNO"]) ? $_REQUEST["PayNO"] : ""; //æ”¯ä»˜å®çš„è®¢å•å·ç 
+	$Money2 = isset($_REQUEST["PayJe"]) ? $_REQUEST["PayJe"] : 0; //ä»˜æ¬¾é‡‘é¢
 	$Money = floatval($Money2);
-	$dingdannum = isset($_REQUEST["PayMore"]) ? $_REQUEST["PayMore"] : ""; //¸¶¿îËµÃ÷
-	$key = isset($_REQUEST["key"]) ? $_REQUEST["key"] : ""; //Ç©Ãû
-	$key2 = 990294; // ¸Ä³É×Ô¼ºµÄÃØÔ¿ ÔÚUÖ§¸¶ÍøÕ¾Æ½Ì¨»áÔ±ÖĞĞÄÒ³Ãæ
+	$dingdannum = isset($_REQUEST["PayMore"]) ? $_REQUEST["PayMore"] : ""; //ä»˜æ¬¾è¯´æ˜
+	$key = isset($_REQUEST["key"]) ? $_REQUEST["key"] : ""; //ç­¾å
+	$key2 = 990294; // æ”¹æˆè‡ªå·±çš„ç§˜é’¥ åœ¨Uæ”¯ä»˜ç½‘ç«™å¹³å°ä¼šå‘˜ä¸­å¿ƒé¡µé¢
 
 	$bjsnk = strcmp($key2, $key);
 
 //-----------------------------------------------------------------
 	if ($bjsnk === 0) {
-/***µÚÒ»²½ÅĞ¶Ï Ö§¸¶¼ÇÂ¼  ÊÕ¿îµ¥  µÄ´æÔÚ*****************************************************************/
+/***ç¬¬ä¸€æ­¥åˆ¤æ–­ æ”¯ä»˜è®°å½•  æ”¶æ¬¾å•  çš„å­˜åœ¨*****************************************************************/
 		$status = 0;
-		$rs = mysqli_query($mysqli_conn, "Select * From ms_pay Where dingdan='$dingdannum' and cion='$Money' and pid='$status'"); //²éÕÒ¶©µ¥ºÅ
+		$rs = mysqli_query($mysqli_conn, "Select * From ms_pay Where dingdan='$dingdannum' and cion='$Money' and pid='$status'"); //æŸ¥æ‰¾è®¢å•å·
 		$num = mysqli_num_rows($rs);
 		if ($num > 0) {
-			$dingdanok = true; //¶©µ¥´æÔÚ
-			//echo "¶©µ¥´æÔÚ<br>";
+			$dingdanok = true; //è®¢å•å­˜åœ¨
+			//echo "è®¢å•å­˜åœ¨<br>";
 		} else {
-			$dingdanok = false; //¶©µ¥²»´æÔÚ
-			//echo "¶©µ¥²»´æÔÚ<br>";
+			$dingdanok = false; //è®¢å•ä¸å­˜åœ¨
+			//echo "è®¢å•ä¸å­˜åœ¨<br>";
 			//ob_clean();
 			//echo "Error";
 		}
@@ -36,42 +36,42 @@ if ($mysqli_conn) {
 			$sql = "select * from ms_pay where  dingdan='" . $dingdannum . "' and cion='$Money' ";
 			$query = mysqli_query( $mysqli_conn,$sql);
 			$rs = mysqli_fetch_array($query);
-			$uuid = $rs['uid']; // ÓÃ»§UID
-			$payid = $rs['id']; // ¶©µ¥id
+			$uuid = $rs['uid']; // ç”¨æˆ·UID
+			$payid = $rs['id']; // è®¢å•id
 
-/*´úÀíÌá³É*/
+/*ä»£ç†ææˆ*/
 			$row = mysqli_fetch_array(mysqli_query( $mysqli_conn,"select * from ms_user where id='" . $uuid . "'"));
 			if ($row['dlid'] > 0) {
 				$ciony = User_Cion_tichengy * $Money / 100;
 				mysqli_query($mysqli_conn,"INSERT INTO `ms_daili_jilu`(`uid`, `dlid`, `dljb`, `cion`,`dltime`) VALUES ('" . $uuid . "','" . $row['dlid'] . "','1','" . $ciony . "','" . time() . "')");
-				mysqli_query($mysqli_conn,"Update ms_user set zjcion=zjcion+'$ciony' Where id='" . $row['dlid'] . "'"); //Ò»¼¶´úÀíÌá³É¸üĞÂ
+				mysqli_query($mysqli_conn,"Update ms_user set zjcion=zjcion+'$ciony' Where id='" . $row['dlid'] . "'"); //ä¸€çº§ä»£ç†ææˆæ›´æ–°
 				$rowy = mysqli_fetch_array(mysqli_query( $mysqli_conn,"select * from ms_user where id='" . $row['dlid'] . "'"));
 				if ($rowy['dlid'] > 0) {
 					$cione = User_Cion_tichenge * $Money / 100;
 					mysqli_query($mysqli_conn,"INSERT INTO `ms_daili_jilu`(`uid`, `dlid`, `dljb`, `cion`,`dltime`) VALUES ('" . $uuid . "','" . $rowy['dlid'] . "','2','" . $cione . "','" . time() . "')");
 					$rows = mysqli_fetch_array(mysqli_query( $mysqli_conn,"select * from ms_user where id='" . $rowy['dlid'] . "'"));
-					mysqli_query($mysqli_conn,"Update ms_user set zjcion=zjcion+'$cione' Where id='" . $rowy['dlid'] . "'"); //¶ş¼¶´úÀíÌá³É¸üĞÂ
+					mysqli_query($mysqli_conn,"Update ms_user set zjcion=zjcion+'$cione' Where id='" . $rowy['dlid'] . "'"); //äºŒçº§ä»£ç†ææˆæ›´æ–°
 					if ($rows['dlid'] > 0) {
 						$cions = User_Cion_tichengs * $Money / 100;
 						mysqli_query($mysqli_conn,"INSERT INTO `ms_daili_jilu`(`uid`, `dlid`, `dljb`, `cion`,`dltime`) VALUES ('" . $uuid . "','" . $rows['dlid'] . "','3','" . $cions . "','" . time() . "')");
-						mysqli_query($mysqli_conn,"Update ms_user set zjcion=zjcion+'$cions' Where id='" . $rows['dlid'] . "'"); //Èı¼¶´úÀíÌá³É¸üĞÂ
+						mysqli_query($mysqli_conn,"Update ms_user set zjcion=zjcion+'$cions' Where id='" . $rows['dlid'] . "'"); //ä¸‰çº§ä»£ç†ææˆæ›´æ–°
 					}
 				}
 			}
 //echo $uuid;
 
-			mysqli_query($mysqli_conn,"Update ms_user set cion=cion+'$Money' Where id='" . $uuid . "'"); //¸üĞÂ»áÔ±Óà¶î
-			mysqli_query($mysqli_conn,"Update ms_pay set pid=1 Where id='" . $payid . "'"); //¸üĞÂ¶©µ¥ID
+			mysqli_query($mysqli_conn,"Update ms_user set cion=cion+'$Money' Where id='" . $uuid . "'"); //æ›´æ–°ä¼šå‘˜ä½™é¢
+			mysqli_query($mysqli_conn,"Update ms_pay set pid=1 Where id='" . $payid . "'"); //æ›´æ–°è®¢å•ID
 			ob_clean();
-			echo "Success"; //´Ë´¦·µ»ØÖµ£¨Success£©²»ÄÜĞŞ¸Ä£¬µ±¼ì²âµ½´Ë×Ö·û´®Ê±£¬¾Í±íÊ¾³äÖµ³É¹¦
+			echo "Success"; //æ­¤å¤„è¿”å›å€¼ï¼ˆSuccessï¼‰ä¸èƒ½ä¿®æ”¹ï¼Œå½“æ£€æµ‹åˆ°æ­¤å­—ç¬¦ä¸²æ—¶ï¼Œå°±è¡¨ç¤ºå……å€¼æˆåŠŸ
 		}
 	} else {
-		echo "Key"; //Ô¿³×²»ÕıÈ·
+		echo "Key"; //é’¥åŒ™ä¸æ­£ç¡®
 	}
 //*******************************************************************
 	mysqli_close($mysqli_conn);
 } else {
-	echo "Errordb"; //Á¬½ÓÊı¾İ¿âÊ§°Ü
+	echo "Errordb"; //è¿æ¥æ•°æ®åº“å¤±è´¥
 }
 //*******************************************************************
 ?>

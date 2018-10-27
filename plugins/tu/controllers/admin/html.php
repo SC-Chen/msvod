@@ -13,54 +13,54 @@ class Html extends msvod_Controller {
 		    $this->load->model('MsdjAdmin');
 	        $this->MsdjAdmin->Admin_Login();
 		    $this->load->model('MsdjTpl');
-            //ÅĞ¶ÏÔËĞĞÄ£Ê½
+            //åˆ¤æ–­è¿è¡Œæ¨¡å¼
 	        if(config('Web_Mode')!=3){
-                 admin_msg('°å¿éä¯ÀÀÄ£Ê½·Ç¾²Ì¬£¬²»ĞèÒªÉú³É¾²Ì¬ÎÄ¼ş~!','javascript:history.back();','no');
+                 admin_msg('æ¿å—æµè§ˆæ¨¡å¼éé™æ€ï¼Œä¸éœ€è¦ç”Ÿæˆé™æ€æ–‡ä»¶~!','javascript:history.back();','no');
 			}
 			$this->huri=config('Html_Uri');
 	}
 
-    //Ê×Ò³Éú³É
+    //é¦–é¡µç”Ÿæˆ
 	public function index()
 	{
             if($this->huri['index']['check']==0){
-				admin_msg('°å¿éÖ÷Ò³Î´¿ªÆôÉú³É~!','javascript:history.back();','no');
+				admin_msg('æ¿å—ä¸»é¡µæœªå¼€å¯ç”Ÿæˆ~!','javascript:history.back();','no');
 			}
-            //»ñÈ¡¾²Ì¬Â·¾¶
+            //è·å–é™æ€è·¯å¾„
 			$uri=config('Html_Uri');
 			$index_url=adminhtml($uri['index']['url']);
 			$this->load->get_templates('tu',2);
 		    $Mark_Text=$this->MsdjTpl->plub_index('tu','index.html',true);
 			write_file(FCPATH.$index_url,$Mark_Text);
-            admin_msg('°å¿éÊ×Ò³Éú³ÉÍê±Ï,<a target="_blank" href="'.Web_Path.$index_url.'"><font color="red">ä¯ÀÀ</font></a>','###');
+            admin_msg('æ¿å—é¦–é¡µç”Ÿæˆå®Œæ¯•,<a target="_blank" href="'.Web_Path.$index_url.'"><font color="red">æµè§ˆ</font></a>','###');
 	}
 
-    //×¨ÌâÒ³
+    //ä¸“é¢˜é¡µ
 	public function topic()
 	{
             $this->load->view('html_topic.html');
 	}
 
-    //×¨ÌâÁĞ±íÒ³Éú³É²Ù×÷
+    //ä¸“é¢˜åˆ—è¡¨é¡µç”Ÿæˆæ“ä½œ
 	public function topic_save()
 	{
             if($this->huri['topic/lists']['check']==0){
-				admin_msg('×¨ÌâÁĞ±íÎ´¿ªÆôÉú³É~!','javascript:history.back();','no');
+				admin_msg('ä¸“é¢˜åˆ—è¡¨æœªå¼€å¯ç”Ÿæˆ~!','javascript:history.back();','no');
 			}
-            $start= intval($this->input->get('start')); //µ±Ç°Ò³Éú³É±àºÅ
-            $pagesize= intval($this->input->get('pagesize')); //Ã¿Ò³¶àÉÙÌõ
-            $pagejs= intval($this->input->get('pagejs')); //×ÜÒ³Êı
-            $datacount= intval($this->input->get('datacount')); //Êı¾İ×ÜÊı
-            $page= intval($this->input->get('page')); //µ±Ç°Ò³
+            $start= intval($this->input->get('start')); //å½“å‰é¡µç”Ÿæˆç¼–å·
+            $pagesize= intval($this->input->get('pagesize')); //æ¯é¡µå¤šå°‘æ¡
+            $pagejs= intval($this->input->get('pagejs')); //æ€»é¡µæ•°
+            $datacount= intval($this->input->get('datacount')); //æ•°æ®æ€»æ•°
+            $page= intval($this->input->get('page')); //å½“å‰é¡µ
 			if($start==0) $start=1;
 
-            //¹«ÖÚURI
+            //å…¬ä¼—URI
 			$uri='?pagesize='.$pagesize.'&pagejs='.$pagejs.'&datacount='.$datacount;
 
-			//ÖØĞÂ¶¨ÒåÄ£°åÂ·¾¶
+			//é‡æ–°å®šä¹‰æ¨¡æ¿è·¯å¾„
 			$this->load->get_templates('tu',2);
 
-			//»ñÈ¡·ÖÒ³ĞÅÏ¢
+			//è·å–åˆ†é¡µä¿¡æ¯
             if($datacount==0){
 				 $template=$this->load->view('topic.html','',true);
 				 $pagesize=10;
@@ -77,7 +77,7 @@ class Html extends msvod_Controller {
 
 
             echo '<LINK href="'.base_url().'packs/admin/css/style.css" type="text/css" rel="stylesheet"><br>';
-			echo '&nbsp;&nbsp;<b>ÕıÔÚ¿ªÊ¼Éú³É<font color=red> ×¨ÌâÁĞ±í </font>°´,·Ö<font color=red>'.ceil($pagejs/Html_PageNum).'</font>´ÎÉú³É£¬µ±Ç°µÚ<font color=red>'.ceil($start/Html_PageNum).'</font>´Î</b><br/>';
+			echo '&nbsp;&nbsp;<b>æ­£åœ¨å¼€å§‹ç”Ÿæˆ<font color=red> ä¸“é¢˜åˆ—è¡¨ </font>æŒ‰,åˆ†<font color=red>'.ceil($pagejs/Html_PageNum).'</font>æ¬¡ç”Ÿæˆï¼Œå½“å‰ç¬¬<font color=red>'.ceil($start/Html_PageNum).'</font>æ¬¡</b><br/>';
 
             $n=1;
             $pagego=1;
@@ -87,13 +87,13 @@ class Html extends msvod_Controller {
 
             for($i=$start;$i<=$pagejs;$i++){
                   
-                  //»ñÈ¡¾²Ì¬Â·¾¶
+                  //è·å–é™æ€è·¯å¾„
 				  $Htmllinks=$Htmllink=LinkUrl('topic','lists',0,$i,'tu');
-				  //×ª»»³ÉÉú³ÉÂ·¾¶
+				  //è½¬æ¢æˆç”Ÿæˆè·¯å¾„
 				  $Htmllink=adminhtml($Htmllinks,'tu');
-				  $Mark_Text=$this->MsdjTpl->plub_list(array(),1,'lists',$page,'',true,'topic.html','topic','','Í¼Æ¬×¨Ìâ');
+				  $Mark_Text=$this->MsdjTpl->plub_list(array(),1,'lists',$page,'',true,'topic.html','topic','','å›¾ç‰‡ä¸“é¢˜');
 			      write_file(FCPATH.$Htmllink,$Mark_Text);
-				  echo "<a target='_blank' href='".$Htmllinks."'>&nbsp;&nbsp;µÚ".$i."Ò³&nbsp;&nbsp;".$Htmllinks."<font color=green>Éú³ÉÍê±Ï~!</font></a><br/>";
+				  echo "<a target='_blank' href='".$Htmllinks."'>&nbsp;&nbsp;ç¬¬".$i."é¡µ&nbsp;&nbsp;".$Htmllinks."<font color=green>ç”Ÿæˆå®Œæ¯•~!</font></a><br/>";
                   $n++;
                   ob_flush();flush();
 
@@ -103,34 +103,34 @@ class Html extends msvod_Controller {
                   }
 			}
 
-   		    if($pagego==2){ //²Ù×÷ÏµÍ³ÉèÖÃÃ¿Ò³ÊıÁ¿£¬·Ö¶àÒ³Éú³É
+   		    if($pagego==2){ //æ“ä½œç³»ç»Ÿè®¾ç½®æ¯é¡µæ•°é‡ï¼Œåˆ†å¤šé¡µç”Ÿæˆ
 				  $url=site_url('tu/admin/html/topic_save').$uri.'&numx='.$numx.'&start='.($i+1);
-			      exit("</br>&nbsp;&nbsp;<b>ÔİÍ£".Html_StopTime."Ãëºó¼ÌĞøÏÂÒ»Ò³&nbsp;>>>>&nbsp;&nbsp;<a target='_blank' href='".$url."'>Èç¹ûÄúµÄ ä¯ÀÀÆ÷Ã»ÓĞÌø×ª£¬Çëµã»÷¼ÌĞø...</a></b><script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
+			      exit("</br>&nbsp;&nbsp;<b>æš‚åœ".Html_StopTime."ç§’åç»§ç»­ä¸‹ä¸€é¡µ&nbsp;>>>>&nbsp;&nbsp;<a target='_blank' href='".$url."'>å¦‚æœæ‚¨çš„ æµè§ˆå™¨æ²¡æœ‰è·³è½¬ï¼Œè¯·ç‚¹å‡»ç»§ç»­...</a></b><script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
     		}
             $url=site_url('tu/admin/html/topic');
-			$str="&nbsp;&nbsp;<b><font color=#0000ff>ËùÓĞ×¨ÌâÁĞ±íÈ«²¿Éú³ÉÍê±Ï!</font>&nbsp;>>>>&nbsp;&nbsp;<a href='".site_url('tu/admin/html/topic')."'>Èç¹ûÄúµÄ ä¯ÀÀÆ÷Ã»ÓĞÌø×ª£¬Çëµã»÷¼ÌĞø...</a></b>";
+			$str="&nbsp;&nbsp;<b><font color=#0000ff>æ‰€æœ‰ä¸“é¢˜åˆ—è¡¨å…¨éƒ¨ç”Ÿæˆå®Œæ¯•!</font>&nbsp;>>>>&nbsp;&nbsp;<a href='".site_url('tu/admin/html/topic')."'>å¦‚æœæ‚¨çš„ æµè§ˆå™¨æ²¡æœ‰è·³è½¬ï¼Œè¯·ç‚¹å‡»ç»§ç»­...</a></b>";
 			echo("</br>".$str."<script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
 	}
 
-    //×¨ÌâÄÚÈİÒ³Éú³É²Ù×÷
+    //ä¸“é¢˜å†…å®¹é¡µç”Ÿæˆæ“ä½œ
 	public function topicshow_save()
 	{
             if($this->huri['topic/show']['check']==0){
-				admin_msg('×¨ÌâÄÚÈİÎ´¿ªÆôÉú³É~!','javascript:history.back();','no');
+				admin_msg('ä¸“é¢˜å†…å®¹æœªå¼€å¯ç”Ÿæˆ~!','javascript:history.back();','no');
 			}
-            $tid = $this->input->get_post('tid',true); //ĞèÒªÉú³ÉµÄ×¨ÌâID
-            $ksid= intval($this->input->get_post('ksid')); //¿ªÊ¼ID
-            $jsid= intval($this->input->get_post('jsid')); //½áÊøID
-            $kstime= $this->input->get_post('kstime',true); //¿ªÊ¼ÈÕÆÚ
-            $jstime= $this->input->get_post('jstime',true); //½áÊøÈÕÆÚ
-            $pagesize= intval($this->input->get('pagesize')); //Ã¿Ò³¶àÉÙÌõ
-            $pagejs= intval($this->input->get('pagejs')); //×ÜÒ³Êı
-            $datacount= intval($this->input->get('datacount')); //Êı¾İ×ÜÊı
-            $page= intval($this->input->get('page')); //µ±Ç°Ò³
+            $tid = $this->input->get_post('tid',true); //éœ€è¦ç”Ÿæˆçš„ä¸“é¢˜ID
+            $ksid= intval($this->input->get_post('ksid')); //å¼€å§‹ID
+            $jsid= intval($this->input->get_post('jsid')); //ç»“æŸID
+            $kstime= $this->input->get_post('kstime',true); //å¼€å§‹æ—¥æœŸ
+            $jstime= $this->input->get_post('jstime',true); //ç»“æŸæ—¥æœŸ
+            $pagesize= intval($this->input->get('pagesize')); //æ¯é¡µå¤šå°‘æ¡
+            $pagejs= intval($this->input->get('pagejs')); //æ€»é¡µæ•°
+            $datacount= intval($this->input->get('datacount')); //æ•°æ®æ€»æ•°
+            $page= intval($this->input->get('page')); //å½“å‰é¡µ
 			if($page==0) $page=1;
 			$str='';
 
-            //½«Êı×é×ª»»³É×Ö·û
+            //å°†æ•°ç»„è½¬æ¢æˆå­—ç¬¦
 			if(is_array($tid)){
 			     $tid=implode(',', $tid);
 			}
@@ -160,20 +160,20 @@ class Html extends msvod_Controller {
     	        $pagesize=$datacount;
             }
 
-            //È«²¿Éú³ÉÍê±Ï
+            //å…¨éƒ¨ç”Ÿæˆå®Œæ¯•
 	        if($datacount==0 || $page>$pagejs){
-                   admin_msg('ËùÓĞ×¨ÌâÄÚÈİÒ³È«²¿Éú³ÉÍê±Ï~!',site_url('tu/admin/html/topic'));
+                   admin_msg('æ‰€æœ‰ä¸“é¢˜å†…å®¹é¡µå…¨éƒ¨ç”Ÿæˆå®Œæ¯•~!',site_url('tu/admin/html/topic'));
 			}
 
 
-            //¹«ÖÚURI
+            //å…¬ä¼—URI
 			$uri='?tid='.$tid.'&ksid='.$ksid.'&jsid='.$jsid.'&kstime='.$kstime.'&jstime='.$jstime.'&pagesize='.$pagesize.'&pagejs='.$pagejs.'&datacount='.$datacount;
 
-			//ÖØĞÂ¶¨ÒåÄ£°åÂ·¾¶
+			//é‡æ–°å®šä¹‰æ¨¡æ¿è·¯å¾„
 			$this->load->get_templates('tu',2);
 
             echo '<LINK href="'.base_url().'packs/admin/css/style.css" type="text/css" rel="stylesheet"><br>';
-			echo '&nbsp;&nbsp;<b>ÕıÔÚ¿ªÊ¼Éú³É×¨ÌâÄÚÈİ,·Ö<font color=red>'.$pagejs.'</font>´ÎÉú³É£¬µ±Ç°µÚ<font color=red>'.$page.'</font>´Î</b><br/>';
+			echo '&nbsp;&nbsp;<b>æ­£åœ¨å¼€å§‹ç”Ÿæˆä¸“é¢˜å†…å®¹,åˆ†<font color=red>'.$pagejs.'</font>æ¬¡ç”Ÿæˆï¼Œå½“å‰ç¬¬<font color=red>'.$page.'</font>æ¬¡</b><br/>';
 
             $sql_string="select * from ".MS_SqlPrefix."tu_topic where yid=0 ".$str." order by id desc";
             $sql_string.=' limit '. $pagesize*($page-1) .','. $pagesize;
@@ -182,68 +182,68 @@ class Html extends msvod_Controller {
             foreach ($query->result_array() as $row) {
                   
 				  $id=$row['id'];
-                  //»ñÈ¡¾²Ì¬Â·¾¶
+                  //è·å–é™æ€è·¯å¾„
 				  $Htmllinks=LinkUrl('topic','show',$id,1,'tu',$row['name']);
-				  //×ª»»³ÉÉú³ÉÂ·¾¶
+				  //è½¬æ¢æˆç”Ÿæˆè·¯å¾„
 				  $Htmllink=adminhtml($Htmllinks,'tu');
-				  //´İ»Ù¶¯Ì¬ÈËÆø×Ö¶ÎÊı×é
+				  //æ‘§æ¯åŠ¨æ€äººæ°”å­—æ®µæ•°ç»„
 				  unset($row['hits']);
 				  unset($row['yhits']);
 				  unset($row['zhits']);
 				  unset($row['rhits']);
 
-				  //×°ÔØÄ£°å²¢Êä³ö
+				  //è£…è½½æ¨¡æ¿å¹¶è¾“å‡º
 	        	  $Mark_Text=$this->MsdjTpl->plub_show('topic',$row,$id,true,'topic-show.html',$row['name'],$row['name']);
-				  //ÆÀÂÛ
+				  //è¯„è®º
 				  $Mark_Text=str_replace("[topic:pl]",get_pl('tu',$id,1),$Mark_Text);
-				  //¶¯Ì¬ÈËÆø
+				  //åŠ¨æ€äººæ°”
 				  $Mark_Text=str_replace("[topic:hits]","<script src='".hitslink('hits/dt/hits/'.$id.'/topic','tu')."'></script>",$Mark_Text);
 				  $Mark_Text=str_replace("[topic:yhits]","<script src='".hitslink('hits/dt/yhits/'.$id.'/topic','tu')."'></script>",$Mark_Text);
 				  $Mark_Text=str_replace("[topic:zhits]","<script src='".hitslink('hits/dt/zhits/'.$id.'/topic','tu')."'></script>",$Mark_Text);
 				  $Mark_Text=str_replace("[topic:rhits]","<script src='".hitslink('hits/dt/rhits/'.$id.'/topic','tu')."'></script>",$Mark_Text);
-				  //Ôö¼ÓÈËÆø
+				  //å¢åŠ äººæ°”
 			      $Mark_Text=hits_js($Mark_Text,hitslink('hits/ids/'.$id.'/topic','tu'));
 
-                  //Éú³É
+                  //ç”Ÿæˆ
 			      write_file(FCPATH.$Htmllink,$Mark_Text);
-				  echo "&nbsp;<font style=font-size:10pt;>Éú³ÉÍ¼Æ¬×¨Ìâ:<font color=red>".$row['name']."</font>³É¹¦:<a href=".$Htmllinks." target=_blank>".$Htmllinks."</a></font><br/>";
+				  echo "&nbsp;<font style=font-size:10pt;>ç”Ÿæˆå›¾ç‰‡ä¸“é¢˜:<font color=red>".$row['name']."</font>æˆåŠŸ:<a href=".$Htmllinks." target=_blank>".$Htmllinks."</a></font><br/>";
                   ob_flush();flush();
 
 			}
 
     	    $url=site_url('tu/admin/html/topicshow_save').$uri.'&page='.($page+1);
-			$str="&nbsp;&nbsp;<b>ÔİÍ£".Html_StopTime."Ãëºó¼ÌĞø&nbsp;>>>>&nbsp;&nbsp;<a href='".$url."'>Èç¹ûÄúµÄ ä¯ÀÀÆ÷Ã»ÓĞÌø×ª£¬Çëµã»÷¼ÌĞø...</a></b>";
+			$str="&nbsp;&nbsp;<b>æš‚åœ".Html_StopTime."ç§’åç»§ç»­&nbsp;>>>>&nbsp;&nbsp;<a href='".$url."'>å¦‚æœæ‚¨çš„ æµè§ˆå™¨æ²¡æœ‰è·³è½¬ï¼Œè¯·ç‚¹å‡»ç»§ç»­...</a></b>";
 			echo("</br>".$str."<script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
 	}
 
-    //ÁĞ±íÒ³
+    //åˆ—è¡¨é¡µ
 	public function type()
 	{
             $this->load->view('html_type.html');
 	}
 
-    //ÁĞ±íÒ³Éú³É²Ù×÷
+    //åˆ—è¡¨é¡µç”Ÿæˆæ“ä½œ
 	public function type_save()
 	{
             if($this->huri['lists']['check']==0){
-				admin_msg('Í¼Æ¬·ÖÀàÎ´¿ªÆôÉú³É~!','javascript:history.back();','no');
+				admin_msg('å›¾ç‰‡åˆ†ç±»æœªå¼€å¯ç”Ÿæˆ~!','javascript:history.back();','no');
 			}
-            $ac  = $this->input->get_post('ac',true); //·½Ê½
-            $cid = $this->input->get_post('cid',true); //ĞèÒªÉú³ÉµÄ·ÖÀàID
-            $fid = $this->input->get_post('fid',true); //ĞèÒªÉú³ÉµÄÅÅĞò·½Ê½
-            $nums= intval($this->input->get('nums')); //·ÖÀàÒÑÍê³ÉÊıÁ¿
-            $numx= intval($this->input->get('numx')); //ÅÅĞò·½Ê½ÒÑÍê³ÉÊıÁ¿
-            $start= intval($this->input->get('start')); //µ±Ç°Ò³Éú³É±àºÅ
-            $pagesize= intval($this->input->get('pagesize')); //Ã¿Ò³¶àÉÙÌõ
-            $pagejs= intval($this->input->get('pagejs')); //×ÜÒ³Êı
-            $datacount= intval($this->input->get('datacount')); //Êı¾İ×ÜÊı
-            $page= intval($this->input->get('page')); //µ±Ç°Ò³
+            $ac  = $this->input->get_post('ac',true); //æ–¹å¼
+            $cid = $this->input->get_post('cid',true); //éœ€è¦ç”Ÿæˆçš„åˆ†ç±»ID
+            $fid = $this->input->get_post('fid',true); //éœ€è¦ç”Ÿæˆçš„æ’åºæ–¹å¼
+            $nums= intval($this->input->get('nums')); //åˆ†ç±»å·²å®Œæˆæ•°é‡
+            $numx= intval($this->input->get('numx')); //æ’åºæ–¹å¼å·²å®Œæˆæ•°é‡
+            $start= intval($this->input->get('start')); //å½“å‰é¡µç”Ÿæˆç¼–å·
+            $pagesize= intval($this->input->get('pagesize')); //æ¯é¡µå¤šå°‘æ¡
+            $pagejs= intval($this->input->get('pagejs')); //æ€»é¡µæ•°
+            $datacount= intval($this->input->get('datacount')); //æ•°æ®æ€»æ•°
+            $page= intval($this->input->get('page')); //å½“å‰é¡µ
 			if($start==0) $start=1;
 			if(empty($fid)){
 				$fid=($ac=='all')?'id,tu,reco,hits,yhits,zhits,rhits,xhits,shits,dhits,chits,phits':'id';
 			}
 
-            //Éú³ÉÈ«²¿·ÖÀà»ñÈ¡È«²¿·ÖÀàID
+            //ç”Ÿæˆå…¨éƒ¨åˆ†ç±»è·å–å…¨éƒ¨åˆ†ç±»ID
             if($ac=='all' && $nums==0){
 				   $cid=array();
                    $query = $this->db->query("SELECT id FROM ".MS_SqlPrefix."tu_list where yid=0 order by xid asc"); 
@@ -251,43 +251,43 @@ class Html extends msvod_Controller {
                        $cid[]=$rowc->id;
                    }
 			}
-            //½«Êı×é×ª»»³É×Ö·û
+            //å°†æ•°ç»„è½¬æ¢æˆå­—ç¬¦
 			if(is_array($cid)){
 			     $cid=implode(',', $cid);
 			}
 			if(is_array($fid)){
 			     $fid=implode(',', $fid);
 			}
-			//Ã»ÓĞÑ¡Ôñ·ÖÀà
+			//æ²¡æœ‰é€‰æ‹©åˆ†ç±»
 			if(empty($cid)){
-                    admin_msg('ÇëÑ¡ÔñÒªÉú³ÉµÄ·ÖÀà~!',site_url('tu/admin/html/type'));
+                    admin_msg('è¯·é€‰æ‹©è¦ç”Ÿæˆçš„åˆ†ç±»~!',site_url('tu/admin/html/type'));
 			}
 
-            //¹«ÖÚURI
+            //å…¬ä¼—URI
 			$uri='?ac='.$ac.'&cid='.$cid.'&fid='.$fid.'&pagesize='.$pagesize.'&pagejs='.$pagejs.'&datacount='.$datacount;
 
-            //·Ö¸î·ÖÀàID
+            //åˆ†å‰²åˆ†ç±»ID
 	        $arr = explode(',',$cid);
 	        $len = count($arr);
-            //·Ö¸îÅÅĞò·½Ê½
+            //åˆ†å‰²æ’åºæ–¹å¼
 	        $arr2 = explode(',',$fid);
 	        $len2 = count($arr2);
 
-            //È«²¿Éú³ÉÍê±Ï
+            //å…¨éƒ¨ç”Ÿæˆå®Œæ¯•
 	        if($nums>=$len){
-                    admin_msg('ËùÓĞ·ÖÀàÈ«²¿Éú³ÉÍê±Ï~!',site_url('tu/admin/html/type'));
+                    admin_msg('æ‰€æœ‰åˆ†ç±»å…¨éƒ¨ç”Ÿæˆå®Œæ¯•~!',site_url('tu/admin/html/type'));
 			}
 
-			$id=$arr[$nums]; //µ±Ç°·ÖÀàID
-			$type=$arr2[$numx]; //µ±Ç°ÅÅĞò
+			$id=$arr[$nums]; //å½“å‰åˆ†ç±»ID
+			$type=$arr2[$numx]; //å½“å‰æ’åº
 
-			//ÖØĞÂ¶¨ÒåÄ£°åÂ·¾¶
+			//é‡æ–°å®šä¹‰æ¨¡æ¿è·¯å¾„
 			$this->load->get_templates('tu',2);
 
-			//»ñÈ¡·ÖÀàĞÅÏ¢
+			//è·å–åˆ†ç±»ä¿¡æ¯
 			$row=$this->MsdjDB->get_row_arr('tu_list','*',$id);
             $template=!empty($row['skins'])?$row['skins']:'list.html';
-			$ids=getChild($id); //»ñÈ¡×Ó·ÖÀà
+			$ids=getChild($id); //è·å–å­åˆ†ç±»
 
             if($datacount==0){
 				 $template=$this->load->view($template,'',true);
@@ -305,7 +305,7 @@ class Html extends msvod_Controller {
 
 
             echo '<LINK href="'.base_url().'packs/admin/css/style.css" type="text/css" rel="stylesheet"><br>';
-			echo '&nbsp;&nbsp;<b>ÕıÔÚ¿ªÊ¼Éú³É·ÖÀà<font color=red> '.$row["name"].' </font>°´<font color=red> '.$this->gettype($type).' </font>ÅÅĞòµÄÁĞ±í,·Ö<font color=red>'.ceil($pagejs/Html_PageNum).'</font>´ÎÉú³É£¬µ±Ç°µÚ<font color=red>'.ceil($start/Html_PageNum).'</font>´Î</b><br/>';
+			echo '&nbsp;&nbsp;<b>æ­£åœ¨å¼€å§‹ç”Ÿæˆåˆ†ç±»<font color=red> '.$row["name"].' </font>æŒ‰<font color=red> '.$this->gettype($type).' </font>æ’åºçš„åˆ—è¡¨,åˆ†<font color=red>'.ceil($pagejs/Html_PageNum).'</font>æ¬¡ç”Ÿæˆï¼Œå½“å‰ç¬¬<font color=red>'.ceil($start/Html_PageNum).'</font>æ¬¡</b><br/>';
 
             $n=1;
             $pagego=1;
@@ -315,14 +315,14 @@ class Html extends msvod_Controller {
 
             for($i=$start;$i<=$pagejs;$i++){
                   
-                  //»ñÈ¡¾²Ì¬Â·¾¶
+                  //è·å–é™æ€è·¯å¾„
 				  $Htmllinks=LinkUrl('lists',$type,$id,$i,'tu',$row['bname']);
-				  //×ª»»³ÉÉú³ÉÂ·¾¶
+				  //è½¬æ¢æˆç”Ÿæˆè·¯å¾„
 				  $Htmllink=adminhtml($Htmllinks,'tu');
 				  $skins=empty($row['skins'])?'list.html':$row['skins'];
 				  $Mark_Text=$this->MsdjTpl->plub_list($row,$id,$type,$i,$ids,true,$skins,'lists','tu',$row['name'],$row['name']);
 			      write_file(FCPATH.$Htmllink,$Mark_Text);
-				  echo "<a target='_blank' href='".$Htmllinks."'>&nbsp;&nbsp;µÚ".$i."Ò³&nbsp;&nbsp;".$Htmllinks."<font color=green>Éú³ÉÍê±Ï~!</font></a><br/>";
+				  echo "<a target='_blank' href='".$Htmllinks."'>&nbsp;&nbsp;ç¬¬".$i."é¡µ&nbsp;&nbsp;".$Htmllinks."<font color=green>ç”Ÿæˆå®Œæ¯•~!</font></a><br/>";
                   $n++;
                   ob_flush();flush();
 
@@ -332,53 +332,53 @@ class Html extends msvod_Controller {
                   }
 			}
 
-   		    if($pagego==2){ //²Ù×÷ÏµÍ³ÉèÖÃÃ¿Ò³ÊıÁ¿£¬·Ö¶àÒ³Éú³É
+   		    if($pagego==2){ //æ“ä½œç³»ç»Ÿè®¾ç½®æ¯é¡µæ•°é‡ï¼Œåˆ†å¤šé¡µç”Ÿæˆ
 				  $url=site_url('tu/admin/html/type_save').$uri.'&nums='.$nums.'&numx='.$numx.'&start='.($i+1);
-			      exit("</br>&nbsp;&nbsp;<b>ÔİÍ£".Html_StopTime."Ãëºó¼ÌĞøÏÂÒ»Ò³&nbsp;>>>>&nbsp;&nbsp;<a target='_blank' href='".$url."'>Èç¹ûÄúµÄ ä¯ÀÀÆ÷Ã»ÓĞÌø×ª£¬Çëµã»÷¼ÌĞø...</a></b><script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
+			      exit("</br>&nbsp;&nbsp;<b>æš‚åœ".Html_StopTime."ç§’åç»§ç»­ä¸‹ä¸€é¡µ&nbsp;>>>>&nbsp;&nbsp;<a target='_blank' href='".$url."'>å¦‚æœæ‚¨çš„ æµè§ˆå™¨æ²¡æœ‰è·³è½¬ï¼Œè¯·ç‚¹å‡»ç»§ç»­...</a></b><script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
     		}else{  
     	          $url=site_url('tu/admin/html/type_save').$uri.'&nums='.($nums+1);
-			      $str="&nbsp;&nbsp;<b>ÔİÍ£".Html_StopTime."Ãëºó¼ÌĞø&nbsp;>>>>&nbsp;&nbsp;<a target='_blank' href='".$url."'>Èç¹ûÄúµÄ ä¯ÀÀÆ÷Ã»ÓĞÌø×ª£¬Çëµã»÷¼ÌĞø...</a></b>";
+			      $str="&nbsp;&nbsp;<b>æš‚åœ".Html_StopTime."ç§’åç»§ç»­&nbsp;>>>>&nbsp;&nbsp;<a target='_blank' href='".$url."'>å¦‚æœæ‚¨çš„ æµè§ˆå™¨æ²¡æœ‰è·³è½¬ï¼Œè¯·ç‚¹å‡»ç»§ç»­...</a></b>";
             }
 
-            //ÅĞ¶ÏÉú³ÉÍê±Ï
-			if(($numx+1)>=$len2){ //È«²¿Íê³É
+            //åˆ¤æ–­ç”Ÿæˆå®Œæ¯•
+			if(($numx+1)>=$len2){ //å…¨éƒ¨å®Œæˆ
                 $url=site_url('tu/admin/html/type_save').$uri.'&nums='.($nums+1);
-				$str="&nbsp;&nbsp;<b><font color=#0000ff>ËùÓĞÅÅĞòÒ³ÃæÈ«²¿Éú³ÉÍê±Ï!</font>&nbsp;>>>>&nbsp;&nbsp;<a href='".site_url('tu/admin/html/type_save').$uri.'&nums='.($nums+1)."'>Èç¹ûÄúµÄ ä¯ÀÀÆ÷Ã»ÓĞÌø×ª£¬Çëµã»÷¼ÌĞø...</a></b>";
-			}else{ //µ±Ç°ÅÅĞò·½Ê½Íê³É
+				$str="&nbsp;&nbsp;<b><font color=#0000ff>æ‰€æœ‰æ’åºé¡µé¢å…¨éƒ¨ç”Ÿæˆå®Œæ¯•!</font>&nbsp;>>>>&nbsp;&nbsp;<a href='".site_url('tu/admin/html/type_save').$uri.'&nums='.($nums+1)."'>å¦‚æœæ‚¨çš„ æµè§ˆå™¨æ²¡æœ‰è·³è½¬ï¼Œè¯·ç‚¹å‡»ç»§ç»­...</a></b>";
+			}else{ //å½“å‰æ’åºæ–¹å¼å®Œæˆ
                 $url=site_url('tu/admin/html/type_save').$uri.'&nums='.$nums.'&numx='.($numx+1);
-				$str='&nbsp;&nbsp;<b>°´<font color=#0000ff>'.$this->gettype($type).'ÅÅĞò</font>·ÖÀàÉú³ÉÍê±Ï!&nbsp;>>>>&nbsp;&nbsp;<a href="'.site_url('tu/admin/html/type_save').$uri.'&nums='.$nums.'&numx='.($numx+1).'">Èç¹ûÄúµÄ ä¯ÀÀÆ÷Ã»ÓĞÌø×ª£¬Çëµã»÷¼ÌĞø...</a></b>';
+				$str='&nbsp;&nbsp;<b>æŒ‰<font color=#0000ff>'.$this->gettype($type).'æ’åº</font>åˆ†ç±»ç”Ÿæˆå®Œæ¯•!&nbsp;>>>>&nbsp;&nbsp;<a href="'.site_url('tu/admin/html/type_save').$uri.'&nums='.$nums.'&numx='.($numx+1).'">å¦‚æœæ‚¨çš„ æµè§ˆå™¨æ²¡æœ‰è·³è½¬ï¼Œè¯·ç‚¹å‡»ç»§ç»­...</a></b>';
 			}
 			echo("</br>".$str."<script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
 	}
 
-    //ÄÚÈİÒ³
+    //å†…å®¹é¡µ
 	public function show()
 	{
             $this->load->view('html_show.html');
 	}
 
-    //ÄÚÈİÒ³Éú³É²Ù×÷
+    //å†…å®¹é¡µç”Ÿæˆæ“ä½œ
 	public function show_save()
 	{
             if($this->huri['show']['check']==0){
-				admin_msg('Í¼Æ¬ÄÚÈİÒ³Î´¿ªÆôÉú³É~!','javascript:history.back();','no');
+				admin_msg('å›¾ç‰‡å†…å®¹é¡µæœªå¼€å¯ç”Ÿæˆ~!','javascript:history.back();','no');
 			}
-            $day = intval($this->input->get_post('day',true)); //×î½ü¼¸Ìì
-            $ids = $this->input->get_post('ids',true); //ĞèÒªÉú³ÉµÄÊı¾İID
-            $cid = $this->input->get_post('cid',true); //ĞèÒªÉú³ÉµÄ·ÖÀàID
-            $newid= intval($this->input->get_post('newid')); //×îĞÂ¸öÊı
-            $ksid= intval($this->input->get_post('ksid')); //¿ªÊ¼ID
-            $jsid= intval($this->input->get_post('jsid')); //½áÊøID
-            $kstime= $this->input->get_post('kstime',true); //¿ªÊ¼ÈÕÆÚ
-            $jstime= $this->input->get_post('jstime',true); //½áÊøÈÕÆÚ
-            $pagesize= intval($this->input->get('pagesize')); //Ã¿Ò³¶àÉÙÌõ
-            $pagejs= intval($this->input->get('pagejs')); //×ÜÒ³Êı
-            $datacount= intval($this->input->get('datacount')); //Êı¾İ×ÜÊı
-            $page= intval($this->input->get('page')); //µ±Ç°Ò³
+            $day = intval($this->input->get_post('day',true)); //æœ€è¿‘å‡ å¤©
+            $ids = $this->input->get_post('ids',true); //éœ€è¦ç”Ÿæˆçš„æ•°æ®ID
+            $cid = $this->input->get_post('cid',true); //éœ€è¦ç”Ÿæˆçš„åˆ†ç±»ID
+            $newid= intval($this->input->get_post('newid')); //æœ€æ–°ä¸ªæ•°
+            $ksid= intval($this->input->get_post('ksid')); //å¼€å§‹ID
+            $jsid= intval($this->input->get_post('jsid')); //ç»“æŸID
+            $kstime= $this->input->get_post('kstime',true); //å¼€å§‹æ—¥æœŸ
+            $jstime= $this->input->get_post('jstime',true); //ç»“æŸæ—¥æœŸ
+            $pagesize= intval($this->input->get('pagesize')); //æ¯é¡µå¤šå°‘æ¡
+            $pagejs= intval($this->input->get('pagejs')); //æ€»é¡µæ•°
+            $datacount= intval($this->input->get('datacount')); //æ•°æ®æ€»æ•°
+            $page= intval($this->input->get('page')); //å½“å‰é¡µ
 			if($page==0) $page=1;
 			$str='';
 
-            //½«Êı×é×ª»»³É×Ö·û
+            //å°†æ•°ç»„è½¬æ¢æˆå­—ç¬¦
 			if(is_array($cid)){
 			     $cid=implode(',', $cid);
 			}
@@ -422,41 +422,41 @@ class Html extends msvod_Controller {
     	        $pagesize=$datacount;
             }
 
-            //È«²¿Éú³ÉÍê±Ï
+            //å…¨éƒ¨ç”Ÿæˆå®Œæ¯•
 	        if($page>$pagejs){
-                   admin_msg('ËùÓĞÄÚÈİÒ³È«²¿Éú³ÉÍê±Ï~!',site_url('tu/admin/html/show'));
+                   admin_msg('æ‰€æœ‰å†…å®¹é¡µå…¨éƒ¨ç”Ÿæˆå®Œæ¯•~!',site_url('tu/admin/html/show'));
 			}
 
 
-            //¹«ÖÚURI
+            //å…¬ä¼—URI
 			$uri='?day='.$day.'&cid='.$cid.'&ids='.$ids.'&newid='.$newid.'&ksid='.$ksid.'&jsid='.$jsid.'&kstime='.$kstime.'&jstime='.$jstime.'&pagesize='.$pagesize.'&pagejs='.$pagejs.'&datacount='.$datacount;
 
-			//ÖØĞÂ¶¨ÒåÄ£°åÂ·¾¶
+			//é‡æ–°å®šä¹‰æ¨¡æ¿è·¯å¾„
 			$this->load->get_templates('tu',2);
 
             echo '<LINK href="'.base_url().'packs/admin/css/style.css" type="text/css" rel="stylesheet"><br>';
-			echo '&nbsp;&nbsp;<b>ÕıÔÚ¿ªÊ¼Éú³ÉÍ¼Æ¬ÄÚÈİ,·Ö<font color=red>'.$pagejs.'</font>´ÎÉú³É£¬µ±Ç°µÚ<font color=red>'.$page.'</font>´Î</b><br/>';
+			echo '&nbsp;&nbsp;<b>æ­£åœ¨å¼€å§‹ç”Ÿæˆå›¾ç‰‡å†…å®¹,åˆ†<font color=red>'.$pagejs.'</font>æ¬¡ç”Ÿæˆï¼Œå½“å‰ç¬¬<font color=red>'.$page.'</font>æ¬¡</b><br/>';
 
             $sql_string="select * from ".MS_SqlPrefix."tu where yid=0 and hid=0 ".$str." order by id desc";
             $sql_string.=' limit '. $pagesize*($page-1) .','. $pagesize;
 			$query = $this->db->query($sql_string);
 
-			//»ñÈ¡ÄÚÈİÒ³ÊÇ·ñĞèÒªÉú³É
+			//è·å–å†…å®¹é¡µæ˜¯å¦éœ€è¦ç”Ÿæˆ
 			$html=config('Html_Uri','tu');
 
             foreach ($query->result_array() as $row) {
                   
 				  $id=$row['id'];
-                  //»ñÈ¡¾²Ì¬Â·¾¶
+                  //è·å–é™æ€è·¯å¾„
 				  $Htmllinks=LinkUrl('show','id',$row['id'],0,'tu',$row['name']);
-				  //×ª»»³ÉÉú³ÉÂ·¾¶
+				  //è½¬æ¢æˆç”Ÿæˆè·¯å¾„
 				  $Htmllink=adminhtml($Htmllinks,'tu');
 
 			      $arr['cid']=getChild($row['cid']);
 			      $arr['uid']=$row['uid'];
 			      $arr['tags']=$rows['tags'];
-				  //´İ»Ù²¿·ÖĞèÒª³¬¼¶Á´½Ó×Ö¶ÎÊı×é
-				  $rows=$row; //ÏÈ±£´æÊı×é±£ÁôÏÂÃæÊ¹ÓÃ
+				  //æ‘§æ¯éƒ¨åˆ†éœ€è¦è¶…çº§é“¾æ¥å­—æ®µæ•°ç»„
+				  $rows=$row; //å…ˆä¿å­˜æ•°ç»„ä¿ç•™ä¸‹é¢ä½¿ç”¨
 				  unset($row['tags']);
 				  unset($row['hits']);
 				  unset($row['yhits']);
@@ -465,17 +465,17 @@ class Html extends msvod_Controller {
 				  unset($row['dhits']);
 				  unset($row['chits']);
 				  unset($row['content']);
-				  //Ä¬ÈÏÄ£°å
+				  //é»˜è®¤æ¨¡æ¿
 			      $skins=empty($row['skins'])?'show.html':$row['skins'];
-				  //×°ÔØÄ£°å²¢Êä³ö
+				  //è£…è½½æ¨¡æ¿å¹¶è¾“å‡º
 	        	  $Mark_Text=$this->MsdjTpl->plub_show('tu',$row,$arr,TRUE,$skins,$row['name'],$row['name']);
-				  //ÆÀÂÛ
+				  //è¯„è®º
 				  $Mark_Text=str_replace("[tu:pl]",get_pl('tu',$id),$Mark_Text);
-				  //·ÖÀàµØÖ·¡¢Ãû³Æ
+				  //åˆ†ç±»åœ°å€ã€åç§°
 				  $Mark_Text=str_replace("[tu:link]",LinkUrl('show','id',$row['id'],1,'tu'),$Mark_Text);
 				  $Mark_Text=str_replace("[tu:classlink]",LinkUrl('lists','id',$row['cid'],1,'tu'),$Mark_Text);
 				  $Mark_Text=str_replace("[tu:classname]",$this->MsdjDB->getzd('tu_list','name',$row['cid']),$Mark_Text);
-				  //»ñÈ¡ÉÏÏÂÆª
+				  //è·å–ä¸Šä¸‹ç¯‡
             	  preg_match_all('/[tu:slink]/',$Mark_Text,$arr);
 		    	  if(!empty($arr[0]) && !empty($arr[0][0])){
                    	  $rowd=$this->db->query("Select id,cid,name from ".MS_SqlPrefix."tu where yid=0 and hid=0 and id<".$id." order by id desc limit 1")->row();
@@ -485,7 +485,7 @@ class Html extends msvod_Controller {
 			             $Mark_Text=str_replace("[tu:sid]",$rowd->id,$Mark_Text);
 				   	  }else{
 			             $Mark_Text=str_replace("[tu:slink]","#",$Mark_Text);
-			             $Mark_Text=str_replace("[tu:sname]","Ã»ÓĞÁË",$Mark_Text);
+			             $Mark_Text=str_replace("[tu:sname]","æ²¡æœ‰äº†",$Mark_Text);
 			             $Mark_Text=str_replace("[tu:sid]",0,$Mark_Text);
 				   	  }
 				  }
@@ -499,21 +499,21 @@ class Html extends msvod_Controller {
 			             $Mark_Text=str_replace("[tu:xid]",$rowd->id,$Mark_Text);
 				   	  }else{
 			             $Mark_Text=str_replace("[tu:xlink]","#",$Mark_Text);
-			             $Mark_Text=str_replace("[tu:xname]","Ã»ÓĞÁË",$Mark_Text);
+			             $Mark_Text=str_replace("[tu:xname]","æ²¡æœ‰äº†",$Mark_Text);
 			             $Mark_Text=str_replace("[tu:xid]",0,$Mark_Text);
 				   	  }
 				  }
 				  unset($arr);
-				  //±êÇ©¼Ó³¬¼¶Á¬½Ó
+				  //æ ‡ç­¾åŠ è¶…çº§è¿æ¥
 				  $Mark_Text=str_replace("[tu:tags]",SearchLink($rows['tags']),$Mark_Text);
-				  //¶¯Ì¬ÈËÆø
+				  //åŠ¨æ€äººæ°”
 				  $Mark_Text=str_replace("[tu:hits]","<script src='".hitslink('hits/dt/hits/'.$id,'tu')."'></script>",$Mark_Text);
 				  $Mark_Text=str_replace("[tu:yhits]","<script src='".hitslink('hits/dt/yhits/'.$id,'tu')."'></script>",$Mark_Text);
 				  $Mark_Text=str_replace("[tu:zhits]","<script src='".hitslink('hits/dt/zhits/'.$id,'tu')."'></script>",$Mark_Text);
 				  $Mark_Text=str_replace("[tu:rhits]","<script src='".hitslink('hits/dt/rhits/'.$id,'tu')."'></script>",$Mark_Text);
 				  $Mark_Text=str_replace("[tu:dhits]","<script src='".hitslink('hits/dt/dhits/'.$id,'tu')."'></script>",$Mark_Text);
 				  $Mark_Text=str_replace("[tu:chits]","<script src='".hitslink('hits/dt/chits/'.$id,'tu')."'></script>",$Mark_Text);
-                  //Í¼Æ¬ÄÚÈİ,ÅĞ¶ÏÊÇ·ñÊÇÊÕ·ÑÍ¼Æ¬
+                  //å›¾ç‰‡å†…å®¹,åˆ¤æ–­æ˜¯å¦æ˜¯æ”¶è´¹å›¾ç‰‡
 				  if($row['vip']>0 || $row['level']>0 || $row['cion']>0){
 				       $content="<div id='msvod_content'></div>";
 				       if(config('Ym_Mode','tu')==1){
@@ -525,28 +525,28 @@ class Html extends msvod_Controller {
                        $content=$rows['content'];
 				  }
 				  $Mark_Text=str_replace("[tu:content]",$content,$Mark_Text);
-				  //Ôö¼ÓÈËÆø
+				  //å¢åŠ äººæ°”
 			      $Mark_Text=hits_js($Mark_Text,hitslink('hits/ids/'.$id,'tu'));
-                  //Éú³É
+                  //ç”Ÿæˆ
 			      write_file(FCPATH.$Htmllink,$Mark_Text);
-				  echo "&nbsp;<font style=font-size:10pt;>Éú³ÉÍ¼Æ¬:<font color=red>".$row['name']."</font>³É¹¦:<a href=".$Htmllinks." target=_blank>".$Htmllinks."</a></font><br/>";
+				  echo "&nbsp;<font style=font-size:10pt;>ç”Ÿæˆå›¾ç‰‡:<font color=red>".$row['name']."</font>æˆåŠŸ:<a href=".$Htmllinks." target=_blank>".$Htmllinks."</a></font><br/>";
                   ob_flush();flush();
 
 			}
             if(!empty($ids)){
                 $url='javascript:history.back();';
-			    $str="&nbsp;&nbsp;<b>È«²¿Éú³ÉÍê±Ï&nbsp;>>>>&nbsp;&nbsp;<a href='".$url."'>Èç¹ûÄúµÄ ä¯ÀÀÆ÷Ã»ÓĞÌø×ª£¬Çëµã»÷¼ÌĞø...</a></b>";
+			    $str="&nbsp;&nbsp;<b>å…¨éƒ¨ç”Ÿæˆå®Œæ¯•&nbsp;>>>>&nbsp;&nbsp;<a href='".$url."'>å¦‚æœæ‚¨çš„ æµè§ˆå™¨æ²¡æœ‰è·³è½¬ï¼Œè¯·ç‚¹å‡»ç»§ç»­...</a></b>";
 			}else{ 
     	        $url=site_url('tu/admin/html/show_save').$uri.'&page='.($page+1);
-			    $str="&nbsp;&nbsp;<b>ÔİÍ£".Html_StopTime."Ãëºó¼ÌĞø&nbsp;>>>>&nbsp;&nbsp;<a href='".$url."'>Èç¹ûÄúµÄ ä¯ÀÀÆ÷Ã»ÓĞÌø×ª£¬Çëµã»÷¼ÌĞø...</a></b>";
+			    $str="&nbsp;&nbsp;<b>æš‚åœ".Html_StopTime."ç§’åç»§ç»­&nbsp;>>>>&nbsp;&nbsp;<a href='".$url."'>å¦‚æœæ‚¨çš„ æµè§ˆå™¨æ²¡æœ‰è·³è½¬ï¼Œè¯·ç‚¹å‡»ç»§ç»­...</a></b>";
 			}
 			echo("</br>".$str."<script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
 	}
 
-    //ÆäËûÒ³
+    //å…¶ä»–é¡µ
 	public function opt()
 	{
-		    //»ñÈ¡×Ô¶¨ÒåÄ£°å
+		    //è·å–è‡ªå®šä¹‰æ¨¡æ¿
 			$Skins_Dir=config('Skins_Dir','tu');
 			$this->load->helper('directory');
             $path=FCPATH.'plugins/tu/tpl/skins/'.$Skins_Dir;
@@ -565,13 +565,13 @@ class Html extends msvod_Controller {
             $this->load->view('html_opt.html',$data);
 	}
 
-    //ÆäËûÒ³Éú³É²Ù×÷
+    //å…¶ä»–é¡µç”Ÿæˆæ“ä½œ
 	public function opt_save()
 	{
 
-            $path = $this->input->post('path',true); //·½Ê½
+            $path = $this->input->post('path',true); //æ–¹å¼
 
-			//ÖØĞÂ¶¨ÒåÄ£°åÂ·¾¶
+			//é‡æ–°å®šä¹‰æ¨¡æ¿è·¯å¾„
 			$this->load->get_templates('tu',2);
 
             echo '<LINK href="'.base_url().'packs/admin/css/style.css" type="text/css" rel="stylesheet"><br>';
@@ -585,35 +585,35 @@ class Html extends msvod_Controller {
 
 				  $Htmllink=Web_Path.'opt/'.$t.'_tu.html';
 
-                  //Éú³É
+                  //ç”Ÿæˆ
 			      write_file(FCPATH.$Htmllink,$Mark_Text);
-				  echo "&nbsp;<font style=font-size:10pt;>Éú³É×Ô¶¨ÒåÒ³Ãæ:<font color=red>".$Htmllink."</font>³É¹¦:<a href=".$Htmllink." target=_blank>".$Htmllink."</a></font><br/>";
+				  echo "&nbsp;<font style=font-size:10pt;>ç”Ÿæˆè‡ªå®šä¹‰é¡µé¢:<font color=red>".$Htmllink."</font>æˆåŠŸ:<a href=".$Htmllink." target=_blank>".$Htmllink."</a></font><br/>";
                   ob_flush();flush();
 			  }
 			}
 
     	    $url=site_url('tu/admin/html/opt');
-			echo("</br><b>&nbsp;×Ô¶¨ÒåÒ³ÃæÈ«²¿Éú³ÉÍê±Ï~!</b><script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
+			echo("</br><b>&nbsp;è‡ªå®šä¹‰é¡µé¢å…¨éƒ¨ç”Ÿæˆå®Œæ¯•~!</b><script>setTimeout('updatenext();',".Html_StopTime."000);function updatenext(){location.href='".$url."';}</script>");
 	}
 
-    //»ñÈ¡ÅÅĞòÃû³Æ
+    //è·å–æ’åºåç§°
 	public function gettype($fid){
 		    $str="ID";
             switch($fid){
                    case 'id':$str="ID";break;
-                   case 'tu':$str="¸üĞÂÊ±¼ä";break;
-                   case 'reco':$str="×îĞÂÍÆ¼ö";break;
-                   case 'hits':$str="×ÜÈËÆø";break;
-                   case 'yhits':$str="ÔÂÈËÆø";break;
-                   case 'zhits':$str="ÖÜÈËÆø";break;
-                   case 'rhits':$str="ÈÕÈËÆø";break;
-                   case 'dhits':$str="±»¶¥";break;
-                   case 'chits':$str="±»²È";break;
-                   case 'yue':$str="ÔÂÈËÆø";break;
-                   case 'zhou':$str="ÖÜÈËÆø";break;
-                   case 'ri':$str="ÈÕÈËÆø";break;
-                   case 'ding':$str="±»¶¥";break;
-                   case 'cai':$str="±»²È";break;
+                   case 'tu':$str="æ›´æ–°æ—¶é—´";break;
+                   case 'reco':$str="æœ€æ–°æ¨è";break;
+                   case 'hits':$str="æ€»äººæ°”";break;
+                   case 'yhits':$str="æœˆäººæ°”";break;
+                   case 'zhits':$str="å‘¨äººæ°”";break;
+                   case 'rhits':$str="æ—¥äººæ°”";break;
+                   case 'dhits':$str="è¢«é¡¶";break;
+                   case 'chits':$str="è¢«è¸©";break;
+                   case 'yue':$str="æœˆäººæ°”";break;
+                   case 'zhou':$str="å‘¨äººæ°”";break;
+                   case 'ri':$str="æ—¥äººæ°”";break;
+                   case 'ding':$str="è¢«é¡¶";break;
+                   case 'cai':$str="è¢«è¸©";break;
 			}
 			return $str;
 	}

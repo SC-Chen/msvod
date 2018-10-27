@@ -21,7 +21,7 @@ select{opacity:99;filter:alpha(opacity=99);border: 1px solid #ccc;}
 </style>
 </head>
 <body>
-<!----¶¯Ì¬×ªÈ¦----->
+<!----åŠ¨æ€è½¬åœˆ----->
 <div id="loading" style="display:none;position: absolute;left:40%;top:300px;z-index:10;"><span style="width:100px;height:40px;line-height:40px;background-color:#ccc;">&nbsp;&nbsp;<img align="absmiddle" src="<?=Web_Path?>packs/admin/images/loading.gif"><?=L('tpl_155')?></span></div>
 <div class="place">
     <span><?=L('place')?></span>
@@ -46,10 +46,10 @@ select{opacity:99;filter:alpha(opacity=99);border: 1px solid #ccc;}
 <?php
 $query = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."video_list where fid=0 order by xid asc"); 
 foreach ($query->result() as $row) {
-			echo '<option value="'.$row->id.'">&nbsp;|¡ª'.$row->name.'</option>';
+			echo '<option value="'.$row->id.'">&nbsp;|â€”'.$row->name.'</option>';
             $query2 = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."video_list where fid=".$row->id." order by xid asc"); 
             foreach ($query2->result() as $row2) {
-			    echo '<option value="'.$row2->id.'">&nbsp;|&nbsp;&nbsp;&nbsp;|¡ª'.$row2->name.'</option>';
+			    echo '<option value="'.$row2->id.'">&nbsp;|&nbsp;&nbsp;&nbsp;|â€”'.$row2->name.'</option>';
 			}
 }
 ?>
@@ -57,12 +57,12 @@ foreach ($query->result() as $row) {
                   </div>
                   <div class="vocation">
                       <select style="margin-left:20px;width:200px;height:120px;" multiple name="fid[]">
-			              <option value="id" selected="selected">&nbsp;|¡ª<?=L('tpl_175')?></option>
-			              <option value="hits">&nbsp;|¡ª<?=L('tpl_176')?></option>
-			              <option value="yue">&nbsp;|¡ª<?=L('tpl_177')?></option>
-			              <option value="zhou">&nbsp;|¡ª<?=L('tpl_178')?></option>
-			              <option value="ri">&nbsp;|¡ª<?=L('tpl_179')?></option>
-			              <option value="fav">&nbsp;|¡ª<?=L('tpl_180')?></option>
+			              <option value="id" selected="selected">&nbsp;|â€”<?=L('tpl_175')?></option>
+			              <option value="hits">&nbsp;|â€”<?=L('tpl_176')?></option>
+			              <option value="yue">&nbsp;|â€”<?=L('tpl_177')?></option>
+			              <option value="zhou">&nbsp;|â€”<?=L('tpl_178')?></option>
+			              <option value="ri">&nbsp;|â€”<?=L('tpl_179')?></option>
+			              <option value="fav">&nbsp;|â€”<?=L('tpl_180')?></option>
                       </select>
                   </div>
 				  <div style="line-height:120px;height:120px;">
@@ -78,7 +78,7 @@ foreach ($query->result() as $row) {
 $query = $this->db->query("SELECT id,name FROM ".MS_SqlPrefix."video_topic where yid=0 order by id desc"); 
 foreach ($query->result() as $row) { 
             foreach ($query->result() as $row) {
-			    echo '<option value="'.$row->id.'">&nbsp;|¡ª'.$row->name.'</option>';
+			    echo '<option value="'.$row->id.'">&nbsp;|â€”'.$row->name.'</option>';
 			}
 }
 ?>

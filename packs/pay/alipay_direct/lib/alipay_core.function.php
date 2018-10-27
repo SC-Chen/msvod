@@ -1,54 +1,54 @@
 <?php
 /* *
- * Ö§¸¶±¦½Ó¿Ú¹«ÓÃº¯Êý
- * ÏêÏ¸£º¸ÃÀàÊÇÇëÇó¡¢Í¨Öª·µ»ØÁ½¸öÎÄ¼þËùµ÷ÓÃµÄ¹«ÓÃº¯ÊýºËÐÄ´¦ÀíÎÄ¼þ
- * °æ±¾£º3.3
- * ÈÕÆÚ£º2012-07-19
- * ËµÃ÷£º
- * ÒÔÏÂ´úÂëÖ»ÊÇÎªÁË·½±ãÉÌ»§²âÊÔ¶øÌá¹©µÄÑùÀý´úÂë£¬ÉÌ»§¿ÉÒÔ¸ù¾Ý×Ô¼ºÍøÕ¾µÄÐèÒª£¬°´ÕÕ¼¼ÊõÎÄµµ±àÐ´,²¢·ÇÒ»¶¨ÒªÊ¹ÓÃ¸Ã´úÂë¡£
- * ¸Ã´úÂë½ö¹©Ñ§Ï°ºÍÑÐ¾¿Ö§¸¶±¦½Ó¿ÚÊ¹ÓÃ£¬Ö»ÊÇÌá¹©Ò»¸ö²Î¿¼¡£
+ * æ”¯ä»˜å®æŽ¥å£å…¬ç”¨å‡½æ•°
+ * è¯¦ç»†ï¼šè¯¥ç±»æ˜¯è¯·æ±‚ã€é€šçŸ¥è¿”å›žä¸¤ä¸ªæ–‡ä»¶æ‰€è°ƒç”¨çš„å…¬ç”¨å‡½æ•°æ ¸å¿ƒå¤„ç†æ–‡ä»¶
+ * ç‰ˆæœ¬ï¼š3.3
+ * æ—¥æœŸï¼š2012-07-19
+ * è¯´æ˜Žï¼š
+ * ä»¥ä¸‹ä»£ç åªæ˜¯ä¸ºäº†æ–¹ä¾¿å•†æˆ·æµ‹è¯•è€Œæä¾›çš„æ ·ä¾‹ä»£ç ï¼Œå•†æˆ·å¯ä»¥æ ¹æ®è‡ªå·±ç½‘ç«™çš„éœ€è¦ï¼ŒæŒ‰ç…§æŠ€æœ¯æ–‡æ¡£ç¼–å†™,å¹¶éžä¸€å®šè¦ä½¿ç”¨è¯¥ä»£ç ã€‚
+ * è¯¥ä»£ç ä»…ä¾›å­¦ä¹ å’Œç ”ç©¶æ”¯ä»˜å®æŽ¥å£ä½¿ç”¨ï¼Œåªæ˜¯æä¾›ä¸€ä¸ªå‚è€ƒã€‚
  */
 
 /**
- * °ÑÊý×éËùÓÐÔªËØ£¬°´ÕÕ¡°²ÎÊý=²ÎÊýÖµ¡±µÄÄ£Ê½ÓÃ¡°&¡±×Ö·ûÆ´½Ó³É×Ö·û´®
- * @param $para ÐèÒªÆ´½ÓµÄÊý×é
- * return Æ´½ÓÍê³ÉÒÔºóµÄ×Ö·û´®
+ * æŠŠæ•°ç»„æ‰€æœ‰å…ƒç´ ï¼ŒæŒ‰ç…§â€œå‚æ•°=å‚æ•°å€¼â€çš„æ¨¡å¼ç”¨â€œ&â€å­—ç¬¦æ‹¼æŽ¥æˆå­—ç¬¦ä¸²
+ * @param $para éœ€è¦æ‹¼æŽ¥çš„æ•°ç»„
+ * return æ‹¼æŽ¥å®Œæˆä»¥åŽçš„å­—ç¬¦ä¸²
  */
 function createLinkstring($para) {
 	$arg  = "";
 	while (list ($key, $val) = each ($para)) {
 		$arg.=$key."=".$val."&";
 	}
-	//È¥µô×îºóÒ»¸ö&×Ö·û
+	//åŽ»æŽ‰æœ€åŽä¸€ä¸ª&å­—ç¬¦
 	$arg = substr($arg,0,count($arg)-2);
 	
-	//Èç¹û´æÔÚ×ªÒå×Ö·û£¬ÄÇÃ´È¥µô×ªÒå
+	//å¦‚æžœå­˜åœ¨è½¬ä¹‰å­—ç¬¦ï¼Œé‚£ä¹ˆåŽ»æŽ‰è½¬ä¹‰
 	if(get_magic_quotes_gpc()){$arg = stripslashes($arg);}
 	
 	return $arg;
 }
 /**
- * °ÑÊý×éËùÓÐÔªËØ£¬°´ÕÕ¡°²ÎÊý=²ÎÊýÖµ¡±µÄÄ£Ê½ÓÃ¡°&¡±×Ö·ûÆ´½Ó³É×Ö·û´®£¬²¢¶Ô×Ö·û´®×öurlencode±àÂë
- * @param $para ÐèÒªÆ´½ÓµÄÊý×é
- * return Æ´½ÓÍê³ÉÒÔºóµÄ×Ö·û´®
+ * æŠŠæ•°ç»„æ‰€æœ‰å…ƒç´ ï¼ŒæŒ‰ç…§â€œå‚æ•°=å‚æ•°å€¼â€çš„æ¨¡å¼ç”¨â€œ&â€å­—ç¬¦æ‹¼æŽ¥æˆå­—ç¬¦ä¸²ï¼Œå¹¶å¯¹å­—ç¬¦ä¸²åšurlencodeç¼–ç 
+ * @param $para éœ€è¦æ‹¼æŽ¥çš„æ•°ç»„
+ * return æ‹¼æŽ¥å®Œæˆä»¥åŽçš„å­—ç¬¦ä¸²
  */
 function createLinkstringUrlencode($para) {
 	$arg  = "";
 	while (list ($key, $val) = each ($para)) {
 		$arg.=$key."=".urlencode($val)."&";
 	}
-	//È¥µô×îºóÒ»¸ö&×Ö·û
+	//åŽ»æŽ‰æœ€åŽä¸€ä¸ª&å­—ç¬¦
 	$arg = substr($arg,0,count($arg)-2);
 	
-	//Èç¹û´æÔÚ×ªÒå×Ö·û£¬ÄÇÃ´È¥µô×ªÒå
+	//å¦‚æžœå­˜åœ¨è½¬ä¹‰å­—ç¬¦ï¼Œé‚£ä¹ˆåŽ»æŽ‰è½¬ä¹‰
 	if(get_magic_quotes_gpc()){$arg = stripslashes($arg);}
 	
 	return $arg;
 }
 /**
- * ³ýÈ¥Êý×éÖÐµÄ¿ÕÖµºÍÇ©Ãû²ÎÊý
- * @param $para Ç©Ãû²ÎÊý×é
- * return È¥µô¿ÕÖµÓëÇ©Ãû²ÎÊýºóµÄÐÂÇ©Ãû²ÎÊý×é
+ * é™¤åŽ»æ•°ç»„ä¸­çš„ç©ºå€¼å’Œç­¾åå‚æ•°
+ * @param $para ç­¾åå‚æ•°ç»„
+ * return åŽ»æŽ‰ç©ºå€¼ä¸Žç­¾åå‚æ•°åŽçš„æ–°ç­¾åå‚æ•°ç»„
  */
 function paraFilter($para) {
 	$para_filter = array();
@@ -59,9 +59,9 @@ function paraFilter($para) {
 	return $para_filter;
 }
 /**
- * ¶ÔÊý×éÅÅÐò
- * @param $para ÅÅÐòÇ°µÄÊý×é
- * return ÅÅÐòºóµÄÊý×é
+ * å¯¹æ•°ç»„æŽ’åº
+ * @param $para æŽ’åºå‰çš„æ•°ç»„
+ * return æŽ’åºåŽçš„æ•°ç»„
  */
 function argSort($para) {
 	ksort($para);
@@ -69,28 +69,28 @@ function argSort($para) {
 	return $para;
 }
 /**
- * Ð´ÈÕÖ¾£¬·½±ã²âÊÔ£¨¿´ÍøÕ¾ÐèÇó£¬Ò²¿ÉÒÔ¸Ä³É°Ñ¼ÇÂ¼´æÈëÊý¾Ý¿â£©
- * ×¢Òâ£º·þÎñÆ÷ÐèÒª¿ªÍ¨fopenÅäÖÃ
- * @param $word ÒªÐ´ÈëÈÕÖ¾ÀïµÄÎÄ±¾ÄÚÈÝ Ä¬ÈÏÖµ£º¿ÕÖµ
+ * å†™æ—¥å¿—ï¼Œæ–¹ä¾¿æµ‹è¯•ï¼ˆçœ‹ç½‘ç«™éœ€æ±‚ï¼Œä¹Ÿå¯ä»¥æ”¹æˆæŠŠè®°å½•å­˜å…¥æ•°æ®åº“ï¼‰
+ * æ³¨æ„ï¼šæœåŠ¡å™¨éœ€è¦å¼€é€šfopené…ç½®
+ * @param $word è¦å†™å…¥æ—¥å¿—é‡Œçš„æ–‡æœ¬å†…å®¹ é»˜è®¤å€¼ï¼šç©ºå€¼
  */
 function logResult($word='') {
 	$fp = fopen(MSVODPATH."pay/alipay_direct/log.txt","a");
 	flock($fp, LOCK_EX) ;
-	fwrite($fp,"Ö´ÐÐÈÕÆÚ£º".strftime("%Y%m%d%H%M%S",time())."\n".$word."\n");
+	fwrite($fp,"æ‰§è¡Œæ—¥æœŸï¼š".strftime("%Y%m%d%H%M%S",time())."\n".$word."\n");
 	flock($fp, LOCK_UN);
 	fclose($fp);
 }
 
 /**
- * Ô¶³Ì»ñÈ¡Êý¾Ý£¬POSTÄ£Ê½
- * ×¢Òâ£º
- * 1.Ê¹ÓÃCrulÐèÒªÐÞ¸Ä·þÎñÆ÷ÖÐphp.iniÎÄ¼þµÄÉèÖÃ£¬ÕÒµ½php_curl.dllÈ¥µôÇ°ÃæµÄ";"¾ÍÐÐÁË
- * 2.ÎÄ¼þ¼ÐÖÐcacert.pemÊÇSSLÖ¤ÊéÇë±£Ö¤ÆäÂ·¾¶ÓÐÐ§£¬Ä¿Ç°Ä¬ÈÏÂ·¾¶ÊÇ£ºgetcwd().'\\cacert.pem'
- * @param $url Ö¸¶¨URLÍêÕûÂ·¾¶µØÖ·
- * @param $cacert_url Ö¸¶¨µ±Ç°¹¤×÷Ä¿Â¼¾ø¶ÔÂ·¾¶
- * @param $para ÇëÇóµÄÊý¾Ý
- * @param $input_charset ±àÂë¸ñÊ½¡£Ä¬ÈÏÖµ£º¿ÕÖµ
- * return Ô¶³ÌÊä³öµÄÊý¾Ý
+ * è¿œç¨‹èŽ·å–æ•°æ®ï¼ŒPOSTæ¨¡å¼
+ * æ³¨æ„ï¼š
+ * 1.ä½¿ç”¨Cruléœ€è¦ä¿®æ”¹æœåŠ¡å™¨ä¸­php.iniæ–‡ä»¶çš„è®¾ç½®ï¼Œæ‰¾åˆ°php_curl.dllåŽ»æŽ‰å‰é¢çš„";"å°±è¡Œäº†
+ * 2.æ–‡ä»¶å¤¹ä¸­cacert.pemæ˜¯SSLè¯ä¹¦è¯·ä¿è¯å…¶è·¯å¾„æœ‰æ•ˆï¼Œç›®å‰é»˜è®¤è·¯å¾„æ˜¯ï¼šgetcwd().'\\cacert.pem'
+ * @param $url æŒ‡å®šURLå®Œæ•´è·¯å¾„åœ°å€
+ * @param $cacert_url æŒ‡å®šå½“å‰å·¥ä½œç›®å½•ç»å¯¹è·¯å¾„
+ * @param $para è¯·æ±‚çš„æ•°æ®
+ * @param $input_charset ç¼–ç æ ¼å¼ã€‚é»˜è®¤å€¼ï¼šç©ºå€¼
+ * return è¿œç¨‹è¾“å‡ºçš„æ•°æ®
  */
 function getHttpResponsePOST($url, $cacert_url, $para, $input_charset = '') {
 
@@ -98,49 +98,49 @@ function getHttpResponsePOST($url, $cacert_url, $para, $input_charset = '') {
 		$url = $url."_input_charset=".$input_charset;
 	}
 	$curl = curl_init($url);
-	curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);//SSLÖ¤ÊéÈÏÖ¤
-	curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);//ÑÏ¸ñÈÏÖ¤
-	curl_setopt($curl, CURLOPT_CAINFO,$cacert_url);//Ö¤ÊéµØÖ·
-	curl_setopt($curl, CURLOPT_HEADER, 0 ); // ¹ýÂËHTTPÍ·
-	curl_setopt($curl,CURLOPT_RETURNTRANSFER, 1);// ÏÔÊ¾Êä³ö½á¹û
-	curl_setopt($curl,CURLOPT_POST,true); // post´«ÊäÊý¾Ý
-	curl_setopt($curl,CURLOPT_POSTFIELDS,$para);// post´«ÊäÊý¾Ý
+	curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);//SSLè¯ä¹¦è®¤è¯
+	curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);//ä¸¥æ ¼è®¤è¯
+	curl_setopt($curl, CURLOPT_CAINFO,$cacert_url);//è¯ä¹¦åœ°å€
+	curl_setopt($curl, CURLOPT_HEADER, 0 ); // è¿‡æ»¤HTTPå¤´
+	curl_setopt($curl,CURLOPT_RETURNTRANSFER, 1);// æ˜¾ç¤ºè¾“å‡ºç»“æžœ
+	curl_setopt($curl,CURLOPT_POST,true); // postä¼ è¾“æ•°æ®
+	curl_setopt($curl,CURLOPT_POSTFIELDS,$para);// postä¼ è¾“æ•°æ®
 	$responseText = curl_exec($curl);
-	//var_dump( curl_error($curl) );//Èç¹ûÖ´ÐÐcurl¹ý³ÌÖÐ³öÏÖÒì³££¬¿É´ò¿ª´Ë¿ª¹Ø£¬ÒÔ±ã²é¿´Òì³£ÄÚÈÝ
+	//var_dump( curl_error($curl) );//å¦‚æžœæ‰§è¡Œcurlè¿‡ç¨‹ä¸­å‡ºçŽ°å¼‚å¸¸ï¼Œå¯æ‰“å¼€æ­¤å¼€å…³ï¼Œä»¥ä¾¿æŸ¥çœ‹å¼‚å¸¸å†…å®¹
 	curl_close($curl);
 	
 	return $responseText;
 }
 
 /**
- * Ô¶³Ì»ñÈ¡Êý¾Ý£¬GETÄ£Ê½
- * ×¢Òâ£º
- * 1.Ê¹ÓÃCrulÐèÒªÐÞ¸Ä·þÎñÆ÷ÖÐphp.iniÎÄ¼þµÄÉèÖÃ£¬ÕÒµ½php_curl.dllÈ¥µôÇ°ÃæµÄ";"¾ÍÐÐÁË
- * 2.ÎÄ¼þ¼ÐÖÐcacert.pemÊÇSSLÖ¤ÊéÇë±£Ö¤ÆäÂ·¾¶ÓÐÐ§£¬Ä¿Ç°Ä¬ÈÏÂ·¾¶ÊÇ£ºgetcwd().'\\cacert.pem'
- * @param $url Ö¸¶¨URLÍêÕûÂ·¾¶µØÖ·
- * @param $cacert_url Ö¸¶¨µ±Ç°¹¤×÷Ä¿Â¼¾ø¶ÔÂ·¾¶
- * return Ô¶³ÌÊä³öµÄÊý¾Ý
+ * è¿œç¨‹èŽ·å–æ•°æ®ï¼ŒGETæ¨¡å¼
+ * æ³¨æ„ï¼š
+ * 1.ä½¿ç”¨Cruléœ€è¦ä¿®æ”¹æœåŠ¡å™¨ä¸­php.iniæ–‡ä»¶çš„è®¾ç½®ï¼Œæ‰¾åˆ°php_curl.dllåŽ»æŽ‰å‰é¢çš„";"å°±è¡Œäº†
+ * 2.æ–‡ä»¶å¤¹ä¸­cacert.pemæ˜¯SSLè¯ä¹¦è¯·ä¿è¯å…¶è·¯å¾„æœ‰æ•ˆï¼Œç›®å‰é»˜è®¤è·¯å¾„æ˜¯ï¼šgetcwd().'\\cacert.pem'
+ * @param $url æŒ‡å®šURLå®Œæ•´è·¯å¾„åœ°å€
+ * @param $cacert_url æŒ‡å®šå½“å‰å·¥ä½œç›®å½•ç»å¯¹è·¯å¾„
+ * return è¿œç¨‹è¾“å‡ºçš„æ•°æ®
  */
 function getHttpResponseGET($url,$cacert_url) {
 	$curl = curl_init($url);
-	curl_setopt($curl, CURLOPT_HEADER, 0 ); // ¹ýÂËHTTPÍ·
-	curl_setopt($curl,CURLOPT_RETURNTRANSFER, 1);// ÏÔÊ¾Êä³ö½á¹û
-	curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);//SSLÖ¤ÊéÈÏÖ¤
-	curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);//ÑÏ¸ñÈÏÖ¤
-	curl_setopt($curl, CURLOPT_CAINFO,$cacert_url);//Ö¤ÊéµØÖ·
+	curl_setopt($curl, CURLOPT_HEADER, 0 ); // è¿‡æ»¤HTTPå¤´
+	curl_setopt($curl,CURLOPT_RETURNTRANSFER, 1);// æ˜¾ç¤ºè¾“å‡ºç»“æžœ
+	curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);//SSLè¯ä¹¦è®¤è¯
+	curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);//ä¸¥æ ¼è®¤è¯
+	curl_setopt($curl, CURLOPT_CAINFO,$cacert_url);//è¯ä¹¦åœ°å€
 	$responseText = curl_exec($curl);
-	//var_dump( curl_error($curl) );//Èç¹ûÖ´ÐÐcurl¹ý³ÌÖÐ³öÏÖÒì³££¬¿É´ò¿ª´Ë¿ª¹Ø£¬ÒÔ±ã²é¿´Òì³£ÄÚÈÝ
+	//var_dump( curl_error($curl) );//å¦‚æžœæ‰§è¡Œcurlè¿‡ç¨‹ä¸­å‡ºçŽ°å¼‚å¸¸ï¼Œå¯æ‰“å¼€æ­¤å¼€å…³ï¼Œä»¥ä¾¿æŸ¥çœ‹å¼‚å¸¸å†…å®¹
 	curl_close($curl);
 	
 	return $responseText;
 }
 
 /**
- * ÊµÏÖ¶àÖÖ×Ö·û±àÂë·½Ê½
- * @param $input ÐèÒª±àÂëµÄ×Ö·û´®
- * @param $_output_charset Êä³öµÄ±àÂë¸ñÊ½
- * @param $_input_charset ÊäÈëµÄ±àÂë¸ñÊ½
- * return ±àÂëºóµÄ×Ö·û´®
+ * å®žçŽ°å¤šç§å­—ç¬¦ç¼–ç æ–¹å¼
+ * @param $input éœ€è¦ç¼–ç çš„å­—ç¬¦ä¸²
+ * @param $_output_charset è¾“å‡ºçš„ç¼–ç æ ¼å¼
+ * @param $_input_charset è¾“å…¥çš„ç¼–ç æ ¼å¼
+ * return ç¼–ç åŽçš„å­—ç¬¦ä¸²
  */
 function charsetEncode($input,$_output_charset ,$_input_charset) {
 	$output = "";
@@ -155,11 +155,11 @@ function charsetEncode($input,$_output_charset ,$_input_charset) {
 	return $output;
 }
 /**
- * ÊµÏÖ¶àÖÖ×Ö·û½âÂë·½Ê½
- * @param $input ÐèÒª½âÂëµÄ×Ö·û´®
- * @param $_output_charset Êä³öµÄ½âÂë¸ñÊ½
- * @param $_input_charset ÊäÈëµÄ½âÂë¸ñÊ½
- * return ½âÂëºóµÄ×Ö·û´®
+ * å®žçŽ°å¤šç§å­—ç¬¦è§£ç æ–¹å¼
+ * @param $input éœ€è¦è§£ç çš„å­—ç¬¦ä¸²
+ * @param $_output_charset è¾“å‡ºçš„è§£ç æ ¼å¼
+ * @param $_input_charset è¾“å…¥çš„è§£ç æ ¼å¼
+ * return è§£ç åŽçš„å­—ç¬¦ä¸²
  */
 function charsetDecode($input,$_input_charset ,$_output_charset) {
 	$output = "";

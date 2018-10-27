@@ -75,7 +75,7 @@
 <?php
 if(empty($pay)) echo '<tr><td align="center" height="50" colspan="9">'.L('tpl_19').'</td></tr>';
 foreach ($pay as $row) {
-//״̬
+//状态
 if($row->pid==1){
 $zt='<font color=#0000ff>'.L('tpl_57').'</font>';
 }elseif($row->pid==2){
@@ -85,7 +85,7 @@ $zt='<font color=#ff9900>'.L('tpl_59').'</font>';
 }else{
 $zt='<font color=#ff3300>'.L('tpl_50').'</font>';
 }
-//��Ա
+//会员
 $rowu=$this->db->query("SELECT name FROM ".MS_SqlPrefix."user where id=".$row->uid."")->row();
 $uname=($rowu)?$rowu->name:L('tpl_20').$row->uid;
 echo '

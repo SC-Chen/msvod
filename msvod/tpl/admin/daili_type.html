@@ -15,14 +15,14 @@
 <body>
 <div class="place">
 <span><?=L('place')?></span>
-<ul class="placeul"><li><a href="<?=site_url('admin/opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('admin/daili_type')?>">ÌáÏÖ¹ÜÀí</a></li></ul>
+<ul class="placeul"><li><a href="<?=site_url('admin/opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('admin/daili_type')?>">æç°ç®¡ç†</a></li></ul>
 </div>
 <div class="formbody">
 <div id="usual1" class="usual"> 
 <div class="itab">
 <ul> 
-<li><a href="<?=site_url('admin/daili_type/lists')?>">ÌáÏÖ¼ÇÂ¼</a></li> 
-<li><a href="<?=site_url('admin/daili_type')?>" class="selected">ÌáÏÖ·½Ê½</a></li> 
+<li><a href="<?=site_url('admin/daili_type/lists')?>">æç°è®°å½•</a></li> 
+<li><a href="<?=site_url('admin/daili_type')?>" class="selected">æç°æ–¹å¼</a></li> 
 </ul>
 </div> 
 </div> 
@@ -30,26 +30,26 @@
 <table class="tablelist">
 <thead>
 <tr align="left">
-<th width="50">Ñ¡</th>
+<th width="50">é€‰</th>
 <th width="50">ID</th>
-<th width="200">ÒøĞĞÀàĞÍ</th>
-<th width="*"><a href="###" onClick="get_server();"><b style="color:#0000ff">ĞÂÔö·ÖÀà</b></a></th>
+<th width="200">é“¶è¡Œç±»å‹</th>
+<th width="*"><a href="###" onClick="get_server();"><b style="color:#0000ff">æ–°å¢åˆ†ç±»</b></a></th>
 </tr>
 </thead>
 <form action="<?=site_url('admin/admin/daili_type/plsave')?>" id="myform" name="myform" method="post">
 <tbody>
 <?php
-echo '<tr id="fwqzu" style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td><input id="add_name" class="dfinput" value="" style="width:140px;height:20px;line-height:20px;"/></td><td><input class="button" type="button" name="button" onclick="get_server_add(\''.site_url('admin/admin/daili_type/save').'\');" value="ĞÂÔö"></td></tr>';
+echo '<tr id="fwqzu" style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td><input id="add_name" class="dfinput" value="" style="width:140px;height:20px;line-height:20px;"/></td><td><input class="button" type="button" name="button" onclick="get_server_add(\''.site_url('admin/admin/daili_type/save').'\');" value="æ–°å¢"></td></tr>';
 foreach ($daili_type as $row) {
-echo '<tr><td><input name="id[]" type="checkbox" value="'.$row->id.'"/></td><td>'.$row->id.'</td><td><input name="name_'.$row->id.'" class="dfinput" value="'.$row->name.'" style="width:140px;height:20px;line-height:20px;"/></td><td><a href="###" onclick="Popsbox(\''.L('tpl_48').'\',505,245,\''.L('tpl_49').'\',\''.site_url('admin/admin/daili_type/del').'?id='.$row->id.'&fid=1\');">É¾³ıÒøĞĞ</a></td></tr>';
+echo '<tr><td><input name="id[]" type="checkbox" value="'.$row->id.'"/></td><td>'.$row->id.'</td><td><input name="name_'.$row->id.'" class="dfinput" value="'.$row->name.'" style="width:140px;height:20px;line-height:20px;"/></td><td><a href="###" onclick="Popsbox(\''.L('tpl_48').'\',505,245,\''.L('tpl_49').'\',\''.site_url('admin/admin/daili_type/del').'?id='.$row->id.'&fid=1\');">åˆ é™¤é“¶è¡Œ</a></td></tr>';
 }
 ?>
 </tbody>
 </table>
 <div class="tools">
 <ul class="toolbar">
-<li class="click quanxuan"><span><img src="<?=Web_Path?>packs/admin/images/t04.png" /></span>È«Ñ¡</li>
-<li class="click" onClick="Popsbox('ÅúÁ¿ĞŞ¸Ä·ÖÀà',505,245,'ÄúÈ·¶¨ÒªĞŞ¸ÄÊı¾İÂğ£¿','submit');"><span><img src="<?=Web_Path?>packs/admin/images/t02.png" /></span>ĞŞ¸ÄÑ¡ÖĞ</li>
+<li class="click quanxuan"><span><img src="<?=Web_Path?>packs/admin/images/t04.png" /></span>å…¨é€‰</li>
+<li class="click" onClick="Popsbox('æ‰¹é‡ä¿®æ”¹åˆ†ç±»',505,245,'æ‚¨ç¡®å®šè¦ä¿®æ”¹æ•°æ®å—ï¼Ÿ','submit');"><span><img src="<?=Web_Path?>packs/admin/images/t02.png" /></span>ä¿®æ”¹é€‰ä¸­</li>
 </ul>
 </div>
 </form>
@@ -57,7 +57,7 @@ echo '<tr><td><input name="id[]" type="checkbox" value="'.$row->id.'"/></td><td>
 </div>
 <script type="text/javascript">
 $('.tablelist tbody tr:odd').addClass('odd');
-//Òş²ØÇĞ»»
+//éšè—åˆ‡æ¢
 function get_server(){
 var none=$("#fwqzu").css('display');
 if(none=='none'){
@@ -66,11 +66,11 @@ $("#fwqzu").show();
 $("#fwqzu").hide();  
 }
 }
-//ĞÂÔö
+//æ–°å¢
 function get_server_add(_url){
 var name=$("#add_name").val();
 if(name==''){
-alert('ÒøĞĞÀàĞÍ');
+alert('é“¶è¡Œç±»å‹');
 $("#add_name").focus();
 }else{
 location.href=_url+'?name='+name;

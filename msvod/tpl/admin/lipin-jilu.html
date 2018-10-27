@@ -15,15 +15,15 @@
 <body>
 <div class="place">
 <span><?=L('place')?></span>
-<ul class="placeul"><li><a href="<?=site_url('admin/opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('admin/video/admin/video')?>">ÀñÆ·¹ÜÀí</a></li></ul>
+<ul class="placeul"><li><a href="<?=site_url('admin/opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('admin/video/admin/video')?>">ç¤¼å“ç®¡ç†</a></li></ul>
 </div>
 <div class="formbody">
 <div id="usual1" class="usual"> 
 <div class="itab">
 <ul> 
-<li><a href="<?=site_url('admin/lipin')?>">ÀñÆ·ÁĞ±í</a></li> 
-<li><a href="<?=site_url('admin/lipin/lists')?>" class="selected">¶Ò»»¼ÇÂ¼</a></li> 
-<li><a href="<?=site_url('admin/lipin/edit')?>">ĞÂÔöÀñÆ·</a></li> 
+<li><a href="<?=site_url('admin/lipin')?>">ç¤¼å“åˆ—è¡¨</a></li> 
+<li><a href="<?=site_url('admin/lipin/lists')?>" class="selected">å…‘æ¢è®°å½•</a></li> 
+<li><a href="<?=site_url('admin/lipin/edit')?>">æ–°å¢ç¤¼å“</a></li> 
 </ul>
 </div> 
 </div> 
@@ -33,35 +33,35 @@
 <thead>
 <tr>
 <th>ID</th>
-<th width="70px;">Í¼Æ¬</th>
-<th width="260px;">Ãû×Ö</th>
-<th>ÀàĞÍ</th>
-<th>ÊıÁ¿</th>
-<th>½ğ¶î</th>
-<th>µØÖ·</th>
-<th>Ê±¼ä</th>
-<th>²Ù×÷</th>
+<th width="70px;">å›¾ç‰‡</th>
+<th width="260px;">åå­—</th>
+<th>ç±»å‹</th>
+<th>æ•°é‡</th>
+<th>é‡‘é¢</th>
+<th>åœ°å€</th>
+<th>æ—¶é—´</th>
+<th>æ“ä½œ</th>
 </tr>
 </thead>
 
 <tbody>
 <?php
-if(empty($video)) echo '<tr><td align="center" height="50" colspan="10">Ã»ÓĞÊı¾İ</td></tr>';
+if(empty($video)) echo '<tr><td align="center" height="50" colspan="10">æ²¡æœ‰æ•°æ®</td></tr>';
 foreach ($video as $row) {
 $rows=$this->db->query("SELECT * FROM ".MS_SqlPrefix."lipin_list where id=".$row->lid."")->row();
 $pic=!empty($rows->pic)?'<a href="'.piclink('lipin',$rows->pic).'" target="pic"><img height="30" src="'.piclink('lipin',$rows->pic).'"></a>':'-';
-if($rows->cid==0){$zids='³äÖµ¿¨';}
-if($rows->cid==1){$zids='ÊµÌåÎïÆ·';}
-if($rows->cid==2){$zids='ĞéÄâÎïÆ·';}
-//Ê±¼ä¼ÓÁÁ
+if($rows->cid==0){$zids='å……å€¼å¡';}
+if($rows->cid==1){$zids='å®ä½“ç‰©å“';}
+if($rows->cid==2){$zids='è™šæ‹Ÿç‰©å“';}
+//æ—¶é—´åŠ äº®
 if(date('Y-m-d',$row->addtime)==date('Y-m-d')){
 $addtime='<font color=red>'.date('Y-m-d',$row->addtime).'</font>';
 }else{
 $addtime=date('Y-m-d',$row->addtime);
 }
 $dou="'";
-$ias='ÒÑ·¢ËÍ';
-if($row->zid==0) $ias='<a href="'.site_url('admin/lipin/guo').'?id='.$row->id.'">Í¨¹ı</a>';
+$ias='å·²å‘é€';
+if($row->zid==0) $ias='<a href="'.site_url('admin/lipin/guo').'?id='.$row->id.'">é€šè¿‡</a>';
 echo '
 <tr>
 <td>'.$row->id.'</td>
@@ -72,7 +72,7 @@ echo '
 <td>'.$row->cion.'</td>
 <td>'.$row->text.'</td>
 <td>'.$addtime.'</td>
-<td><a href="#" onClick="Popsboxif('.$dou.'¶©µ¥ÏêÇé'.$dou.','.$dou.'500'.$dou.','.$dou.'300'.$dou.','.$dou.''.site_url('admin/lipin/cha').'?id='.$row->id.''.$dou.');">²é¿´</a>&nbsp;&nbsp;|&nbsp;&nbsp;'.$ias.'</td>
+<td><a href="#" onClick="Popsboxif('.$dou.'è®¢å•è¯¦æƒ…'.$dou.','.$dou.'500'.$dou.','.$dou.'300'.$dou.','.$dou.''.site_url('admin/lipin/cha').'?id='.$row->id.''.$dou.');">æŸ¥çœ‹</a>&nbsp;&nbsp;|&nbsp;&nbsp;'.$ias.'</td>
 </tr> ';
 }
 ?>

@@ -32,7 +32,7 @@ this.downloadlrc = function(t) {
 	   tfolder=fdata.split(".")[0];
       }
       if(!$song_Lrc[t]){
-        this.led('','','','ÕıÔÚÔØÈë¸è´Ê...','','','');
+        this.led('','','','æ­£åœ¨è½½å…¥æ­Œè¯...','','','');
 	$download();
       }
       lrctimea=8888888;
@@ -59,7 +59,7 @@ this.PlayLrc = function (){
         if(Stat_drag==1|| curTime-1000>Stat_Time || Stat_Time>curTime){Stat_drag=1;}else{Stat_drag=0;}
         Stat_Time=curTime;
         if($song_Lrc[t]==0 || $song_Lrc[t]==''){
-                if(8888888 == lrctimea){this.led('','','Ã»ÕÒµ½Ïà¹Ø¸è´Ê');}
+                if(8888888 == lrctimea){this.led('','','æ²¡æ‰¾åˆ°ç›¸å…³æ­Œè¯');}
                 lrctimea=0;nolrc=false;
         }else if($song_Lrc[t].length >0){
                 nolrc=false;
@@ -109,14 +109,14 @@ this.PlayLrc = function (){
 		                }
 	                }
 	                var timeH='0,0,0,0,'+tin+'8888888';
-	                var TxtH='[n][n][n]Ö§³Ö±¾Õ¾¾Í°Ñ'+top.location.hostname+'ÍÆ¼ö¸øÅóÓÑ[n]'+tim+'[n]';
+	                var TxtH='[n][n][n]æ”¯æŒæœ¬ç«™å°±æŠŠ'+top.location.hostname+'æ¨èç»™æœ‹å‹[n]'+tim+'[n]';
 	                _t = timeH.split(",");_l = TxtH.split('[n]');}
                         for(var i = 0; i < _t.length; i++){if(_t[i] < curTime  &&  curTime < _t[i+1] || 8888888 == lrctimea){
                         if(lrctimea!=i){this.lrci("LR1",i-3);this.lrci("LR2",i-2);this.lrci("LR3",i-1);this.lrci("LR4",i);this.lrci("LR5",i+1);this.lrci("LR6",i+2);this.lrci("LR7",i+3);}
                         lrctimea=i;
                 }
         }
-}else{if(8888888 == lrctimea){this.led('','ÔØÈë¸è´ÊÊ§°Ü£¡','');lrctimea=0;nolrc=false;}}
+}else{if(8888888 == lrctimea){this.led('','è½½å…¥æ­Œè¯å¤±è´¥ï¼','');lrctimea=0;nolrc=false;}}
 }
    if(nolrc){
       clearTimeout(playlrcid);

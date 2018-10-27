@@ -4,7 +4,7 @@ $(function(){
 
 //tag pop
 function popDiyTags(){	 
-	   //É¾³ýÑ¡ÖÐµÄ±êÇ©
+	   //åˆ é™¤é€‰ä¸­çš„æ ‡ç­¾
 	   function removeTags(){
 		   $(".selected-list01 .selected-del").click(function(){
 			  var t1=$(this).parent().find("span").text();
@@ -39,11 +39,11 @@ function popDiyTags(){
 			  return false;
 		  })
 	  }
-	  //Ñ¡Ôñ±êÇ©
+	  //é€‰æ‹©æ ‡ç­¾
 	  $(".popDiyTags-list dd a").click(function(){
 			var a=$(this).text();
 			if($(this).hasClass("selected")){
-				alert('¸Ã±êÇ©ÒÑÑ¡Ôñ');
+				alert('è¯¥æ ‡ç­¾å·²é€‰æ‹©');
 				return false;
 				}else{
 					if($(".selected-list li").length<16){
@@ -54,12 +54,12 @@ function popDiyTags(){
 						removeTags();
 						return false;
 					}else{
-						alert('ÄúÒÑÑ¡ÔñÁË8¸ö±êÇ©£¬×î¶àÉèÖÃ8¸ö±êÇ©£¡');
+						alert('æ‚¨å·²é€‰æ‹©äº†8ä¸ªæ ‡ç­¾ï¼Œæœ€å¤šè®¾ç½®8ä¸ªæ ‡ç­¾ï¼');
 						return false;
 					}
 				}
 	 })
-	 //±£´æ±êÇ©
+	 //ä¿å­˜æ ‡ç­¾
 	$(".popDiyTags-title .btnTure").click(function(){
 		if($(".selected-list01 li").length==0){
 			popclose();

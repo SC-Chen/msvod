@@ -8,10 +8,10 @@
             <div class="h_nav">
                 <ul>
                     <li class="h_nav_look h_nav_box">
-                        <a href="javascript:void(0)" class="h_nav_clo ctop_menu jsNavBtn"><span>µ¼º½</span></a>
+                        <a href="javascript:void(0)" class="h_nav_clo ctop_menu jsNavBtn"><span>å¯¼èˆª</span></a>
                         <div class="nav_box jsSNavMenu" style="display:none;">
                             <dl class="flx">
-							    <dt>°æ¿é</dt>
+							    <dt>ç‰ˆå—</dt>
 								<dd class="sline">|</dd>
                                 <dd>
                                     <ul>
@@ -30,7 +30,7 @@
                 <div class="seh_m">
                     <div class="seh_list">
                         <span>
-                            <a href="javascript:;" class="seh_list_a">ÊÓÆµ<b class="icon icon_ser_arr"></b></a>
+                            <a href="javascript:;" class="seh_list_a">è§†é¢‘<b class="icon icon_ser_arr"></b></a>
                         </span>
                         <div class="seh_sort">
                             {msvod:model table="plugins" field="dir,name" loop="8" order="asc"}
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <input class="seh_v jsSearchAutoComplete" dir="video" type="text" id="txtKey">
-                    <button class="icon seh_b">ËÑ Ë÷</button>
+                    <button class="icon seh_b">æœ ç´¢</button>
                 </div>
             </div>
             <div class="top_nav">
@@ -65,52 +65,52 @@
                 <div class="rank_ry c_wap">
                     <h1 class="lt">[user:nichen]</h1>
                     <ul class="lt">
-                        <li><img src="{msvod:indextempurl}images/icon/{if:[user:vip]==0}u{end if}vip.gif" border="0" title="VIP»áÔ±"></li>
-						<li><img src="{msvod:indextempurl}images/icon/{if:[user:rzid]==0}u{end if}realname.gif" border="0" title="ÊµÃûÈÏÖ¤"></li>
-						<li><img src="{msvod:indextempurl}images/icon/{if:[user:tid]==0}u{end if}recommend.gif" border="0" title="ÍÆ¼öÑİÔ±"></li>
-						<li><img src="{msvod:indextempurl}images/icon/{if:[user:hits]<2000}u{end if}star.gif" border="0" title="Ã÷ĞÇ»áÔ±"></li>
+                        <li><img src="{msvod:indextempurl}images/icon/{if:[user:vip]==0}u{end if}vip.gif" border="0" title="VIPä¼šå‘˜"></li>
+						<li><img src="{msvod:indextempurl}images/icon/{if:[user:rzid]==0}u{end if}realname.gif" border="0" title="å®åè®¤è¯"></li>
+						<li><img src="{msvod:indextempurl}images/icon/{if:[user:tid]==0}u{end if}recommend.gif" border="0" title="æ¨èæ¼”å‘˜"></li>
+						<li><img src="{msvod:indextempurl}images/icon/{if:[user:hits]<2000}u{end if}star.gif" border="0" title="æ˜æ˜Ÿä¼šå‘˜"></li>
 					</ul>
                 </div>
                 <div class="b_dd c_wap">
                     <b class="lt sex {if:[user:sex]==1}girl{else}boy{end if}">sex</b><span class="lt">[user:city]</span>
-					<span class="lt u_id">ID£º[user:id]</span>
+					<span class="lt u_id">IDï¼š[user:id]</span>
                 </div>
                 <p class="simpleTxt">
-                    [user:qianm len=100]&nbsp;&nbsp;<a href="[user:url ulink=info]" class="noFlush_load_link">ÏêÏ¸</a>
+                    [user:qianm len=100]&nbsp;&nbsp;<a href="[user:url ulink=info]" class="noFlush_load_link">è¯¦ç»†</a>
 				</p>
                 <div class="rank new_icon">
                     <ul>
                         <li class="lt arr">
                             <div class="number" id="totalfriend">
                                 <a href="[user:url ulink=friend]">[user:count zdy=friend,uida,id]</a>
-								<em>¹Ø×¢</em>
+								<em>å…³æ³¨</em>
                             </div>
                         </li>
                         <li class="lt">
                             <div class="number p_rel" id="totalfans">
                                 <a href="[user:url ulink=fans]">[user:count zdy=fans,uida,id]</a>
-								<em>·ÛË¿</em>
+								<em>ç²‰ä¸</em>
                             </div>
                         </li>
                         <li class="lt dele">
                             <div class="number" id="totalrq">
                                 <a href="javascript:;">[user:hits]</a>
-                                <em>ÈËÆø</em>
+                                <em>äººæ°”</em>
                             </div>
                         </li>
                         <li class="rt a_btn" style="display:{if:{msvod:uid}==[user:id]}none{end if}">
 							<a href="###" onclick="home.fansadd('[user:id]',0);" class="lt fol_btn">
-							{if:{msvodphp}getgz('[user:id]');{/msvodphp}==0}+¹Ø×¢{else}È¡Ïû¹Ø×¢{end if}
+							{if:{msvodphp}getgz('[user:id]');{/msvodphp}==0}+å…³æ³¨{else}å–æ¶ˆå…³æ³¨{end if}
 							</a>
-                            <a href="[user:url userlink=msg,add]?user=[user:name]" target="_blank" class="lt message_btn"><i></i>Õ¾ÄÚĞÅ</a>
+                            <a href="[user:url userlink=msg,add]?user=[user:name]" target="_blank" class="lt message_btn"><i></i>ç«™å†…ä¿¡</a>
                         </li>
 						<li class="rt a_btn" style="display:{if:{msvod:uid}!=[user:id]}none{end if}">
-                            <a href="{msvodphp}spacelink('video,add','video');{/msvodphp}" class="lt"><i></i>ÉÏ´«ÊÓÆµ</a>
-                            <a href="{msvodphp}spacelink('video','video');{/msvodphp}" class="lt mag_btn"><i></i>¹ÜÀíÊÓÆµ</a>
+                            <a href="{msvodphp}spacelink('video,add','video');{/msvodphp}" class="lt"><i></i>ä¸Šä¼ è§†é¢‘</a>
+                            <a href="{msvodphp}spacelink('video','video');{/msvodphp}" class="lt mag_btn"><i></i>ç®¡ç†è§†é¢‘</a>
                         </li>
                     </ul>
 					{if:{msvod:uid}!=[user:id]}
-					<div class="praise"><a class="praise_num" title="ÔŞTAÒ»ÏÂ" onclick="home.zan('[user:id]');"></a><div class="praiseDiv"><div class="praiseCount"><span id="zanhits">[user:zanhits]</span></div><div class="epilog"></div></div></div>
+					<div class="praise"><a class="praise_num" title="èµTAä¸€ä¸‹" onclick="home.zan('[user:id]');"></a><div class="praiseDiv"><div class="praiseCount"><span id="zanhits">[user:zanhits]</span></div><div class="epilog"></div></div></div>
 					{end if}
                 </div>
             </dd>
@@ -118,15 +118,15 @@
     </div>
     <div class="b_nav c_wap">
         <dl class="nav">
-            <dt><a id="nav_index" class="noFlush_load_link" href="[user:url ulink=index]">Ö÷Ò³<b></b></a></dt>
-            <dd><a id="nav_info" class="noFlush_load_link" href="[user:url ulink=info]">×ÊÁÏ<b></b></a></dd>
+            <dt><a id="nav_index" class="noFlush_load_link" href="[user:url ulink=index]">ä¸»é¡µ<b></b></a></dt>
+            <dd><a id="nav_info" class="noFlush_load_link" href="[user:url ulink=info]">èµ„æ–™<b></b></a></dd>
 {msvod:model table="plugins" field="dir,name" loop="10" order="asc"}
             {if:'[model:dir]'!='singer'}
             <dd><a id="nav_[model:dir]" class="noFlush_load_link" href="[user:url ulink=[model:dir]]">[model:name]<b></b></a></dd>
 			{end if}
 {/msvod:model}
-            <dd><a id="nav_fans" class="noFlush_load_link" href="[user:url ulink=friend]">¹ØÏµ<b></b></a></dd>
-            <dd><a id="nav_gbook" class="noFlush_load_link" href="[user:url ulink=gbook]">ÁôÑÔ<b></b></a></dd>
+            <dd><a id="nav_fans" class="noFlush_load_link" href="[user:url ulink=friend]">å…³ç³»<b></b></a></dd>
+            <dd><a id="nav_gbook" class="noFlush_load_link" href="[user:url ulink=gbook]">ç•™è¨€<b></b></a></dd>
         </dl>
     </div>
 </div>   

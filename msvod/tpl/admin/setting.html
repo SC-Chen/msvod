@@ -54,9 +54,9 @@ if(t==4) $('#pl4').hide();
 <ul class="forminfo">
 <li><label><?=L('setting_08')?></label><input name="Web_Name" type="text" class="dfinput" value="<?=Web_Name?>" style="width:245px;"/><b>*</b><?=vsprintf(L('setting_00'),array('{msvod:webname}'))?></li>
 <li><label><?=L('setting_09')?></label><input name="Web_Url" type="text" class="dfinput" value="<?=Web_Url?>" style="width:245px;"/><b>*</b><?=L('setting_10')?></li>
-<li><label>����վLOGO</label><input name="Web_Logo" type="text" id="Web_Logo" class="dfinput" value="<?=Web_Logo?>" style="width:245px;"/><input onclick="Popsboxif('<?=L('tpl_97')?>',550,450,'<?=site_url('admin/upload/up')?>?fhid=Web_Logo&dir=look&type=*.jpg;*.png;*.gif');" class="button" type="button" name="button" value="LOGO�ϴ�"><b>*</b>������ģ����ñ�ǩ{msvod:pclogo}</li>
-<li><label>�ֻ�վLOGO</label><input name="Wap_Logo" type="text" id="Wap_Logo" class="dfinput" value="<?=Wap_Logo?>" style="width:245px;"/><input onclick="Popsboxif('<?=L('tpl_97')?>',550,450,'<?=site_url('admin/upload/up')?>?fhid=Wap_Logo&dir=look&type=*.jpg;*.png;*.gif');" class="button" type="button" name="button" value="LOGO�ϴ�"><b>*</b>������ģ����ñ�ǩ{msvod:waplogo}</li>
-<li><label>��Ա����LOGO</label><input name="User_Logo" type="text" id="User_Logo" class="dfinput" value="<?=User_Logo?>" style="width:245px;"/><input onclick="Popsboxif('<?=L('tpl_97')?>',550,450,'<?=site_url('admin/upload/up')?>?fhid=User_Logo&dir=look&type=*.jpg;*.png;*.gif');" class="button" type="button" name="button" value="LOGO�ϴ�"><b>*</b>������ģ����ñ�ǩ{msvod:userlogo}</li>
+<li><label>电脑站LOGO</label><input name="Web_Logo" type="text" id="Web_Logo" class="dfinput" value="<?=Web_Logo?>" style="width:245px;"/><input onclick="Popsboxif('<?=L('tpl_97')?>',550,450,'<?=site_url('admin/upload/up')?>?fhid=Web_Logo&dir=look&type=*.jpg;*.png;*.gif');" class="button" type="button" name="button" value="LOGO上传"><b>*</b>可以在模板调用标签{msvod:pclogo}</li>
+<li><label>手机站LOGO</label><input name="Wap_Logo" type="text" id="Wap_Logo" class="dfinput" value="<?=Wap_Logo?>" style="width:245px;"/><input onclick="Popsboxif('<?=L('tpl_97')?>',550,450,'<?=site_url('admin/upload/up')?>?fhid=Wap_Logo&dir=look&type=*.jpg;*.png;*.gif');" class="button" type="button" name="button" value="LOGO上传"><b>*</b>可以在模板调用标签{msvod:waplogo}</li>
+<li><label>会员中心LOGO</label><input name="User_Logo" type="text" id="User_Logo" class="dfinput" value="<?=User_Logo?>" style="width:245px;"/><input onclick="Popsboxif('<?=L('tpl_97')?>',550,450,'<?=site_url('admin/upload/up')?>?fhid=User_Logo&dir=look&type=*.jpg;*.png;*.gif');" class="button" type="button" name="button" value="LOGO上传"><b>*</b>可以在模板调用标签{msvod:userlogo}</li>
 <li><label><?=L('setting_11')?></label><input name="Web_Path" type="text" class="dfinput" value="<?=Web_Path?>" style="width:145px;"/><b>*</b><?=L('setting_12')?></li>
 <li><label><?=L('setting_13')?></label><input name="Admin_Code" type="text" class="dfinput" value="<?=Admin_Code?>" style="width:145px;"/><b>*</b><?=L('setting_14')?></li>
 <li><label><?=L('setting_15')?></label><input onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" name="Admin_QQ" type="text" class="dfinput" value="<?=Admin_QQ?>" style="width:145px;"/><b></b><?=vsprintf(L('setting_00'),array('{msvod:qq}'))?></li>
@@ -93,8 +93,8 @@ if(t==4) $('#pl4').hide();
 <li><label><?=L('setting_61')?></label>  
 <div class="vocation">
 <select class="select1" id="MS_Language" name="MS_Language">
-<option value="zh_cn"<?php if(MS_Language=='zh_cn') echo ' selected';?>><?=L('zh_cn')?>��zh_cn��</option>
-<option value="english"<?php if(MS_Language=='english') echo ' selected';?>><?=L('english')?>��english��</option>
+<option value="zh_cn"<?php if(MS_Language=='zh_cn') echo ' selected';?>><?=L('zh_cn')?>（zh_cn）</option>
+<option value="english"<?php if(MS_Language=='english') echo ' selected';?>><?=L('english')?>（english）</option>
 </select>
 </div>
 </li>

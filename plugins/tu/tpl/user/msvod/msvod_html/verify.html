@@ -26,18 +26,18 @@ ShowCdQuantity();
 <div class="mainct">
 <div class="sctop">
 <ul>
-<div style="float:left; height:42px; margin-right:5px;"><a href="[user:url userlink=tu,add]" class="btn btn-small btn-danger " style="border-radius:0px;">ÎÒÒª·¢²¼Í¼Æ¬</a></div>
+<div style="float:left; height:42px; margin-right:5px;"><a href="[user:url userlink=tu,add]" class="btn btn-small btn-danger " style="border-radius:0px;">æˆ‘è¦å‘å¸ƒå›¾ç‰‡</a></div>
 <div style="float:left; line-height:32px; text-indent:32px;" class="alertico">
-<span style="color:#0066CC">·¢²¼Í¼Æ¬µ½±¾Õ¾²¢ÇÒÉóºËÍ¨¹ıÄã½«µÃµ½<font color="red" size=4> {msvod:addcion} </font>½ğ±Ò½±Àø£¬½ğ±Ò¿ÉÒÔÓÃÓÚÏû·Ñ±¾Õ¾Í¼Æ¬¹Û¿´£¬»¹¿ÉÒÔÉı¼¶ÎªVIPÅ¶~£¡</span></div>
+<span style="color:#0066CC">å‘å¸ƒå›¾ç‰‡åˆ°æœ¬ç«™å¹¶ä¸”å®¡æ ¸é€šè¿‡ä½ å°†å¾—åˆ°<font color="red" size=4> {msvod:addcion} </font>é‡‘å¸å¥–åŠ±ï¼Œé‡‘å¸å¯ä»¥ç”¨äºæ¶ˆè´¹æœ¬ç«™å›¾ç‰‡è§‚çœ‹ï¼Œè¿˜å¯ä»¥å‡çº§ä¸ºVIPå“¦~ï¼</span></div>
 </ul>
 </div>
 <br>
 <table width="450" border="0">
 <tbody>
 <tr>
-<td class="fouces_menuoff"><a href="[user:url userlink=tu]">ÎÒ·¢²¼µÄ</a></td>
-<td class="fouces_menuon" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=tu,verify]">ÉóºËÖĞµÄ</a></td>
-<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=look]">ÎÒÓÎÀÀµÄ</a></td>
+<td class="fouces_menuoff"><a href="[user:url userlink=tu]">æˆ‘å‘å¸ƒçš„</a></td>
+<td class="fouces_menuon" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=tu,verify]">å®¡æ ¸ä¸­çš„</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=look]">æˆ‘æ¸¸è§ˆçš„</a></td>
 </td>
 </tr>
 </tbody>
@@ -45,12 +45,12 @@ ShowCdQuantity();
 <br>
 <table width="100%" border="0" cellspacing="1" cellpadding="1"  class="table borderx3" >
 <tr>
-<th height="30" colspan="1" class="fbold">ÉóºËÖĞµÄÍ¼Æ¬</th>
+<th height="30" colspan="1" class="fbold">å®¡æ ¸ä¸­çš„å›¾ç‰‡</th>
 <tr>
 <td height="35">
 <div class="main_nav2" style="margin-bottom:20px">
 <ul>
-<li{if:[tu:cid]==0} class="current"{end if}><a href="[user:url userlink=tu]">È«²¿ÀàĞÍ</a></li>
+<li{if:[tu:cid]==0} class="current"{end if}><a href="[user:url userlink=tu]">å…¨éƒ¨ç±»å‹</a></li>
 {msvod:class table="tu_list" fid="1" loop="10" order="asc"}
 <li{if:[tu:cid]==[class:id]} class="current"{end if}><a href="[user:url userlink=tu,index]/[class:id]">[class:name]</a></li>
 {/msvod:class}
@@ -66,13 +66,13 @@ ShowCdQuantity();
 </li>
 </ul>
 {/msvod:tu}
-{if:{msvod:pagedata}==0}<div class="zanwu">ÔİÎŞÊı¾İ£¡</div>{end if}
+{if:{msvod:pagedata}==0}<div class="zanwu">æš‚æ— æ•°æ®ï¼</div>{end if}
 <div class="page" style="{if:{msvod:pagecout}<2}disshow:none;{end if}">
 <div class="pages">
-<em title="×ÜÊıÁ¿">{msvod:pagedata}</em>
-<a href="{msvod:pagefirst}">Ê×Ò³</a>
+<em title="æ€»æ•°é‡">{msvod:pagedata}</em>
+<a href="{msvod:pagefirst}">é¦–é¡µ</a>
 {msvod:pagenum len=8}
-<a href="{msvod:pagelast}">Î²Ò³</a>
+<a href="{msvod:pagelast}">å°¾é¡µ</a>
 </div>
 </div>
 <div>

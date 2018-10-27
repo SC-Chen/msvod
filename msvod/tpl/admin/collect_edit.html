@@ -131,24 +131,24 @@ echo '<option value="'.$url.'">'.$url.'</option>';
 <li><label><?=L('tpl_78')?></label><textarea name="picjs" cols="70" rows="3" class="textinput"><?=$picjs?></textarea></li>
 <?php } ?>
 
-<!----------------Í¼Æ¬°æ¿é²É¼¯¶à×éÍ¼Æ¬×¨ÓÃ--------------->
+<!----------------å›¾ç‰‡ç‰ˆå—é‡‡é›†å¤šç»„å›¾ç‰‡ä¸“ç”¨--------------->
 <?php 
 if($dir=='pic_type'){ 
-//»ñÈ¡×Ô¶¨ÒåÏà²á×¨ÓÃ
+//è·å–è‡ªå®šä¹‰ç›¸å†Œä¸“ç”¨
 $rowp=$this->db->query("SELECT * FROM ".MS_SqlPrefix."cjannex where cid=".$id." and zd='msvod_pic_url'")->row();
 ?>
-<li><label>&nbsp;</label><b>=================Ïà²á×¨ÓÃ¶à×éÍ¼Æ¬²É¼¯====================</b></li>
-<input name="zdy[name][]" value="Ïà²á²É¼¯×¨ÓÃ" style="display:none;">
+<li><label>&nbsp;</label><b>=================ç›¸å†Œä¸“ç”¨å¤šç»„å›¾ç‰‡é‡‡é›†====================</b></li>
+<input name="zdy[name][]" value="ç›¸å†Œé‡‡é›†ä¸“ç”¨" style="display:none;">
 <input name="zdy[htmlid][]" value="1" style="display:none;">
 <input name="zdy[fid][]" value="0" style="display:none;">
 <input name="zdy[fname][]" value="" style="display:none;">
 <input name="zdy[zd][]" value="msvod_pic_url" style="display:none;">
 <input name="zdy[id][]" value="<?=$rowp->id?>" style="display:none;">
-<li><label>Í¼Æ¬¿ªÊ¼±ê¼Ç£º</label><textarea name="zdy[ks][]" cols="70" rows="3" class="textinput"><?=$rowp->ks?></textarea><b>*</b>Í¼Æ¬µØÖ·¿ªÊ¼</li>
-<li><label>Í¼Æ¬½áÊø±ê¼Ç</label><textarea name="zdy[js][]" cols="70" rows="3" class="textinput"><?=$rowp->js?></textarea><b>*</b>Í¼Æ¬µØÖ·½áÊø</li>
-<li><label>&nbsp;</label><b>==================Ïà²á×¨ÓÃ²É¼¯½áÊø======================</b></li>
+<li><label>å›¾ç‰‡å¼€å§‹æ ‡è®°ï¼š</label><textarea name="zdy[ks][]" cols="70" rows="3" class="textinput"><?=$rowp->ks?></textarea><b>*</b>å›¾ç‰‡åœ°å€å¼€å§‹</li>
+<li><label>å›¾ç‰‡ç»“æŸæ ‡è®°</label><textarea name="zdy[js][]" cols="70" rows="3" class="textinput"><?=$rowp->js?></textarea><b>*</b>å›¾ç‰‡åœ°å€ç»“æŸ</li>
+<li><label>&nbsp;</label><b>==================ç›¸å†Œä¸“ç”¨é‡‡é›†ç»“æŸ======================</b></li>
 <?php } ?>
-<!----------------Í¼Æ¬°æ¿é end--------------->
+<!----------------å›¾ç‰‡ç‰ˆå— end--------------->
 
 <li><label>&nbsp;<img onClick="zdyadd();" name="btn_addpaly" src="<?=Web_Path?>packs/admin/images/add.png" id="btn_addplay"  style="cursor:pointer" title="<?=L('tpl_82')?>"/></label><b><?=L('tpl_83')?></b>
 </ul>
@@ -192,11 +192,11 @@ $laiy='<label>'.L('tpl_92').'</label><input name="zdy[fname][]" type="text" clas
 if($dir=='vod' && $row->zd=='purl'){
 $none2='';
 $vod_pc='<option value="'.$row->fname.'">'.$row->fname.'</option>'.$vod_pc;
-$laiy='<label>²¥·ÅÀ´Ô´</label><div class="vocation"><select class="select1" name="zdy[fname][]">'.$vod_pc.'</select>';
+$laiy='<label>æ’­æ”¾æ¥æº</label><div class="vocation"><select class="select1" name="zdy[fname][]">'.$vod_pc.'</select>';
 }elseif($dir=='vod' && $row->zd=='durl'){
 $none2='';
 $vod_pc='<option value="'.$row->fname.'">'.$row->fname.'</option>'.$vod_dc;
-$laiy='<label>ÏÂÔØÀ´Ô´</label><div class="vocation"><select class="select1" name="zdy[fname][]">'.$vod_pc.'</select>';
+$laiy='<label>ä¸‹è½½æ¥æº</label><div class="vocation"><select class="select1" name="zdy[fname][]">'.$vod_pc.'</select>';
 }
 echo '<li id="zdy_'.$i.'_1"><label>'.L('tpl_86').'</label><input name="zdy[name][]" type="text" class="dfinput" value="'.$row->name.'" style="width:145px;"/>&nbsp;&nbsp;<img onClick="zdydel('.$i.');" name="btn_addpaly" src="'.Web_Path.'packs/admin/images/cut.png" id="btn_addplay"  style="cursor:pointer" title="'.L('tpl_87').'"/><input name="zdy[id][]" type="hidden" value="'.$row->id.'"></li>
 <li id="zdy_'.$i.'_2"><label>'.L('tpl_88').'</label><div class="vocation"><select id="zds_'.$i.'" class="select1" name="zdy[zd][]" OnChange="zdyzd('.$i.');">'.$ziduan.'</select></div></li>
@@ -229,7 +229,7 @@ for ($i=0; $i < count($zdy['name']); $i++) {
 if(is_array($zdy['text'][$i])){
 $zdy['text'][$i]=implode("<br>",$zdy['text'][$i]);
 }
-echo '<li><b>'.$zdy['name'][$i].'£º</b>'.str_encode($zdy['text'][$i]).'</li>';
+echo '<li><b>'.$zdy['name'][$i].'ï¼š</b>'.str_encode($zdy['text'][$i]).'</li>';
 } 
 }
 ?>

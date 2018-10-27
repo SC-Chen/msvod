@@ -23,7 +23,7 @@
 <ul> 
 <li><a href="<?=site_url('video/admin/opt/fav')?>"><?=L('tpl_137')?></a></li> 
 <li><a href="<?=site_url('video/admin/opt/down')?>"><?=L('tpl_138')?></a></li>  
-<li><a href="<?=site_url('video/admin/opt/play')?>" class="selected">²¥·Å¼ÇÂ¼</a></li>  
+<li><a href="<?=site_url('video/admin/opt/play')?>" class="selected">æ’­æ”¾è®°å½•</a></li>  
 </ul>
 </div> 
 </div> 
@@ -54,7 +54,7 @@
 <th><?=L('tpl_141')?></th>
 <th>IP</th>
 <th><?=L('tpl_142')?></th>
-<th>²Ù×÷</th>
+<th>æ“ä½œ</th>
 </tr>
 </thead>
 
@@ -64,7 +64,7 @@ if(empty($play)) echo '<tr><td align="center" height="50" colspan="9">'.L('tpl_4
 foreach ($play as $row) {
 $links=linkurl('play','id',$row->did,1,'video');
 $pic=!empty($row->pic)?'<img height="30" src="'.piclink('video',getzd('video','pic',$row->did)).'">':'-';
-//Ê±¼ä¼ÓÁÁ
+//æ—¶é—´åŠ äº®
 if(date('Y-m-d',$row->addtime)==date('Y-m-d')){
 $addtime='<font color=red>'.date('Y-m-d H:i:s',$row->addtime).'</font>';
 }else{
@@ -87,7 +87,7 @@ echo '
 </table>
 <div class="tools">
 <ul class="toolbar">
-<li class="click quanxuan"><span><img src="<?=Web_Path?>packs/admin/images/t04.png" /></span>È«Ñ¡</li>
+<li class="click quanxuan"><span><img src="<?=Web_Path?>packs/admin/images/t04.png" /></span>å…¨é€‰</li>
 <li class="click" onclick="Popsbox('<?=L('tpl_48')?>',505,245,'<?=L('tpl_51')?>','submit');"><span><img src="<?=Web_Path?>packs/admin/images/t03.png" /></span><?=L('tpl_52')?></li>
 <li class="click" onclick="Popsbox('<?=L('tpl_48')?>',505,245,'<?=L('tpl_143')?>','<?=site_url('video/admin/opt/play_pldel')?>?id=3');"><span><img src="<?=Web_Path?>packs/admin/images/t03.png" /></span><?=L('tpl_147')?></li>
 <li class="click" onclick="Popsbox('<?=L('tpl_48')?>',505,245,'<?=L('tpl_144')?>','<?=site_url('video/admin/opt/play_pldel')?>');"><span><img src="<?=Web_Path?>packs/admin/images/t03.png" /></span><?=L('tpl_145')?></li>

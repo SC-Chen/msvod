@@ -4,99 +4,99 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 return array(
 
-//ºóÌ¨²Ëµ¥²¿·Ö	
+//åå°èœå•éƒ¨åˆ†	
 'admin' => array(
 array(
-'name' => 'ÊÓÆµ¹ÜÀí',
+'name' => 'è§†é¢‘ç®¡ç†',
 'menu' => array(
 array(
-'name' => 'ÊÓÆµ¹ÜÀí',
+'name' => 'è§†é¢‘ç®¡ç†',
 'link' => 'admin/video'
 ),
 array(
-'name' => 'ÊÓÆµ·ÖÀà',
+'name' => 'è§†é¢‘åˆ†ç±»',
 'link' => 'admin/lists'
 ),
 array(
-'name' => '·şÎñÆ÷×é',
+'name' => 'æœåŠ¡å™¨ç»„',
 'link' => 'admin/server'
 ),
 //array(
-//'name' => 'ÊÓÆµ×¨Ìâ',
+//'name' => 'è§†é¢‘ä¸“é¢˜',
 //'link' => 'admin/topic'
 //),
 //array(
-//'name' => 'ÊÓÆµÉ¨Ãè',
+//'name' => 'è§†é¢‘æ‰«æ',
 //'link' => 'admin/saomiao'
 //),
 array(
-'name' => '²¥·Å¼ÇÂ¼',
+'name' => 'æ’­æ”¾è®°å½•',
 'link' => 'admin/opt/play'
 ),
 array(
-'name' => 'ÏÂÔØ¼ÇÂ¼',
+'name' => 'ä¸‹è½½è®°å½•',
 'link' => 'admin/opt/down'
 ),
 array(
-'name' => 'ÊÕ²Ø¼ÇÂ¼',
+'name' => 'æ”¶è—è®°å½•',
 'link' => 'admin/opt/fav'
 ),
 array(
-'name' => '²¥·ÅÆ÷ÉèÖÃ',
+'name' => 'æ’­æ”¾å™¨è®¾ç½®',
 'link' => '../admin/playsz'
 ),
 array(
-'name' => 'Ëæ»úÅúÁ¿µã»÷',
+'name' => 'éšæœºæ‰¹é‡ç‚¹å‡»',
 'link' => 'admin/tools'
 ),
 ),
 ),
 //array(
-//'name' => '¾²Ì¬Éú³É',
+//'name' => 'é™æ€ç”Ÿæˆ',
 //'menu' => array(
 //array(
-//'name' => 'Éú³É°æ¿éÊ×Ò³',
+//'name' => 'ç”Ÿæˆç‰ˆå—é¦–é¡µ',
 //'link' => 'admin/html/index'
 //),
 //array(
-//'name' => 'Éú³É·ÖÀàÒ³',
+//'name' => 'ç”Ÿæˆåˆ†ç±»é¡µ',
 //'link' => 'admin/html/type'
 //),
 //array(
-//'name' => 'Éú³É²¥·ÅÒ³',
+//'name' => 'ç”Ÿæˆæ’­æ”¾é¡µ',
 //'link' => 'admin/html/play'
 //),
 //array(
-//'name' => 'Éú³ÉÏÂÔØÒ³',
+//'name' => 'ç”Ÿæˆä¸‹è½½é¡µ',
 //'link' => 'admin/html/down'
 //),
 //array(
-//'name' => 'Éú³É×¨Ìâ',
+//'name' => 'ç”Ÿæˆä¸“é¢˜',
 //'link' => 'admin/html/topic'
 //),
 //array(
-//'name' => 'Éú³É×Ô¶¨ÒåÒ³',
+//'name' => 'ç”Ÿæˆè‡ªå®šä¹‰é¡µ',
 //'link' => 'admin/html/opt'
 //),
 //),
 //)
 ),
 
-//»áÔ±ÖĞĞÄ²Ëµ¥²¿·Ö
+//ä¼šå‘˜ä¸­å¿ƒèœå•éƒ¨åˆ†
 'user' => array(
 array(
-'name' => 'ÊÓÆµ¹ÜÀí',
+'name' => 'è§†é¢‘ç®¡ç†',
 'menu' => array(
 array(
-'name' => 'ÎÒµÄÊÓÆµ',
+'name' => 'æˆ‘çš„è§†é¢‘',
 'link' => 'user/video',
 ),
 array(
-'name' => 'ÉÏ´«ÊÓÆµ',
+'name' => 'ä¸Šä¼ è§†é¢‘',
 'link' => 'user/video/add',
 ),
 //array(
-//'name' => 'ÎÒµÄ×¨Ìâ',
+//'name' => 'æˆ‘çš„ä¸“é¢˜',
 //'link' => 'user/album',
 //)
 )

@@ -2,6 +2,6 @@
 if (!defined('MSVODPATH')) exit('No permission resources');
 
 return array(
-       'video.html' => '视频模板',
-       'album.html' => '专题模板',
+       'video.html' => '瑙嗛妯℃澘',
+       'album.html' => '涓撻妯℃澘',
 );

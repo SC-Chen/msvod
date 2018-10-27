@@ -14,7 +14,7 @@ $this->load->model('MsdjAdmin');
 $this->MsdjAdmin->Admin_Login();
 }
 
-//ÊÕ²ØÁĞ±í
+//æ”¶è—åˆ—è¡¨
 public function fav()
 {
 $kstime = $this->input->get_post('kstime',true);
@@ -60,7 +60,7 @@ $total = $query[0]['count'];
 
 $base_url = site_url('video/admin/opt/fav')."?sid=".$sid."&zd=".$zd."&key=".$key."&kstime=".$kstime."&jstime=".$jstime;
 $per_page = 15; 
-$totalPages = ceil($total / $per_page); // ×ÜÒ³Êı
+$totalPages = ceil($total / $per_page); // æ€»é¡µæ•°
 $data['nums'] = $total;
 if($total<$per_page){
 $per_page=$total;
@@ -69,12 +69,12 @@ $sql_string.=' limit '. $per_page*($page-1) .','. $per_page;
 $query = $this->db->query($sql_string);
 
 $data['fav'] = $query->result();
-$data['pages'] = get_admin_page($base_url,$totalPages,$page,10); //»ñÈ¡·ÖÒ³Àà
+$data['pages'] = get_admin_page($base_url,$totalPages,$page,10); //è·å–åˆ†é¡µç±»
 
 $this->load->view('fav.html',$data);
 }
 
-//ÊÕ²Ø¼ÇÂ¼É¾³ı
+//æ”¶è—è®°å½•åˆ é™¤
 public function fav_del()
 {
 $ids = $this->input->get_post('id');
@@ -85,10 +85,10 @@ $idss=implode(',', $ids);
 $idss=$ids;
 }
 $this->MsdjDB->get_del('video_fav',$ids);
-admin_msg(L('plub_74'),'javascript:history.back();','ok');  //²Ù×÷³É¹¦
+admin_msg(L('plub_74'),'javascript:history.back();','ok');  //æ“ä½œæˆåŠŸ
 }
 
-//ÊÕ²Ø¼ÇÂ¼ÅúÁ¿É¾³ı
+//æ”¶è—è®°å½•æ‰¹é‡åˆ é™¤
 public function fav_pldel()
 {
 $id = intval($this->input->get('id'));
@@ -99,10 +99,10 @@ $this->db->query("delete from ".MS_SqlPrefix."video_fav where addtime<".$times."
 $this->db->query("delete from ".MS_SqlPrefix."video_fav");
 $this->db->query("TRUNCATE TABLE ".MS_SqlPrefix."video_fav");
 }
-admin_msg(L('plub_74'),'javascript:history.back();','ok');  //²Ù×÷³É¹¦
+admin_msg(L('plub_74'),'javascript:history.back();','ok');  //æ“ä½œæˆåŠŸ
 }
 
-//²¥·Å¼ÇÂ¼ÁĞ±í
+//æ’­æ”¾è®°å½•åˆ—è¡¨
 public function play()
 {
 $kstime = $this->input->get_post('kstime',true);
@@ -143,7 +143,7 @@ $total = $query[0]['count'];
 
 $base_url = site_url('video/admin/opt/play')."?zd=".$zd."&key=".$key."&kstime=".$kstime."&jstime=".$jstime;
 $per_page = 15; 
-$totalPages = ceil($total / $per_page); // ×ÜÒ³Êı
+$totalPages = ceil($total / $per_page); // æ€»é¡µæ•°
 $data['nums'] = $total;
 if($total<$per_page){
 $per_page=$total;
@@ -152,12 +152,12 @@ $sql_string.=' limit '. $per_page*($page-1) .','. $per_page;
 $query = $this->db->query($sql_string);
 
 $data['play'] = $query->result();
-$data['pages'] = get_admin_page($base_url,$totalPages,$page,10); //»ñÈ¡·ÖÒ³Àà
+$data['pages'] = get_admin_page($base_url,$totalPages,$page,10); //è·å–åˆ†é¡µç±»
 
 $this->load->view('play.html',$data);
 }
 
-//²¥·Å¼ÇÂ¼É¾³ı
+//æ’­æ”¾è®°å½•åˆ é™¤
 public function play_del()
 {
 $ids = $this->input->get_post('id');
@@ -168,10 +168,10 @@ $idss=implode(',', $ids);
 $idss=$ids;
 }
 $this->MsdjDB->get_del('video_play',$ids);
-admin_msg(L('plub_74'),'javascript:history.back();','ok');  //²Ù×÷³É¹¦
+admin_msg(L('plub_74'),'javascript:history.back();','ok');  //æ“ä½œæˆåŠŸ
 }
 
-//²¥·Å¼ÇÂ¼ÅúÁ¿É¾³ı
+//æ’­æ”¾è®°å½•æ‰¹é‡åˆ é™¤
 public function play_pldel()
 {
 $id = intval($this->input->get('id'));
@@ -182,10 +182,10 @@ $this->db->query("delete from ".MS_SqlPrefix."video_play where addtime<".$times.
 $this->db->query("delete from ".MS_SqlPrefix."video_play");
 $this->db->query("TRUNCATE TABLE ".MS_SqlPrefix."video_play");
 }
-admin_msg(L('plub_74'),'javascript:history.back();','ok');  //²Ù×÷³É¹¦
+admin_msg(L('plub_74'),'javascript:history.back();','ok');  //æ“ä½œæˆåŠŸ
 }
 
-//ÏÂÔØ¼ÇÂ¼ÁĞ±í
+//ä¸‹è½½è®°å½•åˆ—è¡¨
 public function down()
 {
 $kstime = $this->input->get_post('kstime',true);
@@ -226,7 +226,7 @@ $total = $query[0]['count'];
 
 $base_url = site_url('video/admin/opt/down')."?zd=".$zd."&key=".$key."&kstime=".$kstime."&jstime=".$jstime;
 $per_page = 15; 
-$totalPages = ceil($total / $per_page); // ×ÜÒ³Êı
+$totalPages = ceil($total / $per_page); // æ€»é¡µæ•°
 $data['nums'] = $total;
 if($total<$per_page){
 $per_page=$total;
@@ -235,12 +235,12 @@ $sql_string.=' limit '. $per_page*($page-1) .','. $per_page;
 $query = $this->db->query($sql_string);
 
 $data['down'] = $query->result();
-$data['pages'] = get_admin_page($base_url,$totalPages,$page,10); //»ñÈ¡·ÖÒ³Àà
+$data['pages'] = get_admin_page($base_url,$totalPages,$page,10); //è·å–åˆ†é¡µç±»
 
 $this->load->view('down.html',$data);
 }
 
-//ÏÂÔØ¼ÇÂ¼É¾³ı
+//ä¸‹è½½è®°å½•åˆ é™¤
 public function down_del()
 {
 $ids = $this->input->get_post('id');
@@ -251,10 +251,10 @@ $idss=implode(',', $ids);
 $idss=$ids;
 }
 $this->MsdjDB->get_del('video_down',$ids);
-admin_msg(L('plub_74'),'javascript:history.back();','ok');  //²Ù×÷³É¹¦
+admin_msg(L('plub_74'),'javascript:history.back();','ok');  //æ“ä½œæˆåŠŸ
 }
 
-//ÏÂÔØ¼ÇÂ¼ÅúÁ¿É¾³ı
+//ä¸‹è½½è®°å½•æ‰¹é‡åˆ é™¤
 public function down_pldel()
 {
 $id = intval($this->input->get('id'));
@@ -265,10 +265,10 @@ $this->db->query("delete from ".MS_SqlPrefix."video_down where addtime<".$times.
 $this->db->query("delete from ".MS_SqlPrefix."video_down");
 $this->db->query("TRUNCATE TABLE ".MS_SqlPrefix."video_down");
 }
-admin_msg(L('plub_74'),'javascript:history.back();','ok');  //²Ù×÷³É¹¦
+admin_msg(L('plub_74'),'javascript:history.back();','ok');  //æ“ä½œæˆåŠŸ
 }
 
-//Í¬²½Ô¶³ÌÍ¼Æ¬µ½±¾µØ
+//åŒæ­¥è¿œç¨‹å›¾ç‰‡åˆ°æœ¬åœ°
 public function downpic()
 {
 $page = intval($this->input->get('page'));
@@ -279,12 +279,12 @@ $query = $this->db->query($sql_string);
 $total = $query->num_rows();
 
 if($page > $pagejs || $total==0){
-admin_msg(L('plub_75'),site_url('video/admin/video'),'ok');  //²Ù×÷Íê³É
+admin_msg(L('plub_75'),site_url('video/admin/video'),'ok');  //æ“ä½œå®Œæˆ
 }
 
 if($page==0) $page = 1;
 $per_page = 20; 
-$totalPages = ceil($total / $per_page); // ×ÜÒ³Êı
+$totalPages = ceil($total / $per_page); // æ€»é¡µæ•°
 if($total<$per_page){
 $per_page=$total;
 }
@@ -292,7 +292,7 @@ if($pagejs==0) $pagejs=$totalPages;
 $sql_string.=' limit 20';
 $query = $this->db->query($sql_string); 
 
-//±£´æÄ¿Â¼
+//ä¿å­˜ç›®å½•
 if(UP_Mode==1 && UP_Pan!=''){
 $pathpic = UP_Pan.'/attachment/video/'.date('Ym').'/'.date('d').'/';
 $pathpic = str_replace("//","/",$pathpic);
@@ -307,10 +307,10 @@ $this->load->library('watermark');
 $this->load->library('msup');
 
 echo '<LINK href="'.Web_Path.'packs/admin/css/style.css" type="text/css" rel="stylesheet"><br>';
-echo "<div style='font-size:14px;'>&nbsp;&nbsp;&nbsp;<b>".L('plub_76')."<font style='color:red; font-size:12px; font-style:italic'>".$page."</font>".L('plub_77')."£¬".L('plub_78')."<font style='color:red; font-size:12px; font-style:italic'>".$pagejs."</font>".L('plub_77')."£¬".L('plub_79')."<font style='color:red; font-size:12px; font-style:italic'>".$totalPages."</font>".L('plub_77')."</b><br><br>";
+echo "<div style='font-size:14px;'>&nbsp;&nbsp;&nbsp;<b>".L('plub_76')."<font style='color:red; font-size:12px; font-style:italic'>".$page."</font>".L('plub_77')."ï¼Œ".L('plub_78')."<font style='color:red; font-size:12px; font-style:italic'>".$pagejs."</font>".L('plub_77')."ï¼Œ".L('plub_79')."<font style='color:red; font-size:12px; font-style:italic'>".$totalPages."</font>".L('plub_77')."</b><br><br>";
 
 foreach ($query->result() as $row) {
-ob_end_flush();//¹Ø±Õ»º´æ 
+ob_end_flush();//å…³é—­ç¼“å­˜ 
 $up='no';
 if(!empty($row->pic)){
 $picdata=htmlall($row->pic);
@@ -318,18 +318,18 @@ $file_ext = strtolower(trim(substr(strrchr($row->pic, '.'), 1)));
 if($file_ext!='jpg' && $file_ext!='png' && $file_ext!='gif'){
 $file_ext = 'jpg';
 }
-//ĞÂÎÄ¼şÃû
+//æ–°æ–‡ä»¶å
 $file_name=date("YmdHis") . rand(10000, 99999) . '.' . $file_ext;
 $file_path=$pathpic.$file_name;
 if(!empty($picdata)){
-//±£´æÍ¼Æ¬
+//ä¿å­˜å›¾ç‰‡
 if(write_file($file_path, $picdata)){
 $up='ok';
-//ÅĞ¶ÏË®Ó¡
+//åˆ¤æ–­æ°´å°
 if(MS_WaterMark==1){
 $this->watermark->imagewatermark($file_path);
 }
-//ÅĞ¶ÏÉÏ´«·½Ê½
+//åˆ¤æ–­ä¸Šä¼ æ–¹å¼
 $res=$this->msup->up($file_path,$file_name);
 if(!$res){
 $up='no';
@@ -338,13 +338,13 @@ $up='no';
 }
 $filepath=(UP_Mode==1)?'/'.date('Ym').'/'.date('d').'/'.$file_name : '/'.date('Ymd').'/'.$file_name;
 }
-//³É¹¦
+//æˆåŠŸ
 if($up=='ok'){
-//ĞŞ¸ÄÊı¾İ¿â
+//ä¿®æ”¹æ•°æ®åº“
 $this->db->query("update ".MS_SqlPrefix."video set pic='".$filepath."' where id=".$row->id."");
 echo "&nbsp;&nbsp;&nbsp;&nbsp;".L('plub_80')."<font color=red>".$row->pic."</font>&nbsp;".L('plub_81')."&nbsp;&nbsp;".L('plub_82')."<a href=\"".piclink('video',$filepath)."\" target=_blank>".$file_name."</a></br>";
 }else{
-//ĞŞ¸ÄÊı¾İ¿â
+//ä¿®æ”¹æ•°æ®åº“
 $this->db->query("update ".MS_SqlPrefix."video set pic='' where id=".$row->id."");
 echo "&nbsp;&nbsp;&nbsp;&nbsp;<font color=red>".$row->pic."</font>".L('plub_83')."</br>";
 }

@@ -56,7 +56,7 @@ foreach ($plugins as $row) {
 if(file_exists(FCPATH.'plugins/'.$row->dir.'/config/install.php')){
 $SQLDB = require_once(FCPATH.'plugins/'.$row->dir.'/config/install.php');
 echo '<div id="tb_'.$i.'" class="vocation" style="display:none"><select class="select1" name="table_'.$i.'"><option value="">'.L('tpl_22').'</option>';
-//еп╤ойЩ╬щ©Б
+//Е┬╓Ф√╜Ф∙╟Ф█╝Е╨⌠
 if(is_array($SQLDB)){
 foreach ($SQLDB as $sql) {
 preg_match('/CREATE TABLE IF NOT EXISTS `{prefix}([\s\S]+?)`([\s\S]+?)COMMENT=\'([\s\S]+?)\';/',$sql,$tarr);

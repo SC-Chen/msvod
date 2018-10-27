@@ -10,9 +10,9 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 class MsdjUser extends CI_Model{
 function __construct (){
 parent:: __construct ();
-//¹Ø±ÕÊı¾İ¿â»º´æ
+//å…³é—­æ•°æ®åº“ç¼“å­˜
 $this->db->cache_off();
-//É¾³ıÒ»Ğ¡Ê±Ã»ÓĞ¶¯×÷µÄ»áÔ±ÔÚÏß×´Ì¬
+//åˆ é™¤ä¸€å°æ—¶æ²¡æœ‰åŠ¨ä½œçš„ä¼šå‘˜åœ¨çº¿çŠ¶æ€
 $time=@file_get_contents(FCPATH."cache/msvod_time/time.txt");
 if(time()>$time){
 $times=time()-1800;
@@ -22,7 +22,7 @@ write_file(FCPATH."cache/msvod_time/time.txt",time()+1800);
 }
 }
 
-//¼ì²âµÇÈë
+//æ£€æµ‹ç™»å…¥
 function User_Login($cid=0,$key='') {
 if(!empty($key)){
 $key    = unserialize(stripslashes(sys_auth($key,'D')));
@@ -40,7 +40,7 @@ $logo = 0;
 if($id==0 || empty($logstr)){
 if($user_id>0 && !empty($user_login)){  
 
-//ÅĞ¶Ï·Ç·¨COOKIE
+//åˆ¤æ–­éæ³•COOKIE
 if(!preg_match('/^[0-9a-zA-Z]*$/', $user_login)){
 $userlogin= '';
 }
@@ -48,36 +48,36 @@ $userlogin= '';
 $row=$this->db->query("SELECT id,name,code,logo,pass,lognum,level,jinyan,cion,vip,logtime,viptime,zid,zutime FROM ".MS_SqlPrefix."user where id=".$user_id."")->row();
 if($row){
 
-//ÅĞ¶ÏÕËºÅÃÜÂëÊÇ·ñÕıÈ·
+//åˆ¤æ–­è´¦å·å¯†ç æ˜¯å¦æ­£ç¡®
 if(md5($row->name.$row->pass.$row->code)==$user_login){
-//Ã¿ÌìµÇÂ½¼Ó»ı·Ö
+//æ¯å¤©ç™»é™†åŠ ç§¯åˆ†
 if(User_Cion_Log>0 && date("Y-m-d",$row->logtime)!=date('Y-m-d')){
 $updata['cion']  = $row->cion+User_Cion_Log;
 }
-//ÅĞ¶ÏVIP
+//åˆ¤æ–­VIP
 IF($row->vip>0 && $row->viptime<time()){
 $updata['vip']  = 0;
 $updata['viptime']  = 0;
 }
-//ÅĞ¶Ï»áÔ±×é¼¶±ğ
+//åˆ¤æ–­ä¼šå‘˜ç»„çº§åˆ«
 IF($row->zid>1 && $row->zutime<time()){
 $updata['zid']  = 1;
 $updata['zutime']  = 0;
 }
-//ÅĞ¶ÏµÈ¼¶
+//åˆ¤æ–­ç­‰çº§
 $level=getlevel($row->jinyan);
 if($level>$row->level){
 $updata['level']   = $level;
-//·¢ËÍµÈ¼¶Í¨Öª
+//å‘é€ç­‰çº§é€šçŸ¥
 $add['uida']=$row->id;
 $add['uidb']=0;
-$add['name']='ÓÃ»§µÈ¼¶Éı¼¶Í¨Öª';
-$add['neir']='¹§Ï²Äú£¬ÄúµÄÓÃ»§µÈ¼¶Éı¼¶µ½Lv'.$level;
+$add['name']='ç”¨æˆ·ç­‰çº§å‡çº§é€šçŸ¥';
+$add['neir']='æ­å–œæ‚¨ï¼Œæ‚¨çš„ç”¨æˆ·ç­‰çº§å‡çº§åˆ°Lv'.$level;
 $add['addtime']=time();
 $this->MsdjDB->get_insert('msg',$add);
 }
 
-//ĞŞ¸ÄµÇÂ¼Ê±¼ä
+//ä¿®æ”¹ç™»å½•æ—¶é—´
 $updata['zx']      = 1;
 $updata['lognum']  = $row->lognum+1;
 $updata['logtime'] = time();
@@ -85,7 +85,7 @@ $updata['logip']   = getip();
 $updata['logms']   = time();
 $this->MsdjDB->get_update('user',$user_id,$updata);
 
-//µÇÂ¼ÈÕÖ¾
+//ç™»å½•æ—¥å¿—
 if(date("Y-m-d",$row->logtime)!=date('Y-m-d')){
 $this->load->library('user_agent');
 $agent = ($this->agent->is_mobile() ? $this->agent->mobile() :                  
@@ -115,20 +115,20 @@ if($row){
 if(md5($row->name.$row->pass)==$logstr){
 $login= TRUE;
 
-//ÅĞ¶ÏµÈ¼¶
+//åˆ¤æ–­ç­‰çº§
 $level=getlevel($row->jinyan);
 if($level>$row->level){
 $updata['level']   = $level;
-//·¢ËÍµÈ¼¶Í¨Öª
+//å‘é€ç­‰çº§é€šçŸ¥
 $add['uida']=$row->id;
 $add['uidb']=0;
-$add['name']='ÓÃ»§µÈ¼¶Éı¼¶Í¨Öª';
-$add['neir']='¹§Ï²Äú£¬ÄúµÄÓÃ»§µÈ¼¶Éı¼¶µ½Lv'.$level;
+$add['name']='ç”¨æˆ·ç­‰çº§å‡çº§é€šçŸ¥';
+$add['neir']='æ­å–œæ‚¨ï¼Œæ‚¨çš„ç”¨æˆ·ç­‰çº§å‡çº§åˆ°Lv'.$level;
 $add['addtime']=time();
 $this->MsdjDB->get_insert('msg',$add);
 }
 
-//¸Ä±äÔÚÏßÃëÊı
+//æ”¹å˜åœ¨çº¿ç§’æ•°
 $updata['zx']      = 1;
 $updata['logms']   = time();
 $this->MsdjDB->get_update('user',$id,$updata);
@@ -141,28 +141,28 @@ $logo = 1;
 }
 if(!$login){
 
-//Çå³ı·Ç·¨µÇÂ¼
+//æ¸…é™¤éæ³•ç™»å½•
 unset($_SESSION['msvod__id'],$_SESSION['msvod__name'],$_SESSION['msvod__login']);
 
-//Çå³ı¼Ç×¡µÇÂ¼
+//æ¸…é™¤è®°ä½ç™»å½•
 $this->cookie->set_cookie("user_id");
 $this->cookie->set_cookie("user_login");
 
 if($cid==0){
-msg_url('Äú»¹Ã»ÓĞµÇÂ¼»òÕßµÇÂ¼ÒÑ³¬Ê±~!',userurl(site_url('user/login')));
+msg_url('æ‚¨è¿˜æ²¡æœ‰ç™»å½•æˆ–è€…ç™»å½•å·²è¶…æ—¶~!',userurl(site_url('user/login')));
 }
 }else{
-//ÅĞ¶ÏÃ¿Ìì»áÔ±ÒªÉ¾³ıµÄÊı¾İ
+//åˆ¤æ–­æ¯å¤©ä¼šå‘˜è¦åˆ é™¤çš„æ•°æ®
 $day=@file_get_contents(FCPATH."cache/msvod_time/day.txt");
 if(date('d')!=$day){
-//Çå¿ÕÃ¿Ìì·ÖÏí£¬·¢²¼
+//æ¸…ç©ºæ¯å¤©åˆ†äº«ï¼Œå‘å¸ƒ
 $uedit['addhits'] = 0;
 $this->MsdjDB->get_update('user',$_SESSION['msvod__id'],$uedit);
 write_file(FCPATH."cache/msvod_time/day.txt",date('d'));
 }
-//Ç¿ÖÆÉÏ´«Í·Ïñ
+//å¼ºåˆ¶ä¸Šä¼ å¤´åƒ
 if($cid==0 && $logo==1 && strpos(REQUEST_URI,'edit/logo') === FALSE){
-msg_url('Äú»¹Ã»ÓĞÉÏ´«Í·Ïñ£¬ÇëÏÈÉÏ´«Í·Ïñ~!',userurl(site_url('user/edit/logo')));
+msg_url('æ‚¨è¿˜æ²¡æœ‰ä¸Šä¼ å¤´åƒï¼Œè¯·å…ˆä¸Šä¼ å¤´åƒ~!',userurl(site_url('user/edit/logo')));
 }
 }
 return $login;  

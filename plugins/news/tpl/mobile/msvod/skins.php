@@ -3,23 +3,23 @@ if (!defined('MSVODPATH')) exit('No permission resources');
 
 return array(
            'index' => array(
-               'index.html' => 'Ö÷Ò³Ä£°å',
-               'head.html' => 'ÍøÕ¾¶¥²¿',
-               'bottom.html' => 'ÍøÕ¾µ×²¿',
-               'pl.html' => 'ÆÀÂÛÄ£°å',
-               'ulogin.html' => '»áÔ±µÇÂ½Ç°',
-               'uinfo.html' => '»áÔ±µÇÂ¼ºó',
-               'list.html' => 'Ğ¡ËµÁĞ±íÒ³',
-               'show.html' => 'Ğ¡ËµÄÚÈİÒ³',
-               'search.html' => 'Ğ¡ËµËÑË÷Ò³',
-               'search-zm.html' => '×ÖÄ¸ËÑË÷Ò³',
-               'topic.html' => '×¨ÌâÁĞ±íÒ³',
-               'topic-show.html' => '×¨ÌâÄÚÈİÒ³',
-               'opt-hot.html' => 'Äê¶ÈÅÅĞĞÒ³',
-               'opt-yue.html' => '±¾ÔÂÅÅĞĞÒ³',
-               'opt-zhou.html' => '±¾ÖÜÅÅĞĞÒ³',
-               'opt-day.html' => '½ñÈÕÅÅĞĞÒ³',
-               'opt-new.html' => '×îĞÂĞ¡ËµÒ³'
+               'index.html' => 'ä¸»é¡µæ¨¡æ¿',
+               'head.html' => 'ç½‘ç«™é¡¶éƒ¨',
+               'bottom.html' => 'ç½‘ç«™åº•éƒ¨',
+               'pl.html' => 'è¯„è®ºæ¨¡æ¿',
+               'ulogin.html' => 'ä¼šå‘˜ç™»é™†å‰',
+               'uinfo.html' => 'ä¼šå‘˜ç™»å½•å',
+               'list.html' => 'å°è¯´åˆ—è¡¨é¡µ',
+               'show.html' => 'å°è¯´å†…å®¹é¡µ',
+               'search.html' => 'å°è¯´æœç´¢é¡µ',
+               'search-zm.html' => 'å­—æ¯æœç´¢é¡µ',
+               'topic.html' => 'ä¸“é¢˜åˆ—è¡¨é¡µ',
+               'topic-show.html' => 'ä¸“é¢˜å†…å®¹é¡µ',
+               'opt-hot.html' => 'å¹´åº¦æ’è¡Œé¡µ',
+               'opt-yue.html' => 'æœ¬æœˆæ’è¡Œé¡µ',
+               'opt-zhou.html' => 'æœ¬å‘¨æ’è¡Œé¡µ',
+               'opt-day.html' => 'ä»Šæ—¥æ’è¡Œé¡µ',
+               'opt-new.html' => 'æœ€æ–°å°è¯´é¡µ'
            ),
            'user' => array(
 

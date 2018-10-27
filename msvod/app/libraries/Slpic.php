@@ -7,25 +7,25 @@
  */
 
 class Slpic {
-    //Ô­Í¼Æ¬ÎÄ¼þ£¬°üº¬Â·¾¶ºÍÎÄ¼þÃû
+    //åŽŸå›¾ç‰‡æ–‡ä»¶ï¼ŒåŒ…å«è·¯å¾„å’Œæ–‡ä»¶å
     private $orpic; 
-    //Ô­Í¼µÄÁÙÊ±Í¼Ïñ
+    //åŽŸå›¾çš„ä¸´æ—¶å›¾åƒ
     private $tempic;
-    //ËõÂÔÍ¼
+    //ç¼©ç•¥å›¾
     private $thpic;
-    //Ô­¿í¶È
+    //åŽŸå®½åº¦
     private $width; 
-    //Ô­¸ß¶È
+    //åŽŸé«˜åº¦
     private $height;
-    //ÐÂ¿í¶È
+    //æ–°å®½åº¦
     private $newswidth; 
-    //ÐÂ¸ß¶È
+    //æ–°é«˜åº¦
     private $newsheight;
-    //ËõÂÔºóµÄ¿í¶È
+    //ç¼©ç•¥åŽçš„å®½åº¦
     private $thwidth;
-    //ËõÂÔºóµÄ¸ß¶È
+    //ç¼©ç•¥åŽçš„é«˜åº¦
     private $thheight;
-	//ËõÂÔºóµÄÄ¿Â¼µØÖ·
+	//ç¼©ç•¥åŽçš„ç›®å½•åœ°å€
     private $cache;
      
     public function __construct($params=array()){
@@ -38,11 +38,11 @@ class Slpic {
         $this->type = $infos[2];
     }
 
-    //¸ù¾ÝÓÃ»§ËùÖ¸¶¨×î´ó¿í¸ßÀ´¼ÆËãËõÂÔÍ¼³ß´ç
+    //æ ¹æ®ç”¨æˆ·æ‰€æŒ‡å®šæœ€å¤§å®½é«˜æ¥è®¡ç®—ç¼©ç•¥å›¾å°ºå¯¸
     function cal_size(){
-        //ËõÂÔÍ¼×î´ó¿í¶ÈÓë×î´ó¸ß¶È±È
+        //ç¼©ç•¥å›¾æœ€å¤§å®½åº¦ä¸Žæœ€å¤§é«˜åº¦æ¯”
         $thcrown = $this->newswidth/$this->newsheight;    
-        //Ô­Í¼¿í¸ß±È
+        //åŽŸå›¾å®½é«˜æ¯”
         $crown = $this->width/$this->height;    
         $this->thwidth = $this->newswidth;
         $this->thheight = $this->newswidth/$crown;
@@ -51,7 +51,7 @@ class Slpic {
 		}
     }
      
-	//»ñÈ¡Í¼Æ¬ÄÚÈÝ
+	//èŽ·å–å›¾ç‰‡å†…å®¹
     function init(){
         switch($this->type){
             case 1:     //GIF
@@ -66,49 +66,49 @@ class Slpic {
         }
     }
  
-    //ËõÐ¡Í¼Æ¬
+    //ç¼©å°å›¾ç‰‡
     function resize($maxwidth, $maxheight){
         $this->newswidth = ($maxwidth==0)?$this->width:$maxwidth;
         $this->newsheight = ($maxheight==0)?$this->height:$maxheight;
-        //³õÊ¼»¯Í¼Ïñ
+        //åˆå§‹åŒ–å›¾åƒ
         $this->init();
-        //¼ÆËã³öËõÂÔÍ¼³ß´ç
+        //è®¡ç®—å‡ºç¼©ç•¥å›¾å°ºå¯¸
         $this->cal_size();
 
-		//Ô­Í¼²»Ëõ·Å
+		//åŽŸå›¾ä¸ç¼©æ”¾
 		if($maxwidth==0 && $maxheight==0){
                $this->topic($this->tempic);
 			   exit;
 		}
 
-        //µÈ±ÈËõÐ¡
+        //ç­‰æ¯”ç¼©å°
         $this->thpic = imagecreatetruecolor($this->thwidth, $this->thheight);
         imagecopyresampled($this->thpic, $this->tempic, 0, 0, 0 ,0, $this->thwidth, $this->thheight, $this->width, $this->height);
-		//¿í¶ÈÓÅÏÈ£¬ÔÚËõ·ÅÖ®ºó¸ß¶È²»×ãµÄÇé¿öÏÂ²¹ÉÏ±³¾°
+		//å®½åº¦ä¼˜å…ˆï¼Œåœ¨ç¼©æ”¾ä¹‹åŽé«˜åº¦ä¸è¶³çš„æƒ…å†µä¸‹è¡¥ä¸ŠèƒŒæ™¯
 	  	if($this->thwidth>$this->thheight){
 		  		$this->addBg($this->thpic,$this->thwidth,$this->thheight,"wh");
 	  	}
-		//µÈ±ÈËõ·Å
+		//ç­‰æ¯”ç¼©æ”¾
 	  	if($this->thwidth==$this->thheight){
 		  		$this->addBg($this->thpic,$this->thwidth,$this->thheight,"wh");
 	  	}
-		//¸ß¶ÈÓÅÏÈ£¬ÔÚËõ·ÅÖ®ºó¿í¶È²»×ãµÄÇé¿öÏÂ²¹ÉÏ±³¾°
+		//é«˜åº¦ä¼˜å…ˆï¼Œåœ¨ç¼©æ”¾ä¹‹åŽå®½åº¦ä¸è¶³çš„æƒ…å†µä¸‹è¡¥ä¸ŠèƒŒæ™¯
 	  	if($this->thwidth<$this->thheight){
 		  		$this->addBg($this->thpic,$this->thwidth,$this->thheight,"h");
 	  	}
     }
      
-  	//²¹ÌîÍ¼Æ¬±³¾°
+  	//è¡¥å¡«å›¾ç‰‡èƒŒæ™¯
   	public function addBg($temp_img,$w,$h,$fisrt="wh"){
 	  	$bg=imagecreatetruecolor($this->newswidth,$this->newsheight);
 	  	$white = imagecolorallocate($bg,255,255,255);
-	    imagefill($bg,0,0,$white);//Ìî³ä±³¾°
+	    imagefill($bg,0,0,$white);//å¡«å……èƒŒæ™¯
 	    if($fisrt=="w"){
 			$x=0;
-			$y=($h-$this->newsheight)/2;//´¹Ö±¾ÓÖÐ
+			$y=($h-$this->newsheight)/2;//åž‚ç›´å±…ä¸­
 		}
 		if($fisrt=="h"){
-		    $x=($w-$this->newswidth)/2;//Ë®Æ½¾ÓÖÐ
+		    $x=($w-$this->newswidth)/2;//æ°´å¹³å±…ä¸­
 			$y=0;
 		}
 		if($fisrt=="wh"){
@@ -127,13 +127,13 @@ class Slpic {
                 imagepng($bg);
                 break;
             default:
-                echo 'ÔÝ²»Ö§³Ö¸ÃÍ¼Æ¬¸ñÊ½';
+                echo 'æš‚ä¸æ”¯æŒè¯¥å›¾ç‰‡æ ¼å¼';
         }
 		$this->topic($bg);
 		//imagedestroy($bg);
 	}
 
-  	//Êä³öÍ¼Æ¬
+  	//è¾“å‡ºå›¾ç‰‡
   	public function topic($temp_img){
         if($this->type==1){
 		      header("Content-type: image/gif"); 
@@ -153,7 +153,7 @@ class Slpic {
                 imagepng($temp_img,$this->cache,9);
                 break;
             default:
-                echo 'ÔÝ²»Ö§³Ö¸ÃÍ¼Æ¬¸ñÊ½';
+                echo 'æš‚ä¸æ”¯æŒè¯¥å›¾ç‰‡æ ¼å¼';
         }
 		@imagedestroy($temp_img);
 		@imagedestroy($this->tempic);

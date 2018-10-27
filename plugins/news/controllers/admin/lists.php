@@ -14,7 +14,7 @@ class Lists extends msvod_Controller {
 	        $this->MsdjAdmin->Admin_Login();
 	}
 
-    //Ğ¡Ëµ·ÖÀà
+    //å°è¯´åˆ†ç±»
 	public function index()
 	{
             $sql_string = "SELECT * FROM ".MS_SqlPrefix."news_list where fid=0 order by xid asc";
@@ -23,26 +23,26 @@ class Lists extends msvod_Controller {
             $this->load->view('news_list.html',$data);
 	}
 
-    //ÏÔÊ¾¡¢Òş²Ø²Ù×÷
+    //æ˜¾ç¤ºã€éšè—æ“ä½œ
 	public function init()
 	{
             $ac  = $this->input->get_post('ac',true);
             $id   = intval($this->input->get_post('id'));
             $sid  = intval($this->input->get_post('sid'));
-            if($ac=='zt'){ //ÏÔÊ¾
+            if($ac=='zt'){ //æ˜¾ç¤º
                   $edit['yid']=$sid;
-				  $str=($sid==0)?'<a title="µã»÷Òş²Ø" href="javascript:get_cmd(\''.site_url('news/admin/lists/init').'?sid=1\',\'zt\','.$id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="µã»÷ÏÔÊ¾" href="javascript:get_cmd(\''.site_url('news/admin/lists/init').'?sid=0\',\'zt\','.$id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
+				  $str=($sid==0)?'<a title="ç‚¹å‡»éšè—" href="javascript:get_cmd(\''.site_url('news/admin/lists/init').'?sid=1\',\'zt\','.$id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/ok.gif" /></a>':'<a title="ç‚¹å‡»æ˜¾ç¤º" href="javascript:get_cmd(\''.site_url('news/admin/lists/init').'?sid=0\',\'zt\','.$id.');"><img align="absmiddle" src="'.Web_Path.'packs/admin/images/icon/no.gif" /></a>';
 			}
             $this->MsdjDB->get_update('news_list',$id,$edit);
             die($str);
 	}
 
-    //ÅúÁ¿ĞŞ¸Ä·ÖÀà
+    //æ‰¹é‡ä¿®æ”¹åˆ†ç±»
 	public function plsave()
 	{
             $ids=$this->input->post('id', TRUE); 
             if(empty($ids)){
-                    admin_msg('ÇëÑ¡ÔñÒª²Ù×÷µÄÊı¾İ~!','javascript:history.back();','no');
+                    admin_msg('è¯·é€‰æ‹©è¦æ“ä½œçš„æ•°æ®~!','javascript:history.back();','no');
 			}
 			foreach ($ids as $id) {
 		            $data['name']=$this->input->post('name_'.$id, TRUE);
@@ -51,26 +51,26 @@ class Lists extends msvod_Controller {
 		            $data['xid']=intval($this->input->post('xid_'.$id, TRUE)); 
                     $this->MsdjDB->get_update('news_list',$id,$data);
 			}
-            admin_msg('¹§Ï²Äú£¬²Ù×÷³É¹¦~!',site_url('news/admin/lists'),'ok');  //²Ù×÷³É¹¦
+            admin_msg('æ­å–œæ‚¨ï¼Œæ“ä½œæˆåŠŸ~!',site_url('news/admin/lists'),'ok');  //æ“ä½œæˆåŠŸ
 	}
 
-    //ÅúÁ¿×ªÒÆ·ÖÀà
+    //æ‰¹é‡è½¬ç§»åˆ†ç±»
 	public function zhuan()
 	{
             $ids = $this->input->get_post('id', TRUE);
             $cid = intval($this->input->get_post('cid')); 
             if(empty($ids)){
-                    admin_msg('ÇëÑ¡ÔñÒª²Ù×÷µÄÊı¾İ~!','javascript:history.back();','no');
+                    admin_msg('è¯·é€‰æ‹©è¦æ“ä½œçš„æ•°æ®~!','javascript:history.back();','no');
 			}
             if($cid==0){
-                    admin_msg('ÇëÑ¡ÔñÄ¿±ê·ÖÀà~!','javascript:history.back();','no');
+                    admin_msg('è¯·é€‰æ‹©ç›®æ ‡åˆ†ç±»~!','javascript:history.back();','no');
 			}
 			$ids=implode(',', $ids);
             $this->db->query("update ".MS_SqlPrefix."news set cid=".$cid." where cid in (".$ids.")");
-            admin_msg('¹§Ï²Äú£¬²Ù×÷³É¹¦~!',site_url('news/admin/lists'),'ok');  //²Ù×÷³É¹¦
+            admin_msg('æ­å–œæ‚¨ï¼Œæ“ä½œæˆåŠŸ~!',site_url('news/admin/lists'),'ok');  //æ“ä½œæˆåŠŸ
 	}
 
-    //·ÖÀàĞÂÔö¡¢ĞŞ¸Ä
+    //åˆ†ç±»æ–°å¢ã€ä¿®æ”¹
 	public function edit()
 	{
             $id   = intval($this->input->get('id'));
@@ -88,7 +88,7 @@ class Lists extends msvod_Controller {
                 $data['description']='';
 			}else{
                 $row=$this->db->query("SELECT * FROM ".MS_SqlPrefix."news_list where id=".$id."")->row(); 
-			    if(!$row) admin_msg('¸ÃÌõ¼ÇÂ¼²»´æÔÚ~!','javascript:history.back();','no');  //¼ÇÂ¼²»´æÔÚ
+			    if(!$row) admin_msg('è¯¥æ¡è®°å½•ä¸å­˜åœ¨~!','javascript:history.back();','no');  //è®°å½•ä¸å­˜åœ¨
 
                 $data['id']=$row->id;
                 $data['fid']=$row->fid;
@@ -104,7 +104,7 @@ class Lists extends msvod_Controller {
             $this->load->view('list_edit.html',$data);
 	}
 
-    //·ÖÀà±£´æ
+    //åˆ†ç±»ä¿å­˜
 	public function save()
 	{
             $id   = intval($this->input->post('id'));
@@ -118,19 +118,19 @@ class Lists extends msvod_Controller {
             $data['keywords']=$this->input->post('keywords',true);
             $data['description']=$this->input->post('description',true);
 
-			if($id==0){ //ĞÂÔö
+			if($id==0){ //æ–°å¢
                  $this->MsdjDB->get_insert('news_list',$data);
 			}else{
                  $this->MsdjDB->get_update('news_list',$id,$data);
 			}
-            admin_msg('¹§Ï²Äú£¬²Ù×÷³É¹¦~!',site_url('news/admin/lists'),'ok');  //²Ù×÷³É¹¦
+            admin_msg('æ­å–œæ‚¨ï¼Œæ“ä½œæˆåŠŸ~!',site_url('news/admin/lists'),'ok');  //æ“ä½œæˆåŠŸ
 	}
 
-    //·ÖÀàÉ¾³ı
+    //åˆ†ç±»åˆ é™¤
 	public function del()
 	{
             $ids = $this->input->get_post('id');
-			if(empty($ids)) admin_msg('ÇëÑ¡ÔñÒªÉ¾³ıµÄÊı¾İ~!','javascript:history.back();','no');
+			if(empty($ids)) admin_msg('è¯·é€‰æ‹©è¦åˆ é™¤çš„æ•°æ®~!','javascript:history.back();','no');
 			if(is_array($ids)){
 			     $idss=implode(',', $ids);
 			}else{
@@ -138,7 +138,7 @@ class Lists extends msvod_Controller {
 			}
 			$this->MsdjDB->get_del('news_list',$ids,'fid');
 			$this->MsdjDB->get_del('news_list',$ids);
-            admin_msg('¹§Ï²Äú£¬É¾³ı³É¹¦~!','javascript:history.back();','ok');  //²Ù×÷³É¹¦
+            admin_msg('æ­å–œæ‚¨ï¼Œåˆ é™¤æˆåŠŸ~!','javascript:history.back();','ok');  //æ“ä½œæˆåŠŸ
 	}
 }
 

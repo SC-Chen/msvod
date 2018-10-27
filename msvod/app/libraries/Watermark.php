@@ -7,7 +7,7 @@
  */
 class Watermark {
 
-  		//¹¹Ôì·½·¨³õÊ¼»¯
+  		//æ„é€ æ–¹æ³•åˆå§‹åŒ–
   		public function __construct() {
 
   		}
@@ -17,9 +17,9 @@ class Watermark {
 	  		return getimagesize($src);
   		}
   		/**
-  		* ´´½¨Í¼Æ¬£¬·µ»Ø×ÊÔ´ÀàĞÍ
-  		* @param string $src Í¼Æ¬Â·¾¶
-  		* @return resource $im ·µ»Ø×ÊÔ´ÀàĞÍ 
+  		* åˆ›å»ºå›¾ç‰‡ï¼Œè¿”å›èµ„æºç±»å‹
+  		* @param string $src å›¾ç‰‡è·¯å¾„
+  		* @return resource $im è¿”å›èµ„æºç±»å‹ 
   		* **/
   		public function create($src)
   		{
@@ -39,32 +39,32 @@ class Watermark {
 	  		return $im;
   		}
   		/**
-  		* ËõÂÔÍ¼Ö÷º¯Êı
-  		* @param string $src Í¼Æ¬Â·¾¶
-  		* @param int $w ËõÂÔÍ¼¿í¶È
-  		* @param int $h ËõÂÔÍ¼¸ß¶È
-  		* @return mixed ·µ»ØËõÂÔÍ¼Â·¾¶
+  		* ç¼©ç•¥å›¾ä¸»å‡½æ•°
+  		* @param string $src å›¾ç‰‡è·¯å¾„
+  		* @param int $w ç¼©ç•¥å›¾å®½åº¦
+  		* @param int $h ç¼©ç•¥å›¾é«˜åº¦
+  		* @return mixed è¿”å›ç¼©ç•¥å›¾è·¯å¾„
   		* **/
   		public function resize($src,$temp_w='',$temp_h='')
   		{
 	  		$temp=pathinfo($src);
-	  		$name=$temp["basename"];//ÎÄ¼şÃû
-	  		$dir=$temp["dirname"];//ÎÄ¼şËùÔÚµÄÎÄ¼ş¼Ğ
-	  		$extension=$temp["extension"];//ÎÄ¼şÀ©Õ¹Ãû
-	  		$savepath="{$dir}/{$name}.small.jpg";//ËõÂÔÍ¼±£´æÂ·¾¶,ĞÂµÄÎÄ¼şÃûÎª*.small.jpg
+	  		$name=$temp["basename"];//æ–‡ä»¶å
+	  		$dir=$temp["dirname"];//æ–‡ä»¶æ‰€åœ¨çš„æ–‡ä»¶å¤¹
+	  		$extension=$temp["extension"];//æ–‡ä»¶æ‰©å±•å
+	  		$savepath="{$dir}/{$name}.small.jpg";//ç¼©ç•¥å›¾ä¿å­˜è·¯å¾„,æ–°çš„æ–‡ä»¶åä¸º*.small.jpg
 
-	  		//»ñÈ¡Í¼Æ¬µÄ»ù±¾ĞÅÏ¢
+	  		//è·å–å›¾ç‰‡çš„åŸºæœ¬ä¿¡æ¯
 	  		$info=$this->getimageinfo($src);
-	  		$width=$info[0];//»ñÈ¡Í¼Æ¬¿í¶È
-	  		$height=$info[1];//»ñÈ¡Í¼Æ¬¸ß¶È
+	  		$width=$info[0];//è·å–å›¾ç‰‡å®½åº¦
+	  		$height=$info[1];//è·å–å›¾ç‰‡é«˜åº¦
           	$w=intval($width/2);
-	  		$h=intval($height/2);//¼ÆËãËõÂÔÍ¼³¤¿í±È
+	  		$h=intval($height/2);//è®¡ç®—ç¼©ç•¥å›¾é•¿å®½æ¯”
 
             if($temp_w=='' && $temp_h==''){
-	  		    $temp_w=$w;//¼ÆËãÔ­Í¼Ëõ·ÅºóµÄ¿í¶È
-	  		    $temp_h=$h;//¼ÆËãÔ­Í¼Ëõ·ÅºóµÄ¸ß¶È
+	  		    $temp_w=$w;//è®¡ç®—åŸå›¾ç¼©æ”¾åçš„å®½åº¦
+	  		    $temp_h=$h;//è®¡ç®—åŸå›¾ç¼©æ”¾åçš„é«˜åº¦
             }
-	  		$temp_img=imagecreatetruecolor($temp_w,$temp_h);//´´½¨»­²¼
+	  		$temp_img=imagecreatetruecolor($temp_w,$temp_h);//åˆ›å»ºç”»å¸ƒ
 	  		$im=$this->create($src);
 	  		imagecopyresampled($temp_img,$im,0,0,0,0,$temp_w,$temp_h,$width,$height);
 	  		if($w>$h)
@@ -72,55 +72,55 @@ class Watermark {
 		  		imagejpeg($temp_img,$savepath, 100);
 	  			imagedestroy($im);
 		  		return $this->addbg($savepath,$w,$h,"w");
-		  		//¿í¶ÈÓÅÏÈ£¬ÔÚËõ·ÅÖ®ºó¸ß¶È²»×ãµÄÇé¿öÏÂ²¹ÉÏ±³¾°
+		  		//å®½åº¦ä¼˜å…ˆï¼Œåœ¨ç¼©æ”¾ä¹‹åé«˜åº¦ä¸è¶³çš„æƒ…å†µä¸‹è¡¥ä¸ŠèƒŒæ™¯
 	  		}
 	  		if($w==$h)
 	  		{
 		  		imagejpeg($temp_img,$savepath, 100);
 		  		imagedestroy($im);
 		  		return $savepath;
-		  		//µÈ±ÈËõ·Å
+		  		//ç­‰æ¯”ç¼©æ”¾
 	  		}
 	  		if($w<$h)
 	  		{
 		  		imagejpeg($temp_img,$savepath, 100);
 		  		imagedestroy($im);
 		  		return $this->addbg($savepath,$w,$h,"h");
-		  		//¸ß¶ÈÓÅÏÈ£¬ÔÚËõ·ÅÖ®ºó¿í¶È²»×ãµÄÇé¿öÏÂ²¹ÉÏ±³¾°
+		  		//é«˜åº¦ä¼˜å…ˆï¼Œåœ¨ç¼©æ”¾ä¹‹åå®½åº¦ä¸è¶³çš„æƒ…å†µä¸‹è¡¥ä¸ŠèƒŒæ™¯
 	  		}
   		}
   		/**
-  		* Ìí¼Ó±³¾°
-  		* @param string $src Í¼Æ¬Â·¾¶
-  		* @param int $w ±³¾°Í¼Ïñ¿í¶È
-  		* @param int $h ±³¾°Í¼Ïñ¸ß¶È
-  		* @param String $first ¾ö¶¨Í¼Ïñ×îÖÕÎ»ÖÃµÄ£¬w ¿í¶ÈÓÅÏÈ h ¸ß¶ÈÓÅÏÈ wh:µÈ±È
-  		* @return ·µ»Ø¼ÓÉÏ±³¾°µÄÍ¼Æ¬
+  		* æ·»åŠ èƒŒæ™¯
+  		* @param string $src å›¾ç‰‡è·¯å¾„
+  		* @param int $w èƒŒæ™¯å›¾åƒå®½åº¦
+  		* @param int $h èƒŒæ™¯å›¾åƒé«˜åº¦
+  		* @param String $first å†³å®šå›¾åƒæœ€ç»ˆä½ç½®çš„ï¼Œw å®½åº¦ä¼˜å…ˆ h é«˜åº¦ä¼˜å…ˆ wh:ç­‰æ¯”
+  		* @return è¿”å›åŠ ä¸ŠèƒŒæ™¯çš„å›¾ç‰‡
   		* **/
   		public function addbg($src,$w,$h,$fisrt="w")
   		{
 	  		$bg=imagecreatetruecolor($w,$h);
 	  		$white = imagecolorallocate($bg,255,255,255);
-	  		imagefill($bg,0,0,$white);//Ìî³ä±³¾°
+	  		imagefill($bg,0,0,$white);//å¡«å……èƒŒæ™¯
 
-	  		//»ñÈ¡Ä¿±êÍ¼Æ¬ĞÅÏ¢
+	  		//è·å–ç›®æ ‡å›¾ç‰‡ä¿¡æ¯
 	  		$info=$this->getimageinfo($src);
-	  		$width=$info[0];//Ä¿±êÍ¼Æ¬¿í¶È
-	  		$height=$info[1];//Ä¿±êÍ¼Æ¬¸ß¶È
+	  		$width=$info[0];//ç›®æ ‡å›¾ç‰‡å®½åº¦
+	  		$height=$info[1];//ç›®æ ‡å›¾ç‰‡é«˜åº¦
 	  		$img=$this->create($src);
 	  		if($fisrt=="wh")
 	  		{
-		  		//µÈ±ÈËõ·Å
+		  		//ç­‰æ¯”ç¼©æ”¾
 	  			return $src;
 	  		}else{
 		  		if($fisrt=="w")
 		  		{
 			  		$x=0;
-			  		$y=($h-$height)/2;//´¹Ö±¾ÓÖĞ
+			  		$y=($h-$height)/2;//å‚ç›´å±…ä¸­
 		  		}
 		  		if($fisrt=="h")
 		  		{
-			  		$x=($w-$width)/2;//Ë®Æ½¾ÓÖĞ
+			  		$x=($w-$width)/2;//æ°´å¹³å±…ä¸­
 			  		$y=0;
 		  		}
 		  		imagecopymerge($bg,$img,$x,$y,0,0,$width,$height,100);
@@ -134,25 +134,25 @@ class Watermark {
 
   		public function imagewatermark($filename){
 
-          		$watertype=MS_WaterMode; //Ë®Ó¡ÀàĞÍ(1ÎªÎÄ×Ö,2ÎªÍ¼Æ¬) 
-          		$waterposition=MS_WaterLocation; //ÎÄ×ÖË®Ó¡Î»ÖÃ(1Îª×óÏÂ½Ç,2ÎªÓÒÏÂ½Ç,3Îª×óÉÏ½Ç,4ÎªÓÒÉÏ½Ç,5Îª¾ÓÖĞ);  
-          		$waterpositions=MS_WaterLocations; //Í¼Æ¬Ë®Ó¡Î»ÖÃ(1Îª×óÏÂ½Ç,2ÎªÓÒÏÂ½Ç,3Îª×óÉÏ½Ç,4ÎªÓÒÉÏ½Ç,5Îª¾ÓÖĞ);  
-          		$waterstring=MS_WaterFont; //Ë®Ó¡×Ö·û´®  
-          		$waterstringw=130; //Ë®Ó¡×Ö·û´®µÄ¸ß¶È
-          		$waterstringh=20; //Ë®Ó¡×Ö·û´®µÄ¸ß¶È
-          		$waterstringpadding = 1; //Ë®Ó¡×Ö·û´®µÄ¾ÓÉÏÓÒÏÂ×ó
-          		$waterimg=FCPATH.MS_WaterLogo; //Ë®Ó¡Í¼Æ¬  
-          		$imgquality = MS_WaterLogotm; //Í¼Æ¬ÖÊÁ¿0-100£¬Öµ×î´óÍ¼Æ¬ÖÊÁ¿ÓúºÃ£¬Í¼Æ¬µÄ´óĞ¡Ò²Ô½´ó *ÍÆ¼ö90-100 Ì«Ğ¡Í¼Æ¬»á³öÏÖÄ£ºıÏÖÏó
+          		$watertype=MS_WaterMode; //æ°´å°ç±»å‹(1ä¸ºæ–‡å­—,2ä¸ºå›¾ç‰‡) 
+          		$waterposition=MS_WaterLocation; //æ–‡å­—æ°´å°ä½ç½®(1ä¸ºå·¦ä¸‹è§’,2ä¸ºå³ä¸‹è§’,3ä¸ºå·¦ä¸Šè§’,4ä¸ºå³ä¸Šè§’,5ä¸ºå±…ä¸­);  
+          		$waterpositions=MS_WaterLocations; //å›¾ç‰‡æ°´å°ä½ç½®(1ä¸ºå·¦ä¸‹è§’,2ä¸ºå³ä¸‹è§’,3ä¸ºå·¦ä¸Šè§’,4ä¸ºå³ä¸Šè§’,5ä¸ºå±…ä¸­);  
+          		$waterstring=MS_WaterFont; //æ°´å°å­—ç¬¦ä¸²  
+          		$waterstringw=130; //æ°´å°å­—ç¬¦ä¸²çš„é«˜åº¦
+          		$waterstringh=20; //æ°´å°å­—ç¬¦ä¸²çš„é«˜åº¦
+          		$waterstringpadding = 1; //æ°´å°å­—ç¬¦ä¸²çš„å±…ä¸Šå³ä¸‹å·¦
+          		$waterimg=FCPATH.MS_WaterLogo; //æ°´å°å›¾ç‰‡  
+          		$imgquality = MS_WaterLogotm; //å›¾ç‰‡è´¨é‡0-100ï¼Œå€¼æœ€å¤§å›¾ç‰‡è´¨é‡æ„ˆå¥½ï¼Œå›¾ç‰‡çš„å¤§å°ä¹Ÿè¶Šå¤§ *æ¨è90-100 å¤ªå°å›¾ç‰‡ä¼šå‡ºç°æ¨¡ç³Šç°è±¡
 
-          		$image_size = getimagesize($filename);   //ÉÏ´«Í¼Æ¬µÄ´óĞ¡
-	  		    $upimgw = $image_size[0];  //ÉÏ´«Í¼Æ¬µÄ¿í¶È
-	  		    $upimgh = $image_size[1];  //ÉÏ´«Í¼Æ¬µÄ¸ß¶È
+          		$image_size = getimagesize($filename);   //ä¸Šä¼ å›¾ç‰‡çš„å¤§å°
+	  		    $upimgw = $image_size[0];  //ä¸Šä¼ å›¾ç‰‡çš„å®½åº¦
+	  		    $upimgh = $image_size[1];  //ä¸Šä¼ å›¾ç‰‡çš„é«˜åº¦
 
-	  		    $waterimg_size =  getimagesize($waterimg); //Ë®Ó¡Í¼Æ¬µÄ´óĞ¡
-	  		    $waterimgw = $waterimg_size[0];  //Ë®Ó¡Í¼Æ¬µÄ¿í¶È
-	  		    $waterimgh = $waterimg_size[1];  //Ë®Ó¡Í¼Æ¬µÄ¸ß¶È
+	  		    $waterimg_size =  getimagesize($waterimg); //æ°´å°å›¾ç‰‡çš„å¤§å°
+	  		    $waterimgw = $waterimg_size[0];  //æ°´å°å›¾ç‰‡çš„å®½åº¦
+	  		    $waterimgh = $waterimg_size[1];  //æ°´å°å›¾ç‰‡çš„é«˜åº¦
 	  		    $wpinfo=pathinfo($waterimg);    
-         		$wptype=$wpinfo['extension'];     //Ë®Ó¡Í¼Æ¬µÄºó×º
+         		$wptype=$wpinfo['extension'];     //æ°´å°å›¾ç‰‡çš„åç¼€
 
           		$destination=$filename;
 
@@ -193,59 +193,59 @@ class Watermark {
           		imagecopy($nimage,$simage,0,0,0,0,$image_size[0],$image_size[1]); 
 			    switch($watertype)  
 			    {  
-					case 1:   //¼ÓË®Ó¡×Ö·û´®  
+					case 1:   //åŠ æ°´å°å­—ç¬¦ä¸²  
 				  		switch ($waterposition) {  
-					  		case 1:   //Ë®Ó¡Î»ÖÃ£º×óÏÂ
+					  		case 1:   //æ°´å°ä½ç½®ï¼šå·¦ä¸‹
 				  		  		$waterstart_x = $waterstringpadding ;
 				  		  		$waterstart_y = $upimgh-$waterstringh;
 				  		  		break;
-					  		case 2:   //Ë®Ó¡Î»ÖÃ£ºÓÒÏÂ
+					  		case 2:   //æ°´å°ä½ç½®ï¼šå³ä¸‹
 				  		  		$waterstart_x = $upimgw-$waterstringw-$waterstringpadding;
 				  		  		$waterstart_y = $upimgh-$waterstringh-$waterstringpadding ;
 				  		  		break;
-					  		case 3:   //Ë®Ó¡Î»ÖÃ£º×óÉÏ
+					  		case 3:   //æ°´å°ä½ç½®ï¼šå·¦ä¸Š
 				  		  		$waterstart_x = $waterstringpadding;
 				  		  		$waterstart_y = $waterstringpadding;
 				  		  		break;
-					  		case 4:   //Ë®Ó¡Î»ÖÃ£ºÓÒÉÏ
+					  		case 4:   //æ°´å°ä½ç½®ï¼šå³ä¸Š
 				  		  		$waterstart_x = $upimgw-$waterstringw-$waterstringpadding;
 				  		  		$waterstart_y = $waterstringpadding;
 				  		  		break;
-					  		case 5:   //Ë®Ó¡Î»ÖÃ£ºÖĞ¼ä
+					  		case 5:   //æ°´å°ä½ç½®ï¼šä¸­é—´
 				  		  		$waterstart_x = ($upimgw-$waterstringw)/2;
 				  		  		$waterstart_y = ($upimgh-$waterstringh)/2;
 				  		  		break;
 						}
               		    imagestring($nimage,MS_WaterFontSize,$waterstart_x,$waterstart_y,$waterstring,$white);  
               		    break;  
-              		case 2:   //¼ÓË®Ó¡Í¼Æ¬
+              		case 2:   //åŠ æ°´å°å›¾ç‰‡
 					    $simage1 ="";
 					    switch($wptype)  
 					    {  
-						    case 'png':   //Ë®Ó¡Í¼Æ¬¸ñÊ½png  
+						    case 'png':   //æ°´å°å›¾ç‰‡æ ¼å¼png  
 						    $simage1 =imagecreatefrompng($waterimg); break;
-						    case 'gif':   //Ë®Ó¡Í¼Æ¬¸ñÊ½gif  
+						    case 'gif':   //æ°´å°å›¾ç‰‡æ ¼å¼gif  
 						    $simage1 =imagecreatefromgif($waterimg); break;
 					    }
 
 			  		    switch ($waterpositions) {  
-				  			case 1:   //Ë®Ó¡Î»ÖÃ£º×óÏÂ
+				  			case 1:   //æ°´å°ä½ç½®ï¼šå·¦ä¸‹
 			  		  			$waterstart_x = 0;
 			  		  			$waterstart_y = $upimgh-$waterimgh;
 			  		  			break;
-				  			case 2:   //Ë®Ó¡Î»ÖÃ£ºÓÒÏÂ
+				  			case 2:   //æ°´å°ä½ç½®ï¼šå³ä¸‹
 			  		  			$waterstart_x = $upimgw-$waterimgw;
 			  		  			$waterstart_y = $upimgh-$waterimgh;
 			  		  			break;
-				  			case 3:   //Ë®Ó¡Î»ÖÃ£º×óÉÏ
+				  			case 3:   //æ°´å°ä½ç½®ï¼šå·¦ä¸Š
 			  		  			$waterstart_x = 0;
 			  		  			$waterstart_y = 0;
 			  		  			break;
-				  			case 4:   //Ë®Ó¡Î»ÖÃ£ºÓÒÉÏ
+				  			case 4:   //æ°´å°ä½ç½®ï¼šå³ä¸Š
 			  		  			$waterstart_x = $upimgw-$waterimgw;
 			  		  			$waterstart_y = 0;
 			  		  			break;
-				  			case 5:   //Ë®Ó¡Î»ÖÃ£ºÖĞ¼ä
+				  			case 5:   //æ°´å°ä½ç½®ï¼šä¸­é—´
 			  		  			$waterstart_x = ($upimgw-$waterimgw)/2;
 			  		  			$waterstart_y = ($upimgh-$waterimgh)/2;
 			  		  			break;
@@ -271,7 +271,7 @@ class Watermark {
               		  		imagewbmp($nimage, $destination,$imgquality);    
               		  		break;  
           		}  
-          		//¸²¸ÇÔ­ÉÏ´«ÎÄ¼ş  
+          		//è¦†ç›–åŸä¸Šä¼ æ–‡ä»¶  
           		imagedestroy($nimage);  
           		imagedestroy($simage);   
   		}

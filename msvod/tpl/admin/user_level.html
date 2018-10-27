@@ -45,7 +45,7 @@
 <?php
 if(empty($userlevel)) echo '<tr><td align="center" height="50" colspan="7">'.L('tpl_36').'</td></tr>';
 foreach ($userlevel as $row) {
-		//会员数量
+		//浼氬憳鏁伴噺
 		$usernums=$this->db->query("SELECT id FROM ".MS_SqlPrefix."user where level=".$row->id."")->num_rows();
         $xuan=($row->id>1)?'<input name="id[]" type="checkbox" value="'.$row->id.'" />':'--';
         echo '

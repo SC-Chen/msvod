@@ -67,21 +67,21 @@ foreach ($query->result() as $row) {
 <?php
 if(empty($pl)) echo '<tr><td align="center" height="50" colspan="8">'.L('tpl_15').'</td></tr>';
 foreach ($pl as $row) {
-		//»áÔ±
+		//ä¼šå‘˜
 		if($row->uid==0){
 		   $uname=L('tpl_16');
 		}else{
            $rowu=$this->db->query("SELECT name FROM ".MS_SqlPrefix."user where id=".$row->uid."")->row();
 		   $uname=($rowu)?$rowu->name:L('tpl_17').$row->uid;
 		}
-		//Êý¾Ý±êÌâ
+		//æ•°æ®æ ‡é¢˜
 		$dname=L('tpl_18').$row->did;
-        if ($this->db->table_exists(MS_SqlPrefix.$row->dir)){//ÅÐ¶Ï°å¿éÊý¾Ý±íÊÇ·ñ´æÔÚ
-		    //ÅÐ¶ÏÃû³Æ×Ö¶Î
+        if ($this->db->table_exists(MS_SqlPrefix.$row->dir)){//åˆ¤æ–­æ¿å—æ•°æ®è¡¨æ˜¯å¦å­˜åœ¨
+		    //åˆ¤æ–­åç§°å­—æ®µ
 			if($this->db->field_exists('name', MS_SqlPrefix.$row->dir)){
                $rowd=$this->db->query("SELECT name FROM ".MS_SqlPrefix.$row->dir." where id=".$row->did."")->row();
 		       $dname=($rowd)?$rowd->name:L('tpl_17').$row->did;
-			}elseif($this->db->field_exists('neir', MS_SqlPrefix.$row->dir)){ //ËµËµ
+			}elseif($this->db->field_exists('neir', MS_SqlPrefix.$row->dir)){ //è¯´è¯´
                $rowd=$this->db->query("SELECT neir FROM ".MS_SqlPrefix.$row->dir." where id=".$row->did."")->row();
 		       $dname=($rowd)?$rowd->neir:L('tpl_17').$row->did;
 			}

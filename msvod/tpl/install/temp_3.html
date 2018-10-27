@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>msvod²úÆ· - Powered by msvod</title>
+<title>msvodäº§å“ - Powered by msvod</title>
 <link rel="stylesheet" href="<?=install_path?>packs/install/images/css.css" />
 <script type="text/javascript" src="<?=install_path?>packs/js/jquery.min.js"></script>
 </head>
@@ -10,26 +10,26 @@
 <div class="wrap">
 <div class="header">
 <h1 class="logo">logo</h1>
-<div class="icon_install">°²×°Ïòµ¼</div>
+<div class="icon_install">å®‰è£…å‘å¯¼</div>
 <div class="version">v6</div>
 </div><div class="section">
 <div class="step">
 <ul>
-<li class="on"><em>1</em>¼ì²â»·¾³</li>
-<li class="current"><em>2</em>´´½¨Êı¾İ</li>
-<li><em>3</em>Íê³É°²×°</li>
+<li class="on"><em>1</em>æ£€æµ‹ç¯å¢ƒ</li>
+<li class="current"><em>2</em>åˆ›å»ºæ•°æ®</li>
+<li><em>3</em>å®Œæˆå®‰è£…</li>
 </ul>
 </div>
 <form id="J_install_form" action="<?=install_url?>save3" method="post">
 <div class="server">
 <table width="100%">
 <tr>
-<td class="td1" width="100">Êı¾İ¿âĞÅÏ¢</td>
+<td class="td1" width="100">æ•°æ®åº“ä¿¡æ¯</td>
 <td class="td1" width="200">&nbsp;</td>
 <td class="td1">&nbsp;</td>
 </tr>
 <tr>
-<td class="tar">Êı¾İ¿âÀàĞÍ£º</td>
+<td class="tar">æ•°æ®åº“ç±»å‹ï¼š</td>
 <td>
 <select class="select1" id="dbdriver" name="dbdriver">
 <option value="mysql">Mysql</option>
@@ -38,38 +38,38 @@
 <option value="mssql">Mssql</option>
 </select>
 </td>
-<td><div id="J_dbdriver"><span class="gray">Ò»°ãÎªMysql£¬PHP5.6ÒÔÉÏÇëÑ¡ÔñMysqli</span></div></td>
+<td><div id="J_dbdriver"><span class="gray">ä¸€èˆ¬ä¸ºMysqlï¼ŒPHP5.6ä»¥ä¸Šè¯·é€‰æ‹©Mysqli</span></div></td>
 </tr>
 <tr>
-<td class="tar">Êı¾İ¿â·şÎñÆ÷£º</td>
+<td class="tar">æ•°æ®åº“æœåŠ¡å™¨ï¼š</td>
 <td><input type="text" name="dbhost" id="dbhost" value="127.0.0.1" class="input"></td>
-<td><div id="J_dbhost"><span class="gray">Êı¾İ¿â·şÎñÆ÷µØÖ·£¬Ò»°ãÎª127.0.0.1</span></div></td>
+<td><div id="J_dbhost"><span class="gray">æ•°æ®åº“æœåŠ¡å™¨åœ°å€ï¼Œä¸€èˆ¬ä¸º127.0.0.1</span></div></td>
 </tr>
 <tr>
-<td class="tar">Êı¾İ¿âÓÃ»§Ãû£º</td>
+<td class="tar">æ•°æ®åº“ç”¨æˆ·åï¼š</td>
 <td><input type="text" name="dbuser" id="dbuser" value="root" class="input"></td>
-<td><div id="J_dbuser"><span class="gray">Êı¾İ¿âÓÃ»§Ãû</span></div></td>
+<td><div id="J_dbuser"><span class="gray">æ•°æ®åº“ç”¨æˆ·å</span></div></td>
 </tr>
 <tr>
-<td class="tar">Êı¾İ¿âÃÜÂë£º</td>
+<td class="tar">æ•°æ®åº“å¯†ç ï¼š</td>
 <td><input type="text" name="dbpwd" id="dbpwd" value="" class="input" autoComplete="off"></td>
-<td><div id="J_dbpwd"><span class="gray">Êı¾İ¿âÃÜÂë</span></div></td>
+<td><div id="J_dbpwd"><span class="gray">æ•°æ®åº“å¯†ç </span></div></td>
 </tr>
 <tr>
-<td class="tar">Êı¾İ¿âÃû£º</td>
+<td class="tar">æ•°æ®åº“åï¼š</td>
 <td><input type="text" name="dbname" id="dbname" value="msvod" class="input"></td>
-<td><div id="J_dbname"><span class="gray">Êı¾İ¿âÃû³Æ</span></div></td>
+<td><div id="J_dbname"><span class="gray">æ•°æ®åº“åç§°</span></div></td>
 </tr>
 <tr>
-<td class="tar">Êı¾İ¿â±íÇ°×º£º</td>
+<td class="tar">æ•°æ®åº“è¡¨å‰ç¼€ï¼š</td>
 <td><input type="text" name="dbprefix" id="dbprefix" value="ms_" class="input"></td>
-<td><div id="J_dbprefix"><span class="gray">½¨ÒéÊ¹ÓÃÄ¬ÈÏ£¬Í¬Ò»Êı¾İ¿â°²×°¶à¸ömsvodÊ±ĞèĞŞ¸Ä</span></div></td>
+<td><div id="J_dbprefix"><span class="gray">å»ºè®®ä½¿ç”¨é»˜è®¤ï¼ŒåŒä¸€æ•°æ®åº“å®‰è£…å¤šä¸ªmsvodæ—¶éœ€ä¿®æ”¹</span></div></td>
 </tr>
 </table>
-<div id="J_response_tips" style="display:none;"><div class="loading"><span>ÇëÉÔºó...</span></div></div>
+<div id="J_response_tips" style="display:none;"><div class="loading"><span>è¯·ç¨å...</span></div></div>
 </div>
 <div class="bottom tac">
-<a href="<?=install_url?>save1" class="btn">ÉÏÒ»²½</a><button onClick="checkdb();return false;" type="botton" class="btn btn_submit J_install_btn">´´½¨Êı¾İ</button>
+<a href="<?=install_url?>save1" class="btn">ä¸Šä¸€æ­¥</a><button onClick="checkdb();return false;" type="botton" class="btn btn_submit J_install_btn">åˆ›å»ºæ•°æ®</button>
 </div>
 </form>
 </section>
@@ -81,13 +81,13 @@
 <script language="JavaScript">
 <!--
 var errmsg = new Array();
-errmsg[0] = 'ÄúÒÑ¾­°²×°¹ımsvod£¬ÏµÍ³»á×Ô¶¯É¾³ıÀÏÊı¾İ£¡ÊÇ·ñ¼ÌĞø£¿';
-errmsg[2] = 'ÎŞ·¨Á¬½ÓÊı¾İ¿â·şÎñÆ÷£¬Çë¼ì²éÅäÖÃ£¡';
-errmsg[3] = '³É¹¦Á¬½ÓÊı¾İ¿â£¬µ«ÊÇÖ¸¶¨µÄÊı¾İ¿â²»´æÔÚ²¢ÇÒÎŞ·¨×Ô¶¯´´½¨£¬ÇëÏÈÍ¨¹ıÆäËû·½Ê½½¨Á¢Êı¾İ¿â£¡';
-errmsg[5] = './msvod/lib/Ms_DB.phpÎÄ¼şÃ»ÓĞĞŞ¸ÄÈ¨ÏŞ£¬ÇëÏÈÔö¼ÓÈ¨ÏŞ£¡';
+errmsg[0] = 'æ‚¨å·²ç»å®‰è£…è¿‡msvodï¼Œç³»ç»Ÿä¼šè‡ªåŠ¨åˆ é™¤è€æ•°æ®ï¼æ˜¯å¦ç»§ç»­ï¼Ÿ';
+errmsg[2] = 'æ— æ³•è¿æ¥æ•°æ®åº“æœåŠ¡å™¨ï¼Œè¯·æ£€æŸ¥é…ç½®ï¼';
+errmsg[3] = 'æˆåŠŸè¿æ¥æ•°æ®åº“ï¼Œä½†æ˜¯æŒ‡å®šçš„æ•°æ®åº“ä¸å­˜åœ¨å¹¶ä¸”æ— æ³•è‡ªåŠ¨åˆ›å»ºï¼Œè¯·å…ˆé€šè¿‡å…¶ä»–æ–¹å¼å»ºç«‹æ•°æ®åº“ï¼';
+errmsg[5] = './msvod/lib/Ms_DB.phpæ–‡ä»¶æ²¡æœ‰ä¿®æ”¹æƒé™ï¼Œè¯·å…ˆå¢åŠ æƒé™ï¼';
 
 function checkdb() {
-$('#J_response_tips').html('<div class="loading"><span>ÇëÉÔºó...</span></div>');
+$('#J_response_tips').html('<div class="loading"><span>è¯·ç¨å...</span></div>');
 $('#J_response_tips').show();
 var url='<?=install_url?>dbtest?dbdriver='+encodeURIComponent($('#dbdriver').val())+'&dbhost='+encodeURIComponent($('#dbhost').val())+'&dbuser='+encodeURIComponent($('#dbuser').val())+'&dbpwd='+encodeURIComponent($('#dbpwd').val())+'&dbname='+encodeURIComponent($('#dbname').val())+'&dbprefix='+encodeURIComponent($('#dbprefix').val())+'&sid='+Math.random()*5;
 $.get(url, function(data){

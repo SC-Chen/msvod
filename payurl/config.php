@@ -1,9 +1,9 @@
 <?php
 include_once "../msvod/lib/Ms_DB.php";
-//ÅäÖÃMYSQLÊý¾Ý¿âÁ¬½ÓÐÅÏ¢
-$mysqli_server_name = MS_Sqlserver; //Êý¾Ý¿â·þÎñÆ÷Ãû³Æ
-$mysqli_username = MS_Sqluid; // Á¬½ÓÊý¾Ý¿âÓÃ»§Ãû
-$mysqli_password = MS_Sqlpwd; // Á¬½ÓÊý¾Ý¿âÃÜÂë
-$mysqli_database = MS_Sqlname; // Êý¾Ý¿âµÄÃû×Ö
+//é…ç½®MYSQLæ•°æ®åº“è¿žæŽ¥ä¿¡æ¯
+$mysqli_server_name = MS_Sqlserver; //æ•°æ®åº“æœåŠ¡å™¨åç§°
+$mysqli_username = MS_Sqluid; // è¿žæŽ¥æ•°æ®åº“ç”¨æˆ·å
+$mysqli_password = MS_Sqlpwd; // è¿žæŽ¥æ•°æ®åº“å¯†ç 
+$mysqli_database = MS_Sqlname; // æ•°æ®åº“çš„åå­—
 $mysqli_conn = mysqli_connect($mysqli_server_name, $mysqli_username, $mysqli_password);
 ?>

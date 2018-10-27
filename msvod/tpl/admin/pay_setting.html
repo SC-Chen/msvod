@@ -50,9 +50,9 @@ $("#usual1 ul").idTabs();
 <input onclick="$('#zfb_1').show();$('#zfb_2').show();" class="box" name="MS_Alipay_JK" type="radio" value="2"<?php if(MS_Alipay_JK==2) echo ' checked="checked"';?>>&nbsp;<?=L('tpl_72')?>&nbsp;&nbsp;&nbsp;&nbsp;
 <input onclick="$('#zfb_1').hide();$('#zfb_2').hide();" class="box" name="MS_Alipay_JK" type="radio" value="3"<?php if(MS_Alipay_JK==3) echo ' checked="checked"';?>>&nbsp;<?=L('tpl_73')?>&nbsp;&nbsp;&nbsp;&nbsp;<b>*</b><?=L('tpl_74')?>
 </li>
-<li id="zfb_1"<?php if(MS_Alipay_JK==3) echo 'style="display:none";';?>><label>�̻�ID</label><input name="MS_Alipay_ID" type="text" class="dfinput" value="<?=MS_Alipay_ID?>" style="width:245px;"/><b>*</b>����������ID</li>
+<li id="zfb_1"<?php if(MS_Alipay_JK==3) echo 'style="display:none";';?>><label>商户ID</label><input name="MS_Alipay_ID" type="text" class="dfinput" value="<?=MS_Alipay_ID?>" style="width:245px;"/><b>*</b>合作者身份ID</li>
 <li id="zfb_2"<?php if(MS_Alipay_JK==3) echo 'style="display:none";';?>><label>APPID</label><input name="MS_Alipay_Key" type="text" class="dfinput" value="<?=MS_Alipay_Key?>" style="width:245px;"/><b>*</b><?=L('tpl_78')?></li>
-<li><label>�տ���Ϣ</label><input name="MS_Alipay_Name" type="text" class="dfinput" value="<?=MS_Alipay_Name?>" style="width:245px;"/><b>*</b>����֧��ҳ��չʾ���տ����</li>
+<li><label>收款信息</label><input name="MS_Alipay_Name" type="text" class="dfinput" value="<?=MS_Alipay_Name?>" style="width:245px;"/><b>*</b>用于支付页面展示的收款方名字</li>
 </ul>
 </div> 
 <div id="tab2" class="tabson" style="display: none">
@@ -63,9 +63,9 @@ $("#usual1 ul").idTabs();
 </li>
 </ul>
 <ul class="forminfo" id="off2"<?php if(MS_Tenpay==0) echo 'style="display:none";';?>>
-<li><label>˵����</label><a style="float:left;margin-top:4px;" href="#" target="sms">��ǩ΢��֧����ֻ��Ҫһ���տ�΢���˺ż���~��</a></li>
-<li><label>΢���˺�</label><input name="MS_Tenpay_ID" type="text" class="dfinput" value="<?=MS_Tenpay_ID?>" style="width:245px;"/><b>*</b>��д���΢�ź�</li>
-<li><label>΢�Ŷ�ά��</label><input name="MS_Tenpay_Key" id="MS_Tenpay_Key" type="text" class="dfinput" value="<?=MS_Tenpay_Key?>" style="width:245px;"/><input onclick="Popsboxif('<?=L('tpl_97')?>',550,450,'<?=site_url('admin/upload/up')?>?fhid=MS_Tenpay_Key&dir=look&type=*.jpg;*.png;*.gif');" class="button" type="button" name="button" value="�ϴ�"><b>*</b><b>*</b>��д���΢�źŶ�ά��</li>
+<li><label>说明：</label><a style="float:left;margin-top:4px;" href="#" target="sms">免签微信支付，只需要一个收款微信账号即可~！</a></li>
+<li><label>微信账号</label><input name="MS_Tenpay_ID" type="text" class="dfinput" value="<?=MS_Tenpay_ID?>" style="width:245px;"/><b>*</b>填写你的微信号</li>
+<li><label>微信二维码</label><input name="MS_Tenpay_Key" id="MS_Tenpay_Key" type="text" class="dfinput" value="<?=MS_Tenpay_Key?>" style="width:245px;"/><input onclick="Popsboxif('<?=L('tpl_97')?>',550,450,'<?=site_url('admin/upload/up')?>?fhid=MS_Tenpay_Key&dir=look&type=*.jpg;*.png;*.gif');" class="button" type="button" name="button" value="上传"><b>*</b><b>*</b>填写你的微信号二维码</li>
 </ul>
 </div>
 <div id="tab3" class="tabson" style="display: none">

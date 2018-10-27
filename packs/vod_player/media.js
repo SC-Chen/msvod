@@ -5,7 +5,7 @@ function $Showhtml(){
 	player += '<param name="stretchToFit" value="-1">';
 	player += '<embed filename="'+unescape(url)+'" ShowStatusBar="1" type="application/x-mplayer2" width="100%" height="'+height+'">';
 	player += '</object>';
-	player += '<div align="right" style="margin-right:69px;margin-top:-30px"><input type="submit" value="È«ÆÁ²¥·Å" onclick="setfullscreen()"></div>';	
+	player += '<div align="right" style="margin-right:69px;margin-top:-30px"><input type="submit" value="å…¨å±æ’­æ”¾" onclick="setfullscreen()"></div>';	
         document.getElementById('playlist').innerHTML = player;
 }
 function setfullscreen(){
