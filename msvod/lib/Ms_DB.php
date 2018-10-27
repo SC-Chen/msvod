@@ -10,7 +10,7 @@
 define('MS_Sqlserver', '127.0.0.1');
 
 //数据库名称
-define('MS_Sqlname', 'msvod');
+define('MS_Sqlname', 'msvod_utf8');
 
 //数据库表前缀
 define('MS_SqlPrefix', 'ms_');
@@ -25,7 +25,7 @@ define('MS_Sqlpwd', '');
 define('MS_Dbdriver', 'mysqli');
 
 //Mysql数据库编码
-define('MS_Sqlcharset', 'gbk');
+define('MS_Sqlcharset', 'utf8');
 
 //数据库缓寸开关
 define('MS_Cache_On', FALSE);
