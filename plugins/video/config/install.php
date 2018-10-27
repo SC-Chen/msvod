@@ -1,10 +1,12 @@
 <?php
 
-if (!defined('MSVODPATH')) exit('No permission resources');
+if (!defined('MSVODPATH')) {
+	exit('No permission resources');
+}
 
 return array(
 //视频列表
-"CREATE TABLE IF NOT EXISTS `{prefix}video` (
+	"CREATE TABLE IF NOT EXISTS `{prefix}video` (
 `id` int(10) unsigned NOT NULL auto_increment,
 `name` varchar(128) default '' COMMENT '名称',
 `color` varchar(10) default '' COMMENT '名称颜色',
@@ -61,10 +63,10 @@ KEY `zhits` (`zhits`),
 KEY `rhits` (`rhits`),
 KEY `video_hid_addtime` (`hid`,`addtime`),
 KEY `video_cid_yid_hid_id` (`yid`,`hid`,`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='视频表';",
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='视频表';",
 
 //视频分类
-"CREATE TABLE IF NOT EXISTS `{prefix}video_list` (
+	"CREATE TABLE IF NOT EXISTS `{prefix}video_list` (
 `id` mediumint(5) unsigned NOT NULL auto_increment,
 `name` varchar(64) default '' COMMENT '名称',
 `bname` varchar(30) default '' COMMENT '别名',
@@ -79,19 +81,19 @@ PRIMARY KEY  (`id`),
 KEY `xid` (`xid`),
 KEY `yid` (`yid`),
 KEY `fid` (`fid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='视频分类表';",
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='视频分类表';",
 
 //服务器组
-"CREATE TABLE IF NOT EXISTS `{prefix}video_server` (
+	"CREATE TABLE IF NOT EXISTS `{prefix}video_server` (
 `id` mediumint(5) unsigned NOT NULL auto_increment,
 `name` varchar(64) default '' COMMENT '名称',
 `purl` varchar(255) default '' COMMENT '播放地址',
 `durl` varchar(255) default '' COMMENT '下载地址',
 PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='视频服务器组';",
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='视频服务器组';",
 
 //收藏记录
-"CREATE TABLE IF NOT EXISTS `{prefix}video_fav` (
+	"CREATE TABLE IF NOT EXISTS `{prefix}video_fav` (
 `id` int(10) unsigned NOT NULL auto_increment,
 `sid` tinyint(1) default '1' COMMENT '类型1视频，2专题',
 `name` varchar(64) default '' COMMENT '视频名称',
@@ -104,10 +106,10 @@ KEY `uid` (`uid`),
 KEY `cid` (`cid`),
 KEY `did` (`did`),
 KEY `fav_uid_addtime` (`uid`,`addtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='视频收藏记录';",
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='视频收藏记录';",
 
 //下载记录
-"CREATE TABLE IF NOT EXISTS `{prefix}video_down` (
+	"CREATE TABLE IF NOT EXISTS `{prefix}video_down` (
 `id` int(10) unsigned NOT NULL auto_increment,
 `name` varchar(64) default '' COMMENT '视频名称',
 `cid` mediumint(5) unsigned default '0' COMMENT '视频分类ID',
@@ -121,10 +123,10 @@ KEY `uid` (`uid`),
 KEY `cid` (`cid`),
 KEY `did` (`did`),
 KEY `down_uid_addtime` (`uid`,`addtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='视频下载记录';",
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='视频下载记录';",
 
 //播放记录
-"CREATE TABLE IF NOT EXISTS `{prefix}video_play` (
+	"CREATE TABLE IF NOT EXISTS `{prefix}video_play` (
 `id` int(10) unsigned NOT NULL auto_increment,
 `name` varchar(64) default '' COMMENT '视频名称',
 `cid` mediumint(5) unsigned default '0' COMMENT '视频分类ID',
@@ -136,10 +138,10 @@ KEY `uid` (`uid`),
 KEY `cid` (`cid`),
 KEY `did` (`did`),
 KEY `play_uid_addtime` (`uid`,`addtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='视频播放记录';",
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='视频播放记录';",
 
 //视频专题
-"CREATE TABLE IF NOT EXISTS `{prefix}video_topic` (
+	"CREATE TABLE IF NOT EXISTS `{prefix}video_topic` (
 `id` int(10) unsigned NOT NULL auto_increment,
 `name` varchar(64) default '' COMMENT '名称',
 `color` varchar(10) default '' COMMENT '名称颜色',
@@ -175,14 +177,14 @@ KEY `yhits` (`yhits`),
 KEY `zhits` (`zhits`),
 KEY `rhits` (`rhits`),
 KEY `shits` (`shits`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='视频专题表';",
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='视频专题表';",
 
 //默认数据
-"INSERT INTO `{prefix}video_list` (`id`, `name`, `bname`, `fid`, `xid`, `yid`, `skins`, `title`, `keywords`, `description`) VALUES
+	"INSERT INTO `{prefix}video_list` (`id`, `name`, `bname`, `fid`, `xid`, `yid`, `skins`, `title`, `keywords`, `description`) VALUES
 (1, '华语视频', 'hygq', 0, 1, 0, 'list.html', '', '', ''),
 (2, '港台视频', 'gtgq', 0, 2, 0, 'list.html', '', '', ''),
 (3, '日韩视频', 'rhgq', 0, 3, 0, 'list.html', '', '', ''),
 (4, '欧美视频', 'omgq', 0, 4, 0, 'list.html', '', '', ''),
 (5, '流行视频', 'lxgq', 1, 1, 0, 'list.html', '', '', ''),
-(6, '伤感视频', 'sggq', 1, 2, 0, 'list.html', '', '', '');"
+(6, '伤感视频', 'sggq', 1, 2, 0, 'list.html', '', '', '');",
 );

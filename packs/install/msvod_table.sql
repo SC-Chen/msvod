@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}admin` (
   `card` varchar(255) default '' COMMENT '口令卡',
   `sid` smallint(3) unsigned default '0' COMMENT '角色id',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='管理员表';
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='管理员表';
 
 --msvod_adminzu<msvod>--
 
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}adminzu` (
   `sys` text COMMENT '默认权限',
   `app` text COMMENT '板块权限',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='管理员角色表';
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='管理员角色表';
 
 
 --msvod_admin_log<msvod>--
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}admin_log` (
   `useragent` varchar(255) default '' COMMENT '客户端信息',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='管理员登录表';
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='管理员登录表';
 
 
 --msvod_ads<msvod>--
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}ads` (
   `neir` varchar(200) default '' COMMENT '标签介绍',
   `addtime` int(11) default '0' COMMENT '增加时间',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='自定义JS表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='自定义JS表';
 
 
 --msvod_blog<msvod>--
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}blog` (
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`),
   KEY `pjits` (`phits`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='会员说说表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='会员说说表';
 
 
 --msvod_caiji<msvod>--
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}caiji` (
   `strth` text,
   `addtime` int(10) unsigned default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='采集规则表';
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='采集规则表';
 
 
 
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}cjannex` (
   PRIMARY KEY  (`id`),
   KEY `cid` (`cid`),
   KEY `fid` (`fid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='采集新增规则表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='采集新增规则表';
 
 
 --msvod_cjdata<msvod>--
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}cjdata` (
   `addtime` int(10) unsigned default '0',
   PRIMARY KEY  (`id`),
   KEY `zid` (`zid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='采集数据表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='采集数据表';
 
 
 
@@ -151,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}cjlist` (
   `zid` tinyint(1) default '0',
   PRIMARY KEY  (`id`),
   KEY `zid` (`zid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='采集站点表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='采集站点表';
 
 
 --msvod_dt<msvod>--
@@ -171,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}dt` (
   KEY `yid` (`yid`),
   KEY `did` (`did`),
   KEY `dt_dir_id` (`dir`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='会员动态表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='会员动态表';
 
 
 --msvod_fans<msvod>--
@@ -183,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}fans` (
   `addtime` int(10) unsigned default '0' COMMENT '时间',
   PRIMARY KEY  (`id`),
   KEY `fans_uida_id` (`uida`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='粉丝表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='粉丝表';
 
 
 --msvod_friend<msvod>--
@@ -195,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}friend` (
   `addtime` int(10) unsigned default '0' COMMENT '时间',
   PRIMARY KEY  (`id`),
   KEY `friend_uida_id` (`uida`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='好友表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='好友表';
 
 
 --msvod_funco<msvod>--
@@ -208,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}funco` (
   PRIMARY KEY  (`id`),
   KEY `funco_uida_id` (`uida`,`id`),
   KEY `funco_uidb_id` (`uidb`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='访客表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='访客表';
 
 
 --msvod_gbook<msvod>--
@@ -227,7 +227,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}gbook` (
   KEY `cid` (`cid`),
   KEY `gbook_uida_id` (`uida`,`id`),
   KEY `gbook_uidb_id` (`uidb`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='留言表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='留言表';
 
 
 --msvod_label<msvod>--
@@ -240,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}label` (
   `addtime` int(10) unsigned default '0' COMMENT '时间',
   PRIMARY KEY  (`id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='静态标签表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='静态标签表';
 
 
 --msvod_link<msvod>--
@@ -257,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}link` (
   KEY `cid` (`cid`),
   KEY `sid` (`sid`),
   KEY `xid` (`xid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='友情链接表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='友情链接表';
 
 
 --msvod_income<msvod>--
@@ -275,7 +275,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}income` (
   KEY `sid` (`sid`),
   KEY `uid` (`uid`),
   KEY `dir` (`dir`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='收入记录表';
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='收入记录表';
 
 
 --msvod_page<msvod>--
@@ -291,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}page` (
   PRIMARY KEY  (`id`),
   KEY `sid` (`sid`),
   KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='自定义页面表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='自定义页面表';
 
 
 --msvod_pay<msvod>--
@@ -309,7 +309,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}pay` (
   KEY `uid` (`uid`),
   KEY `pid` (`pid`),
   KEY `dingdan` (`dingdan`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='支付记录表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='支付记录表';
 
 
 --msvod_paycard<msvod>--
@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}paycard` (
   `addtime` int(10) unsigned default '0' COMMENT '生成时间',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='充值卡表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='充值卡表';
 
 
 --msvod_plugins<msvod>--
@@ -340,7 +340,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}plugins` (
   `ak` text COMMENT 'ak',
   PRIMARY KEY  (`id`),
   KEY `dir` (`dir`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='板块表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='板块表';
 
 
 --cs_pl<msvod>--
@@ -362,7 +362,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}pl` (
   KEY `did` (`did`),
   KEY `fid` (`fid`),
   KEY `pl_dir_did_id` (`dir`,`did`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='评论表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='评论表';
 
 
 --msvod_session<msvod>--
@@ -377,7 +377,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}session` (
   PRIMARY KEY  (`sessionid`),
   KEY `uid` (`uid`),
   KEY `addtime` (`addtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='session数据表';
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='session数据表';
 
 
 
@@ -396,7 +396,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}spend` (
   KEY `uid` (`uid`),
   KEY `sid` (`sid`),
   KEY `dir` (`dir`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='消费记录表';
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='消费记录表';
 
 
 --msvod_tags<msvod>--
@@ -411,7 +411,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}tags` (
   KEY `fid` (`fid`),
   KEY `xid` (`xid`),
   KEY `hits` (`hits`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='全站TAGS标签表';
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='全站TAGS标签表';
 
 
 --msvod_user<msvod>--
@@ -473,7 +473,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}user` (
   KEY `rhits` (`rhits`),
   KEY `addhits` (`addhits`),
   KEY `user_yid_id` (`yid`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='会员表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='会员表';
 
 
 --msvod_user_log<msvod>--
@@ -486,7 +486,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}user_log` (
   `useragent` varchar(255) default '' COMMENT '客户端信息',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='会员登录表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='会员登录表';
 
 
 --msvod_userzu<msvod>--
@@ -509,7 +509,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}userzu` (
   `did` tinyint(1) default '0' COMMENT '下载免费权限',
   PRIMARY KEY  (`id`),
   KEY `xid` (`xid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='会员组表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='会员组表';
 
 
 --msvod_userlevel<msvod>--
@@ -523,7 +523,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}userlevel` (
   PRIMARY KEY  (`id`),
   KEY `xid` (`xid`),
   KEY `stars` (`stars`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='会员等级表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='会员等级表';
 
 
 --msvod_useroauth<msvod>--
@@ -544,7 +544,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}useroauth` (
   KEY `csid` (`csid`),
   KEY `cid` (`cid`),
   KEY `oid` (`oid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='会员OAuth2授权表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='会员OAuth2授权表';
 
 
 --msvod_msg<msvod>--
@@ -560,7 +560,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}msg` (
   PRIMARY KEY  (`id`),
   KEY `did` (`did`),
   KEY `msg_uida_id` (`uida`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='会员消息表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='会员消息表';
 
 
 --msvod_web_pay<msvod>--
@@ -575,7 +575,7 @@ CREATE TABLE IF NOT EXISTS `{Prefix}web_pay` (
   PRIMARY KEY  (`id`),
   KEY `mid` (`mid`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='模板使用记录表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='模板使用记录表';
 
 
 --msvod_share<msvod>--
@@ -590,4 +590,4 @@ CREATE TABLE IF NOT EXISTS `{Prefix}share` (
   `addtime` int(10) unsigned default '0' COMMENT '访问时间',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk COMMENT='宣传记录表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='宣传记录表';

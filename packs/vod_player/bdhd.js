@@ -29,7 +29,7 @@ BdPlayer['lastwebpage'] = ''+surl+'';//上一集网页地址(没有请留空)
 
 BdPlayer['nextwebpage'] = ''+xurl+'';//下一集网页地址(没有请留空)
 
-document.write('<script language="javascript" src="http://php.player.baidu.com/bdplayer/player.js" charset=gbk></scr'+'ipt>');
+document.write('<script language="javascript" src="http://php.player.baidu.com/bdplayer/player.js" charset=utf-8></scr'+'ipt>');
 
     //document.getElementById('playlist').innerHTML = player;
 }

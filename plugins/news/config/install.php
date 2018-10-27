@@ -1,10 +1,12 @@
 <?php
 
-if (!defined('MSVODPATH')) exit('No permission resources');
+if (!defined('MSVODPATH')) {
+	exit('No permission resources');
+}
 
 return array(
-		  //小说列表
-         "CREATE TABLE IF NOT EXISTS `{prefix}news` (
+	//小说列表
+	"CREATE TABLE IF NOT EXISTS `{prefix}news` (
             `id` int(10) unsigned NOT NULL auto_increment,
             `name` varchar(128) default '' COMMENT '名称',
             `bname` varchar(64) default '' COMMENT '英文别名',
@@ -47,10 +49,10 @@ return array(
              KEY `rhits` (`rhits`),
              KEY `news_hid_addtime` (`hid`,`addtime`),
              KEY `news_cid_yid_hid_id` (`yid`,`hid`,`id`)
-          ) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='小说表';",
+          ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='小说表';",
 
-         //小说分类
-         "CREATE TABLE IF NOT EXISTS `{prefix}news_list` (
+	//小说分类
+	"CREATE TABLE IF NOT EXISTS `{prefix}news_list` (
             `id` mediumint(5) unsigned NOT NULL auto_increment,
             `name` varchar(64) default '' COMMENT '名称',
             `bname` varchar(30) default '' COMMENT '英文别名',
@@ -65,10 +67,10 @@ return array(
              KEY `xid` (`xid`),
              KEY `yid` (`yid`),
              KEY `fid` (`fid`)
-          ) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='小说分类表';",
+          ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='小说分类表';",
 
-         //收费阅读记录
-         "CREATE TABLE IF NOT EXISTS `{prefix}news_look` (
+	//收费阅读记录
+	"CREATE TABLE IF NOT EXISTS `{prefix}news_look` (
             `id` int(10) unsigned NOT NULL auto_increment,
             `name` varchar(64) default '' COMMENT '小说名称',
             `cid` mediumint(5) unsigned default '0' COMMENT '小说分类ID',
@@ -81,11 +83,10 @@ return array(
              KEY `uid` (`uid`),
              KEY `cid` (`cid`),
              KEY `did` (`did`)
-          ) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='小说收费阅读记录';",
+          ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='小说收费阅读记录';",
 
-
-         //小说专题
-         "CREATE TABLE IF NOT EXISTS `{prefix}news_topic` (
+	//小说专题
+	"CREATE TABLE IF NOT EXISTS `{prefix}news_topic` (
             `id` int(10) unsigned NOT NULL auto_increment,
             `name` varchar(64) default '' COMMENT '名称',
             `bname` varchar(20) default '' COMMENT '别名',
@@ -110,10 +111,10 @@ return array(
              KEY `yhits` (`yhits`),
              KEY `zhits` (`zhits`),
              KEY `rhits` (`rhits`)
-          ) ENGINE=MyISAM  DEFAULT CHARSET=gbk COMMENT='小说专题表';",
+          ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='小说专题表';",
 
-		  //默认分类数据
-         "INSERT INTO `{prefix}news_list` (`id`, `name`, `bname`, `fid`, `xid`, `yid`, `skins`, `title`, `keywords`, `description`) VALUES
+	//默认分类数据
+	"INSERT INTO `{prefix}news_list` (`id`, `name`, `bname`, `fid`, `xid`, `yid`, `skins`, `title`, `keywords`, `description`) VALUES
             (1, '国内', 'gl', 0, 1, 0, 'list.html', '', '', ''),
             (2, '时政', 'sz', 0, 2, 0, 'list.html', '', '', ''),
             (3, '社会', 'sh', 0, 3, 0, 'list.html', '', '', ''),
@@ -124,5 +125,5 @@ return array(
             (8, '时尚', 'ss', 0, 8, 0, 'list.html', '', '', ''),
             (9, '科技', 'kj', 0, 9, 0, 'list.html', '', '', ''),
             (10, '体育', 'ty', 0, 10, 0, 'list.html', '', '', ''),
-            (11, '教育', 'jy', 0, 11, 0, 'list.html', '', '', '');"
+            (11, '教育', 'jy', 0, 11, 0, 'list.html', '', '', '');",
 );
