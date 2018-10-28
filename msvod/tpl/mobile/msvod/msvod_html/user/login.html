@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>会员登陆-{msvod:webname}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/css/mui.min.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1474189785_494376/myfont-icon.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476775516_8984702/iconfont3.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476784266_9052436/iconfont4.css">
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}usercss/css/slider-common.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/font/iconfont.css">
+<link rel="stylesheet" href="{msvod:tempurl}js/user.js">
+</head>
+<body style="background:#fff;">
+<h2 class="my_title">
+<a class="l" href="javascript:history.go(-1)" style="padding-left:5%;font-size:20px;"> &lt; </a>会员登陆
+<a href="/index.php/user/reg" class="r" style="padding-right:3.3%">注册</a>
+</h2>
+<section class="logins">
+<form  action="/index.php/user/login/save" method="post">
+<div class="username">
+<span class="mui-icon iconfont t8 l"></span>
+<input type="text" name="username" placeholder="请输入登陆账号" class="input1" style="border: 0px;width: 85%;height: 30px;padding: 0px 15px;">
+</div>
+<div class="username">
+<span class="mui-icon iconfont t8 l"></span>
+<input type="password" name="userpass" placeholder="请输入您的密码" class="input1" style="border: 0px;width: 85%;height: 30px;padding: 0px 15px;">
+</div>
+<div class="user_login_box" style="display:none;">
+<input name="usercode" type="text" class="txtinput" placeholder="验证码" id="code">
+<div class="more"><img class="codes" style="width:100px;height:25px;" border="0"></div>
+</div>
+<input type="hidden" name="token" value="[user:token]"/>
+<input type="hidden" name="action" value="login">
+<input name="log" style="width:100%;margin:5% auto 0px auto;line-height:25px;" type="submit" class="bo22tton" id="log" value="立即登陆">
+<div style="float:right;margin-top:5px;font-size:13px;"><a href="/index.php/user/pass">忘记密码？&nbsp;</a></div>
+<div style="float:left;margin-top:5px;font-size:13px;"><a href="/index.php/user/reg">&nbsp;&nbsp;&nbsp;用户注册</a></div>
+</form>
+</section>
+{msvod:bottom}
+</body>
+</html>

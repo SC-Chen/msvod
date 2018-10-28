@@ -1,0 +1,23 @@
+<header>
+<ion-header-bar>
+<a class="logo" href="#">{msvod:webname}</a>
+<div class="iconsrt">
+<a class="icon ion-ios-search-strong" href="/index.php/video/search" style="font-size: 25px;position: relative;top:2px;"></a>
+<!--<a class="icon ion-android-time" style="position: relative;top:1px;"></a>-->
+<a href="/index.php/user/space" class="icon ion-android-contact" style="position: relative;top:1px;"></a>
+</div>
+</ion-header-bar>
+</header>
+<section class="serchbox" ng-show="mySearch">
+<form method="get" id="searchform" action="/index.php/video/search">
+<div class="searchs" >
+<div class="bar bar-header item-input-inset">
+<label class="item-input-wrapper" >
+<i class="icon ion-ios-search placeholder-icon"></i>
+<input type="search" id="key" name="key" placeholder="搜索视频...">
+</label>
+<button class="button" type="submit">立即搜索</button>
+</div>
+</div>
+</form>
+</section>

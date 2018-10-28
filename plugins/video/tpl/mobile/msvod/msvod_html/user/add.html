@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>会员中心-{msvod:webname}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="{msvod:indextempurl}usercss/css/user.min.css">
+<link rel="stylesheet" href="{msvod:indextempurl}usercss/fonts/ux_1474189785_494376/myfont-icon.css">
+<link rel="stylesheet" href="{msvod:indextempurl}usercss/fonts/ux_1476775516_8984702/iconfont3.css">
+<link rel="stylesheet" href="{msvod:indextempurl}usercss/fonts/ux_1476784266_9052436/iconfont4.css">
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}usercss/css/slider-common.css">
+<link rel="stylesheet" href="{msvod:indextempurl}usercss/fonts/font/userfont.css"> 
+</head>
+<body>
+<div id="tabbar-with-Me" class="mui-control-content" style="padding-bottom:50px;"> 
+<h2 class="my_title">
+<a class="l" href="javascript:history.go(-1)" style="padding-left:5%;font-size:20px;">  &lt; </a>资料修改
+<a href="/index.php/user/space" class="r" style="padding-right:3.3%"><span class="t5 l"><img src="{msvod:indextempurl}images/home.png" width="25" height="23" ></span></a>
+</h2>
+<section class="jilu" style="margin-top: 2.2%;"> 
+<a href="/index.php/user/edit">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:indextempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">资料修改</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a> 
+<a href="/index.php/user/edit/pass">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;color:red;"><img src="{msvod:indextempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">密码修改</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a> 
+</section>
+<section class="jilu" style="margin-top: 2.2%;"> 
+<form  method="post" action="[user:videosave]" style="padding:0 10px;" >
+<table width="100%" border="0" cellpadding="5" cellspacing="5">
+<tr>
+<td width="100" height="40">视频分类：</td>
+<td height="40">
+<select class="rinput" name="cid" style="width:140px;">
+{msvod:class table="video_list" fid="0" sort="xid" order="asc"}
+<option value="[class:id]">&nbsp;|—[class:name]</option>
+{msvodtype:class2 table="video_list" fid="auto" sort="xid" order="asc"}
+<option value="[class2:id]">&nbsp;|&nbsp;&nbsp;&nbsp;|—[class2:name]</option>
+{/msvodtype:class2}
+{/msvod:class}
+</select>
+</td>
+</tr>
+<tr>
+<td width="100" height="40">视频名称：</td>
+<td height="40"><input style="width:100px;" type="text" id="pic" name="pic"/>&nbsp;<input onClick="msvod_up('video','pic','*.jpg;*.png;*.gif','up_pic');" class="button" type="button" name="button" value="&nbsp;上传&nbsp;"></td>
+</tr>
+<tr>
+<td width="100" height="40">视频图片：</td>
+<td height="40"><input style="width:100px;" type="text" id="tags" name="tags"/>&nbsp;<input onClick="msvod_tags('tags');" class="button" type="button" name="button" value="&nbsp;选择&nbsp;"></td>
+</tr>
+<tr>
+<td width="100" height="40">视频标签：</td>
+<td height="40"><input name="userpass2" style="width:100px;" type="password" class="make_resume_input" id="userpass2"/></td>
+</tr>
+ 
+<tr>
+<td width="100" height="40">观看金币：</td>
+<td height="40">
+<input style="width:50px;" type="text"   name="cion" value="0" datatype="n" nullmsg="金币不能为空" errormsg="金币格式不正确"/>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;下载金币&nbsp;<input style="width:50px;" type="text" name="dcion" value="0" datatype="n" nullmsg="金币不能为空" errormsg="金币格式不正确"/></td>
+</tr>
+<tr style="display:none;">
+  <td width="100" height="40">上传方式：</td>
+  <td height="40">
+{if:{msvod:usersc}==0}
+站内上传<input name="zc" type="radio" class="box" value="0" checked>
+{else}
+&nbsp;&nbsp;
+<input name="zc" type="radio" class="box" value="1" checked="CHECKED">
+云端上传&nbsp;&nbsp;
+{end if}
+  </td>
+</tr>
+<tr>
+  <td width="100" height="40">播放地址：</td>
+  <td height="40">
+<input style="width:100px;" type="text" id="purl" name="purl" value="" datatype="*" nullmsg="视频路径不能为空"/>&nbsp;
+{if:{msvod:usersc}==0}
+<input onClick="msvod_up('look','purl','*.mp3;*.m4a;*.mp4;*.wma','up_msg');" class="button" type="button" name="button" value="&nbsp;上传&nbsp;">
+{else}
+<sapn id="chosevideo" style="float:right;margin-right:85px;">上传</sapn>
+{end if}
+  </td>
+</tr>
+<tr>
+  <td width="100" height="40">下载地址：</td>
+  <td height="40">
+<input style="width:100px;" type="text" id="durl" name="durl" value=""/>&nbsp;
+<input onClick="msvod_up('look','durl','*.mp3;*.m4a;*.mp4;*.wma','up_msg');" class="button" type="button" name="button" value="&nbsp;上传&nbsp;">
+  </td>
+</tr>
+<tr>
+  <td width="100" height="40">视频简介：</td>
+  <td height="40">
+<textarea style="width:100px;height:120px;"   name="text"></textarea>  </td>
+</tr>
+<tr>
+  <td width="100" height="40">&nbsp;</td>
+  <td height="40">
+<input type="hidden" name="token" value="[user:token]"/>
+<input class="btn btn-primary btn-small" style="border-radius:0px;" type="submit" value="立即上传" />
+<div id="divFileProgressContainer"></div>
+  </td>
+</tr>
+</table>
+</form>
+</section>
+</div>
+<div id="fade" class="black_overlay"></div>
+{msvod:indexbottom}
+</body>
+</html>

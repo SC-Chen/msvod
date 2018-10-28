@@ -1,0 +1,35 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{msvod:title}_{msvod:webname}</title>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/user.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/blackblue.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/style.css"/>
+</head>
+<body>
+<table width="650" border="0" cellpadding="5" cellspacing="5" class="table borderx3">
+<tr>
+<td width="85" height="35"><strong>信息标题：</strong></td>
+<td height="35"><font style="color:#000;font-size:15px;">[msg:name]</font>{if:[msg:uidb]>0}【<a href="#" onClick="msvod_if('发送消息','<?php echo spacelink('msg,add/[msg:id]')."?id=";?>[msg:id]','500','32%');">回复消息</a>】{end if}</td>
+</tr>
+<tr>
+<td width="85" height="35"><strong>信息内容：</strong></td>
+<td height="35"><font style="color:red;font-size:13px;">[msg:neir]</font></td>
+</tr>
+<tr>
+<td width="85" height="35"><strong>发送者：</strong></td>
+<td height="35">    {if:[msg:uidb]==0}
+<P>管理员</P>
+{else}
+<P><a href="[msg:ulink]" target="_blank">[msg:user zd=nichen]</a></P>
+{end if}</td>
+</tr>
+<tr>
+<td width="85" height="35"><strong>发送时间：</strong></td>
+<td height="35">[msg:addtime style=Y-m-d h:i:s]</td>
+</tr>
+</table>
+</body>
+</html>

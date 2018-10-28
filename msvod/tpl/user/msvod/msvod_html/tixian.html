@@ -1,0 +1,104 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{msvod:title}_{msvod:webname}</title>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/style.css"/>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/user.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/blackblue.css" />
+<script type="text/javascript" src="{msvod:tempurl}js/city.js"></script>
+<script type="text/javascript" src="{msvod:tempurl}js/jquery.validform.js"></script>
+<script type="text/javascript" src="{msvod:tempurl}js/common.js"></script>
+<script type="text/javascript" src="{msvod:tempurl}js/jquery.emot.js"></script>
+<script type="text/javascript" src="{msvod:tempurl}js/jquery.poshytip.js"></script>
+</head>
+<body>
+<div>
+<div class="sidebar"  >
+<div style="background-color:#000000; overflow:hidden;" >
+{msvod:left}
+</div>
+<div class="main">
+{msvod:head}
+<script language="javascript">
+$("#dhcdys").hover(function(){$("#dhcdys").attr("class","nvs3 bc");$(".dh").show()},function(){$("#dhcdys").attr("class","nvs2 bc");$(".dh").hide()})
+ShowCdQuantity();
+</script>
+<div class="mainct">
+<table width="450" border="0">
+<tbody><tr>
+<td class="fouces_menuoff"><a href="[user:url userlink=daili]">三级分销</a></td>
+{if:[user:dlrz]==2}
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=daili,lists]">我的下线</a></td>
+<td class="fouces_menuon" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=daili,tixian]">佣金提现</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=daili,lipin_list]">礼品兑换</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=daili,tx_lists]">提现记录</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=daili,lipin_jilu]">兑换记录</a></td>
+{end if}
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table borderx3 ">
+<form class="think-form" action="/index.php/user/daili/tx_save" method="post">
+<tr>
+<th height="30" colspan="2" class="fbold" style="font-size:14px;">佣金提现</th>
+<tr>
+<tr>
+<td height="35" align=right>可提现金额：</td>
+<td width="70%"><font color="red">[user:zjcion]</font> 元</td>
+</tr>
+<tr>
+<td width="12%" height="35" align=right>提现金额：</td>
+<td width="70%"><input class="rinput" type="text" name="cion" value=""></td>
+</tr>
+<tr>
+<td height="35" align=right>提现方式：</td>
+<td>
+<select class="rinput" name="cid">
+{msvod:class table="daili_type" order="asc"}
+<option value="[class:id]">[class:name]</option>
+{/msvod:class}
+</select>
+<span class="validform_checktip"></span>
+</td>
+</tr>
+<tr>
+<td height="35" align=right>提现账号：</td>
+<td><input name="text" type="text" class="rinput" value="">
+<span class="validform_checktip"></span>
+</td>
+</tr>
+<tr>
+<td height="35" align=right>您的姓名：</td>
+<td><input name="name" type="text" class="rinput" value="">          
+<span class="validform_checktip"></span>
+</td>
+</tr>
+<tr>
+<td height="35" align=right>联系电话：</td>
+<td><input name="tell" type="text" class="rinput" value="">
+<span class="validform_checktip"></span>
+</td>
+</tr>
+<tr>
+<td width="10%" height=40 align="center" >&nbsp;</td>
+<td width="70%" height=50>
+<input type="hidden" name="token" value="[user:token]"/>
+<input class="btn btn-primary btn-small" style="border-radius:0px;" type="submit" value="保存修改" />
+</td>
+</tr>
+</form>
+</table>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('#touxiang1').addClass('touxiang1');
+miniblog.addinit();
+</script>
+</body>
+</html>

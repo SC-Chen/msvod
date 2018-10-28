@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-http://W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<html>
+<meta property="og:type" content="image"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<title>{msvod:title}</title>
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/style.css">
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/ding.css">
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.lazyload.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/common.js"></script>
+<script src="{msvod:indextempurl}js/jquery.SuperSlide.2.1.1.js"></script>
+<!--[if lte IE 8]><script>alert("IE8游览器落后了，为了更好的体验请使用/360/谷歌/或其他游览器访问本站")</script><![endif]-->
+<!--[if lte IE 7]><script>alert("IE7游览器落后了，为了更好的体验请使用/360/谷歌/或其他游览器访问本站")</script><![endif]-->
+<!--[if lte IE 6]><script>alert("IE6游览器落后了，为了更好的体验请使用/360/谷歌/或其他游览器访问本站")</script><![endif]-->
+</head>
+<body id="top">
+{msvod:head}
+<div class="content clearfix">
+<div class="mod-common clearfix">
+<div class="box1" style="margin-top:10px;">
+<div class="box1_left">
+<div class="focusBox">
+<ul class="pic" style="position: relative; width: 544px; height: 270px;">
+{msvodself:pcad}
+</ul>
+<div class="banner-btn"> <a href="javascript:;" class="prev" style="display: none; opacity: 0.2;"><i></i></a> 
+<a href="javascript:;" class="next" style="display: none; opacity: 0.2;"><i></i></a> 
+</div>
+</div>
+<div class="user_rz">
+<h1><span class="sqrz"><a target="_blank" href="{msvod:reglink}"><em></em>快速注册</a></span>活跃会员</h1>
+<div class="userlist"> 
+{msvod:user table="user" field="id,name,logo" sort="addtime" loop="8" order="desc"}
+<a href="[user:url ulink=index]" target="_blank"><img src="[user:logo dir=logo]" alt="[user:name]的空间" width="52" height="52"><p>[user:name]</p></a>
+{/msvod:user}
+</div>
+</div>
+</div>
+<div class="nrtuijian">
+<h1>最新推荐视频</h1>
+<ul class="pic6txt con">
+{msvod:video table="video" loop="5" field="id,name,addtime,pic,hits,shits,dhits,cion,sc,vip" reco="1,2,3,4,5" sort="id"}
+<li> <a href="[video:url zdy=video,id,play,id]" title="[video:name]" class="pic" target="_blank"><img src="[video:pic dir=video]" alt="[video:name]"  width="135" height="60"></a>
+<div class="info"> <a class="name" href="[video:url zdy=video,id,play,id]" target="_blank">[video:name len=10]</a>
+<table width="100%" border="0" cellpadding="1" cellspacing="1">
+<tr>
+<td width="15" height="15"><img src="{msvod:indextempurl}/images/jinbi.png"></td>
+<td style="color:red;">[video:cion] 个</td>
+</tr>
+<tr>
+<td height="15"><img src="{msvod:indextempurl}/images/k.png"></td>
+<td>[video:hits] 次</td>
+</tr>
+</table>
+</div>
+</li>
+{/msvod:video}
+</ul>
+</div>
+<div class="box1_right">
+<div id="index_tool" class="txtScroll-top">
+<ul>
+<h2 class="title">最新推荐小说</h2>
+</ul>
+<div class="bd">
+<div class="tempWrap" style="overflow:hidden; position:relative; height:234px"><dl class="mn_city infoList" style="top: -1001.06px; position: relative; padding: 0px; margin: 0px;">
+{msvod:news table="news" field="id,color,name,addtime" loop="20" reco="1,2,3,4,5" sort="id"}
+<dd style="height: 38px;"> <a href="[news:url zdy=news,id,show,id]" target="_blank"><font color="[news:color]">[news:name]</font></a> </dd>
+{/msvod:news}
+</dl>
+</div>
+</div>
+</div>
+<div class="index_fav" style="margin-top:-5px;">
+<a href="/index.php/user/pay" class="index_rz" target="_blank">加入VIP</a> 
+<a href="#" onclick="msvod_if('APP下载','{msvodpage:app}','550','370');" title="APP" class="index_jiaqun">APP下载</a>
+<a href="/index.php/user/space" target="_blank" title="签到金币" class="index_vip">签到金币</a> 
+<a href="/index.php/user/share" target="_blank" title="宣传金币" class="index_tui">宣传金币</a> </div>
+</div>
+</div>
+<div class="mod-channel" style="margin-top:10px;">
+<div class="channel-title">
+<h2>网友正在观看</h2>
+</div>
+<div class="mediaThumbsbox">
+<ul class="mediaThumbs" id="thumbs">
+{msvod:video table="video" loop="8" field="id,name,addtime,pic,hits,shits,dhits,cion,sc,vip,color,uid" sort="rand"}
+<li class="col-md-4">
+<div class="libox">
+<div class="mediaCover">
+<a href="[video:url zdy=video,id,play,id]">
+<img class="mediaThumb" src="[video:pic dir=video]" style="display:block;">
+<i class="icon-facetime-video"></i>
+<div class="icons"><i class="icon-play"></i></div>
+<div class="uploader">
+<img class="userThumb" src="[video:user zd=logo]">
+<span>[video:user zd=name]</span>
+</div>                             
+</a>
+</div>
+<h3><a href="[video:url zdy=video,id,play,id]"><font color="[video:color]">[video:name len=17]</font></a></h3>
+<div class="additionalInfo clearfix">
+<p><i class="icoindexs icon-time"></i>[video:addtime style=Y-m-d]<span style="color:red;float:right;">[video:sc]</span></p>
+</div>                      
+<ul class="details clearfix">
+<li>[video:hits]<i class="icoindexs icon-thumbs-up-kan"></i></li>
+<li>[video:dhits]<i class="icoindexs icon-thumbs-up-ding"></i></li>
+{if:[video:vip]>1}<li style="color:red;">Vip<i class="icoindexs icon-thumbs-up-vip"></i></li>{end if}
+<li style="color:red;">[video:cion]<i class="icoindexs icon-thumbs-up-jb"></i></li>
+</ul>
+</div>
+</li>
+{/msvod:video}
+</ul>
+</div>
+</div>
+<div class="mod-channel">
+<div class="channel-title">
+<h2>最新上传视频</h2>
+</div>
+<div class="mediaThumbsbox">
+<ul class="mediaThumbs" id="thumbs1">
+{msvod:video table="video" loop="8" field="id,name,addtime,pic,hits,shits,dhits,cion,sc,vip,color,uid" sort="id"}
+<li class="col-md-4">
+<div class="libox">
+<div class="mediaCover">
+<a href="[video:url zdy=video,id,play,id]">
+<img class="mediaThumb" src="[video:pic dir=video]" style="display:block;">
+<i class="icon-facetime-video"></i>
+<div class="icons"><i class="icon-play"></i></div>
+<div class="uploader">
+<img class="userThumb" src="[video:user zd=logo]">
+<span>[video:user zd=name]</span>
+</div>                             
+</a>
+</div>
+<h3><a href="[video:url zdy=video,id,play,id]"><font color="[video:color]">[video:name len=17]</font></a></h3>
+<div class="additionalInfo clearfix">
+<p><i class="icoindexs icon-time"></i>[video:addtime style=Y-m-d]<span style="color:red;float:right;">[video:sc]</span></p>
+</div>                      
+<ul class="details clearfix">
+<li>[video:hits]<i class="icoindexs icon-thumbs-up-kan"></i></li>
+<li>[video:dhits]<i class="icoindexs icon-thumbs-up-ding"></i></li>
+{if:[video:vip]>1}<li style="color:red;">Vip<i class="icoindexs icon-thumbs-up-vip"></i></li>{end if}
+<li style="color:red;">[video:cion]<i class="icoindexs icon-thumbs-up-jb"></i></li>
+</ul>
+</div>
+</li>
+{/msvod:video}
+</ul>
+</div>
+</div>
+<div class="mod-channel">
+<div class="channel-title">
+<h2>热门视频排行</h2>
+</div>
+<div class="mediaThumbsbox">
+<ul class="mediaThumbs" id="thumbs2">
+{msvod:video table="video" loop="8" field="id,name,addtime,pic,hits,shits,dhits,cion,sc,vip,color,uid" sort="hits"}
+<li class="col-md-4">
+<div class="libox">
+<div class="mediaCover">
+<a href="[video:url zdy=video,id,play,id]">
+<img class="mediaThumb" src="[video:pic dir=video]" style="display:block;">
+<i class="icon-facetime-video"></i>
+<div class="icons"><i class="icon-play"></i></div>
+<div class="uploader">
+<img class="userThumb" src="[video:user zd=logo]">
+<span>[video:user zd=name]</span>
+</div>                             
+</a>
+</div>
+<h3><a href="[video:url zdy=video,id,play,id]"><font color="[video:color]">[video:name len=17]</font></a></h3>
+<div class="additionalInfo clearfix">
+<p><i class="icoindexs icon-time"></i>[video:addtime style=Y-m-d]<span style="color:red;float:right;">[video:sc]</span></p>
+</div>                      
+<ul class="details clearfix">
+<li>[video:hits]<i class="icoindexs icon-thumbs-up-kan"></i></li>
+<li>[video:dhits]<i class="icoindexs icon-thumbs-up-ding"></i></li>
+{if:[video:vip]>1}<li style="color:red;">Vip<i class="icoindexs icon-thumbs-up-vip"></i></li>{end if}
+<li style="color:red;">[video:cion]<i class="icoindexs icon-thumbs-up-jb"></i></li>
+</ul>
+</div>
+</li>
+{/msvod:video}
+</ul>
+</div>
+</div>
+<div class="mod-channel">
+<div class="channel-title">
+<h2>网友点赞视频</h2>
+</div>
+<div class="mediaThumbsbox">
+<ul class="mediaThumbs" id="thumbs3">
+{msvod:video table="video" loop="8" field="id,name,addtime,pic,hits,shits,dhits,cion,sc,vip,color,uid" sort="dhits"}
+<li class="col-md-4">
+<div class="libox">
+<div class="mediaCover">
+<a href="[video:url zdy=video,id,play,id]">
+<img class="mediaThumb" src="[video:pic dir=video]" style="display:block;">
+<i class="icon-facetime-video"></i>
+<div class="icons"><i class="icon-play"></i></div>
+<div class="uploader">
+<img class="userThumb" src="[video:user zd=logo]">
+<span>[video:user zd=name]</span>
+</div>                             
+</a>
+</div>
+<h3><a href="[video:url zdy=video,id,play,id]"><font color="[video:color]">[video:name len=17]</font></a></h3>
+<div class="additionalInfo clearfix">
+<p><i class="icoindexs icon-time"></i>[video:addtime style=Y-m-d]<span style="color:red;float:right;">[video:sc]</span></p>
+</div>                      
+<ul class="details clearfix">
+<li>[video:hits]<i class="icoindexs icon-thumbs-up-kan"></i></li>
+<li>[video:dhits]<i class="icoindexs icon-thumbs-up-ding"></i></li>
+{if:[video:vip]>1}<li style="color:red;">Vip<i class="icoindexs icon-thumbs-up-vip"></i></li>{end if}
+<li style="color:red;">[video:cion]<i class="icoindexs icon-thumbs-up-jb"></i></li>
+</ul>
+</div>
+</li>
+{/msvod:video}
+</ul>
+</div>
+</div>
+<div class="mod-channel">
+<div class="channel-title">
+<h2>清纯美女图库</h2>
+</div>
+<div class="channel-ctn">
+<div class="cnt channel-show">
+<div class="post-list clearfix" >
+{msvod:tu table="tu" field="id,name,pic,hits,addtime,dhits,hits,vip,cion,color" loop="8" sort="id" order="desc"}
+<div class="list-box">
+<div class="preview">
+<a target="_blank" href="[tu:url zdy=tu,id,show,id]" title="[tu:name]">
+<img src="[tu:pic dir=tu]" data-original="[tu:pic dir=tu]" border="0" alt="[tu:name]" style="display: inline;" class="box-show"></a>
+<div class="detail mt5">
+<h3><a target="_blank" href="[tu:url zdy=tu,id,show,id]" title="[tu:name]">
+<font color="[tu:color]">[tu:name]</font>
+</a></h3>
+<span class="postdate">
+[tu:addtime style=Y-m-d]               
+</span> </div>
+<span class="num">美女图片欣赏</span> 
+</div>
+<div class="listline"></div>
+<div class="pdw10">
+<div class="fields"> 
+<span><i class="view icon"></i>[tu:hits]</span>
+<span><i class="like icon"></i>[tu:dhits]</span>
+<span style="color:red;"><i class="cion icon"></i>[tu:cion]</span>
+{if:[tu:vip]>1}
+<span style="color:red;"><i class="vip icon"></i>VIP</span>
+{end if}
+</div>
+</div>
+</div>
+{/msvod:tu}
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ad-link">
+<div class="left">
+<div class="box" style="height:495px;background:#fff;">
+<div class="title"><h1>最新发布小说</h1></div>
+<div class="info">
+<table width="100%" border="0" >
+<tr>
+<td valign="top">
+<table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">
+{msvod:news table="news" field="id,color,name,addtime,color" loop="12" sort="id"}
+<tr>
+<td width="30" height="25" style="border-bottom:#d4d4d4 dotted 1px;" align="center"><img src="{msvod:indextempurl}/images/text.png"></td>
+<td height="35" style="border-bottom:#d4d4d4 dotted 1px;"><a href="[news:url zdy=news,id,show,id]" target="_blank"><font color="[news:color]">[news:name]</font></a></td>
+<td height="35" align="right" style="border-bottom:#d4d4d4 dotted 1px;">[news:addtime style=Y-m-d]</td>
+</tr>
+{/msvod:news}
+</table>	
+</td>
+<td width="30">&nbsp;</td>
+<td valign="top">
+<table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">
+{msvod:news table="news" field="id,color,name,addtime,color" loop="12" start="13" sort="id"}
+<tr>
+<td width="30" height="35" style="border-bottom:#d4d4d4 dotted 1px;" align="center"><img src="{msvod:indextempurl}/images/text.png"></td>
+<td height="35" style="border-bottom:#d4d4d4 dotted 1px;"><a href="[news:url zdy=news,id,show,id]" target="_blank"><font color="[news:color]">[news:name]</font></a></td>
+<td height="35" align="center" style="border-bottom:#d4d4d4 dotted 1px;">[news:addtime style=Y-m-d]</td>
+</tr>
+{/msvod:news}
+</table>	
+</td>
+</tr>
+</table>
+<div class="txt">
+</div>
+</div>
+</div>
+</div>
+<div class="right">
+<div class="box" style="height:495px;background:#fff;">
+<div class="title"><h1>热门阅读小说</h1></div>
+<div class="info">
+<table width="99%" border="0" align="center" cellpadding="5" cellspacing="0">
+{msvod:news table="news" field="id,color,name,addtime,hits,color" loop="11" sort="hits"}
+<tr>
+<td width="30" height="35" style="border-bottom:#d4d4d4 dotted 1px;" align="center"><img src="{msvod:indextempurl}/images/text.png"></td>
+<td height="35" style="border-bottom:#d4d4d4 dotted 1px;"><a href="[news:url zdy=news,id,show,id]" target="_blank"><font color="[news:color]">[news:name]</font></a></td>
+<td height="35" align="center" style="border-bottom:#d4d4d4 dotted 1px;">[news:hits]&nbsp;</td>
+</tr>
+{/msvod:news}
+{msvod:news table="news" field="id,color,name,addtime,hits,color" start="12" loop="1" sort="hits"}
+<tr>
+<td width="30" height="35" style=" " align="center"><img src="{msvod:indextempurl}/images/text.png"></td>
+<td height="35" style=" "><a href="[news:url zdy=news,id,show,id]" target="_blank"><font color="[news:color]">[news:name]</font></a></td>
+<td height="35" align="center" style=" ">[news:hits]&nbsp;</td>
+</tr>
+{/msvod:news}
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+{msvod:bottom}
+</body>
+</html>

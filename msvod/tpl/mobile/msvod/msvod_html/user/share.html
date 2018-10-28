@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>会员中心-{msvod:webname}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/css/user.min.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1474189785_494376/myfont-icon.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476775516_8984702/iconfont3.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476784266_9052436/iconfont4.css">
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}usercss/css/slider-common.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/font/userfont.css"> 
+</head>
+<body>
+<div id="tabbar-with-Me" class="mui-control-content" style="padding-bottom:50px;"> 
+<h2 class="my_title">
+<a class="l" href="javascript:history.go(-1)" style="padding-left:5%;font-size:20px;">  &lt; </a>宣传获取金币
+<a href="/index.php/user/space" class="r" style="padding-right:3.3%"><span class="t5 l"><img src="{msvod:tempurl}images/home.png" width="25" height="23" ></span></a>
+</h2>
+<section class="jilu" style="margin-top: 2.2%;"> 
+<a href="/index.php/user/share">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;color:red;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">宣传分享</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a> 
+<a href="/index.php/user/share/lists">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">宣传记录</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a> 
+</section>
+<section class="jilu" style="margin-top: 2.2%;"> 
+ 
+<table width="100%" border="0" cellpadding="5" cellspacing="5" style="font-size:14px;">
+<tr>
+<td height="40" style="line-height:25px;">
+ 
+说明：复制宣传代码发给QQ好友或QQ群，<br>
+被好友或则其他用户通过链接访问，<br>
+每个用户访问一次可获得 <font color=red>[user:sharecion]</font> 个金币，<br>
+每天最多获得 <font color=red>[user:sharenums]</font> 次金币。</p>
+ 
+</td>
+</tr>
+<tr class="{if:[pay:i]%2==1}re{end if}">
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;">
+<div style="margin-left:0px;">宣传地址：<input type="text" name="cardid" id="cardid" value="[user:sharelink]　{msvod:webname}，真心觉得不错，您快去看看吧！" />
+</div>
+</td>
+</tr>
+</table>
+ 
+</section>
+<div id="fade" class="black_overlay"></div>
+{msvod:bottom}
+</body>
+</html>

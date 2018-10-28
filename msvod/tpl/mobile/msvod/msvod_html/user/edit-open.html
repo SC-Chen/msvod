@@ -1,0 +1,133 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{msvod:title}_{msvod:webname}</title>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/style.css"/>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/user.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/blackblue.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/style.css"/>
+<script type="text/javascript" src="{msvod:tempurl}js/city.js"></script>
+<script type="text/javascript" src="{msvod:tempurl}js/jquery.validform.js"></script>
+<script type="text/javascript" src="{msvod:tempurl}js/common.js"></script>
+</head>
+<body>
+<div>
+<div class="sidebar"  >
+<div style="background-color:#000000; overflow:hidden;" >
+{msvod:left}
+</div>
+<div class="main">
+{msvod:head}
+<script language="javascript">
+$("#dhcdys").hover(function(){$("#dhcdys").attr("class","nvs3 bc");$(".dh").show()},function(){$("#dhcdys").attr("class","nvs2 bc");$(".dh").hide()})
+ShowCdQuantity();
+</script>
+<div class="mainct">
+<table width="450" border="0">
+<tbody><tr>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=edit]">修改资料</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=edit,logo]">修改头像</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=edit,pass]">修改密码</a></td>
+<td class="fouces_menuon"><a href="[user:url userlink=edit,open]">同步登陆绑定</a></td>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table width="100%" border="0" cellspacing="2" cellpadding="2"  class="table borderx3" >
+<tr>
+<th height="30" colspan="2" class="fbold">同步登陆绑定</th>
+</tr>
+<tr>
+<td>
+<div class="minHeight500" style="font-size:13px;">
+<div id="sync" class="sync">
+<div class="top">您已经绑定的网站</div>
+<div class="bsite cf">
+<div class="bs-icon qq"></div>
+<div class="bs-mid">
+<strong>腾讯QQ</strong>
+<div>绑定腾讯QQ帐号后，您便可使用腾讯QQ帐号登录网站</div>
+</div>
+{if:[user:qqmode]==0}
+<a class="bs-btn" href="{msvod:qqlink}"></a>
+{else}
+<a class="bs-btn unbs-btn" href="javascript:;" onClick="open_del(1);"></a>
+{end if}
+</div>
+<div class="bsite cf">
+<div class="bs-icon sina"></div>
+<div class="bs-mid">
+<strong>新浪微博</strong>
+<div>绑定新浪微博帐号后，您便可使用新浪微博帐号登录网站</div>
+</div>
+{if:[user:wbmode]==0}
+<a class="bs-btn" href="{msvod:weibolink}"></a>
+{else}
+<a class="bs-btn unbs-btn" href="javascript:;" onClick="open_del(2);"></a>
+{end if}
+</div>	
+<div class="bsite cf">
+<div class="bs-icon baidu"></div>
+<div class="bs-mid">
+<strong>百度网账号</strong>
+<div>绑定百度网账号后，您便可使用百度网帐号登录网站</div>
+</div>
+{if:[user:bdmode]==0}
+<a class="bs-btn" href="{msvod:baidulink}"></a>
+{else}
+<a class="bs-btn unbs-btn" href="javascript:;" onClick="open_del(3);"></a>
+{end if}
+</div>
+<div class="bsite cf">
+<div class="bs-icon renren"></div>
+<div class="bs-mid">
+<strong>人人网账号</strong>
+<div>绑定人人网账号后，您便可使用人人网账号登录网站</div>
+</div>
+{if:[user:rrmode]==0}
+<a class="bs-btn" href="{msvod:renrenlink}"></a>
+{else}
+<a class="bs-btn unbs-btn" href="javascript:;" onClick="open_del(4);"></a>
+{end if}
+</div>
+<div class="bsite cf">
+<div class="bs-icon kaixin"></div>
+<div class="bs-mid">
+<strong>开心网账号</strong>
+<div>绑定开心网账号后，您便可使用开心网账号登录网站</div>
+</div>
+{if:[user:kxmode]==0}
+<a class="bs-btn" href="{msvod:kaixinlink}"></a>
+{else}
+<a class="bs-btn unbs-btn" href="javascript:;" onClick="open_del(5);"></a>
+{end if}
+</div>
+<div class="bsite cf">
+<div class="bs-icon douban"></div>
+<div class="bs-mid">
+<strong>豆瓣网账号</strong>
+<div>绑定豆瓣网账号后，您便可使用豆瓣网账号登录网站</div>
+</div>
+{if:[user:dbmode]==0}
+<a class="bs-btn" href="{msvod:doubanlink}"></a>
+{else}
+<a class="bs-btn unbs-btn" href="javascript:;" onClick="open_del(6);"></a>
+{end if}
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('#ziliao1').addClass('ziliao1');
+miniblog.addinit();
+</script>
+</body>
+</html>

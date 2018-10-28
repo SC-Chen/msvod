@@ -1,0 +1,78 @@
+@charset "gb2312";
+/*全局*/
+* { margin: 0px; padding: 0px; word-break:break-all; }
+body{margin:0px; font-size:12px;background-color: #E8E8E8;color:#666;font: 12px  Arial, Helvetica, sans-serif,"Lucida Grande",STHeiti,Verdana,Arial,Times,serif;}
+div,dd,dt,dl,ul,li,ol,h1,h2,h3,h4,h5,form,p{ list-style: none; margin:0px; padding:0px;}
+a{ color:#333333}
+a:link{color:#333333; text-decoration:none;}
+a:visited{color:#333333;text-decoration:none;}
+a:hover{color:cc0000; text-decoration:none;}
+.redline a{color:#333333; }
+.redline a:link{color:#333333; text-decoration:none;}
+.redline a:visited{color:#333333;text-decoration:none;}
+.redline a:hover{color:#cc0000; text-decoration:underline;}
+.checkbox{vertical-align:middle; margin-bottom:4px!important; margin-top:0; float:left;}
+.clear { clear:both;}
+.none{display:none;}
+img {border-width:0;margin:0;padding:0;}
+.margin5{margin-top:5px;}
+.margin10{margin-top:10px;}
+.left{float:left;}
+.right{float:right;}
+.center{ margin:0 auto}
+.h10{ height:10px; clear:both;  overflow:hidden;}
+.h5{ height:5px; clear:both; overflow:hidden}
+.aw{ width:980px; overflow:hidden; margin:0 auto}
+
+/*登录注册*/
+#min_bottom{ text-align:center; line-height:24px; margin-top:10px; color: #000000}
+.ral_title{ height:60px; line-height:60px; font-size:24px; margin:0 auto; width:998px; clear:both;}
+.ral{width:998px; margin: auto; border:1px solid #dcdcdc; background-color:#FFFFFF; overflow:hidden}
+.ral ul{ padding:10px; margin:0px;}
+#reg_left{ float:left; width:650px; overflow:hidden}
+.bthui{ font-family:Arial, Helvetica, sans-serif; background-color:#f7f7f7; border:1px solid #dcdcdc; margin:5px; padding:2px; width:80px; text-align:center; line-height:25px; display:block; margin-left:0px; }
+#reg_left ul{ clear:both; height:70px; overflow:hidden}
+#reg_left li{ float:left; list-style:none;}
+#reg_left  .rr1{ width:100px; overflow:hidden;font-size:18px;line-height:40px; }
+#reg_left  .rr2{ width:400px; overflow:hidden;_margin-left:-20px;}
+#reg_left  .rr2 span{ color:#cc0000; font-size:16px}
+.btzc a{ background-color:#262626;color:#FFFFFF;width:105px; height:38px; text-align:center; line-height:38px; font-size:16px; overflow:hidden; display:block}
+.btzc a:hover{background-color:#cc0000;color:#FFFFFF;width:105px; height:38px; text-align:center; line-height:38px; font-size:16px; overflow:hidden; display:block}
+.rinput{ border:1px solid #dcdcdc; line-height:40px; background-color:#FFFFFF; height:40px; padding:2px; font-size:16px; width:200px;}
+.hui{no-repeat 0px -53px; width:245px; overflow:hidden; font-size:12px; padding-left:10px; padding-top:3px; line-height:16px; font-family:宋体; color:#999999}
+.hui span{ color:#007ECB; font-weight:bold}
+.inputs{ width:250px; height:36px; line-height:36px; border:1px solid #dcdcdc; font-size:16px; text-indent:5px; color:#0000000}
+.regerr{background:url(../images/ral.gif) no-repeat 0px -1px; width:245px; overflow:hidden;padding-left:10px;padding-top:1px; }
+.regerr span{ color:#cc0000; margin-left:24px; }
+.regsuccess{background:url(../images/ral.gif) no-repeat 0px -100px; width:245px; height:40px; overflow:hidden; line-height:40px;padding-left:10px;padding-top:1px; }
+
+#reg_mid{ float:left; width:58px; overflow:hidden; border-left:1px solid #dcdcdc; height:300px;}
+#reg_right{ float:left;  overflow:hidden; margin-left:20px; line-height:40px; font-size:16px}
+.qqlogin a{ background:url(../images/ral.gif) no-repeat -56px -236px;width:172px; height:33px; overflow:hidden; display:block}
+.uinput{ position:relative; border:1px solid #dcdcdc; line-height:40px;background:url(../images/ral.gif) no-repeat 0px -514px; background-color:#FFFFFF; height:40px;  font-size:18px; text-indent:40px;}
+.pinput{ position:relative; zoom:1; border:1px solid #dcdcdc; line-height:40px;background:url(../images/ral.gif) no-repeat 0px -550px; background-color:#FFFFFF; height:40px;  font-size:18px; text-indent:40px;}
+
+.btdl{background-color:#262626;color:#FFFFFF;width:300px; height:50px; text-align:center; line-height:50px; font-size:24px; overflow:hidden; border:0px; cursor:pointer}
+.btdl2{background-color:#cc0000;color:#FFFFFF;width:300px; height:50px; text-align:center; line-height:50px; font-size:24px;overflow:hidden; border:0px; cursor:pointer}
+#errinfo{ line-height:30px; height:30px; width:300px; overflow:hidden; margin-left:110px; text-indent:25px;}
+.loginerr{ background:url(../images/ral.gif) no-repeat -55px -292px; background-repeat:no-repeat; color:#cc0000}
+
+.reg1{background-color:#f8f8f8; line-height:28px;  color:#009900; text-indent:20px; background:url(../images/check1.gif) 0px 5px; background-repeat:no-repeat; margin-left:110px;
+overflow:hidden; width:300px;}
+
+#getpwd_left{  width:600px; overflow:hidden}
+#getpwd_left ul{ clear:both; height:43px; overflow:hidden}
+#getpwd_left li{ float:left; list-style:none;  }
+#getpwd_left  .rr1{ width:100px; overflow:hidden;font-size:18px;line-height:40px; }
+#getpwd_left  .rr2{ width:400px;}
+#getpwd_left  .rr2 span{ color:#999999; font-size:12px}
+
+/*登录注册*/
+
+/*支付*/
+.aw2{ width:980px; background-color:#FFFFFF; border:1px solid #dcdcdc; overflow:hidden; margin:0 auto}
+.aw2 ul{ margin:10px;}
+
+.aw3{ width:980px; margin:0 auto;overflow:hidden;}
+.pf16{ font-size:16px; text-indent:50px;} 
+/*支付*/

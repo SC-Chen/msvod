@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>会员中心-{msvod:webname}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/css/user.min.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1474189785_494376/myfont-icon.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476775516_8984702/iconfont3.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476784266_9052436/iconfont4.css">
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}usercss/css/slider-common.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/font/userfont.css"> 
+</head>
+<body>
+<div id="tabbar-with-Me" class="mui-control-content" style="padding-bottom:50px;"> 
+<h2 class="my_title">
+<a class="l" href="javascript:history.go(-1)" style="padding-left:5%;font-size:20px;">  &lt; </a>会员充值
+<a href="/index.php/user/space" class="r" style="padding-right:3.3%"><span class="t5 l"><img src="{msvod:tempurl}images/home.png" width="25" height="23" ></span></a>
+</h2>
+<section class="jilu" style="margin-top: 2.2%;"> 
+<a href="/index.php/user/pay">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;color:red;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">会员充值</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a> 
+<a href="/index.php/user/pay/card">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">卡密充值</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a> 
+<a href="/index.php/user/pay/group">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">升级VIP</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+<a href="/index.php/user/pay/lists">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">充值记录</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+</section>
+<section class="jilu" style="margin-top: 2.2%;"> 
+<form  method="post" action="[user:paysave]" style="padding:0 10px;" >
+<table width="100%" border="0" cellpadding="5" cellspacing="5">
+<tr>
+<td width="100" height="40">可用金币：</td>
+<td height="40"><font color=red>[user:cion]</font> 个</td>
+</tr>
+<tr>
+<td><div align="right">充值额度：
+</td>
+<td>
+<label><div class="moneyfl"><input type="radio" name="cion" value="1" checked="checked">1个</div></label>&nbsp;&nbsp;
+<label><div class="moneyfl"><input type="radio" name="cion" value="2" >2个</div></label>&nbsp;&nbsp;
+<label><div class="moneyfl"><input type="radio" name="cion" value="3" >3个</div></label>&nbsp;&nbsp;
+<label><div class="moneyfl"><input type="radio" name="cion" value="10" >10个</div></label>&nbsp;&nbsp;
+<label><div class="moneyfl"><input type="radio" name="cion" value="20" >20个</div></label>&nbsp;&nbsp;
+<label><div class="moneyfl"><input type="radio" name="cion" value="30" >30个</div></label>&nbsp;&nbsp;
+<label><div class="moneyfl"><input type="radio" name="cion" value="50" >50个</div></label>&nbsp;&nbsp;
+<label><div class="moneyfl"><input type="radio" name="cion" value="100" >100个</div></label>
+</td>
+</tr>
+<tr>
+<td height="35" align=right>充值方式：</td>
+<td>
+{if:[user:alipay]==1}<label><input type="radio" name="type" value="alipay" checked/>&nbsp;支付宝支付</label>&nbsp;&nbsp;{end if}
+{if:[user:Tenpay]==2}<label><input type="radio" name="type" value="Tenpay" />&nbsp;微信支付</label>&nbsp;&nbsp;{end if}
+{if:[user:kqpay]==2}<label><input type="radio" name="type" value="kqpay" />&nbsp;快钱在线</label>&nbsp;&nbsp;{end if}
+{if:[user:ybpay]==2}<label><input type="radio" name="type" value="ybpay" />&nbsp;微信支付</label>&nbsp;&nbsp;{end if}
+{if:[user:wypay]==2}<label><input type="radio" name="type" value="wypay" />&nbsp;QQ钱包</label>&nbsp;&nbsp;{end if}
+{if:[user:mspay]==2}<label><input type="radio" name="type" value="mspay"/>&nbsp;支付宝</label>&nbsp;&nbsp;{end if}
+<span class="validform_checktip"></span>
+</td>
+</tr>
+<tr>
+<td width="100" height="40">&nbsp;</td>
+<td height="40">
+<input type="hidden" name="token" value="[user:token]"/>
+<input class="btn btn-primary btn-small" style="border-radius:0px;" type="submit" value="立即充值" />
+</td>
+</tr>
+</table>
+</form>
+</section>
+</div>
+<div id="fade" class="black_overlay"></div>
+{msvod:bottom}
+</body>
+</html>

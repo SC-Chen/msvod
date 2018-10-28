@@ -1,0 +1,1 @@
+<?php /* -- mzphp æ··æ·†åŠ å¯†ï¼šhttps://git.oschina.net/mz/mzphp2 */ error_reporting(E_ALL^E_NOTICE);define('Óï›', 'µ©');„º²µÉ¾†’;$_SERVER[Óï›] = explode('|||', gzinflate(substr('‹

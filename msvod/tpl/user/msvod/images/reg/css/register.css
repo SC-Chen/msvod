@@ -1,0 +1,81 @@
+锘縝ody{background: #F5F5F5;}
+.header{padding-top: 40px;}
+.header .logo{float:left;display: block;width: 219px;height: 58px;background: url(../images/header-footer.png) no-repeat 0 0;}
+.helper{float: right;font-size: 25px;margin: 25px -30px 0 0;}
+.helper a{margin-right: 30px;}
+.passport-container{background: url(../images/passport.jpg) no-repeat;height: 600px;margin-top: 20px;}
+.dolist{color: #FFF;float: left;padding: 150px 0 0 100px;}
+.dolist h2{font-size: 35px;margin-bottom: 30px;}
+.dolist h3{font-size: 20px;line-height: 40px;}
+.dolist h3 i{display: inline-block;width: 10px;height: 10px;border-radius: 5px;background: #FFF;margin-right: 10px;vertical-align: middle;}
+
+.form-panel{float: right;margin-top: 60px;background: #FFF;border-radius: 5px;box-shadow: rgba(0,0,0,.3) 10px 10px 5px; }
+.form-panel .panel-title{border-bottom: 1px solid #F0F0F0;font-size: 20px;color: #999;padding: 20px 0 5px 40px;}
+
+.panel-content{padding: 30px 40px;}
+
+.form-panel .panel-content .list-item{margin-bottom: 20px;font-size:16px;}
+.form-panel .panel-content .list-item.none{display: none;}
+.form-panel .panel-content .verify input{width: 100px;}
+.form-panel .panel-content .field-item{position: relative;}
+.form-panel .panel-content .verify .field-item{float: left;}
+.form-panel .panel-content .verify .refresh-verify{float: right;font-size: 0;}
+.form-panel .panel-content .hover input{background: #FAFAFA;}
+.form-panel .panel-content .focus input{border-color: #82B440;}
+.form-panel .panel-content .warning input{border-color: #D93600;background: #FFF9F7;}
+.form-panel .panel-footer{border-top: 1px solid #F0F0F0;padding: 20px 40px;width: 300px;}
+.form-panel .panel-footer a{position:relative;background: #F0F0F0;width: 100px;color: #C4A882;box-shadow: 0 -3px #E8E6E8 inset;line-height: 35px;text-align: right;font-size: 16px;border-radius: 5px;padding: 0 15px;}
+.form-panel .panel-footer a:hover{background: #F4F4F4;}
+.form-panel .panel-footer .tencent{float: left;}
+.form-panel .panel-footer .sina{float: right;}
+.form-panel .panel-footer i{width: 27px;height: 23px;background: url(../images/header-footer.png);position: absolute;left: 15px;top: 6px;}
+.form-panel .panel-footer .tencent i{background-position: -81px -127px;}
+.form-panel .panel-footer .sina i{background-position: -108px -127px;}
+
+.form-panel .panel-content .tip{color: #D93600;font-size: 14px;padding: 5px 15px;display: none;clear: both;}
+.form-panel .panel-content .find-pass{color: #6495ED;margin-left: 20px;}
+.form-panel .panel-content .warning .tip{display: block;}
+
+.form-panel .panel-content label{position: absolute;color: #BBB;top: 4px;left: 18px;line-height: 30px;cursor: text;}
+.form-panel .panel-content input{color:#666;padding:4px 15px;width: 268px;height: 30px;line-height:30px;border: 1px solid #CCC;box-shadow: 0 0 4px rgba(0,0,0,0.15) inset;outline: none;border-radius: 3px;}
+
+.form-panel .submit{text-align: center;}
+.form-panel .submit .extra{color: #999;line-height: 30px;margin: 0 15px;}
+.form-panel .submit .button{display: inline-block;width: 200px;height:50px;background: #82B440;line-height:40px;color: #FFF;font-size: 18px;border-radius: 5px;box-shadow: 0 -3px #6F9A37 inset;}
+.form-panel .submit .button:hover{background: #97C459;}
+
+.form-panel .submit b{position: absolute;width: 16px;height: 16px;background: url(../images/027.gif);display: none;margin-top: -8px;left: 0;top: 50%;}
+.form-panel .submit .submitting b{display:inline-block;}
+.form-panel .submit .submitting{opacity: .65;filter: alpha(opacity=65); cursor: not-allowed;}
+.form-panel .submit span{position: relative;display: inline-block;}
+.form-panel .submit .submitting span{padding-left: 20px;}
+
+
+/*缁戝畾*/
+.passport-container .bind-wrapper{width: 880px;}
+.quick-login{float: left;}
+.last-step{text-align: center;font-size: 35px;padding-top: 60px;color: #fff;}
+.username-tip{color: #999;margin: -20px 0 10px 0;}
+
+/*鎵惧洖瀵嗙爜*/
+.fpasswd .form-panel{margin-top: 150px;}
+.fpasswd .already-send p{color: #999;}
+.fpasswd .already-send .sended-tip p{color: #6F9A37;text-align: center;padding-bottom: 15px;}
+
+.footer{text-align: center;color: #858585;padding: 50px 0;}
+
+/*淇敼鎵嬫満 楠岃瘉閭*/
+.passport-container.auth{padding-top: 100px;}
+.auth .form-panel{margin: 0 auto;float: none;width: 480px;}
+.modify-mobile .form-panel .panel-content input{width: 368px;vertical-align: middle;}
+.modify-mobile #verify{width: 108px;}
+.modify-mobile #verifyimg{vertical-align: middle;cursor: pointer;}
+.modify-mobile .sendsms{vertical-align: middle;width: 90px;display: inline-block;background: #82B440;line-height: 33px;color: #fff;border-radius: 5px;text-align: center;box-shadow: 0 -3px #6F9A37 inset;}
+.modify-mobile .sendsms-disable{display: none;background: #BBB;box-shadow: 0 -3px #AAA inset;}
+.action-success{text-align: center;color: #666;padding: 20px 0;font-size: 16px;}
+.action-success .theme-img{width: 90px;height: 90px;display: inline-block;background: url(../images/notification.png) -17px 0;margin-bottom: 20px;}
+.action-success .ok{margin-top:30px;width: 200px;display: inline-block;background-color: #82B440;line-height: 50px;font-size: 18px;color: #FFF;border-radius: 5px;box-shadow: 0 -3px #6F9A37 inset;text-align: center;}
+.auth #modify-success{display: none;}
+
+.verify-email p{line-height: 25px;font-size: 16px;}
+.verify-email .important-notice{font-size: 14px;color: #b22c00;margin:20px 0;}

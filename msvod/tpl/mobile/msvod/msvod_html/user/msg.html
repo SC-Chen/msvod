@@ -1,0 +1,93 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{msvod:title}_{msvod:webname}</title>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/user.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/blackblue.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/style.css"/>
+</head>
+<body>
+<div>
+<div class="sidebar"  >
+<div style="background-color:#000000; overflow:hidden;" >
+{msvod:left}
+</div>
+<div class="main">
+{msvod:head}
+<script language="javascript">
+$("#dhcdys").hover(function(){$("#dhcdys").attr("class","nvs3 bc");$(".dh").show()},function(){$("#dhcdys").attr("class","nvs2 bc");$(".dh").hide()})
+ShowCdQuantity();
+</script>
+<div class="mainct">
+<table width="450" border="0">
+<tbody><tr>
+<td class="fouces_menuon"><a href="[user:url userlink=msg]">我的消息</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="#"  onClick="msvod_if('发送消息','<?php echo spacelink('msg,add')."?id=";?>[msg:id]','500','32%');">发送消息</a></td>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table width="100%" border="0" cellspacing="2" cellpadding="2"  class="table borderx3">
+<tr>
+<th height="30" colspan="2" class="fbold">我的消息通知</th>
+<tr>
+<td height="35">
+<div class="main_nav2">
+<ul>
+<li{if:'{msvod:fid}'=='all'} class="current"{end if}><a href="[user:url userlink=msg]">全部消息</a></li>
+<li{if:'{msvod:fid}'=='xt'} class="current"{end if}><a href="[user:url userlink=msg,index,xt]">系统消息</a></li>
+<li{if:'{msvod:fid}'=='wd'} class="current"{end if}><a href="[user:url userlink=msg,index,wd]">未读消息</a></li>
+<li{if:'{msvod:fid}'=='dell'} class="current"{end if}><a href="[user:url userlink=msg,del,all]" onClick="return confirm('确认清空所有消息吗?');">清空全部</a></li>
+<li{if:'{msvod:fid}'=='yue'} class="current"{end if}><a href="[user:url userlink=msg,del,yue]" onClick="return confirm('确认删除一个月前的消息吗?');">删除一个月前消息</a></li>
+</ul>
+</div>
+<table width="100%" border="0">
+<tr>
+<td height="40" align="center" style="line-height:30px;"><strong>序号</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>发送者</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>消息标题</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>发送时间</strong></td>
+<td align="center" style="line-height:40px;"><strong>操作</strong></td>
+</tr>
+{msvod:msg table="msg" pagesize="10" uid="auto" sort="addtime" order="desc"}   
+<tr class="{if:[pay:i]%2==1}re{end if}">
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">[msg:i]</td>
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">{if:[msg:uidb]==0}系统消息{else}<a href="[msg:url ulink=index]" title="查看他的主页" target="_blank">[msg:user zd=nichen]</a>{end if}</td>
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center"><a href="#" onClick="msvod_if('查看消息','<?php echo spacelink('msg,show/[msg:id]')."?id=";?>[msg:id]','700','25%');" title="查看详情">[msg:name]</a>&nbsp;{if:[msg:did]==0}<img src="{msvod:tempurl}images/new.gif" />{end if}</td>
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">[msg:addtime style=time]</td>
+<td style="border-top: 1px solid #ddd;line-height:45px;" align="center"><button  onClick="msvod_if('查看消息','<?php echo spacelink('msg,show/[msg:id]')."?id=";?>[msg:id]','700','25%');" class="btn  btn-primary btn-small" style="width:70px;"><b>查看</b></td>
+</tr>
+{/msvod:msg}   
+</table>
+<table width="100%" border="0" style="border-top: 1px solid #ddd;line-height:50px;">
+<tr>
+<td height="50" align="center">
+{if:{msvod:pagedata}==0}<div class="zanwu">暂无数据！</div>{end if}
+<div class="page" style="{if:{msvod:pagecout}<0}display:none;{end if}">
+<div class="pages">
+<em title="总数量">{msvod:pagedata}</em>
+<a href="{msvod:pagefirst}">首页</a>
+{msvod:pagenum len=8}
+<a href="{msvod:pagelast}">尾页</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+</tr>
+</table>
+<div id="rand"></div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('#mima1').addClass('mima1');
+</script>
+</body>
+</html>

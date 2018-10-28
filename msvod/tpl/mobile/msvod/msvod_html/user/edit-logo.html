@@ -1,0 +1,75 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{msvod:title}_{msvod:webname}</title>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/user.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/blackblue.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/style.css"/>
+<script type="text/javascript" src="{msvod:tempurl}js/city.js"></script>
+<script type="text/javascript" src="{msvod:tempurl}js/jquery.validform.js"></script>
+<script type="text/javascript" src="{msvod:tempurl}js/common.js"></script>
+</head>
+<body>
+<div>
+<div class="sidebar">
+<div style="background-color:#000000; overflow:hidden;" >
+{msvod:left}
+</div>
+<div class="main">
+{msvod:head}
+<script language="javascript">
+$("#dhcdys").hover(function(){$("#dhcdys").attr("class","nvs3 bc");$(".dh").show()},function(){$("#dhcdys").attr("class","nvs2 bc");$(".dh").hide()})
+ShowCdQuantity();
+</script>
+<div class="mainct">
+<table width="450" border="0">
+<tbody><tr>
+<td class="fouces_menuoff"><a href="[user:url userlink=edit]">修改资料</a></td>
+<td class="fouces_menuon"><a href="[user:url userlink=edit,logo]">修改头像</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=edit,pass]">修改密码</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=edit,open]">登陆绑定同步</a></td>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table borderx3 ">
+<tbody><tr>
+<th height="40" class="fbold">上传头像 </th>
+</tr><tr>
+<td height="40">
+<div class="profile">
+<div class="avatar_box">
+<div class="avatarTitle">当前头像<span>上传头像</span></div>
+<div class="myAvatar">
+<img id="my-avatar" width="160" height="160" src="[user:logo dir=logo]?<?=time()?>"/>
+</div>
+<div class="myAvatarUpload">
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" width="432" height="316" id="tmp" align="middle">
+<param name="allowScriptAccess" value="always" />
+<param name="allowFullScreen" value="false" />
+<param name="wmode" value="opaque" />
+<param name="movie" value="{msvod:webpath}packs/swf/avatar.swf"/>
+<param name="quality" value="high" />
+<param name="bgcolor" value="#ffffff" />
+<embed src="{msvod:webpath}packs/swf/avatar.swf" quality="high" wmode="opaque" bgcolor="#ffffff" width="432" height="316" name="browse" align="middle" allowScriptAccess="always" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_cn"/>
+</object>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('#ziliao1').addClass('ziliao1');
+miniblog.addinit();
+</script>
+</body>
+</html>

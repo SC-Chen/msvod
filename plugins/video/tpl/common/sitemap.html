@@ -1,0 +1,23 @@
+<rss version='2.0'>
+	<channel>
+		<title>{msvodphp}xml_string('{msvod:webname}');{/msvodphp}</title>
+		<description>{msvodphp}xml_string('{msvod:description}');{/msvodphp}</description>
+		<link>{msvod:path}</link>
+		<language>zh-cn</language>
+		<docs>{msvodphp}xml_string('{msvod:webname}');{/msvodphp}</docs>
+		<generator>Rss Powered By {msvod:weburl}</generator>
+		<image>
+			<url>{msvod:path}attachment/logo.png</url>
+		</image>
+	</channel>
+	{msvod:video table="video" loop="500" sort="addtime"}
+	<item>
+			<title>{msvodphp}xml_string('[video:name]');{/msvodphp}</title>
+			<link>[video:url zdy=video,id,play,id]</link>
+			<author>{msvodphp}xml_string('[video:singer zd=name]');{/msvodphp}</author>
+			<pubDate>[video:addtime]</pubDate>
+			<description>{msvodphp}xml_string('[video:text len=200]');{/msvodphp}</description>
+	</item>
+	{/msvod:video}
+</rss>
+

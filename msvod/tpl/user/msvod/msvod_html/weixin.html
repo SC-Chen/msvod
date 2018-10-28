@@ -1,0 +1,61 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{msvod:title}_{msvod:webname}</title>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/user.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/blackblue.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/style.css"/>
+</head>
+<body>
+<div>
+<div class="sidebar"  >
+<div style="background-color:#000000; overflow:hidden;" >
+{msvod:left}
+</div>
+<div class="main">
+{msvod:head}
+<script language="javascript">
+$("#dhcdys").hover(function(){$("#dhcdys").attr("class","nvs3 bc");$(".dh").show()},function(){$("#dhcdys").attr("class","nvs2 bc");$(".dh").hide()})
+ShowCdQuantity();
+</script>
+<div class="mainct">
+<table width="450" border="0">
+<tbody><tr>
+<td class="fouces_menuon"><a href="[user:url userlink=pay]">在线充值</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=pay,card]">充值卡充值</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=pay,group]">升级VIP</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=pay,lists]">充值记录</a></td>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table width="100%" border="0" cellspacing="2" cellpadding="2"  class="table borderx3" >
+<form class="think-form" action="[user:paysave]" method="post">
+<tr>
+<th height="30" colspan="2" class="fbold">会员充值</th>
+<tr>
+<td height="35" style="color:red;font-size:19px;">
+<p >第一步：请先扫描本站微信二维码加为好友<br><br>
+<img src="{msvod:wxewm}" width="520" >
+<br>
+<br>
+第二步：向本站微信号转账如下图<br><br>
+<img src="{msvod:tempurl}images/1.png" width="520" > </p>
+<p>&nbsp;</p>
+<p>第三步：输入你要充值的转账金额，要与网站充值金额一致！</p><br>
+<p><img src="{msvod:tempurl}images/2.png" width="520" ></p>
+<p>&nbsp;</p>
+<p>第四步：在转账说明填写你在本站注册的会员账号，务必要填写准确！</p><br>
+<p><img src="{msvod:tempurl}images/3.png" width="520" ></p>
+</td>
+</tr>
+</form>
+</table>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-http://W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<html>
+<meta property="og:type" content="image"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<title>{msvod:title}_{msvod:webname}</title>
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/style.css">
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/ding.css">
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/jquery.lazyload.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}js/common.js"></script>
+<script src="{msvod:indextempurl}js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body id="top">
+{msvod:indexhead}
+<div class="content clearfix">
+<div class="mod-common clearfix">
+<div class="mod-channel" style="margin-top:10px;">
+<div class="channel-title">
+<h2>[tu:name]</h2>
+<span style="float:right;margin-top:20px;">
+{msvod:class table="tu_list" field="id,name" fid="auto" loop="10" order="asc"}
+<a href="[class:url zdy=tu,id,lists,id]" class="{if:[tu:id]==[class:id]}dhxz{else}dh{end if}" style="margin-left:4px;margin-right:4px;">[class:name]</a> 
+{/msvod:class}
+</span>
+</div>
+<div class="channel-ctn">
+<div class="cnt channel-show" id="channel-1">
+<div class="post-list clearfix" >
+{msvod:tu table="tu" field="id,name,pic,hits,addtime,dhits,hits,vip,cion,color" pagesize="20" cid="auto" sort="addtime" order="desc"}
+<div class="list-box">
+<div class="preview">
+<a target="_blank" href="[tu:url zdy=tu,id,show,id]" title="[tu:name]">
+<img src="[tu:pic dir=tu]" data-original="[tu:pic dir=tu]" border="0" alt="[tu:name]" style="display: inline;" class="box-show"></a>
+<div class="detail mt5">
+<h3><a target="_blank" href="[tu:url zdy=tu,id,show,id]" title="[tu:name]">
+<font color="[tu:color]">[tu:name]</font>
+</a></h3>
+<span class="postdate">
+[tu:addtime style=Y-m-d]               
+</span> </div>
+<span class="num">美女图片欣赏</span> 
+</div>
+<div class="listline"></div>
+<div class="pdw10">
+<div class="fields"> 
+<span><i class="view icon"></i>[tu:hits]</span>
+<span><i class="like icon"></i>[tu:dhits]</span>
+<span style="color:red;"><i class="cion icon"></i>[tu:cion]</span>
+{if:[tu:vip]>1}
+<span style="color:red;"><i class="vip icon"></i>VIP</span>
+{end if}
+</div>
+</div>
+</div>
+{/msvod:tu}
+{if:{msvod:pagedata}==0}<div style="text-align:center;color:red;font-size:16px;line-height:50px"><b>&nbsp;&nbsp;该栏目没有图片记录~!</b></div>{end if}
+</div>
+</div>
+</div>
+</div>
+<div class="pages">
+<ul>
+<li><a href="{msvod:pageup}" title="上一页">&lt;</a></li>
+{msvod:pagenum len=8}
+<li><a href="{msvod:pagelast}" title="末页">...</a></li>
+<li><a href="{msvod:pagedown}" title="下一页">&gt;</a></li>
+</ul>
+</div>
+</div>
+</div>
+{msvod:indexbottom}
+</body>
+</html>

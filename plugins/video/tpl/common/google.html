@@ -1,0 +1,12 @@
+<urlset xmlns="http://www.google.com/schemas/sitemap/0.84">
+	<url>
+		<loc>{msvod:path}</loc>
+	</url>
+	{msvod:video table="video" loop="500" sort="addtime"}
+	<url>
+			<loc>[video:url zdy=video,id,play,id]</loc>
+			<lastmod>[video:addtime style=Y-m-d]</lastmod>
+	</url>
+	{/msvod:video}
+</urlset>
+

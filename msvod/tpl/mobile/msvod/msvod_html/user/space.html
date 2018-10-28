@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>会员中心-{msvod:webname}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/css/user.min.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1474189785_494376/myfont-icon.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476775516_8984702/iconfont3.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476784266_9052436/iconfont4.css">
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}usercss/css/slider-common.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/font/userfont.css"> 
+<script type="text/javascript" src="/msvod/tpl/user/msvod/js/common.js"></script>
+</head>
+<body>
+<div id="tabbar-with-Me" class="mui-control-content" style="padding-bottom:50px;"> 
+<h2 class="my_title">
+<a class="l" href="javascript:history.go(-1)" style="padding-left:5%;font-size:20px;">  &lt; </a>会员中心
+<a href="/" class="r" style="padding-right:3.3%"><span class="t5 l"><img src="{msvod:tempurl}images/home.png" width="25" height="23" ></span></a>
+</h2>
+<div class="login"> <img src="[user:logo dir=logo]" alt="" class="l">
+<div class="login_t">
+<h3><span style="color:#0180cf">欢迎您 </span> , [user:nichen]</h3>
+<span class="login_lj" style="font-size:14px;">可用金币：<font color="red" size=3>[user:cion]</font> 个</span>
+<span class="login_lj"><p style="margin:5px 0;">会员级别：<font color="red">[user:user zd=zid]</font>&nbsp;{if:[user:zutime]>0}([user:zutime style=Y-m-d]){end if}</p></span> </div>
+</div>
+<section class="kaitong"> <a href="/index.php/user/pay/group">
+<li> <span class="mui-icon myFont-Icon t1 l"></span>
+<h2 class="t2 l">升级VIP</h2>
+<span class="r login_yj"> > </span>
+<!-- <h3 class="t3 r"> ￥：20.00/月 </h3>-->
+</li>
+<div class="clear"></div>
+<li class="xian" style="padding-top:5px;"> <span class="t4">VIP用户有效期内全站高清精彩无限制任意看~！</span> </li>
+</a> 
+</section>
+<section class="jilu" style="margin-top: 2.2%;">
+<a href="/index.php/user/edit">
+<li>
+<li><span class="t5 l"><img src="{msvod:tempurl}images/zlxg.png" width="17" height="17" ></span>
+<h2 class="t2 l" style="padding-top:1.5%;">资料修改</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+<a onclick="qiandao();">
+<li>
+<li><span class="t5 l"><img src="{msvod:tempurl}images/qiandao.png" width="17" height="17" ></span>
+<h2 class="t2 l" style="padding-top:1.5%;">{if:date('Y-m-d','[user:qdtime]')==date('Y-m-d')}今天已签到{else}签到获取金币{end if}</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+<a href="/index.php/user/pay">
+<li>
+<li><span class="t5 l"><img src="{msvod:tempurl}images/jifen.png" width="17" height="17" ></span>
+<h2 class="t2 l" style="padding-top:1.5%;">会员充值</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+<a href="/index.php/user/pay/lists">
+<li>
+<li><span class="t5 l"><img src="{msvod:tempurl}images/cwjl.png" width="17" height="17" ></span>
+<h2 class="t2 l" style="padding-top:1.5%;">财务记录</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+<a href="/index.php/user/daili">
+<li>
+<li><span class="t5 l"><img src="{msvod:tempurl}images/sjfx.png" width="17" height="17" ></span>
+<h2 class="t2 l" style="padding-top:1.5%;">三级分销</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+<a href="/index.php/user/share">
+<li>
+<li><span class="t5 l"><img src="{msvod:tempurl}images/xzfx.png" width="17" height="17" ></span>
+<h2 class="t2 l" style="padding-top:1.5%;">宣传分享</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+<!--<a href="/index.php/user/msg">
+<li>
+<li><span class="t5 l"><img src="{msvod:tempurl}images/xiaoxi.png" width="17" height="17" ></span>
+<h2 class="t2 l" style="padding-top:1.5%;">我的消息</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>-->
+<!--<a href="/index.php/video/user/video">
+<li>
+<li><span class="t5 l"><img src="{msvod:tempurl}images/shipin.png" width="17" height="17" ></span>
+<h2 class="t2 l" style="padding-top:1.5%;">我的视频</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>-->
+<!--<a href="/index.php/tu/user/tu">
+<li>
+<li><span class="t5 l"><img src="{msvod:tempurl}images/tupian.png" width="17" height="17" ></span>
+<h2 class="t2 l" style="padding-top:1.5%;">我的图片</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+<a href="/index.php/news/user/news">
+<li>
+<li><span class="t5 l"><img src="{msvod:tempurl}images/xiaoshuo.png" width="17" height="17" ></span>
+<h2 class="t2 l" style="padding-top:1.5%;">我的小说</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>-->
+<a href="[user:url userlink=logout]">
+<li>
+<li><span class="t5 l"><img src="{msvod:tempurl}images/tui.png" width="19" height="19" ></span>
+<h2 class="t2 l" style="padding-top:1.5%;">退出登录</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+</section>
+</div>
+<div id="fade" class="black_overlay"></div>
+{msvod:bottom}
+</body>
+</html>

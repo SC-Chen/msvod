@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>会员中心-{msvod:webname}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="{msvod:indextempurl}usercss/css/user.min.css">
+<link rel="stylesheet" href="{msvod:indextempurl}usercss/fonts/ux_1474189785_494376/myfont-icon.css">
+<link rel="stylesheet" href="{msvod:indextempurl}usercss/fonts/ux_1476775516_8984702/iconfont3.css">
+<link rel="stylesheet" href="{msvod:indextempurl}usercss/fonts/ux_1476784266_9052436/iconfont4.css">
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}usercss/css/slider-common.css">
+<link rel="stylesheet" href="{msvod:indextempurl}usercss/fonts/font/userfont.css"> 
+<script type="text/javascript" src="/msvod/tpl/user/msvod/js/common.js"></script>
+</head>
+<body>
+<div id="tabbar-with-Me" class="mui-control-content" style="padding-bottom:50px;"> 
+<h2 class="my_title">
+<a class="l" href="javascript:history.go(-1)" style="padding-left:5%;font-size:20px;">  &lt; </a>我的视频
+<a href="/index.php/user/space" class="r" style="padding-right:3.3%"><span class="t5 l"><img src="{msvod:indextempurl}images/home.png" width="25" height="23" ></span></a>
+</h2>
+<section class="jilu" style="margin-top: 2.2%;"> 
+<!--<a href="[user:url userlink=video]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:indextempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">我上传的</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>-->
+<!--<a href="[user:url userlink=video,verify]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:indextempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">审核中的</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>-->
+<a href="[user:url userlink=look]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:indextempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">我观看的</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a> 
+<a href="[user:url userlink=fav]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;color:red;"><img src="{msvod:indextempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">我收藏的</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+<a href="[user:url userlink=down]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:indextempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">我下载的</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+<!--<a href="[user:url userlink=daili,lipin_jilu]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:indextempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">兑换记录</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>-->
+</section>
+<!--<div style="margin-top: 2.2%;background:#fff;height:40px;line-height:35px;border: 1px solid #ddd;">
+&nbsp;<span style="color: #fff;
+background-color:#FF6666;
+border-color:#FF6600;display: inline-block;
+padding: 5px 10px;
+margin-bottom:0;
+font-size: 14px;
+font-weight:300;
+line-height:12px;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+-ms-touch-action: manipulation;
+touch-action: manipulation;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;"><a href="[user:url userlink=video,add]" style="color: #fff;">上传视频</a></span>
+<span style="padding:5px 2px;font-size:13px;">上传视频审核通过你将得到 <font color="red" size=3> {msvod:addcion} </font> 金币奖励~!</span>
+</div>-->
+<section class="jilu" style="margin-top: 2.2%;"> 
+<table width="100%" border="0" style="font-size:13px;">
+<tr>
+<td height="40" align="center" style="line-height:40px;"><strong>名称</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>分类</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>时间</strong></td>
+</tr>
+{msvod:video table="video_fav" pagesize="10" uid="auto" sort="time" order="desc"}
+<tr class="{if:[pay:i]%2==1}re{end if}">
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center"><a href="[video:url zdy=video,id,play,id]" style="color:#333;">[video:name len=10]</a></td>
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">[video:zdy zd=video_list,name,cid]</td>
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">
+[video:addtime style=Y-m-d]</td>
+</tr>
+{/msvod:video}
+</table>
+{if:{msvod:pagedata}==0}<div align="center">暂无数据！</div>{end if}
+</section>
+<div style="margin-top: 2.2%;background:#fff;height:40px;line-height:40px;border: 1px solid #ddd;" align="center"> 
+<a href="{msvod:pageup}" title="上一页"> < 上一页&nbsp;&nbsp;&nbsp;&nbsp;</a>
+<a href="{msvod:pagedown}" title="下一页">下一页 > &nbsp;&nbsp;&nbsp;</a>
+<a href="{msvod:pagelast}" title="末页">末页</a>
+</div>
+<div id="fade" class="black_overlay"></div>
+{msvod:indexbottom}
+</body>
+</html>

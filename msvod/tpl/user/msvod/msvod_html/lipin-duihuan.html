@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{msvod:title}</title>
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<link rel="shortcut icon" href="{msvod:path}favicon.ico" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/style.css"/>
+<script type="text/javascript" src="{msvod:tempurl}js/city.js"></script>
+<script type="text/javascript" src="{msvod:tempurl}js/jquery.validform.js"></script>
+<script type="text/javascript" src="{msvod:tempurl}js/common.js"></script>
+</head>
+<body>
+<div class="profile think-form" style="width:500px; font-size:12px;">
+<style>
+.lipin{ width:500px;}
+.lipinimg{ float:left; width:200px; height:200px;}
+.imgs{ width:200px; height:200px;}
+.lipinini{ float:left; padding:10px 15px; font-size:14px;}
+</style>
+<div class="lipin">
+<div class="lipinimg"><img src="[user:lipin_pic]" class="imgs"></div>
+<div class="lipinini">
+礼物名称：[user:lipin_name]<br> 
+礼物价值：[user:lipin_cion]<br>
+礼品详情：[user:lipin_text]
+</div>
+</div>
+<!-- 表单项 -->
+<table class="bd">
+<tr>
+<th>兑换数量</th>
+<td>
+<input class="text" type="text" name="nums" id="nums" value="1"/>
+</td>
+</tr>
+<tr>
+<th>备注</th>
+<td>
+<textarea style="width:350px;height:130px;" id="text" placeholder="实物礼品请填写收货地址，虚拟物品如手机卡填写手机号码" name="text"></textarea>
+</td>
+</tr>
+<tr>
+<th>&nbsp;</th>
+<td>
+<input type="hidden" name="id" id="id" value="[user:lipin_id]"/>
+<input class="submit" type="submit" onClick="koulings();" value="兑换" />
+</td>
+</tr>
+</table>
+<!-- /表单项 -->
+</div>
+<script type="text/javascript">
+function koulings(){
+$.getJSON("[user:dailisave]?nums"+$("#nums").val()+"&text="+$("#text").val()+"&id="+$("#id").val(),function(data) {
+if(data['code']=='1'){
+do_alert('恭喜您兑换成功！!',2);
+setTimeout(function() { parent.layer.closeAll();},4000);
+}else{
+do_alert('兑换失败，您的余额不足!',2);
+}
+});
+}
+</script>
+<script type="text/javascript">
+$('#touxiang1').addClass('touxiang1');
+miniblog.addinit();
+</script>
+</body>
+</html>

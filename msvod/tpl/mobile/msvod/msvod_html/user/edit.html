@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>会员中心-{msvod:webname}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/css/user.min.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1474189785_494376/myfont-icon.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476775516_8984702/iconfont3.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476784266_9052436/iconfont4.css">
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}usercss/css/slider-common.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/font/userfont.css"> 
+</head>
+<body>
+<div id="tabbar-with-Me" class="mui-control-content" style="padding-bottom:50px;"> 
+<h2 class="my_title">
+<a class="l" href="javascript:history.go(-1)" style="padding-left:5%;font-size:20px;">  &lt; </a>资料修改
+<a href="/index.php/user/space" class="r" style="padding-right:3.3%"><span class="t5 l"><img src="{msvod:tempurl}images/home.png" width="25" height="23" ></span></a>
+</h2>
+<section class="jilu" style="margin-top: 2.2%;"> 
+<a href="/index.php/user/edit">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;color:red;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">资料修改</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a> 
+<a href="/index.php/user/edit/pass">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">密码修改</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a> 
+</section>
+<section class="jilu" style="margin-top: 2.2%;"> 
+<form id="Form1" method="post" action="[user:editsave]" style="padding:0 10px;" >
+<table width="100%" border="0" cellpadding="5" cellspacing="5">
+<tr>
+<td height="40">账号：</td>
+<td height="40">[user:name]</td>
+</tr>
+<tr>
+<td height="40">昵称：</td>
+<td height="40"><input type="text" name="usernichen" class="make_resume_input" value="[user:nichen]"/></td>
+</tr>
+<tr>
+<td height="40">邮箱：</td>
+<td height="40"><input type="text" name="useremail" class="make_resume_input" value="[user:email]"/></td>
+</tr>
+<tr>
+<td height="40">手机：</td>
+<td height="40"><input type="text" name="usertel" class="make_resume_input" value="[user:tel]"/></td>
+</tr>
+<tr>
+<td height="40">性别：</td>
+<td height="40">
+<input class="input_radio" type="radio" name="sex_cn" value="0" title="男" {if:[user:sex]==0}checked{end if}/>&nbsp;男&nbsp;&nbsp;
+<input class="input_radio" type="radio" name="sex_cn" value="1" title="女" {if:[user:sex]==1}checked{end if}/>&nbsp;女&nbsp;&nbsp;
+<input class="input_radio" type="radio" name="sex_cn" value="2" title="保 密" {if:[user:sex]==2}checked{end if}/>&nbsp;保 密	</td>
+</tr>
+<tr>
+<td height="40">QQ ：</td>
+<td height="40"><input name="userqq" type="text" class="make_resume_input" value="[user:qq]" /></td>
+</tr>
+<tr>
+<td height="40">签名：</td>
+<td height="40"><input name="userqianm" type="text" class="make_resume_input" value="[user:qianm]"></td>
+</tr>
+<tr>
+<td height="40">&nbsp;</td>
+<td height="40">
+<input type="hidden" name="token" value="[user:token]"/>
+<input type="submit" id="submit" value="保存修改" class="personal_submit"/>
+</td>
+</tr>
+</table>
+</form>
+</section>
+</div>
+<div id="fade" class="black_overlay"></div>
+{msvod:bottom}
+</body>
+</html>

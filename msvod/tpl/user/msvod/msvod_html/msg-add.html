@@ -1,0 +1,34 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{msvod:title}_{msvod:webname}</title>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/user.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/blackblue.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/style.css"/>
+</head>
+<body>
+<table width="650" border="0" cellpadding="5" cellspacing="5" class="table borderx3">
+<form class="think-form" action="[user:msgsave]" method="post">
+<tr>
+<td width="85" height="35"><strong>接收会员：</strong></td>
+<td height="35"><input class="rinput" type="text" style="width:350px;" name="user" value="[msg:user]" datatype="*3-15" nullmsg="请填写接收会员名" errormsg="接收会员名为3-15位"/></td>
+</tr>
+<tr>
+<td width="85" height="35"><strong>消息标题：</strong></td>
+<td height="35"><input class="rinput" type="text" style="width:350px;" name="name" value="[msg:name]" datatype="*3-50" nullmsg="消息标题不能为空" errormsg="消息标题为3-50个字以内"/></td>
+</tr>
+<tr>
+<td width="85" height="35"><strong>消息内容：</strong></td>
+<td height="35"><textarea class="rinput" style="width:350px;height:130px;" name="neir" datatype="*" nullmsg="请填写消息内容" errormsg="消息内容不能为空"></textarea></td>
+</tr>
+<tr>
+<td width="85" height="35"></td>
+<td height="35"><input type="hidden" name="token" value="[user:token]"/>
+<input class="btn  btn-primary btn-small" type="submit" value="发送消息" /></td>
+</tr>
+</form>
+</table>
+</body>
+</html>

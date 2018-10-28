@@ -1,0 +1,80 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{msvod:title}_{msvod:webname}</title>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/style.css"/>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/user.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/blackblue.css" />
+<script type="text/javascript" src="{msvod:tempurl}js/city.js"></script>
+<script type="text/javascript" src="{msvod:tempurl}js/jquery.validform.js"></script>
+<script type="text/javascript" src="{msvod:tempurl}js/common.js"></script>
+</head>
+<body>
+<div>
+<div class="sidebar"  >
+<div style="background-color:#000000; overflow:hidden;" >
+{msvod:left}
+</div>
+<div class="main">
+{msvod:head}
+<script language="javascript">
+$("#dhcdys").hover(function(){$("#dhcdys").attr("class","nvs3 bc");$(".dh").show()},function(){$("#dhcdys").attr("class","nvs2 bc");$(".dh").hide()})
+ShowCdQuantity();
+</script>
+<div class="mainct">
+<table width="450" border="0">
+<tbody><tr>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=edit]">修改资料</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=edit,logo]">修改头像</a></td>
+<td class="fouces_menuon"><a href="[user:url userlink=edit,pass]">修改密码</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=edit,open]">登陆绑定同步</a></td>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table width="100%" border="0" cellspacing="2" cellpadding="2"  class="table borderx3" >
+<form class="think-form" action="[user:passsave]" method="post">
+<tr>
+<th height="30" colspan="2" class="fbold">修改密码</th>
+</tr>
+<tr>
+<td height="35" align=right>帐号：</td>
+<td width="70%">[user:name]</td>
+</tr>
+<tr>
+<td width="12%" height="35" align=right>原密码：</td>
+<td width="70%"><input class="rinput" type="password" name="userpass" datatype="*6-20" nullmsg="请填写原密码" errormsg="密码为6-20位"/></td>
+</tr>
+<tr>
+<td height="35" align=right>新密码：</td>
+<td><input class="rinput" type="password" name="userpass1" datatype="*6-20" nullmsg="请填写新密码" errormsg="密码为6-20位"/>
+<span class="validform_checktip"></span>
+</td>
+</tr>
+<tr>
+<td height="35" align=right>密码确定：</td>
+<td><input class="rinput" type="password" name="userpass2" datatype="*" nullmsg="请填确认密码" errormsg="您两次输入的密码不一致" recheck="userpass1"/>
+<span class="validform_checktip"></span>
+</td>
+</tr>
+<tr>
+<td width="10%" height=40 align="center" >&nbsp;</td>
+<td width="70%" height=50>
+<input type="hidden" name="token" value="[user:token]"/>
+<input class="btn btn-primary btn-small" style="border-radius:0px;" type="submit" value="保存修改" />
+</td>
+</tr>
+</form>
+</table>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('#ziliao1').addClass('ziliao1');
+miniblog.addinit();
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="gbk">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title>{msvod:title}</title>
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<link href="{msvod:indextempurl}imgs/style.css" rel="stylesheet">
+<link href="{msvod:indextempurl}lib/css/ionic.min.css" rel="stylesheet">
+<script src="{msvod:indextempurl}lib/js/ionic.bundle.min.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}imgs/index.js"></script>
+</head>
+<body ng-app="ionicApp" animation="slide-left-right-ios7" ng-controller="SlideController">
+{msvod:head}
+<ion-content id="contents" overflow-scroll="true"  style="overflow:scroll;">
+<section class="g-con mgt-10">
+<h2 class="m-h2-tit"><a href="#"><span class="tit" style="color:#e75242;">[tu:name]</span> </a></h2>
+<ul class="mgt-10 tubox">
+{msvod:tu table="tu" field="id,name,pic,hits,addtime,dhits,hits,vip,cion,color"  pagesize="18" sort="id" order="desc"}
+<li class="m-cd-i-wrap tu">
+<a class="m-cd-i" href="[tu:url zdy=tu,id,show,id]">
+<div class="pic">
+<img src="[tu:pic dir=tu]">
+<span class="r-sd">[tu:addtime style=Y-m-d]</span></div>
+<div class="info">
+<h3 class="txt"><font color="[tu:color]">[tu:name len=12]</font></div>
+</div>
+</h3>
+</div>
+</a>
+</li>
+{/msvod:tu}
+</ul>
+</section>
+<div class="mod_pagenav">
+<a href="{msvod:pagefirst}" title="首页" class="PageBox">首页</a> 
+<a href="{msvod:pageup}" title="上一页" class="PageBox">上一页</a> 
+<span></span>
+<a href="{msvod:pagedown}" title="下一页" class="PageBox">下一页</a> 
+<a href="{msvod:pagelast}" title="尾页" class="PageBox">尾页</a>
+</div>
+</ion-content>
+{msvod:indexbottom}
+</body>
+</html>

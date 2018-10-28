@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>会员中心-{msvod:webname}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/css/user.min.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1474189785_494376/myfont-icon.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476775516_8984702/iconfont3.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476784266_9052436/iconfont4.css">
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}usercss/css/slider-common.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/font/userfont.css"> 
+</head>
+<body>
+<div id="tabbar-with-Me" class="mui-control-content" style="padding-bottom:50px;"> 
+<h2 class="my_title">
+<a class="l" href="javascript:history.go(-1)" style="padding-left:5%;font-size:20px;">  &lt; </a>升级VIP会员
+<a href="/index.php/user/space" class="r" style="padding-right:3.3%"><span class="t5 l"><img src="{msvod:tempurl}images/home.png" width="25" height="23" ></span></a>
+</h2>
+<section class="jilu" style="margin-top: 2.2%;"> 
+<a href="/index.php/user/pay">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">会员充值</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a> 
+<a href="/index.php/user/pay/card">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">卡密充值</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a> 
+<a href="/index.php/user/pay/group">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;color:red;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">升级VIP</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+<a href="/index.php/user/pay/lists">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">充值记录</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+</section>
+<section class="jilu" style="margin-top: 2.2%;"> 
+<form id="Form1" method="post" action="[user:groupsave]" style="padding:0 10px;" >
+<table width="100%" border="0" cellpadding="5" cellspacing="5" style="font-size:14px;">
+<tr>
+<td height="40">当前级别：</td>
+<td height="40"><font color=red>[user:user zd=zid]</font>&nbsp;&nbsp;
+{if:[user:zutime]>0}&nbsp;&nbsp;到期：<font color=red>[user:zutime style=Y-m-d]</font>{end if}</td>
+</tr>
+<tr>
+<td height="40">剩余金币：</td>
+<td height="40"><font color=red>[user:cion]</font> 个</td>
+</tr>
+<tr>
+<td height="40">升级类型：</td>
+<td height="40"><select id="zu" class="rinput" name="zu" style="width:150px;height:25px;" datatype="*" nullmsg="请选择要升级的会员组" onChange="get_zu(this)">
+  <option value="">请选择会员组</option>
+  
+{msvod:userzu table="userzu" vid="1" loop="20" order="asc"}
+
+  <optgroup label="==选择以下升级类型==">
+  <option value="[userzu:id]-1">[userzu:name] ([userzu:cion_d]金币/天)</option>
+  <option value="[userzu:id]-2">[userzu:name] ([userzu:cion_m]金币/月)</option>
+  <option value="[userzu:id]-3">[userzu:name] ([userzu:cion_y]金币/年)</option>
+  </optgroup>
+  
+{/msvod:userzu}
+
+</select></td>
+</tr>
+<tr id="time" style="display:none;">
+<td height="40" id="time1">升级时间：</td>
+<td height="40">
+<input type="hidden" id="zid" name="zid" value="0"/>
+<input type="hidden" id="type" name="type" value="2"/>
+<input id="time2" style="width:70px;" class="text" name="times" value="1" datatype="n" nullmsg="请填写时长" errormsg="请填写正确格式的时长"/> 
+<font id="time3">个月<font>
+</td>
+</tr>
+<tr>
+<td height="40">&nbsp;</td>
+<td height="40">
+<input type="hidden" name="token" value="[user:token]"/>
+<input type="submit" id="submit" value="立即升级" class="personal_submit"/></td>
+</tr>
+</table>
+</form>
+</section>
+</div>
+<div id="fade" class="black_overlay"></div>
+<script type="text/javascript">
+$('#left_pay').addClass('on');
+user.form();
+function get_zu(){
+var zu=$('#zu').val();
+if(zu){
+$('#time').show();
+var arr=zu.split('-');
+if(arr[1]==1){
+$('#time1').text('升级天数：');
+$('#time2').val('1');
+$('#time3').text('天');
+} else if(arr[1]==2){
+$('#time1').text('升级月数：');
+$('#time2').val('1');
+$('#time3').text('个月');
+} else if(arr[1]==3){
+$('#time1').text('升级年数：');
+$('#time2').val('1');
+$('#time3').text('年');
+}
+$('#zid').val(arr[0]);
+$('#type').val(arr[1]);
+}
+}
+</script>
+{msvod:bottom}
+</body>
+</html>

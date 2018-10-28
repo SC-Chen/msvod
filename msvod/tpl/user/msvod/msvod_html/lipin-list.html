@@ -1,0 +1,97 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{msvod:title}_{msvod:webname}</title>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/user.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/blackblue.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/style.css"/>
+<script type="text/javascript" src="{msvod:tempurl}js/common.js"></script>
+</head>
+<body>
+<div>
+<div class="sidebar"  >
+<div style="background-color:#000000; overflow:hidden;" >
+{msvod:left}
+</div>
+<div class="main">
+{msvod:head}
+<script language="javascript">
+$("#dhcdys").hover(function(){$("#dhcdys").attr("class","nvs3 bc");$(".dh").show()},function(){$("#dhcdys").attr("class","nvs2 bc");$(".dh").hide()})
+ShowCdQuantity();
+</script>
+<div class="mainct">
+<table width="450" border="0">
+<tbody>
+<tr>
+<td class="fouces_menuoff"><a href="[user:url userlink=daili]">三级分销</a></td>
+{if:[user:dlrz]==2}
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=daili,lists]">我的下线</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=daili,tixian]">佣金提现</a></td>
+<td class="fouces_menuon" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=daili,lipin_list]">礼品兑换</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=daili,tx_lists]">提现记录</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=daili,lipin_jilu]">兑换记录</a></td>
+{end if}
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table width="100%" border="0" cellspacing="2" cellpadding="2"  class="table borderx3">
+<tr>
+<th height="30" colspan="2" class="fbold">礼品兑换</th>
+<tr>
+<td height="35">
+<table width="100%" border="0">
+<tr>
+<td height="40" align="center" style="line-height:30px;"><strong>序号</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>礼品名称</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>详情</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>兑换金额</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>类型</strong></td>
+<td align="center" style="line-height:40px;"><strong>上线时间</strong></td>
+<td align="center" style="line-height:40px;"><strong>操作</strong></td>
+</tr>
+{msvod:lipin table="lipin_list" field="*" pagesize="20" order="desc"}
+<tr class="{if:[pay:i]%2==1}re{end if}">
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">[lipin:i]</td>
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">[lipin:name]</td>
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">[lipin:text len=40]</td>
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">[lipin:cion] 元</td>
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">
+{if:[lipin:cid]==0}<font color="red">充值卡</font>{end if}{if:[lipin:cid]==1}<font color="red">实体物品</font>{end if}{if:[lipin:cid]==2}<font color="red">虚拟物品</font>{end if}</td>
+<td style="border-top: 1px solid #ddd;line-height:45px;" align="center">[lipin:addtime style=Y-m-d H:i:s]</td>
+<td style="border-top: 1px solid #ddd;line-height:45px;" align="center"><button  onClick="msvod_if('兑换礼品','<?php echo spacelink('daili,duihuan')."?id=";?>[lipin:id]','540','90%');" class="btn  btn-primary btn-small" style="width:70px;"><b>兑换</b></button></td>
+</tr>
+{/msvod:lipin}
+</table>
+<table width="100%" border="0" style="border-top: 1px solid #ddd;line-height:50px;">
+<tr>
+<td height="50" align="center">
+{if:{msvod:pagedata}==0}<div class="zanwu">暂无数据！</div>{end if}
+<div class="page" style="{if:{msvod:pagecout}<0}display:none;{end if}">
+<div class="pages">
+<em title="总数量">{msvod:pagedata}</em>
+<a href="{msvod:pagefirst}">首页</a>
+{msvod:pagenum len=8}
+<a href="{msvod:pagelast}">尾页</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('#touxiang1').addClass('touxiang1');
+miniblog.addinit();
+</script>
+</body>
+</html>

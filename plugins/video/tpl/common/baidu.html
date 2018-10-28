@@ -1,0 +1,17 @@
+<document>
+	<webSite>{msvod:path}</webSite>
+	<webMaster>{msvod:webname}</webMaster>
+	<updatePeri>1800</updatePeri>
+	{msvod:video table="video" loop="500" sort="addtime"}
+	<item>
+			<title>{msvodphp}xml_string('[video:name]');{/msvodphp}</title>
+			<link>[video:url zdy=video,id,play,id]</link>
+			<text>{msvodphp}xml_string('[video:text len=200]');{/msvodphp}</text>
+			<keywords>{msvodphp}xml_string('[video:tags]');{/msvodphp}</keywords>
+			<author>{msvodphp}xml_string('[video:singer zd=name]');{/msvodphp}</author>
+			<source>{msvodphp}xml_string('[video:user zd=nichen]');{/msvodphp}</source>
+			<pubDate>[video:addtime]</pubDate>
+	</item>
+	{/msvod:video}
+</document>
+

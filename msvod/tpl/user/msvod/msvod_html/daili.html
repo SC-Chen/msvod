@@ -1,0 +1,121 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{msvod:title}_{msvod:webname}</title>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/user.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/blackblue.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/style.css"/>
+<script type="text/javascript" src="{msvod:tempurl}js/common.js"></script>
+</head>
+<body>
+<div>
+<div class="sidebar"  >
+<div style="background-color:#000000; overflow:hidden;" >
+{msvod:left}
+</div>
+<div class="main">
+{msvod:head}
+<script language="javascript">
+$("#dhcdys").hover(function(){$("#dhcdys").attr("class","nvs3 bc");$(".dh").show()},function(){$("#dhcdys").attr("class","nvs2 bc");$(".dh").hide()})
+ShowCdQuantity();
+</script>
+<div class="mainct">
+<table width="450" border="0">
+<tbody><tr>
+<td class="fouces_menuon"><a href="[user:url userlink=daili]">三级分销</a></td>
+{if:[user:dlrz]==2}
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=daili,lists]">我的下线</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=daili,tixian]">佣金提现</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=daili,lipin_list]">礼品兑换</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=daili,tx_lists]">提现记录</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=daili,lipin_jilu]">兑换记录</a></td>
+{end if}
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table width="100%" border="0" cellspacing="2" cellpadding="2"  class="table borderx3" >
+<tr>
+<th height="30" colspan="2" class="fbold">三级分销</th>
+<tr>
+<td height="35">
+<div class="minHeight500">
+<div class="dance_nav_share" style="margin-top:-10px;margin-left:5px;">
+{if:[user:dlrz]!=2}
+<table width="100%" border="0" align="center" cellpadding="5" cellspacing="5">
+<tr>
+<td height="80" style="line-height:25px;">
+<div style="margin-bootom:10px;">&nbsp;</div>
+申请三级分销通过后会得到一个专属推广注册链接。<br>
+该用户在本站充值消费你可以得到对应的佣金提成哦。<br>
+得到的佣金提成你可以在线提现，后台审核将打到你的账户上。<br>
+<img src="{msvod:tempurl}images/ffxx.png"><br><br>
+<div style="margin-left:200px;">
+<button  onClick="msvod_daili();" style="border:3px solid #fff;background-color:#fff;">
+<img src="{msvod:tempurl}images/fenxiao.png">
+</button>
+</div>
+</td>
+</tr>
+</table>
+{end if}
+<div>
+{if:[user:dlrz]==2}
+<table width="100%" border="0">
+<tr>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p style="margin-left:5px;line-height:22px;">
+将以下推广专属链接发送到QQ好友、论坛、博客均可<br>
+如有用户通过你的专属链接注册成为本站会员，将自动成为你的下级会员,<br>
+该会员在本网站产生的充值消费，如充值金额100元您将获得 <font color="red" size=3>[user:tichengy]%</font> 的佣金奖励也就是[user:tichengy]元。<br>
+通过一级会员的邀请链接注册的会员为您的二级会员，二级会员在本网站产生的充值消费，如充值金额100元您将获得 <font color="red" size=3>[user:tichenge]%</font> 的佣金奖励也就是[user:tichenge]元。<br>
+通过二级会员的邀请链接注册的会员为您的三级会员，三级会员在本网站产生的充值消费，如充值金额100元您将获得 <font color="red" size=3>[user:tichengs]%</font> 的佣金奖励也就是[user:tichengs]元。<br>
+累计提成佣金达到50元即可申请在线提现或者兑换其他礼品。
+{end if} 
+</div><br>
+{if:[user:dlrz]==2}
+<div style="margin-left:5px;">推广链接：
+<input type="text" class="rinput" name="cardid" id="cardid" value="[user:tuiguanglink]" style="width:330px;border:1px solid #CCCCCC;" onMouseOver="this.select();" readonly="readonly" />
+ 
+{end if}
+</div>	
+</div>
+</div>
+<div style="margin-bootom:10px;">&nbsp;</div>
+</td>
+
+</tr>
+<tr>
+
+</tr>
+</table>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('#left_daili').addClass('on');
+msvod_copy('[user:tuiguanglink]　{msvod:webname}，真心觉得不错，您快去看看吧！','copycardid','代理链接复制成功！');
+function msvod_daili(){
+$.getJSON("[user:dailisave]",function(data) {
+if(data['msg']=='2'){
+do_alert('您已经是三级分销代理了，无需重复申请!',2);
+window.location.reload();
+}else if(data['msg']=='1'){
+do_alert('申请三级分销成功，请等待管理员审核~！',2);
+}else{
+do_alert('提交申请成功，请等待管理审核!',2);
+}
+});
+}
+</script>
+<script type="text/javascript">
+$('#touxiang1').addClass('touxiang1');
+miniblog.addinit();
+</script>
+</body>
+</html>

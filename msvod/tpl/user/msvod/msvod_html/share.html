@@ -1,0 +1,64 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{msvod:title}_{msvod:webname}</title>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/user.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/blackblue.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/style.css"/>
+<script type="text/javascript" src="{msvod:tempurl}js/common.js"></script>
+</head>
+<body>
+<div>
+<div class="sidebar"  >
+<div style="background-color:#000000; overflow:hidden;" >
+{msvod:left}
+</div>
+<div class="main">
+{msvod:head}
+<script language="javascript">
+$("#dhcdys").hover(function(){$("#dhcdys").attr("class","nvs3 bc");$(".dh").show()},function(){$("#dhcdys").attr("class","nvs2 bc");$(".dh").hide()})
+ShowCdQuantity();
+</script>
+<div class="mainct">
+<table width="450" border="0">
+<tbody><tr>
+<td class="fouces_menuon"><a href="[user:url userlink=share]">宣传分享</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=share,lists]">宣传记录</a></td>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table width="100%" border="0" cellspacing="2" cellpadding="2"  class="table borderx3" >
+<tr>
+<th height="30" colspan="2" class="fbold">宣传分享</th>
+<tr>
+<td height="35">
+<div class="clear"></div>
+<div class="minHeight500">
+<div class="video_nav_share">
+<div>
+<p style="margin-left:50px;">
+说明：复制宣传代码发给QQ好友或QQ群，<br>
+被好友或则其他用户通过链接访问，<br>
+每个用户访问一次可获得 <font color=red>[user:sharecion]</font> 个金币，<br>
+每天最多获得 <font color=red>[user:sharenums]</font> 次金币。</p>
+</div>
+<div style="margin-left:50px;">宣传地址：<input type="text" name="cardid" id="cardid" value="[user:sharelink]　{msvod:webname}，真心觉得不错，您快去看看吧！" onMouseOver="this.select();" readonly="readonly" />
+</div>	
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('#shoucang1').addClass('shoucang1');
+msvod_copy('[user:sharelink]　{msvod:webname}，真心觉得不错，您快去看看吧！','copycardid','宣传链接复制成功！');
+</script>
+</body>
+</html>

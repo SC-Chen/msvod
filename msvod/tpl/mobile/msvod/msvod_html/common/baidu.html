@@ -1,0 +1,17 @@
+<document>
+	<webSite>{msvod:path}</webSite>
+	<webMaster>{msvod:webname}</webMaster>
+	<updatePeri>1800</updatePeri>
+	{msvod:dance table="dance" loop="500" sort="addtime"}
+	<item>
+			<title>{msvodphp}xml_string('[dance:name]');{/msvodphp}</title>
+			<link>[dance:url zdy=dance,id,play,id]</link>
+			<text>{msvodphp}xml_string('[dance:text len=200]');{/msvodphp}</text>
+			<keywords>{msvodphp}xml_string('[dance:tags]');{/msvodphp}</keywords>
+			<author>{msvodphp}xml_string('[dance:singer zd=name]');{/msvodphp}</author>
+			<source>{msvodphp}xml_string('[dance:user zd=nichen]');{/msvodphp}</source>
+			<pubDate>[dance:addtime]</pubDate>
+	</item>
+	{/msvod:dance}
+</document>
+

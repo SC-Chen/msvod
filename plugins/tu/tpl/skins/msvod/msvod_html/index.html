@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="gbk"/>
+<title>{msvod:title}</title>
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<link rel="shortcut icon" href="{msvod:webpath}favicon.ico" />
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/style.css"/>
+<link rel="stylesheet" type="text/css" href="{msvod:indextempurl}css/tu.css"/>
+<script type='text/javascript' src='{msvod:tempurl}js/common.js'></script>
+</head>
+<body> 
+{msvod:head}
+<script>$('#tu').addClass('a_sub_nav_clo');</script>
+<div class="wrap mt20 clearfix" style="border:1px solid #D9D9D9;background:#FFF;">
+<div class="box list box_left list2">
+<div class="title"><b class="sp_pri novel_ico"></b><h2>{msvod:class table="tu_list" field="id,name" id="1"}<A href="[class:url link=lists,id]">最新[class:name]</A>{/msvod:class}</h2></div>
+<ul>
+{msvod:tu table="tu" field="id,color,name,addtime" cid="1" loop="20" sort="addtime"}
+<li><a href="[tu:url link=show,id]" target="_blank"><span>[tu:addtime style=Y-m-d H:i:s]</span><font color="[tu:color]">[tu:name]</font></a></li>
+{if:[tu:i]==10}</ul></div><div class="box list box_right list2"><div class="title"> </div><ul>{end if}
+{/msvod:tu}
+</ul>
+</div>
+</div>
+
+<div class="wrap mt20 clearfix" style="border:1px solid #D9D9D9;background:#FFF;">
+<div class="box list box_left list2">
+<div class="title"><b class="sp_pri novel_ico"></b><h2>{msvod:class table="tu_list" field="id,name" id="2"}<A href="[class:url link=lists,id]">最新[class:name]</A>{/msvod:class}</h2></div>
+<ul>
+{msvod:tu table="tu" field="id,color,name,addtime" cid="2" loop="20" sort="addtime"}
+<li><a href="[tu:url link=show,id]" target="_blank"><span>[tu:addtime style=Y-m-d H:i:s]</span><font color="[tu:color]">[tu:name]</font></a></li>
+{if:[tu:i]==10}</ul></div><div class="box list box_right list2"><div class="title"> </div><ul>{end if}
+{/msvod:tu}
+</ul>
+</div>
+</div>
+
+<div class="wrap mt20 clearfix" style="border:1px solid #D9D9D9;background:#FFF;">
+<div class="box list box_left list2">
+<div class="title"><b class="sp_pri novel_ico"></b><h2>{msvod:class table="tu_list" field="id,name" id="3"}<A href="[class:url link=lists,id]">最新[class:name]</A>{/msvod:class}</h2></div>
+<ul>
+{msvod:tu table="tu" field="id,color,name,addtime" cid="3" loop="20" sort="addtime"}
+<li><a href="[tu:url link=show,id]" target="_blank"><span>[tu:addtime style=Y-m-d H:i:s]</span><font color="[tu:color]">[tu:name]</font></a></li>
+{if:[tu:i]==10}</ul></div><div class="box list box_right list2"><div class="title"> </div><ul>{end if}
+{/msvod:tu}
+</ul>
+</div>
+</div>
+
+<div class="wrap mt20 clearfix" style="border:1px solid #D9D9D9;background:#FFF;">
+<div class="box list box_left list2">
+<div class="title"><b class="sp_pri novel_ico"></b><h2>{msvod:class table="tu_list" field="id,name" id="4"}<A href="[class:url link=lists,id]">最新[class:name]</A>{/msvod:class}</h2></div>
+<ul>
+{msvod:tu table="tu" field="id,color,name,addtime" cid="4" loop="20" sort="addtime"}
+<li><a href="[tu:url link=show,id]" target="_blank"><span>[tu:addtime style=Y-m-d H:i:s]</span><font color="[tu:color]">[tu:name]</font></a></li>
+{if:[tu:i]==10}</ul></div><div class="box list box_right list2"><div class="title"> </div><ul>{end if}
+{/msvod:tu}
+</ul>
+</div>
+</div>
+
+<table width="980" border="0" align="center"  style="border:1px solid #D9D9D9; margin-top:10px; background:#FFF;">
+<tr>
+<td height="50">&nbsp;友情链接：
+{msvod:link table="link" field="url,name" loop="100" order="asc"}<a href="[link:url]" target="_blank">[link:name] </a>&nbsp;&nbsp;{/msvod:link}</td>
+</tr>
+</table>
+{msvod:bottom}
+</body>
+</html>

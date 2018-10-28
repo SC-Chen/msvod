@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>会员中心-{msvod:webname}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/css/user.min.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1474189785_494376/myfont-icon.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476775516_8984702/iconfont3.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476784266_9052436/iconfont4.css">
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}usercss/css/slider-common.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/font/userfont.css"> 
+<script type="text/javascript" src="/msvod/tpl/user/msvod/js/common.js"></script>
+</head>
+<body>
+<div id="tabbar-with-Me" class="mui-control-content" style="padding-bottom:50px;"> 
+<h2 class="my_title">
+<a class="l" href="javascript:history.go(-1)" style="padding-left:5%;font-size:20px;">  &lt; </a>三级分销
+<a href="/index.php/user/space" class="r" style="padding-right:3.3%"><span class="t5 l"><img src="{msvod:tempurl}images/home.png" width="25" height="23" ></span></a>
+</h2>
+<section class="jilu" style="margin-top: 2.2%;"> 
+<a href="[user:url userlink=daili]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;color:red;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">三级分销</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a> 
+{if:[user:dlrz]==2}
+<a href="[user:url userlink=daili,lists]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">我的下线</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>  
+<a href="[user:url userlink=daili,tixian]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">佣金提现</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a> 
+<!--<a href="[user:url userlink=daili,lipin_list]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">礼品兑换</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>-->
+<a href="[user:url userlink=daili,tx_lists]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">提现记录</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+<!--<a href="[user:url userlink=daili,lipin_jilu]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">兑换记录</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>-->
+{end if}
+</section>
+<section class="jilu" style="margin-top: 2.2%;"> 
+{if:[user:dlrz]!=2}
+<table width="100%" border="0" style="font-size:13px;">
+<tr>
+<td height="40" style="line-height:20px;">
+<table width="100%" border="0" align="center" cellpadding="5" cellspacing="5">
+<tr>
+<td height="80" style="line-height:25px;font-size:14px;">
+申请三级分销通过后会得到一个专属推广注册链接。<br>
+该用户在本站充值消费你可以得到对应的佣金提成哦。<br>
+得到的佣金提成你可以在线提现，后台审核将打到你的账户上。<br>
+<img src="{msvod:tempurl}images/ffxx.png" style="width:100%;"><br><br>
+<div style="margin-left:20px;">
+<button  onClick="msvod_daili();" style="border:3px solid #fff;background-color:#fff;">
+<img src="{msvod:tempurl}images/fenxiao.png"></button>
+</div>
+</td>
+</tr>
+</table>
+{end if}
+ 
+{if:[user:dlrz]==2}
+<p style="margin-left:5px;line-height:22px;"> 
+将以下推广专属链接发送到QQ好友、论坛、博客均可
+如有用户通过你的专属链接注册成为本站会员，将自动成为你的下级会员,
+该会员在本网站产生的充值消费，如充值金额100元您将获得 <font color="red" size=3>[user:tichengy]%</font> 的佣金奖励也就是[user:tichengy]元。
+通过一级会员的邀请链接注册的会员为您的二级会员，二级会员在本网站产生的充值消费，如充值金额100元您将获得 <font color="red" size=3>[user:tichenge]%</font> 的佣金奖励也就是[user:tichenge]元。
+通过二级会员的邀请链接注册的会员为您的三级会员，三级会员在本网站产生的充值消费，如充值金额100元您将获得 <font color="red" size=3>[user:tichengs]%</font> 的佣金奖励也就是[user:tichengs]元。
+累计提成佣金达到50元即可申请在线提现或者兑换其他礼品。
+{end if} <br>
+{if:[user:dlrz]==2}
+<div style="margin-left:5px;color:#333;margin-bottom:10px;">推广链接：</div>
+<input type="text" class="rinput" name="cardid" id="cardid" value="[user:tuiguanglink]" style="width:330px;border:1px solid #CCCCCC;"/>
+{end if}
+</td>
+</tr>
+</table>
+</section>
+<div id="fade" class="black_overlay"></div>
+<script type="text/javascript">
+$('#left_daili').addClass('on');
+msvod_copy('[user:tuiguanglink]　{msvod:webname}，真心觉得不错，您快去看看吧！','copycardid','代理链接复制成功！');
+function msvod_daili(){
+$.getJSON("[user:dailisave]",function(data) {
+if(data['msg']=='2'){
+do_alert('您已经是三级分销代理了，无需重复申请!',2);
+window.location.reload();
+}else if(data['msg']=='1'){
+do_alert('申请三级分销成功，请等待管理员审核~！',2);
+}else{
+do_alert('提交申请成功，请等待管理审核!',2);
+}
+});
+}
+</script>
+{msvod:bottom}
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>会员中心-{msvod:webname}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/css/user.min.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1474189785_494376/myfont-icon.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476775516_8984702/iconfont3.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476784266_9052436/iconfont4.css">
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}usercss/css/slider-common.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/font/userfont.css"> 
+<script type="text/javascript" src="/msvod/tpl/user/msvod/js/common.js"></script>
+</head>
+<body>
+<div id="tabbar-with-Me" class="mui-control-content" style="padding-bottom:50px;"> 
+<h2 class="my_title">
+<a class="l" href="javascript:history.go(-1)" style="padding-left:5%;font-size:20px;">  &lt; </a>三级分销
+<a href="/index.php/user/space" class="r" style="padding-right:3.3%"><span class="t5 l"><img src="{msvod:tempurl}images/home.png" width="25" height="23" ></span></a>
+</h2>
+<section class="jilu" style="margin-top: 2.2%;"> 
+<a href="[user:url userlink=daili]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">三级分销</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a> 
+<a href="[user:url userlink=daili,lists]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">我的下线</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>  
+<a href="[user:url userlink=daili,tixian]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;color:red;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">佣金提现</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a> 
+<!--<a href="[user:url userlink=daili,lipin_list]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">礼品兑换</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>--> 
+<a href="[user:url userlink=daili,tx_lists]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">提现记录</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>
+<!--<a href="[user:url userlink=daili,lipin_jilu]">
+<li>
+<h2 class="t2 l" style="padding-top:1.5%;"><img src="{msvod:tempurl}images/ustb.png" width="12" height="12" style="margin-right:5px;">兑换记录</h2>
+<span class="r login_yj"> > </span>
+</li>
+</a>-->
+</section>
+<section class="jilu" style="margin-top: 2.2%;"> 
+<form class="think-form" action="/index.php/user/daili/tx_save" method="post">
+<table width="100%" border="0" cellpadding="5" cellspacing="5">
+<tr>
+<td height="40">可提现：</td>
+<td height="40"><font color="red">[user:zjcion]</font> 元</td>
+</tr>
+<tr>
+<td height="40">提现金额：</td>
+<td height="40"><input name="cion" type="text" class="make_resume_input" id="cion" style="border: 1px solid #dcdcdc;width:170px;height:25px;"/></td>
+</tr>
+<tr>
+<td height="40">提现方式：</td>
+<td height="40"><select style="border: 1px solid #dcdcdc;width:150px;height:25px;" name="cid">
+{msvod:class table="daili_type" order="asc"}
+<option value="[class:id]">[class:name]</option>
+{/msvod:class}
+</select></td>
+</tr>
+<tr>
+<td height="40">提现账号：</td>
+<td height="40"><input name="text" type="text" class="make_resume_input" style="border: 1px solid #dcdcdc;width:170px;height:25px;" id="text"/></td>
+</tr>
+<tr>
+<td height="40">您的姓名：</td>
+<td height="40">
+<input name="name" type="text" class="make_resume_input" id="name" style="border: 1px solid #dcdcdc;width:170px;height:25px;"/>
+</td>
+</tr>
+<tr>
+<td height="40">联系电话：</td>
+<td height="40">
+<input name="tell" type="text" class="make_resume_input" id="tell" style="border: 1px solid #dcdcdc;width:170px;height:25px;"/>
+</td>
+</tr>
+<tr>
+<td height="40">&nbsp;</td>
+<td height="40">
+<input type="hidden" name="token" value="[user:token]"/>
+<input type="submit" id="submit" value="申请提现" class="personal_submit"/>
+</td>
+</tr>
+</table>
+</form>
+</section>
+<div id="fade" class="black_overlay"></div>
+{msvod:bottom}
+</body>
+</html>

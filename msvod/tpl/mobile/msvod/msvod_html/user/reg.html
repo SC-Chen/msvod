@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>会员注册-{msvod:webname}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/css/mui.min.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1474189785_494376/myfont-icon.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476775516_8984702/iconfont3.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/ux_1476784266_9052436/iconfont4.css">
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}usercss/css/slider-common.css">
+<link rel="stylesheet" href="{msvod:tempurl}usercss/fonts/font/iconfont.css">
+<script type="text/javascript" src="/msvod/tpl/user/msvod/js/jquery.validform.js"></script>
+<script type="text/javascript" src="/msvod/tpl/user/msvod/js/common.js"></script> 
+</head>
+<body>
+<h2 class="my_title">
+<a class="l" href="javascript:history.go(-1)" style="padding-left:5%;font-size:20px;">  &lt; </a>会员注册
+<a href="/index.php/user/login" class="r" style="padding-right:3.3%">登录</a>
+</h2>
+<section class="register">
+<form class="think-form" action="/index.php/user/reg/save" method="post">
+<div class="form_up">
+<div class="username">用户名：
+<input type="text" id="username" name="username" placeholder="请输入您的用户名" class="input1" style="border: 0px;width: 60%;height: 30px;padding: 0px 15px;">
+</div>
+<div class="username">邮箱号：
+<input type="text" name="useremail" id="email" placeholder="请输入您的邮箱" class="input1" style="border: 0px;width: 60%;height: 30px;padding: 0px 15px;">
+</div>
+<div class="username">输入密码：
+<input type="password" name="userpass" id="password" placeholder="请输入您的密码" class="input1" style="border: 0px;width: 70%;height: 30px;padding: 0px 15px;">
+</div>
+<div class="username">确认密码：
+<input name="repassword" type="password" id="password1" placeholder="请再次输入您的密码" class="input1" style="border: 0px;width: 70%;height: 30px;padding: 0px 15px;">
+</div>
+<div class="username" style="{if:[user:telcheck]==1}{else}display:none;{end if}">手机号码：
+<input name="repassword" type="password" id="password1" placeholder="请再次输您的手机好吗" class="input1" style="border: 0px;width: 70%;height: 30px;padding: 0px 15px;">
+</div>
+<div class="username" style="{if:[user:telcheck]==1}{else}display:none;{end if}">
+<input name="usercode" type="text" class="txtinput" placeholder="手机验证码" id="code" maxlength="5">
+<div class="more"><div id="getcode"  onClick="get_code(this);"  style="border:1px solid #eee; 
+width:160px;height:40px;background:url(/msvod/tpl/user/msvod/images/reg/images/yzm.png) no-repeat center; "  /></div>
+</div>
+<div class="username" style="margin-top:14px;{if:[user:telcheck]==1}{else}display:none;{end if}">
+<input name="usercode" type="text" class="txtinput" placeholder="验证码" id="code" maxlength="5">
+<div class="more"><a href="javascript:;"><img src="{msvod:codes}" alt="点击切换" width="165" height="38" class="verifyimg reloadverify" /></a></div>
+</div>
+{if:[user:tname]!=''}
+<div class="username" style="display:none;">推荐人：
+<input type="text" name="usertname" value="[user:tname]" readonly="readonly" placeholder="[user:tname]">
+<input type="hidden" name="usertid" value="[user:tid]"/>
+</div>
+{end if}
+</div>
+<div class="botton" style="width:100%;margin:5% auto 10px auto;margin-left:0px;">
+<input type="hidden" name="token" value="[user:token]"/>
+<input name="reg" style="width:100%;margin:0% auto 0px auto;line-height:25px;" type="submit" class="user_reg_but" id="reg" value="立即注册">
+<div style="float:right;margin-top:5px;font-size:13px;"><a href="/index.php/user/pass">忘记密码？&nbsp;</a></div>
+<div style="float:left;margin-top:5px;font-size:13px;"><a href="/index.php/user/login">&nbsp;用户登陆</a></div>
+</div><br><br>
+<a href="" class="t9">点击注册表示已同意【用户服务协议】</a>
+</form>
+</section>
+<script type="text/javascript">
+$('.reloadverify').click(function(){
+$('.verifyimg').attr('src', "{msvod:codes}?" + Math.random());
+});
+user.form();
+</script>
+{msvod:bottom}
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title>{msvod:title}</title>
+<meta name="Keywords" content="{msvod:keywords}" />
+<meta name="Description" content="{msvod:description}" />
+<link href="{msvod:indextempurl}imgs/style.css" rel="stylesheet">
+<link href="{msvod:indextempurl}lib/css/ionic.min.css" rel="stylesheet">
+<script src="{msvod:indextempurl}lib/js/ionic.bundle.min.js"></script>
+<script type="text/javascript" src="{msvod:indextempurl}imgs/index.js"></script>
+</head>
+<body ng-app="ionicApp" animation="slide-left-right-ios7" ng-controller="SlideController">
+{msvod:indexhead}
+<ion-content id="contents" overflow-scroll="true"  style="overflow:scroll;">
+<div class="banner">
+<ion-slide-box does-continue="true"  auto-play="true" active-slide="myActiveSlide">
+{msvodself:wap}
+</ion-slide-box>
+</div>
+<section class="g-con mgt-10">
+<h2 class="m-h2-tit"><a href="#"> <span class="tit" style="color:#e75242;">网友正在观看</span> </a></h2>
+<ul class="mgt-10">
+{msvod:video table="video" loop="6" field="id,name,addtime,pic,hits,shits,dhits,cion,sc,vip,color" sort="rand"}
+<li class="m-cd-i-wrap">
+<a class="m-cd-i" href="[video:url zdy=video,id,play,id]">
+<div class="pic">
+<img src="[video:pic dir=video]"><span class="r-sd">[video:addtime style=Y-m-d]</span>
+{if:[video:vip]>1}<i class="vipico"></i>{end if}</div>
+<div class="info flexbox">
+<h3 class="txt flexmiddle">[video:name len=11]</h3>
+<span>[video:cion]金币</span>
+</div>
+</a>
+</li>
+{/msvod:video}
+</ul>
+</section>
+<section class="g-con mgt-10">
+<h2 class="m-h2-tit"><a href="#"> <span class="tit" style="color:#e75242;">最新上传视频</span> </a></h2>
+<ul class="mgt-10">
+{msvod:video table="video" loop="6" field="id,name,addtime,pic,hits,shits,dhits,cion,sc,vip,color" sort="id"}
+<li class="m-cd-i-wrap">
+<a class="m-cd-i" href="[video:url zdy=video,id,play,id]">
+<div class="pic">
+<img src="[video:pic dir=video]"><span class="r-sd">[video:addtime style=Y-m-d]</span>
+{if:[video:vip]>1}<i class="vipico"></i>{end if}</div>
+<div class="info flexbox">
+<h3 class="txt flexmiddle">[video:name len=11]</h3>
+<span>[video:cion]金币</span>
+</div>
+</a>
+</li>
+{/msvod:video}
+</ul>
+</section>
+<section class="g-con mgt-10">
+<h2 class="m-h2-tit"><a href="#"> <span class="tit" style="color:#e75242;">热门视频排行</span> </a></h2>
+<ul class="mgt-10">
+{msvod:video table="video" loop="6" field="id,name,addtime,pic,hits,shits,dhits,cion,sc,vip,color" sort="hits"}
+<li class="m-cd-i-wrap">
+<a class="m-cd-i" href="[video:url zdy=video,id,play,id]">
+<div class="pic">
+<img src="[video:pic dir=video]"><span class="r-sd">[video:addtime style=Y-m-d]</span>
+{if:[video:vip]>1}<i class="vipico"></i>{end if}</div>
+<div class="info flexbox">
+<h3 class="txt flexmiddle">[video:name len=11]</h3>
+<span>[video:cion]金币</span>
+</div>
+</a>
+</li>
+{/msvod:video}
+</ul>
+</section>
+<section class="g-con mgt-10">
+<h2 class="m-h2-tit"><a href="#"><span class="tit" style="color:#e75242;">最新美女图库</span> </a></h2>
+<ul class="mgt-10 tubox">
+{msvod:tu table="tu" field="id,name,pic,hits,addtime,dhits,hits,vip,cion,color" loop="6" sort="id" order="desc"}
+<li class="m-cd-i-wrap tu">
+<a class="m-cd-i" href="[tu:url zdy=tu,id,show,id]">
+<div class="pic">
+<img src="[tu:pic dir=tu]">
+<span class="r-sd">[tu:addtime style=Y-m-d]</span></div>
+<div class="info">
+<h3 class="txt"><font color="[tu:color]">[tu:name len=12]</font></div>
+</div>
+</h3>
+</div>
+</a>
+</li>
+{/msvod:tu}
+</ul>
+</section>
+<section class="g-con mgt-10">
+<h2 class="m-h2-tit"><a href="#"><span class="tit">最新精彩小说</span></a></h2>
+<ul class="mgt-10">
+{msvod:news table="news" field="id,color,name,addtime,color" loop="10" sort="id"}
+<li class="news">
+<a href="[news:url zdy=news,id,show,id]" class="flexbox">
+<h6 class="txt flexmiddle">
+<i class="icon ion-android-arrow-dropright"></i> <font color="[news:color]">[news:name]</font></h6>
+<span>[news:addtime style=Y-m-d]</span>
+</a>
+</li>
+{/msvod:news}
+</ul>
+</section>
+</ion-content>
+{msvod:indexbottom}
+</body>
+</html>

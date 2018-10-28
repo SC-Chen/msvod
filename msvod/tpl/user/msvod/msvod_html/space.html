@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{msvod:title}_{msvod:webname}</title>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/style.css"/>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/user.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/blackblue.css" />
+<script type="text/javascript" src="{msvod:tempurl}js/jquery.emot.js"></script>
+<script type="text/javascript" src="{msvod:tempurl}js/jquery.poshytip.js"></script>
+<script type="text/javascript" src="{msvod:tempurl}js/common.js"></script>
+</head>
+<body>
+<div>
+<div class="sidebar"  >
+<div style="background-color:#000000; overflow:hidden;" >
+{msvod:left}
+</div>
+<div class="main">
+{msvod:head}
+<script language="javascript">
+$("#dhcdys").hover(function(){$("#dhcdys").attr("class","nvs3 bc");$(".dh").show()},function(){$("#dhcdys").attr("class","nvs2 bc");$(".dh").hide()})
+ShowCdQuantity();
+</script>
+<div class="mainct">
+<div style="width:55%;float:left;_display:inline;">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table  borderx" style="_margin-bottom:0px;" >
+<tr>
+<th colspan="3">我的帐号信息</th>
+</tr>
+<tr>
+<td height="24" colspan="3">
+<span class="ico-vip0">&nbsp;HI~欢迎回来：&nbsp;<b style="font-size:16px;"><a href="[user:url ulink=index]" style="color:#333;" target="_blank">[user:name]</a></b></span>
+</span> &nbsp;&nbsp; <a class="btn  btn-primary btn-small" href="[user:url userlink=pay]" style="color:#FFFFFF;border-radius:0px;"> 充值金币</a>
+&nbsp;&nbsp; <a class="btn  btn-danger  btn-small" href="[user:url userlink=pay,group]" style="color:#FFFFFF;border-radius:0px;"> 升级VIP</a>
+&nbsp;&nbsp; <a class="btn btn-warning btn-small" onclick="qiandao();" style="color:#FFFFFF;border-radius:0px;">{if:date('Y-m-d','[user:qdtime]')==date('Y-m-d')}今天已签到{else}签到获取金币{end if}</a>
+</td>
+</tr>
+<tr>
+<td ><span class="ico-radio">可用金币：<a href="#"><span class='cor99' style="color:red;">[user:cion]</span> 个</a></span></td>
+<td ><span class="ico-remix">会员级别：<a href="#"><span class="cor99"><font color="red">[user:user zd=zid]</font>&nbsp;{if:[user:zutime]>0}([user:zutime style=Y-m-d]){end if}</span></a></span></td>
+<td ><span class="ico-times">注册日期：<span class="cor99">[user:addtime style=time]</span></span></td>
+</tr>
+<tr>
+<td width="33%" height="47" ><span class="ico-logincount">登录次数：<span class="cor99">[user:lognum]</span> 次</span></td>
+<td width="33%"><span class="ico-times"> 上次登录：<span class="cor99">[user:logtime style=Y-m-d h:f:s]</span></span> </td>
+<td width="34%"><span class="ico-ip"> 上次登录IP：<span class="cor99">[user:logip]</span></span> </td>
+</tr>
+<tr>
+<td ><span class="ico-fgremix">被关注：<span class="cor99">[user:count zdy=friend,uida,id]</span> 次</span></td>
+<td ><span class="ico-set">粉丝数： <a href="#"><span class='cor99'>[user:hits]</span> 人</a></span></td>
+<td ><span class="ico-down" style="margin-left:0px;">签到天数：<a href="#"><span class='cor99'>[user:qdts]</span> 天</a></span></td>
+</tr>
+</table>
+</div> 
+<div style="width:44%; float:left;margin-left:1%;_display:inline;_width:44%;*width:43%;">
+<table width="100%" border="0"  class="table borderx" style="_margin-bottom:0px;" >
+<tr>
+<th>会员权限说明</th>
+</tr>
+<tr>
+<td class="f12 lh24" style="height:172px;line-height:25px;_height:178px;font-size:13px;" valign="top">
+<p> 本站会员分为两类 <strong>(普通会员)</strong> 和 <span class="corred fbold"> VIP会员 </span>,所有会员都有观看/下载高清视频的权限。<br>
+普通会员使用 <span class="vcoins"> 金币 </span>观看/下载视频.可通过多种方式充值购买 <span class="vcoins"> 金币 </span>。<br>
+<span class="corred fbold"> VIP会员 </span>观看/下载视频不需要 <span class="vcoins"> 金币 </span> ,无限量任意观看/下载站内所有高清视频。<br>
+</p></td>
+</tr>
+</table>
+</div>
+<div class="clear">
+</div>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"  class="table borderx2  table-hover"  style="font-size:12px">
+<tr>
+<th height="35" colspan="4"  style="text-align:left;background-color:#F6F6F6;">会员最新动态</th>
+</tr>
+{msvod:dt table="dt" field="*" loop="15" sort="addtime" order="desc"}
+<tr>
+<td width="90" height="45" align="center" style="line-height:30px;">[dt:id]</td>
+<td align="Left" class="cor33">&nbsp; <a href="[dt:link]" style="line-height:30px;" target="_Pt"><img src="[dt:user zd=logo]" width="20" height="20">《[dt:user zd=name]》[dt:title]--[dt:name]</a></td>
+<td align="center"  class="cor33" style="line-height:30px;">[dt:addtime style=time]</td>
+<td width="100" align="center"  class="cor33"><a href="[dt:link]" style="line-height:30px;" target="_Pt">
+{if:'[dt:dir]'=='video'}立即观看{end if}
+{if:'[dt:dir]'=='news'}立即阅读{end if}
+{if:'[dt:dir]'=='tu'}立即游览{end if}
+</tr>
+{/msvod:dt}
+</table>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('#myqf1').addClass('myqf1');
+miniblog.addinit();
+</script>
+</body>
+</html>

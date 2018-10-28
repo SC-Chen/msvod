@@ -1,0 +1,47 @@
+<div class="topbanner_bg"  >
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td height="60" width="219" ><a href="/" target="_blank"><img src="{msvod:userlogo}"  style="margin-left:11px;"/></a></td>
+<td  class="an" width="100"><div><a href="/" target="_blank" style="font-size:18px; color:#333333">网站首页</a>
+<td  class="an" width="160"><div class="nvs2 bc" id="dhcdys"><a  class="cc" id="dhcd" style="font-size:18px; color:#333333">网站导航</a>
+<div class="dh" style="position:absolute; z-index:999; background-color:#ffffff; margin-left:-1px;_margin-left:-15px; orphans:inherit; display:none">
+{msvod:class table="video_list" field="id,name" sort="xid" fid="9" loop="20" order="asc"}
+<ul style='border:0px;'>
+<li class='b'><a href="[class:url zdy=video,id,lists,id]" target='_blank'>[class:name]</a></li>
+</ul>
+{/msvod:class}
+{msvod:class table="tu_list" field="id,name" id="1" loop="1" order="asc"}
+<ul style='border:0px;'>
+<li class='b'><a href="[class:url zdy=tu,id,lists,id]" target='_blank'>[class:name]</a></li>
+</ul>
+{/msvod:class}
+{msvod:class table="news_list" field="id,name" id="12" loop="1" order="asc"}
+<ul style='border:0px;'>
+<li class='b'><a href="[class:url zdy=news,id,lists,id]" target='_blank'>[class:name]</a></li>
+</ul>
+{/msvod:class}
+</div>
+</div></td>
+<td  width="380"><div style="float:left">
+<form action="/index.php/video/search" method="get" name="serall" id="serall" target="_blank" onsubmit="return" style="margin:0px" enctype="application/x-www-form-urlencoded">
+<input type="text" name="key" class="serbox" id="key" placeholder="请输入关键词....." style="_width:220px;"/>
+</form>
+</div>
+<div  style="float:left">
+<input type="button" name="buttons" onclick="tosearch()" class="btn btn-small " id="button" value="搜索视频" style=" background-color:#000000;color:#FFFFFF;border-radius:0px; height:32px;_height:32px;_width:90px;" />
+</div>
+<script>
+function tosearch(){
+if ($("#key").val().length<1){
+alert("请输入关键词进行搜索.....")
+return false;
+}else{
+document.getElementById("serall").submit();
+}
+}
+</script>
+</td>
+<td align="right" style="color:#262626; font-size:12px; "><a href="[user:url userlink=pay]" class="btn  btn-primary btn-small"  style="border-radius:0px; color:#FFFFFF" target="_blank"> 充值金币</span></a> &nbsp; <a href="[user:url userlink=logout]"  class="btn btn-warning btn-small"  style="border-radius:0px; color:#FFFFFF"> 注销 </a> &nbsp;  &nbsp;</td>
+</tr>
+</table>
+</div>

@@ -1,0 +1,110 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{msvod:title}_{msvod:webname}</title>
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/user.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/blackblue.css" />
+<link rel="stylesheet" type="text/css" href="{msvod:tempurl}css/style.css"/>
+</head>
+<body>
+<div>
+<div class="sidebar"  >
+<div style="background-color:#000000; overflow:hidden;" >
+{msvod:left}
+</div>
+<div class="main">
+{msvod:head}
+<script language="javascript">
+$("#dhcdys").hover(function(){$("#dhcdys").attr("class","nvs3 bc");$(".dh").show()},function(){$("#dhcdys").attr("class","nvs2 bc");$(".dh").hide()})
+ShowCdQuantity();
+</script>
+<div class="mainct">
+<table width="450" border="0">
+<tbody><tr>
+<td class="fouces_menuon"><a href="[user:url userlink=pay,lists]">充值记录</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=pay,spend]">消费记录</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=pay,income]">分成记录</a></td>
+<td class="fouces_menuoff" style="border-left:1px solid #dcdcdc"><a href="[user:url userlink=pay,cardlist]">充值卡记录</a></td>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table width="100%" border="0" cellspacing="2" cellpadding="2"  class="table borderx3">
+<form class="think-form" action="[user:groupsave]" method="post">
+<tr>
+<th height="30" colspan="2" class="fbold">充值记录</th>
+<tr>
+<td height="35">
+<div class="main_nav2">
+<ul>
+<li{if:[pay:pid]==0} class="current"{end if}><a href="[user:url userlink=pay,lists]">全部记录</a></li>
+<li{if:[pay:pid]==1} class="current"{end if}><a href="[user:url userlink=pay,lists]/1">交易完成</a></li>
+<li{if:[pay:pid]==4} class="current"{end if}><a href="[user:url userlink=pay,lists]/4">交易失败</a></li>
+<li{if:[pay:pid]==2} class="current"{end if}><a href="[user:url userlink=pay,lists]/2">等待发货</a></li>
+<li{if:[pay:pid]==3} class="current"{end if}><a href="[user:url userlink=pay,lists]/3">已经发货</a></li>
+</ul>
+</div>
+<table width="100%" border="0">
+<tr>
+<td height="40" align="center" style="line-height:30px;"><strong>序号</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>定单号</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>方式</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>金额</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>状态</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>操作时间</strong></td>
+<td height="40" align="center" style="line-height:40px;"><strong>支付IP</strong></td>
+</tr>
+{msvod:pay table="pay" field="*" uid="auto" pagesize="20" order="desc"}
+<tr class="{if:[pay:i]%2==1}re{end if}">
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">[pay:i]</td>
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">[pay:dingdan]</td>
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">
+{if:'[pay:type]'=='alipay' || '[pay:type]'=='mspay'}支付宝{end if}
+{if:'[pay:type]'=='Tenpay'}微信支付{end if}
+{if:'[pay:type]'=='wypay'}网银支付{end if}
+{if:'[pay:type]'=='kqpay'}快钱支付{end if}
+{if:'[pay:type]'=='ybpay'}易宝支付{end if}</td>
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">[pay:cion]</td>
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">
+{if:[pay:pid]==0 || [pay:pid]>3}<font color=#ff3300>交易失败</font>{end if}
+{if:[pay:pid]==1}<font color=#0000ff>交易完成</font>{end if}
+{if:[pay:pid]==2}<font color=#009966>等待发货</font>{end if}
+{if:[pay:pid]==3}<font color=#ff9900>已经发货</font>{end if}</td>
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">[pay:addtime style=Y-m-d H:i:s]</td>
+<td height="35" style="border-top: 1px solid #ddd;line-height:45px;" align="center">[pay:ip]</td>
+</tr>
+{/msvod:pay}
+</table>
+<table width="100%" border="0" style="border-top: 1px solid #ddd;line-height:50px;">
+<tr>
+<td height="50" align="center">
+{if:{msvod:pagedata}==0}<div class="zanwu">暂无数据！</div>{end if}
+<div class="page" style="{if:{msvod:pagecout}<0}display:none;{end if}">
+<div class="pages">
+<em title="总数量">{msvod:pagedata}</em>
+<a href="{msvod:pagefirst}">首页</a>
+{msvod:pagenum len=8}
+<a href="{msvod:pagelast}">尾页</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+</tr>
+</form>
+</table>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('#jiaoyi1').addClass('jiaoyi1');
+miniblog.addinit();
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<div style="background-color:#333;">
+<div class="header-nav" style="height:25px;padding-top:6px;padding-bottom:5px;margin: 0 auto;width:1140px;font-size:14px;">
+<div class="zuo" style="float:left;">
+购买正版视频系统联系QQ：123456
+</div>
+<div class="you" style="float:right;">
+{msvod:logkuang}
+</div>
+</div>
+</div>
+<div class="header">
+<div class="top">
+<div class="logo">
+<a href="/" title="{msvod:webname}">
+<img src="{msvod:pclogo}" alt="{msvod:webname}"/></a> 
+</div>
+<div class="logo" style="margin-left:300px;margin-top:15px;color:#FAA7A0;font-size:14px;width:500px;">
+【魅思视频系统】PC+APP+Wap+微信 四大端口满足市场发展需求
+</div>
+<div class="search-block">
+<form method="get" id="searchform" action="/index.php/video/search">
+<input class="search-button" type="submit" value="">
+<input type="text" id="key" name="key" value="输入关键词搜索..." onfocus="if (this.value == '输入关键词搜索...') {this.value = '';}" onblur="if (this.value == '') {this.value = '输入关键词搜索...';}">
+</form>
+</div>
+</div>
+<div class="main-nav">
+<div class="main-menu">
+<ul class="menu">
+<li><a href="/">网站首页</a></li>
+<!--<li class="open"> <a href="javascript:void(0)">精品<i class="open-up icon"></i></a>
+<ul class="sub-menu">
+{msvod:class table="video_list" field="id,name" id="7,8" loop="5" order="asc"}
+<li id="menu-item-[class:id]" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-[class:id]">
+<a href="[class:url zdy=video,id,lists,id]">[class:name]</a>
+</li>
+{/msvod:class}
+</ul>
+</li>-->
+{msvod:class table="video_list" field="id,name,xid" sort="xid" fid="9" loop="9" order="asc"}
+<li id="menu-item-[class:id]" class="menu-item menu-item-type-taxonomy menu-item-object-category current-menu-item menu-item-[class:id]">
+<a href="[class:url zdy=video,id,lists,id]">[class:name]</a>
+</li>
+{/msvod:class}
+
+{msvod:class table="tu_list" field="id,name" id="1" loop="1" order="asc"}
+<li id="menu-item-[class:id]" class="menu-item menu-item-type-taxonomy menu-item-object-category current-menu-item menu-item-[class:id]">
+<a href="[class:url zdy=tu,id,lists,id]">[class:name]</a>
+</li>
+{/msvod:class}
+
+{msvod:class table="news_list" field="id,name" id="12" loop="1" order="asc"}
+<li id="menu-item-[class:id]" class="menu-item menu-item-type-taxonomy menu-item-object-category current-menu-item menu-item-[class:id]">
+<a href="[class:url zdy=news,id,lists,id]">[class:name]</a>
+</li>
+{/msvod:class}
+</ul>
+</div>
+<div class="main-menu-bg"></div>
+</div>
+</div>

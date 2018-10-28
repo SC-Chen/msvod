@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>出错了：HTTP Error 404</title>
+<link rel="stylesheet" type="text/css" href="/images/style.css" />
+<script src="/js/common.js" type=text/javascript language=javascript></script>
+</head><body>
+<table width="770" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+<table width="770" border="0" align="center" cellpadding="0" cellspacing="5" bgcolor="#1F2432">
+  <tr>
+    <td valign="top" bgcolor="#13161E"><table width="760" height="50" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="10">&nbsp;</td>
+        <td width="300" valign="bottom"><a href="/" target="_blank"><img src="/images/logo.gif" alt="清风DJ音乐网 www.vvvdj.com 汇聚世界DJ音乐" border="0" style="border: none;" /></a></td>
+        <td align="right" valign="bottom">
+         <form method="get" action="/search.asp" target="_blank">
+            <img src="/images/ico_search.gif" align="absmiddle" alt="搜索站内舞曲" />
+            <input name="key" type="text" Id="keytext" value="" />
+            <input type="submit" Id="buttomkey" value="搜 索" />
+          </form></td>
+        <td width="20">&nbsp;</td>
+      </tr>
+    </table>
+      <table width="760" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td height="10"></td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td background="/images/topsort.gif" height="20" bgcolor="#000000" id="nav">
+      <li><a href="/" id="a" target="_blank">网站首页</a></li>
+      <li><a href="/sort/c1/" id="c1" target="_blank">的高串烧</a><ul><li><a href="/djlist-1-0.html" target="_blank">最新上传</a></li><li><a href="/djlist-1-1.html" target="_blank">喊唛现场</a></li><li><a href="/djlist-1-2.html" target="_blank">的高串烧</a></li><li><a href="/djlist-1-0-0-0-0-0-1-0.html" target="_blank">本类免费</a></li></ul></li>
+      <li><a href="/sort/c2/" id="c2" target="_blank">慢摇串烧</a><ul><li><a href="/djlist-2-0.html" target="_blank">最新上传</a></li><li><a href="/djlist-2-3.html" target="_blank">喊唛现场</a></li><li><a href="/djlist-2-4.html" target="_blank">慢摇串烧</a></li><li><a href="/djlist-2-5.html" target="_blank">酒吧串烧</a></li><li><a href="/djlist-2-0-0-0-0-0-1-0.html" target="_blank">本类免费</a></li></ul></li>
+      <li><a href="/sort/c5/" id="c5" target="_blank">中文CLUB</a><ul><li><a href="/djlist-5-0.html" target="_blank">最新上传</a></li><li><a href="/djlist-5-6.html" target="_blank">Club Dance</a></li><li><a href="/djlist-5-7.html" target="_blank">Electro House</a></li><li><a href="/djlist-5-9.html" target="_blank">开场 Opening</a></li></ul></li>
+      <li><a href="/sort/c6/" id="c6" target="_blank">外文CLUB</a><ul><li><a href="/djlist-6-0.html" target="_blank">最新上传</a></li><li><a href="/djlist-6-10.html" target="_blank">Club Dance</a></li><li><a href="/djlist-6-11.html" target="_blank">Club House</a></li><li><a href="/djlist-6-13.html" target="_blank">开场 Opening</a></li></ul></li>
+      <li><a href="/sort/c7/" id="c7" target="_blank">电音HOUSE</a><ul><li><a href="/djlist-7-0.html" target="_blank">最新上传</a></li><li><a href="/djlist-7-14.html" target="_blank">Electro House</a></li><li><a href="/djlist-7-15.html" target="_blank">Prog House</a></li><li><a href="/djlist-7-16.html" target="_blank">Tribal House</a></li><li><a href="/djlist-7-17.html" target="_blank">Funky House</a></li><li><a href="/djlist-7-18.html" target="_blank">Pure House</a></li><li><a href="/djlist-7-19.html" target="_blank">开场 Opening</a></li></ul></li>
+      <li><a href="/sort/c8/" id="c1" target="_blank">酒吧风格</a><ul><li><a href="/djlist-8-0.html" target="_blank">最新上传</a></li><li><a href="/djlist-8-20.html" target="_blank">Hip-Hop/Rnb</a></li><li><a href="/djlist-8-21.html" target="_blank">Funk/Reggae</a></li><li><a href="/djlist-8-22.html" target="_blank">Mash-Up/Party</a></li><li><a href="/djlist-8-23.html" target="_blank">暖场/蓝调</a></li><li><a href="/djlist-8-25.html" target="_blank">中文 Class</a></li><li><a href="/djlist-8-26.html" target="_blank">开场 Opening</a></li></ul></li>
+      <li><a href="/sort/c3/" id="c3" target="_blank">中文DISCO</a><ul><li><a href="/djlist-3-0.html" target="_blank">最新上传</a></li><li><a href="/djlist-3-27.html" target="_blank">中文合成</a></li><li><a href="/djlist-3-28.html" target="_blank">中文弹版</a></li><li><a href="/djlist-3-29.html" target="_blank">开场 Opening</a></li></ul></li>
+    </td>
+  </tr>
+</table>
+<table width="770" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+<table width="770" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#25222D">
+      <tr>
+        <td width="160" height="220" valign="top" bgcolor="#25222D"><img src="/images/viewleft.jpg" width="160" /></td>
+        <td bgcolor="#25222D">
+          <table width="450" height="100" border="0" align="center" cellpadding="0" cellspacing="0">
+           <tr>
+           <td>
+           <fieldset>
+           <legend> <font color="#FFFFFF"><b>找不到文件或目录</b></font> </legend>
+           <table border="0" cellspacing="0" cellpadding="0">
+           <tr>
+             <td><div style="padding:8px; line-height:25px; color:#FFCC33;">
+             <P>&nbsp;&nbsp;&nbsp;&nbsp; <b>你访问的网页可能已经更改或删除。</b><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; 请检查您输入的网址是否正确，或进入<a href="/">网站首页</a>查询您需要的内容。</P>
+             </div></td>
+           </tr>
+          </table>
+          </fieldset>
+        </td>
+    </tr>
+    </table>
+</td>
+</tr>
+</table>
+
+<table width="770" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+<table width="770" border="0" align="center" cellpadding="10" cellspacing="5" bgcolor="#1F2432">
+      <tr>
+        <td valign="bottom" bgcolor="#13161E"><table border="0" cellpadding="0" cellspacing="0">
+          <tr><td width="520" valign="bottom"><a href="/matters.asp?id=1" target="_blank">广告服务</a> ｜ <a href="/complaint.asp" target="_blank">投诉建议</a> ｜ <a href="/matters.asp?id=3" target="_blank">版权说明</a> ｜ <a href="/matters.asp?id=4" target="_blank">免责声明</a> ｜ <a href="/map.html" target="_blank">网站地图</a> ｜ <a href="/matters.asp?id=6" target="_blank">关于我们</a> ｜ <a href="/matters.asp?id=7" target="_blank">联系我们</a>
+              <br /><br />
+                 本站舞曲均为DJ原创作品,并自愿上传到本站做免费在线试听,其所有权为DJ及所属公司拥有<br />
+                 Copyright &copy; 2002 - 2009 Www.VvvDj.Com All Rights Reserved.
+            </td>
+                <td width="125" valign="bottom"><a href="#"><img src="/images/foot002.gif" width="23" height="19" border="0" /></a></td>
+                <td valign="bottom"><img src="/images/bottoms.gif" alt="清风DJ音乐网" border="0" /></td>
+           </tr>
+        </table></td>
+      </tr>
+</table>
+<table width="770" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+     <td align="center" height="10"></td>
+  </tr>
+</table>
+<script>menuFix();</script>
+<script src="/js/tj.js" type=text/javascript></script>
+<script language="JavaScript">
+//setTimeout("window.location.href='http://www.vvvdj.com/'",2000);
+</script>
+</body>
+</html>
